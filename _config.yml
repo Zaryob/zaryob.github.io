@@ -1,0 +1,18 @@
+### your site title here
+
+title: Personal Blog
+
+baseurl: /
+sass: 
+    style: compressed
+
+
+# Tracker
+analytics: UA-83979019-1
+
+
+exclude:
+- README.md
+
+include: 
+- _pages
