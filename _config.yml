@@ -1,9 +1,9 @@
 ### your site title here
 
-title: Personal Blog
+title: Bir genç geliştiricinin kişisel blogu.   
 
 baseurl: /
-sass: 
+sass:
     style: compressed
 
 
@@ -14,5 +14,5 @@ analytics: UA-83979019-1
 exclude:
 - README.md
 
-include: 
+include:
 - _pages

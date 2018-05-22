@@ -91,14 +91,6 @@ pre {
     }
 }
 
-
-
-
-
-
-
-
-
 .menu-container {
     position: fixed;
 	width:5rem;
@@ -132,7 +124,7 @@ pre {
 	z-index: 2;
 	cursor: pointer;
 	tap-highlight-color:transparent;
-	
+
 	&:before {
   content: "";
   position: absolute;
@@ -141,7 +133,7 @@ pre {
   width: 1em;
   height: 0.15em;
   background: white;
-  box-shadow: 
+  box-shadow:
     0 0.25em 0 0 white,
     0 0.5em 0 0 white;
 		transform: scale(2);
@@ -199,8 +191,8 @@ pre {
         padding: 1rem 1rem;
         font-size: 1em;
     }
-		
-	
+
+
 	p {
 		margin-bottom: 1em;
 
@@ -215,12 +207,12 @@ pre {
 
 /* Site CSS */
  h1.site-title {
-    font-size: 70px;
-    display: inline-block;
+    font-size: 35px;
+    display: inline-flex;;
+    text-transform: full-width;
     margin: 2em 0 1em 0;
-    text-transform: uppercase;
-    background: transparent;
-     color: $text-color;
+    background: transparentize($brand-color, 0.200);
+     color: white;
      @include media-query($on-palm) {
          font-size: 60px;
          margin: 1em 0 0.5em 0;
@@ -238,7 +230,7 @@ header {
         line-height: 1.5em;
         margin-bottom: 0.1em;
     }
-    
+
     .post-image {
         padding-right: 1.4em;
         padding-top: 1em;
@@ -251,7 +243,7 @@ header {
         font-size: 0.8em;
         font-style: italic;
     }
-    
+
     a {
         &:hover {
             color: $brand-color;
@@ -297,6 +289,7 @@ header {
         color: $grey-color;
     }
 }
+
 .logo {
     font-size: 400%;
     padding-right: 0.5em;
@@ -305,8 +298,6 @@ header {
         }
 
 }
-
-
 
 .video {
     width: 100%;
