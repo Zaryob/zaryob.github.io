@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Archive
-permalink: /archive/
+title: Arşiv
+permalink: /arsiv/
 ---
 
 <section id="archive">
-<h2><i class="fa fa-file-archive-o"></i>&nbsp;Articles from this year</h2>
+<h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu yılın arşivi</h2>
 {% for post in site.posts %}
   {% unless post.next %}
 
