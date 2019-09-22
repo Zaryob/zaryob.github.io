@@ -3,32 +3,47 @@ title: Hoşgeldiniz
 layout: default
 ---
 
-
-{% for post in site.posts %}
-<div class="list">
-<div class="post-index">
-    <div class="post-image">
-        <a href="{{post.url}}">
-
-              <i class="fa fa-{{post.icon}} fa-fw"></i>
-
-        </a>
+<!DOCTYPE html>
+<html>
+<body>
+    <header class="masthead" style="background-image:url('/assets/img/home-bg.jpg?h=519d7460af34e87e71835178cf862552');">
+      <!-- Photo by Sai Kiran Anagani on Unsplash -->
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="site-heading">
+                        <h1>Zaryob</h1><span class="subheading">Bir bilgisayar manyağının kişisel blogu</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8">
+              {% for post in site.posts %}
+              <div class="list">
+              <div class="post-index">
+                  <div class="post-image">
+                      <a href="{{post.url}}">
+                            <i class="fa fa-{{post.icon}} fa-fw"></i>
+                      </a>
+                  </div>
+                  <div class="post-content">
+                      <p class="post-index-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></p>
+                      <p>
+                              <span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 90 }}</span>
+                      </p>
+                      <p class="post-detail">{{ post.date | date: '%B %d, %Y' }}
+                           <a href="{{site.baseurl}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+                      </p>
+                  </div>
+              </div>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
     </div>
-    <div class="post-content">
-        <p class="post-index-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></p>
-        <p>
 
-                <span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 90 }}</span>
-
-        </p>
-        <p class="post-detail">{{ post.date | date: '%B %d, %Y' }}
-
-             <a href="{{site.baseurl}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
-        </p>
-    </div>
-</div>
-</div>
-
-
-
-{% endfor %}
+</body>
+</html>

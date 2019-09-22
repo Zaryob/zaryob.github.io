@@ -2,10 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} - {{site.title}}</title>
-  <link rel="stylesheet" href="{{site.baseurl}}/css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=815387d933e104daaf10caa0e5f0fa42">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--   Syntax highlighting is only needed for posts -->
+  <title>Anasayfa - Zaryob</title>
+  <meta name="description" content="Kişisel bir blog.">
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{site.baseurl}}/css/syntax-highlighter.css">
   {% endif %}
@@ -14,31 +18,47 @@
 </head>
 <body>
 
-<input type="checkbox" id="hamburger" name="hamburger">
-<label id="label-ham" for="hamburger"></label>
-<div class="menu-container">
-  <div class="menu"></div>
-  <div class="links">
-      <a href="{{site.baseurl}}/"><i class="fa fa-home"></i>&nbsp;Ana Sayfa</a>
-      <a href="{{site.baseurl}}/linux/"><i class="fa fa-linux"></i>&nbsp;Linux</a>
-      <a href="{{site.baseurl}}/python/"><i class="fa fa-code"></i>&nbsp;Python</a>
-      <a href="{{site.baseurl}}/siber/"><i class="fa fa-terminal"></i>&nbsp;Siber</a>
-      <a href="{{site.baseurl}}/arsiv/"><i class="fa fa-file-zip-o"></i>&nbsp;Arşiv</a>
-      <a href="{{site.baseurl}}/iletisim/"><i class="fa fa-address-book-o"></i>&nbsp;İletişim</a>
-      <a href="{{site.baseurl}}/hakkinda/"><i class="fa fa-user"></i>&nbsp;Hakkında</a>
-      <a href="https://github.com/Zaryob"><i class="fa fa-code-fork"></i>&nbsp;Profil</a>
-  </div>
-</div>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container"><a class="navbar-brand" href="/index.html">Zaryob</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+          <div
+              class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/"><i class="fa fa-home"></i>&nbsp;Ana Sayfa</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/linux/"><i class="fa fa-linux"></i>&nbsp;Linux</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/python/"><i class="fa fa-code"></i>&nbsp;Python</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/siber/"><i class="fa fa-terminal"></i>&nbsp;Siber Güvenlik</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/arsiv/"><i class="fa fa-file-zip-o"></i>&nbsp;Arşiv</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/hakkinda/"><i class="fa fa-user"></i>&nbsp;Hakkında</a></li>
+                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/iletisim/"><i class="fa fa-address-book-o"></i>&nbsp;İletişim</a></li>
+                <li class="nav-item" role="presentation"><a href="https://github.com/Zaryob"><i class="fa fa-code-fork"></i>&nbsp;Profil</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
-<div class="content">
-<header>
-     <a href="{{site.baseurl}}/"><h1 class="site-title">{{site.title}}</h1></a>
-</header>
+  <div class="content">
+  <!--header>
+       <a href="{{site.baseurl}}/"><h1 class="site-title">{{site.title}}</h1></a>
+  </header-->
   {{ content }}
 
-    <footer>
-
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-10 col-lg-8 mx-auto">
+                  <ul class="list-inline text-center">
+                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li>
+                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
+                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></li>
+                  </ul>
+                  <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Zaryob 2018</p>
+              </div>
+          </div>
+      </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/script.min.js?h=6c07da54c4d2d77c149cca568a16930a"></script>
 </div>
   <!-- Calling Fontawesome at the end to avoid delay in loading -->
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
