@@ -16,7 +16,7 @@ isterim. Ve bence yazdığı her lafın üçte biri
 
 >Linux işletim sistemi değil çekirdek yazılımıdır.
 
-diyen kişiler öğrencilerine sadece *Ney'in çalınmayıp üflendiğini* öğretmenlere benziyorlar. Aslında bir şey
+diyen kişiler öğrencilerine sadece *Ney'in çalınmayıp üflendiğini* öğreten öğretmenlere benziyorlar. Aslında bir şey
 bilmeyen ama biliyormuş gibi görünen kişilere...
 
 
@@ -38,7 +38,7 @@ anne-babamın:
 
 >Oğlum, kuzum... Haydut mu olacan yavrum, gel etme eyleme!
 
-tepkisi yedim. Tabi `gerçek hackerların` **Richard Stallman, Linus Torvalds** gibi insanlar olduğunuanlatınca
+tepkisi yedim. Tabi `gerçek hackerların` **Richard Stallman, Linus Torvalds** gibi insanlar olduğunu anlatınca
 destek gördüm.
 
 # Bir genç gözüyle Linux
