@@ -9,7 +9,7 @@ imagehash: dd33489001ab206a53750f16fdf35d19
 <section id="archive">
 <h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu yılın arşivi</h2>
 {% for post in site.posts %}
-  {% unless post.next %}
+  
 
   <ul class="this">
   {% else %}
@@ -21,7 +21,7 @@ imagehash: dd33489001ab206a53750f16fdf35d19
 
   <ul class="past">
   {% endif %}
-  {% endunless %}
+  
  <li class="arch-list"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>&nbsp;<time>{{ post.date | date:"%d %b" }}</time></li>
 {% endfor %}
   </ul>
