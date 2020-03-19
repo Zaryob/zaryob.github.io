@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Hakkında
 permalink: /hakkinda/
 image: about-me.jpg

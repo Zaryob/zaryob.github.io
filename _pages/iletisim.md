@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: İletişim
 permalink: /iletisim/
 image: contact.jpg
