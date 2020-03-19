@@ -9,7 +9,7 @@ imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
 
 {% for post in site.posts %}
 
-  {% unless post.next %}
+  
   {% if post.group == 'siber' %}
   <div class="list">
   <div class="post-index">
@@ -37,5 +37,5 @@ imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
   {% else %}
 
   {% endif %}
-  {% endunless %}
+  
 {% endfor %}

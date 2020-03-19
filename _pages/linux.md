@@ -9,7 +9,7 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
 
 {% for post in site.posts %}
 
-  {% unless post.next %}
+  
   {% if post.group == 'linux' %}
   <div class="list">
   <div class="post-index">
@@ -37,5 +37,5 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
   {% else %}
 
   {% endif %}
-  {% endunless %}
+  
 {% endfor %}

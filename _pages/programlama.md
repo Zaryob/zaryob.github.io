@@ -9,7 +9,7 @@ imagehash: 07cf2ddcecae877d4cd76bedda767a54
 
 {% for post in site.posts %}
 
-  {% unless post.next %}
+  
   {% if post.group == 'programlama' %}
   <div class="list">
   <div class="post-index">
@@ -37,5 +37,5 @@ imagehash: 07cf2ddcecae877d4cd76bedda767a54
   {% else %}
 
   {% endif %}
-  {% endunless %}
+  
 {% endfor %}

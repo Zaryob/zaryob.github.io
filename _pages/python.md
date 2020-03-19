@@ -9,7 +9,7 @@ imagehash: b79bd9ae47373dd419efc457ec9c7c2e
 
 {% for post in site.posts %}
 
-  {% unless post.next %}
+  
   {% if post.group == 'python' %}
   <div class="list">
   <div class="post-index">
@@ -37,5 +37,5 @@ imagehash: b79bd9ae47373dd419efc457ec9c7c2e
   {% else %}
 
   {% endif %}
-  {% endunless %}
+  
 {% endfor %}
