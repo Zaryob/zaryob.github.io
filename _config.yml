@@ -2,7 +2,7 @@
 
 title: Bir genç geliştiricinin kişisel blogu.
 
-baseurl: /
+baseurl: 
 sass:
     style: compressed
 
