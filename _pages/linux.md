@@ -2,6 +2,8 @@
 layout: page
 title: Linux
 permalink: /linux/
+image: linux.png
+imaghash: c4a1969076cd5ab7920084cdd8398de8
 ---
 
 

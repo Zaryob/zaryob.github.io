@@ -2,6 +2,8 @@
 layout: page
 title: Python
 permalink: /python/
+image: python.jpg
+imagehash: b79bd9ae47373dd419efc457ec9c7c2e
 ---
 
 
