@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Arşiv
 permalink: /arsiv/
 image: archive.jpg

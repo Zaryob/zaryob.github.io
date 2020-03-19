@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Siber Güvenlik
 permalink: /siber/
 image: security.jpg
