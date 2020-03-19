@@ -2,6 +2,8 @@
 layout: page
 title: Arşiv
 permalink: /arsiv/
+image: archive.jpg
+imagehash: dd33489001ab206a53750f16fdf35d19
 ---
 
 <section id="archive">

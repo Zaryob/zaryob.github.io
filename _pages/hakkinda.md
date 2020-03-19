@@ -2,6 +2,8 @@
 layout: page
 title: Hakkında
 permalink: /hakkinda/
+image: about-me.jpg
+imagehash: 96feef8bd6276a1e32b050a274df98cd
 ---
 
 

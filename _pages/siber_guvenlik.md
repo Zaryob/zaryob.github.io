@@ -2,6 +2,8 @@
 layout: page
 title: Siber Güvenlik
 permalink: /siber/
+image: security.jpg
+imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
 ---
 
 
