@@ -53,20 +53,20 @@ Her bir karakter 8 bit yer kaplamaktadır. Bu da bu verinin iletimi esnasında `
 |   A   |   G   |   D   |   C   |   S   |
 | :---- | :---: | :---: | :---: | ----: |
 |   4   |   3   |   5   |   2   |   6   |
- 
+
 * Sıkılığa göre sıralama yapılır.
 
 |   C   |   G   |   A   |   D   |   S   |
 | :---- | :---: | :---: | :---: | ----: |
 |   2   |   3   |   4   |   5   |   6   |
- 
+
 * Tam bir ağaç elde edilene kadar parça parça düğümleme yapılır.
 
 
 |   Z1  |   A   |   D   |   S   |
 | :---- | :---: | :---: | ----: |
 |   5   |   4   |   5   |   6   |
- 
+
 
 ```
    Z1
@@ -103,7 +103,7 @@ Her bir karakter 8 bit yer kaplamaktadır. Bu da bu verinin iletimi esnasında `
 | :---- | ----: |
 |   9   |   11  |
 
-         
+
 ```         
       Z2             Z3    
      / \             / \
@@ -136,7 +136,7 @@ Her bir karakter 8 bit yer kaplamaktadır. Bu da bu verinin iletimi esnasında `
        /          \
       Z2          Z3  
      / \          / \
-    0   1        0   1 
+    0   1        0   1
    /     \      /     \
   A       Z1   D       S
   4      / \   5       6
@@ -148,7 +148,7 @@ Her bir karakter 8 bit yer kaplamaktadır. Bu da bu verinin iletimi esnasında `
 ```
 
 * Kodlama tablosu ile harfler yeniden kodlanır.
- 
+
 | Karakter | Sıklık | Kod |   Karakter Boyutu   |
 | :------- | :----: | :-: | :-----------------: |
 |    C     |    2   | 010 |     3 bit           |
@@ -160,7 +160,7 @@ Her bir karakter 8 bit yer kaplamaktadır. Bu da bu verinin iletimi esnasında `
 Sıklıklar toplamı 20 bitdir.
 
 Toplam boyut buradan hesaplanabilir.
- 
+
 | Karakter |   Karakter başı Boyut  |
 | :------- | :--------------------: |
 |    C     |  2  *  3 bit = 6 bit   |
@@ -178,7 +178,7 @@ Karakterler toplam 5 * 8 = 40 bit yer kaplar.
 `AGDCASDCDSGSDSSGADSA` veri tablosu `00 011 10 010 00 11 10 010 10 11 011 11 10 11 11 011 00 10 11 00` olarak dönüştürülmüş olur.
 
 İsteğe bağlı olarak kodlanmış verinin çözülmesi için verinin başına karakter karşılıkları ve sıklık tablosu eklenmesi gerekebilir.
-Örneğin bunu kullanarak veriyi: `C2 G3 A4 D5 S6 00 011 10 010 00 11 10 010 10 11 011 11 10 11 11 011 00 10 11 00` olarak yazarsak veriyi kayıpsız olarak tam dönüştürmek için kullanabiliriz. 
+Örneğin bunu kullanarak veriyi: `C2 G3 A4 D5 S6 00 011 10 010 00 11 10 010 10 11 011 11 10 11 11 011 00 10 11 00` olarak yazarsak veriyi kayıpsız olarak tam dönüştürmek için kullanabiliriz.
 
 Bu durumda toplam veri boyutumuz ise: `Karakter boyutu  + Sıkılık boyutu + Veri Tablosu` olarak hesaplanır. `40 bit + 20 bit + 45 bit = 105 bit` toplam veri boyutunu oluşturur.
 
@@ -199,9 +199,9 @@ Huffman Algoritmasının Uygulamaları
 * BZIP ve JPEG gibi sıkıştırma algoritmaları
 * TEXT ve FAX gibi karakter bazlı veri aktarım yolları
 
-KAYNAKÇA
-########
+## KAYNAKÇA
+
 1. [programiz.com algoritma sayfası](https://www.programiz.com/dsa/huffman-coding)
 2. [İngilizce Wikipedia sayfası](https://en.wikipedia.org/wiki/Huffman_coding)
-3. [Türkçe Vikipedi sayfası](https://tr.wikipedia.org/wiki/Huffman_kodu) 
+3. [Türkçe Vikipedi sayfası](https://tr.wikipedia.org/wiki/Huffman_kodu)
 4. [Sadi Evren Şeker'in blogu](http://bilgisayarkavramlari.sadievrenseker.com/2009/02/25/huffman-kodlamasi-huffman-encoding/)
