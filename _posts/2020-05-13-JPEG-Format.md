@@ -4,8 +4,8 @@ title: "Dijital Fotoğrafçılık ve JPEG Formatı"
 date: 2020-03-19 14:03:35 +0530
 icon: product-hunt
 group: programlama
-image: pointing-data.jpg
-imagehash: bf120c54397ba65f193e35996e5668cc
+image: raspberry-hqcamera.jpg
+imagehash: 0cb89f22cb6662d361b71f58b8a419c3
 ---
 
 Fotoğraf, dış dünyadaki bir görüntünün odaklanarak karanlık odacık içerisine düşürülmesi, \
