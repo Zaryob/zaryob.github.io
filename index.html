@@ -24,11 +24,6 @@ layout: default
               {% for post in site.posts %}
               <div class="list">
               <div class="post-index">
-                  {% if page.image %}
-                  <div class="post-image" style="background-image:url('/assets/img/{{post.image}}?h={{post.imagehash}}');">
-                  {% else %}
-                  <div class="post-picture">
-                  {% endif %}
                   <div class="post-image">
                       <a href="{{post.url}}">
                             <i class="fa fa-{{post.icon}} fa-fw"></i>
