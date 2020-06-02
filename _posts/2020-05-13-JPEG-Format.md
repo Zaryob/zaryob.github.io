@@ -5,7 +5,7 @@ date: 2020-03-19 14:03:35 +0530
 icon: product-hunt
 group: programlama
 image: raspberry-hqcamera.jpg
-imagehash: 0cb89f22cb6662d361b71f58b8a419c3
+imagehash: 6e90a576a1765a73948dc32b4fbb4580
 ---
 
 Fotoğraf, dış dünyadaki bir görüntünün odaklanarak karanlık odacık içerisine düşürülmesi,
