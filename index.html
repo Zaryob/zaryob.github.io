@@ -5,6 +5,9 @@ layout: default
 
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Anasayfam</title>
+</head>
 <body>
     <header class="masthead" style="background-image:url('/assets/img/home-bg.jpg?h=d070fa52e8f5dc8c4560b2c598bcc308');">
       <!-- Photo by Sai Kiran Anagani on Unsplash -->
@@ -24,7 +27,7 @@ layout: default
          {% for post in site.posts %}
          <div class="card">
            <div class="col-md-16 col-lg-12">
-            {% if post.image %} 
+            {% if post.image %}
              <img src="/assets/img/{{post.image}}" class="card-img-top" alt="Picture of a happy monkey">
 	     {% else %}
 	     <svg class="bd-placeholder-img card-img-top" width="100%" height="180" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Önizleme Yok</text></svg>
