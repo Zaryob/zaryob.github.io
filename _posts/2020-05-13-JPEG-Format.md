@@ -9,7 +9,7 @@ imagehash: 0cb89f22cb6662d361b71f58b8a419c3
 ---
 
 Fotoğraf, dış dünyadaki bir görüntünün odaklanarak karanlık odacık içerisine düşürülmesi,
-düşürülen bu görüntünün ışığa duyarlı film, cam veya sensörler üzerinden okunması yoluyla
+ düşürülen bu görüntünün ışığa duyarlı film, cam veya sensörler üzerinden okunması yoluyla
 elde edilir. İbnül Heysem'in karanlık oda deneyleriyle başlayıp Sir John F. W. Herschel
 tarafından ışığa duyarlı filmlerle görüntü kaydedilmesine kadar uzanan, sonrasında 20. yüzyıl
 kimya ve optik gelişmeleri ile üretilen analog kameralarla devam eden fotoğrafçılık
