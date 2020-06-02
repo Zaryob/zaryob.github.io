@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Programlama ve Algoritmalar
-permalink: /prog/
-image: coding.jpg
-imagehash: 07cf2ddcecae877d4cd76bedda767a54
+title: Python
+permalink: /python/
+image: python.jpg
+imagehash: b79bd9ae47373dd419efc457ec9c7c2e
 ---
 
 
 {% for post in site.posts %}
 
   
-  {% if post.group == 'programlama' %}
+  {% if post.group == 'python' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
