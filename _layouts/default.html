@@ -2,7 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel='icon' href='/favicon.ico' type='image/x-icon'/ > 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+  <meta name="google-site-verification" content="tiiWL0z0Hdw7Q5hJ-lm4dKmQoVzNhUdGbQC3B4qyMRY" />
+  <meta charset="utf-8">
+  <link rel='icon' href='/favicon.ico' type='image/x-icon'/ >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=815387d933e104daaf10caa0e5f0fa42">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
