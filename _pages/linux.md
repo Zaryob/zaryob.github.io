@@ -8,28 +8,34 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
 
 
 {% for post in site.posts %}
+
+  
   {% if post.group == 'linux' %}
-     <div class="container">
-          <div class="row">
-              <div class="col-md-10 col-lg-8">
-                <div class="post-index">
-                {% for post in site.posts %}
-                  <div class="col-md-6">
-                    <div class="card">
-               	     <img src="/assets/img/{{post.image}}" class="card-img-top" alt="Picture of a happy monkey">
-                       <div class="card-body">
-                          <h5 class="card-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></h5>
-  			<p class="card-text"><span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 120 }}</span></p>
-                       </div>
-                    </div>
-                  </div>
-                {% endfor %}
-                </div>
-              </div>
-          </div>
-      </div>
+  <div class="list">
+  <div class="post-index">
+    <div class="post-image">
+        <a href="{{post.url}}">
+
+              <i class="fa fa-{{post.icon}} fa-fw"></i>
+
+        </a>
+    </div>
+    <div class="post-content">
+        <p class="post-index-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></p>
+        <p>
+
+                <span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 90 }}</span>
+
+        </p>
+        <p class="post-detail">{{ post.date | date: '%B %d, %Y' }}
+
+             <a href="{{site.baseurl}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+        </p>
+    </div>
+  </div>
+  </div>
   {% else %}
 
   {% endif %}
-
+  
 {% endfor %}
