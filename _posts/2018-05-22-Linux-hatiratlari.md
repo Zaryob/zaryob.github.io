@@ -3,7 +3,7 @@ layout: post
 title:  "Linux Hatıratları"
 date:   2018-05-22 11:43:56 +0530
 icon:  linux
-group: linux
+group: [linux]
 ---
 
 Ortalama 7 senemi (gençliğimin baharını) bilgisayar başında geçirmiş bir kişiyim. Şu anki yaşıma göre hayli

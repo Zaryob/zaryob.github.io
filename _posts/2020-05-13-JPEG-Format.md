@@ -3,7 +3,7 @@ layout: post
 title: "Dijital Fotoğrafçılık ve JPEG Formatı"
 date: 2020-05-13 14:03:35 +0530
 icon: product-hunt
-group: programlama
+group: [programlama]
 image: raspberry-hqcamera.jpg
 imagehash: 6e90a576a1765a73948dc32b4fbb4580
 ---

@@ -6,9 +6,10 @@ image: coding.jpg
 imagehash: 07cf2ddcecae877d4cd76bedda767a54
 ---
 
-
 {% for post in site.posts %}
-  {% if post.group == 'programlama' %}
+{% assign groups = post.group %}
+{% for group in groups %}
+  {% if group == 'programlama' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -55,8 +56,9 @@ imagehash: 07cf2ddcecae877d4cd76bedda767a54
     </div>
   </div>
   </div>
-  {% else %}
+{% else %}
 
-  {% endif %}
+{% endif %}
 
+{% endfor %}
 {% endfor %}
