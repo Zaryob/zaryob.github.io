@@ -7,7 +7,9 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
 ---
 
 {% for post in site.posts %}
-  {% if post.group == 'linux' %}
+{% assign groups = post.group %}
+{% for group in groups %}
+  {% if group == 'linux' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -54,8 +56,9 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
     </div>
   </div>
   </div>
-  {% else %}
+{% else %}
 
-  {% endif %}
+{% endif %}
 
+{% endfor %}
 {% endfor %}

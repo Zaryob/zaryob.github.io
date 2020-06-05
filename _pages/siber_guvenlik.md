@@ -6,10 +6,10 @@ image: security.jpg
 imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
 ---
 
-
-
 {% for post in site.posts %}
-  {% if post.group == 'siber' %}
+{% assign groups = post.group %}
+{% for group in groups %}
+  {% if group == 'siber' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -56,8 +56,9 @@ imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
     </div>
   </div>
   </div>
-  {% else %}
+{% else %}
 
-  {% endif %}
+{% endif %}
 
+{% endfor %}
 {% endfor %}
