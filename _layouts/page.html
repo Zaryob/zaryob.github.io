@@ -1,3 +1,7 @@
+---
+title: Blog - Suleyman Poyraz
+---
+
 <!DOCTYPE html>
 <html>
 
@@ -12,15 +16,13 @@
     <link rel="manifest" href="manifest.json?h=68f9c161b335e09ec6ff54adb0fac8ac">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700&amp;subset=latin-ext">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,900">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -31,7 +33,7 @@
 </head>
 
 <body>
-    <!-- Start: Navbar start with transparency background -->
+    <!-- Start:  Navbar start with transparency background -->
     <div>
         <!-- Start: Menu + header background -->
         <header>
@@ -40,16 +42,16 @@
                     <div
                         class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
-                          <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="blog.html">Blog Contents&nbsp;</a>
-                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/blog/photography">Photography&nbsp; &nbsp;<i class="fas fa-camera-retro"></i></a><a class="dropdown-item" role="presentation" href="/blog/opsys/">Operating Systems&nbsp; &nbsp;&nbsp;<i class="fas fa-desktop"></i></a>
-                                  <a
-                                  class="dropdown-item" role="presentation" href="/blog/prog">Programming&nbsp; &nbsp;&nbsp;<i class="fas fa-keyboard"></i></a><a class="dropdown-item" role="presentation" href="/blog/archives">Archives&nbsp; &nbsp;&nbsp;<i class="fas fa-file-archive"></i></a></div>
-                          </li>
-                          <li class="nav-item" role="presentation"><a class="nav-link" href="/album.html" style="font-family: Actor, sans-serif;">Album</a></li>
-                          <li class="nav-item" role="presentation"><a class="nav-link" href="/projects.html" style="font-family: Actor, sans-serif;">Projects&nbsp;</a></li>
-                          <li class="nav-item" role="presentation"><a class="nav-link" href="/portfolio.html" style="font-family: Actor, sans-serif;">Portfolio</a></li>
-                          <li class="nav-item" role="presentation"><a class="nav-link" href="/contact.html" style="font-family: Actor, sans-serif;">Contact</a></li>
-                          <li class="nav-item" role="presentation"><a class="nav-link" href="https://github.com/Zaryob" style="font-family: Actor, sans-serif;"><i class="fas fa-code-branch"></i>  Profile</a></li>
+                            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="blog.html">Blog Contents&nbsp;</a>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/blog/photography">Photography&nbsp; &nbsp;<i class="fas fa-camera-retro"></i></a><a class="dropdown-item" role="presentation" href="/blog/opsys/">Operating Systems&nbsp; &nbsp;&nbsp;<i class="fas fa-desktop"></i></a>
+                                    <a
+                                        class="dropdown-item" role="presentation" href="/blog/prog">Programming&nbsp; &nbsp;&nbsp;<i class="fas fa-keyboard"></i></a><a class="dropdown-item" role="presentation" href="/blog/archives">Archives&nbsp; &nbsp;&nbsp;<i class="fas fa-file-archive"></i></a></div>
+                            </li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="/album.html" style="font-family: Actor, sans-serif;">Album</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="/projects.html" style="font-family: Actor, sans-serif;">Projects&nbsp;</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="/portfolio.html" style="font-family: Actor, sans-serif;">Portfolio</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="/contact.html" style="font-family: Actor, sans-serif;">Contact</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" href="https://github.com/Zaryob" style="font-family: Actor, sans-serif;"><i class="fas fa-code-branch"></i>  Profile</a></li>
                         </ul>
                 </div>
     </div>
@@ -57,50 +59,25 @@
     </header>
     <!-- End: Menu + header background -->
     </div>
-    <!-- End: Navbar start with transparency background -->
-    <main class="page project-page">
-        <section class="portfolio-block project">
+    <!-- End:  Navbar start with transparency background -->
+    <main class="page projects-page">
+        <section class="portfolio-block projects-cards">
             <div class="container">
                 <!-- Start: portfolio heading -->
                 <div class="heading">
-                    <h2>{{page.title}}</h2>
+                    <h2>Recent POSTS</h2>
                 </div>
                 <!-- End: portfolio heading -->
-                {% if page.image %}
-                <div class="image" style="background-image:url(&quot;/assets/img/blog/{{page.image}}?h={{page.imagehash}}&quot;);"></div>
-                {% else %}
-                <div class="image" style="background-image:url(&quot;assets/img/tech/image4.jpg?h=e138a8bfe4ed72819d3bbf626d732745&quot;);"></div>
-                {% endif %}
-
                 <div class="row">
-                    <div class="col-12 col-md-6 offset-md-1 info post-content">
-                        {{content}}
 
-                    </div>
+                  {{ content }}
                 </div>
-                <!--div class="more-projects">
-                    <h3 class="text-center">More Projects</h3>
-                    <div class="row gallery">
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover" src="/assets/img/nature/image2.jpg?h=c5fb06440e9759bec9433393cd5a9761"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover" src="/assets/img/nature/image3.jpg?h=3d10847c5ff6b1319937a4f817ef5f69"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover" src="/assets/img/tech/image4.jpg?h=e138a8bfe4ed72819d3bbf626d732745"></a></div>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <div class="item"><a href="#"><img class="img-fluid scale-on-hover" src="/assets/img/nature/image5.jpg?h=dfa56246a493db02797b024ba354688f"></a></div>
-                        </div>
-                    </div>
-                </div-->
             </div>
         </section>
     </main>
     <footer data-aos="fade-up" class="page-footer">
         <div class="container">
-            <div class="links"><a href="#" style="font-family: Merriweather, serif;">Blog</a><a href="#" style="font-family: Merriweather, serif;">Photos</a><a href="#" style="font-family: Merriweather, serif;">Projects</a><a href="#" style="font-family: Merriweather, serif;">Portfolio</a></div>
+            <div class="links"><a href="blog.html" style="font-family: Merriweather, serif;">Blog</a><a href="/album.html" style="font-family: Merriweather, serif;">Photos</a><a href="/projects.html" style="font-family: Merriweather, serif;">Projects</a><a href="/portfolio.html" style="font-family: Merriweather, serif;">Portfolio</a></div>
             <div
                 class="social-icons"><a class="animated-btn text-white" href="#"><i class="fab fa-github"></i></a><a class="animated-btn text-white" href="#"><i class="fab fa-gitlab"></i></a><a class="animated-btn text-white" href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a
@@ -111,7 +88,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+
     <script src="/assets/js/script.min.js?h=a2fb9a8318876a0fe74c22ef8b3c586f"></script>
 </body>
-
 </html>
