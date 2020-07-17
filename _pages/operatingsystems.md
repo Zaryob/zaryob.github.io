@@ -22,7 +22,7 @@ imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
 
     <div class="post-content">
     {% if post.image %}
-        <img width="100%" height="100%" src="/assets/img/{{post.image}}" class="post-image" alt="Picture of a happy monkey">
+        <img width="100%" height="100%" src="/assets/img/blog/{{post.image}}" class="post-image" alt="Picture of a happy monkey">
         {% else %}
         <svg class="post-image" width="100%" height="180" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" role="img"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Önizleme Yok</text></svg>
         {% endif %}
