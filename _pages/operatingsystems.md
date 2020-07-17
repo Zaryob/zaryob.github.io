@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Operating Systems
 permalink: /blog/opsys
 image: security.jpg

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Archives
 permalink: /blog/archives
 image: archive.jpg
