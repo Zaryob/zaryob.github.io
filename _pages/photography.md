@@ -9,7 +9,7 @@ imaghash: c4a1969076cd5ab7920084cdd8398de8
 {% for post in site.posts %}
 {% assign groups = post.group %}
 {% for group in groups %}
-  {% if group == 'linux' %}
+  {% if group == 'photography' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
