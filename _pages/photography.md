@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Photography
 permalink: /blog/photography
 image: linux.png
