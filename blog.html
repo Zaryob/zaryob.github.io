@@ -1,3 +1,7 @@
+---
+title: Blog - Suleyman Poyraz
+---
+
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +12,7 @@
     <meta property="og:image" content="assets/img/avatars/profile_400x400.jpg?h=45362d5a8bcb53cd2d5216e61045815d">
     <meta name="description" content="Free software developer. SulinOS is the leader of the GNU / Linux distro.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=24f06c397c3a79b44ac961213dd18905">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=24f06c397c3a79b44ac961213dd18905">
     <link rel="manifest" href="manifest.json?h=68f9c161b335e09ec6ff54adb0fac8ac">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
@@ -23,7 +27,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=1ada4d635d5c7362985ecfb9e19b8d4d">
+    <link rel="stylesheet" href="/assets/css/styles.min.css?h=1ada4d635d5c7362985ecfb9e19b8d4d">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
 </head>
@@ -65,54 +69,27 @@
                 </div>
                 <!-- End: portfolio heading -->
                 <div class="row">
+                  {% for post in site.posts %}
                     <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image1.jpg?h=d679710e5ce8e4c2db35fde74a78a924" alt="Card Image"></a>
+                        <div class="card border-0">
+                          <a href="{{site.baseurl}}{{post.url}}">
+                            {% if post.image %}
+                            <img class="card-img-top scale-on-hover" src="/assets/img/blog/{{page.image}}?h={{page.imagehash}}" alt="Card Image">
+
+                            {% else %}
+
+                            <img class="card-img-top scale-on-hover" src="/assets/img/nature/image1.jpg?h=d679710e5ce8e4c2db35fde74a78a924" alt="Card Image">
+
+                            {% endif %}
+                          </a>
                             <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
+                                <h6><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></h6>
+                                <p class="text-muted card-text">{{ post.content | strip_html | strip_newlines | truncate: 150 }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image2.jpg?h=c5fb06440e9759bec9433393cd5a9761" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image3.jpg?h=3d10847c5ff6b1319937a4f817ef5f69" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image4.jpg?h=1982116904e6a58b7261b01d77f07045" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image5.jpg?h=dfa56246a493db02797b024ba354688f" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/image6.jpg?h=ac924de94d1857a219accf2126406ac1" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6><a href="#">Lorem Ipsum</a></h6>
-                                <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </section>
@@ -131,7 +108,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
 
-    <script src="assets/js/script.min.js?h=a2fb9a8318876a0fe74c22ef8b3c586f"></script>
+    <script src="/assets/js/script.min.js?h=a2fb9a8318876a0fe74c22ef8b3c586f"></script>
 </body>
 
 </html>
