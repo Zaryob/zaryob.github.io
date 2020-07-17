@@ -9,7 +9,7 @@ imagehash: 94eea21cbb146cfaf5fc802ee0e8911b
 {% for post in site.posts %}
 {% assign groups = post.group %}
 {% for group in groups %}
-  {% if group == 'siber' %}
+  {% if group == 'operating_systems' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">

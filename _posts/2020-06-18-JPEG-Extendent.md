@@ -2,8 +2,7 @@
 layout: post
 title: "Smart JPEG - Optimize Edilmiş Huffman Tabloları"
 date: 2020-06-18 19:29:35 +0530
-icon: product-hunt
-group: [programlama]
+group: [programming, photography]
 image: blur-camera.jpg
 imagehash: 1007f4449f50731c79f045d91520a988
 ---

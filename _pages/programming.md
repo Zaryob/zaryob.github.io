@@ -9,7 +9,7 @@ imagehash: 07cf2ddcecae877d4cd76bedda767a54
 {% for post in site.posts %}
 {% assign groups = post.group %}
 {% for group in groups %}
-  {% if group == 'programlama' %}
+  {% if group == 'programming' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
