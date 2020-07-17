@@ -7,7 +7,7 @@ imagehash: dd33489001ab206a53750f16fdf35d19
 ---
 
 <section id="archive">
-<h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu Senenin Yazıları</h2>
+<h2><i class="fa fa-file-archive-o"></i>&nbsp;Posts of This Year.</h2>
 {% for post in site.posts %}
   {% unless post.next %}
 
