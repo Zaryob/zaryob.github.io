@@ -19,7 +19,6 @@ permalink: /
   <main>
     <!-- Starting of Topside -->
 
-    <h1>The Grumbling Times</h1>
     <aside>
       <div>
         <div class="issue"><a href="https://zaryob.github.io">Home</a></div>
