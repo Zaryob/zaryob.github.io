@@ -1,0 +1,123 @@
+---
+title: Arhives
+permalink: /archives.html
+---
+
+
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>The Grumbling Times - {{page.title}}</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Playfair+Display+SC:wght@900&family=Playfair+Display:ital,wght@0,800;1,800&family=Manrope:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css'>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {% if page.layout == 'post' %}
+  <link rel="stylesheet" href="/assets/css/syntax-highlighting.css">
+  {% endif %}
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<div class="main__wrapper">
+  <main>
+    <!-- Starting of Topside -->
+
+    <h1>The Grumbling Times</h1>
+    <aside>
+      <div>
+        <div class="issue"><a href="https://zaryob.github.io">Home</a></div>
+<div class="issue">Issue #13 </div>
+        <div class="date">{{ site.time | date: "%a, %b %d, %y" }}</div>
+        <div class="edition">Personal Edition</div>
+      </div>
+    </aside>
+    <!-- End of Topside -->
+
+    <!-- Post Blog -->
+
+    <h2 class="title--large main-title"><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></h2>
+
+    <div class="pst-text">
+      <a class="terrarium" href="{{site.baseurl}}{{page.url}}" target="_blank" />
+
+      <section id="archive">
+      <h3>
+        <i class="fa fa-file-archive-o"></i>&nbsp;This Year's Blog</h3>
+        {% for post in site.posts %}
+          {% unless post.next %}
+
+            <ul class="this">
+          {% else %}
+          {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+          {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+            {% if year != nyear %}
+            </ul>
+            <h2>{{ post.date | date: '%Y' }}</h2>
+
+            <ul class="past">
+              {% endif %}
+          {% endunless %}
+          <li class="arch-list"><h3><a href="{{site.baseurl}}{{ post.url }}" target="_blank">{{ post.title }}</a></h3>&nbsp;<time>{{ post.date | date: "%a, %b %d, %y" }}</time></li>
+
+      {% endfor %}
+        </ul>
+      </section>
+
+    </div>
+
+
+    <!-- Blog end -->
+
+
+    <div class="item-with-image cssgrid-collection"><a class="cssgrid-collection__image" href="https://github.com/Zaryob" target="_blank">
+      <img src="/assets/img/github.jpg"/></a>
+      <div class="cssgrid-collection__content">
+         <h4>
+            <a href="https://github.com/Zaryob" target="_blank">Hundreds of ideas can come from a person. The best one is as logical as the worst.</a>
+          </h4>
+         <div class="multi-column-3">
+           <p>The ability to think is the rarest human has ever had. We are much more successful than just thinking about the moment and making inferences about the moment. Perhaps we are the only creature that can think of the future.When we combine with learning, we call this ability creativity. There are still no creatures or tools, so that he can break this wall of creativity "on his own".github or gitlab or other code sharing sites do not only allow people to unlock their code. No it just lets go. These types of sites allow people to open the thoughts on the direct horizons to others. This is the computer that is open in front of us and managing it is actually the most magical thing for us ascetic creatures (I don't believe in magic even though the theme looks like a harry potter theme).
+             Now I am going back to the blogging job that I had disrupted. I open my mind, I open my code. I will do these things as if someone is affected by me. Or it may affect me.
+
+             This is completely magical
+           </p>
+         </div>
+       </div>
+    </div>
+
+    <!-- Pretty rightside bar -->
+    <div class="sidebar">
+      <h3 class="title--big">Man of Codes</h3>
+
+      <!-- Profile -->
+      <a class="pie" href="https://github.com/Zaryob" target="_blank">
+        <img class="pie__image" src="/assets/img/profile_pictures/22801690.jpeg"/>
+
+        <div class="pie__subtitle">Suleyman Poyraz </div>
+        <div class="pie__content">
+          <h4>Magic powers exist only when facing the computer!</h4>
+          <p>Expert in Parseltongue (just joke they are just Python3 and Pyhon2), Python C-api Uses. Creator of the SulinOS distro. Raspberry Pi lover and help with translation. A nonsense specialist GeekMan</p>
+        </div>
+      </a>
+
+      <!-- Donut -->
+      <a class="sidebar-item captcha"  target="_blank">
+        <h5>Donut 3D is a revolution of illusion for the muggle world</h5>
+        <p>The understanding of entertainment for people who don't have magic (muggle or no-maj) has completely changed with the invention of the computer. However, the creation of 3-dimensional objects with 2-D screens is ingenious. Our author does not hesitate to present an example of this work in <a href="https://github.com/Zaryob/donut">his Github account. (click that text to materialize page)</a>
+        </p>
+      </a>
+
+      <!-- Rust -->
+      <a class="sidebar-item slack-ui with-border" href="" target="_blank">
+        <h5>It is not possible to understand the Rust language</h5>
+        <p>Many new rustacean candidates suffer from this issue. He claims that language is still incomprehensible and has no standards. A new series of articles was created to clarify all these claims. Stay almost waiting, almost done.</p>
+      </a>
+    </div>
+  </main>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+</body>
+</html>
