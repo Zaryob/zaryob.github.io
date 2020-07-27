@@ -1,0 +1,627 @@
+:root {
+  --font: "EB Garamond", serif;
+  --font-title: "Playfair Display", serif;
+  --font-sans-serif: "Manrope", sans-serif;
+  --black: #1c1f33;
+  --gray: #eee;
+  --gray-1: #ededed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.1rem;
+  background: var(--preview-bg);
+  font-family: var(--font);
+  color: var(--black);
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/paper_fibers.png) repeat;
+  padding: 4rem 2rem;
+  line-height: 1.3;
+  text-align: justify;
+  column-break-inside: avoid;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: var(--black);
+}
+a:hover, a:focus, a:active, a:visited {
+  color: var(--black);
+}
+
+.main__wrapper {
+  max-width: 1135px;
+  margin: auto;
+}
+
+h1 {
+  font: 50px/1 "Playfair Display SC";
+  text-align: center;
+}
+@media (min-width: 700px) {
+  h1 {
+    font: 70px/1 "Playfair Display SC";
+  }
+}
+
+h3 {
+  font: italic 20px var(--font-title);
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font: 20px/1.2 var(--font-title);
+}
+
+h5 {
+  font: 700 20px/1 var(--font);
+  transition: 0.3s ease;
+}
+
+p {
+  line-height: 1.3;
+}
+p a {
+  display: inline;
+}
+
+em {
+  font-style: italic;
+}
+
+.title--large {
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 0.8rem;
+}
+@media (min-width: 700px) {
+  .title--large {
+    font-size: 42px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 700px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 23%;
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 1.2rem;
+  }
+}
+main h1,
+main aside {
+  grid-column: 1 / -1;
+}
+@media (min-width: 700px) {
+  main .main-title {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 1024px) {
+  main .main-title {
+    grid-column: 1 / -2;
+  }
+}
+@media (min-width: 700px) {
+  main .terrarium {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 1024px) {
+  main .terrarium {
+    grid-column: 3 / span 2;
+  }
+}
+@media (min-width: 700px) {
+  main .main-text {
+    grid-column: span 5;
+  }
+}
+@media (min-width: 1024px) {
+  main .main-text {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 700px) {
+  main .pst-text {
+    grid-column: span 7;
+  }
+}
+@media (min-width: 1024px) {
+  main .pst-text {
+    grid-column: span 4;
+  }
+}
+@media (min-width: 700px) {
+  main .sidebar {
+    grid-column: 1 / -1;
+  }
+}
+@media (min-width: 1024px) {
+  main .sidebar {
+    grid-row: 3 / 9;
+    grid-column: 5 / 6;
+  }
+}
+main .social {
+  grid-column: 1 / -2;
+  grid-row: 8 / 9;
+}
+main .article-bar-1 {
+  grid-row: span 4;
+}
+@media (min-width: 700px) {
+  main .hogwarts {
+    grid-row: span 3;
+  }
+}
+@media (min-width: 1024px) {
+  main .hogwarts {
+    grid-column: 3;
+    grid-row: span 2;
+  }
+}
+@media (min-width: 700px) {
+  main .menu {
+    grid-column: 1 / -1;
+    grid-row: 13;
+  }
+}
+@media (min-width: 1024px) {
+  main .menu {
+    grid-row: 7 / 8;
+    grid-column: 2 / 4;
+  }
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  main .toggles {
+    grid-column: 3 / 6;
+    grid-row: 10 / 13;
+  }
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  main .plan {
+    grid-column: span 4;
+  }
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  main .style,
+  main .magazine,
+  main .pasta {
+    grid-column: 1 / 3;
+  }
+}
+main .cssgrid-collection {
+  grid-column: 1 / -1;
+  grid-row: 9;
+}
+
+.span--2 {
+  grid-column: span 2;
+}
+
+.long--2 {
+  grid-row: span 2;
+}
+
+.long--4 {
+  grid-row: span 4;
+}
+
+.with-border {
+  border-top: 1px solid;
+  padding-top: 0.6rem;
+}
+
+img {
+  width: 100%;
+  filter: grayscale(95%);
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--black);
+  transition: 0.3s ease;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 90%;
+}
+
+aside {
+  text-align: center;
+  padding: 3px 0;
+  border: solid var(--black);
+  border-width: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1.5rem 0;
+}
+@media (min-width: 700px) {
+  aside {
+    margin: 0;
+  }
+}
+aside > div {
+  display: flex;
+  align-items: center;
+  border: solid var(--black);
+  border-width: 1px 0;
+}
+aside > div > div {
+  flex: 1;
+  padding: 8px;
+}
+
+@media (min-width: 700px) {
+  .multi-column {
+    column-count: 2;
+    column-gap: 1.3rem;
+    margin-top: 0.75rem;
+  }
+  .multi-column-3 {
+    column-count: 3;
+  }
+}
+.sidebar {
+  margin-top: 3rem;
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+  }
+  .sidebar h3 {
+    width: 100%;
+    text-align: center;
+  }
+  .sidebar > a {
+    flex: 0 1 48%;
+    margin: 1.5rem 0;
+    padding: 0;
+  }
+  .sidebar .slack-ui {
+    border-top: 0;
+  }
+  .sidebar .pie {
+    order: 3;
+  }
+}
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+    border-left: 1px solid;
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+}
+
+.main-text.multi-column {
+  margin: 0;
+}
+.main-text.multi-column p {
+  margin-bottom: 0.8rem;
+}
+
+.hogwarts {
+  text-align: center;
+  height: 100%;
+  border: 2px solid transparent;
+  outline: 3px solid var(--black);
+  box-shadow: inset 0 0 0 1px var(--black);
+  width: calc(100% - 4px);
+  margin: 1.5rem auto;
+  overflow: hidden;
+}
+@media (min-width: 700px) {
+  .hogwarts {
+    margin: 0;
+  }
+}
+.hogwarts__title {
+  font: 800 24px/1 var(--font-sans-serif);
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--gray);
+  padding: 0.8rem 0.8rem 0.9rem;
+  transition: 0.2s ease;
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  .hogwarts__title {
+    font: 800 21px/1.2 var(--font-sans-serif);
+    padding: 1.5rem 0.5rem;
+  }
+}
+.hogwarts__image {
+  height: 100%;
+  position: relative;
+}
+.hogwarts__image img {
+  transform: rotate(60deg);
+  height: 150%;
+  position: absolute;
+  border: 0;
+  width: 250%;
+  left: -70%;
+  bottom: -35%;
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  .hogwarts__image img {
+    bottom: -20%;
+  }
+}
+.hogwarts__image span {
+  font-style: italic;
+  max-width: 110px;
+  position: absolute;
+  top: 7%;
+  left: 18%;
+  font-size: 22px;
+  line-height: 0.9;
+  transform: rotate(-5deg);
+}
+
+.terrarium {
+  margin: 1.5rem 0;
+}
+@media (min-width: 700px) {
+  .terrarium {
+    margin: 0 0 1.5rem;
+  }
+}
+.terrarium figure {
+  height: 100%;
+}
+.terrarium img {
+  height: 96%;
+  object-fit: cover;
+  object-position: right;
+}
+
+.pie {
+  line-height: 0;
+  color: var(--gray);
+  text-align: left;
+}
+.pie__image {
+  margin: 0;
+  border: 0;
+  max-height: 15rem;
+  object-fit: cover;
+}
+.pie__subtitle {
+  background: #999;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.4rem 1rem;
+  font: 14px var(--font-sans-serif);
+  color: var(--gray);
+}
+.pie__content {
+  background: #666;
+  padding: 1rem 1rem 1.2rem;
+  color: var(--gray);
+}
+.pie__content p {
+  margin-top: 0.5rem;
+}
+
+.sidebar-item {
+  margin: 2rem 0;
+  padding: 2rem 0 0;
+}
+.sidebar-item h5 {
+  text-align: center;
+  width: 100%;
+  padding: .5rem;
+  margin: auto;
+}
+.sidebar-item p {
+  margin-top: 1rem;
+}
+.sidebar-item:hover h5 {
+  transition: 0.3s ease;
+  background: var(--black);
+  color: #fff;
+}
+
+.item-with-image {
+  margin-top: 1.5rem;
+}
+.item-with-image h4 {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  transition: 0.2s ease;
+}
+@media (min-width: 700px) {
+  .item-with-image {
+    margin: 0;
+  }
+}
+.item-with-image:not(.cssgrid-collection):hover h4 {
+  color: white !important;
+  background: var(--black);
+}
+
+.magazine {
+  border: 1px solid;
+  border-width: 1px 0;
+  padding-bottom: 1rem;
+}
+
+.menu {
+  margin: 1.5rem 0;
+}
+@media (min-width: 1024px) {
+  .menu {
+    margin: 0;
+  }
+}
+.menu figure {
+  height: 100%;
+}
+.menu img {
+  height: 90%;
+  object-fit: cover;
+  object-position: left;
+}
+
+.cssgrid-collection {
+  display: flex;
+  align-content: stretch;
+  border-top: 1px solid;
+  padding-top: 1rem;
+}
+.cssgrid-collection h4 {
+  margin: 0 0 0.8rem;
+}
+.cssgrid-collection__image {
+  flex: 0 0 32%;
+  margin-right: 1.5rem;
+}
+.cssgrid-collection img {
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+}
+.cssgrid-collection p a {
+  border-bottom: 1px dashed;
+}
+.cssgrid-collection p a:hover {
+  border-bottom: 1px solid;
+}
+
+@media (min-width: 1024px) {
+  .captcha {
+    margin-top: 0;
+  }
+}
+
+.workout {
+  border: 2px solid transparent;
+  outline: 3px solid var(--black);
+  box-shadow: inset 0 0 0 1px var(--black);
+  width: calc(100% - 4px);
+  margin: 3rem auto 0.2rem;
+}
+.workout__image {
+  padding: 2px;
+}
+.workout__image img {
+  height: 16rem;
+  object-fit: cover;
+  object-position: left;
+  border: none;
+}
+@media (min-width: 1024px) {
+  .workout__image img {
+    height: 25rem;
+  }
+}
+.workout__blurb {
+  font: 22px/1.1 var(--font-sans-serif);
+  text-align: center;
+  padding: 0.5rem;
+  color: var(--black);
+  margin: -1rem 0.5rem 0.3rem;
+}
+.workout__title {
+  font: 18px/1.1 var(--font-sans-serif);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  background: var(--black);
+  color: var(--gray);
+  transition: 0.2s ease;
+}
+
+.social {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: max-content auto;
+  color: var(--gray);
+  text-align: left;
+}
+.social__image {
+  margin: 0;
+  border: 0;
+  grid-row: span 2;
+  height: 100%;
+  object-fit: contain;
+  background: var(--gray);
+}
+.social__subtitle {
+  background: #999;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.4rem 1rem;
+  color: var(--gray);
+  font: 14px var(--font-sans-serif);
+}
+
+.social__content {
+  background: #666;
+  padding: 1rem;
+  color: var(--gray);
+  grid-column: 2;
+}
+
+.plan {
+  padding-bottom: 1rem;
+}
+@media (min-width: 700px) and (max-width: 1024px) {
+  .plan {
+    grid-column: span 3;
+    margin: 0 0 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .plan {
+    border-bottom: 1px solid;
+  }
+}
+
+.pie:hover img,
+.social:hover img,
+.menu:hover img,
+.terrarium:hover img,
+.plan:hover img,
+.toggles:hover img,
+.workout:hover img,
+.cssgrid-collection__image:hover img {
+  filter: grayscale(0);
+}
+
+.workout:hover .workout__title {
+  background: transparent;
+  color: var(--black);
+}
+
+.hogwarts:hover .hogwarts__title {
+  background: transparent;
+  color: var(--black);
+}
+
+
+/** Blockquotes */
+blockquote { color: #828282; border-left: 4px solid #e8e8e8; padding-left: 15px; font-size: 18px; letter-spacing: -1px; font-style: italic; }
+
+blockquote > :last-child { margin-bottom: 0; }
+
+/** Code formatting */
+pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+
+code { padding: 1px 5px; }
+
+pre { padding: 8px 12px; overflow-x: auto; }
+
+pre > code { border: 0; padding-right: 0; padding-left: 0; }
