@@ -1,0 +1,19 @@
+# The label text of site.
+#  v2.0
+#  https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT Licensed
+
+
+panel:
+  lastmod: "Son Güncelleme"
+  trending_tags: "Tercih Edilen Etiketler"
+  toc: "Başlıklar"
+
+post:
+  relate_posts: "Daha fazla post"
+  button:
+    next: Sonraki
+    previous: Önceki
+
+search_hint: "Arama"   # text show on search bar
