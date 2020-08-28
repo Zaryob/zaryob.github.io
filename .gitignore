@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 _site/
 .sass-cache/
 .jekyll-cache/
@@ -5,3 +6,22 @@ _site/
 
 
 Gemfile.lock
+=======
+# hidden files
+.*
+
+# python compiled files
+*.pyc
+
+# jekyll debug
+_site
+
+# Jeykll Gemfile.lock
+Gemfile.lock
+
+# yui-compressor
+*.jar
+
+# bundle cache
+vendor
+>>>>>>> blog_tr/master
