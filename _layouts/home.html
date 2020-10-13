@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Süleyman Poyraz'ın Güncesi</title>
+  <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/profiles/avatar.jpg">
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+</head>
+
+
+<main class="index">
+
+  <aside>
+    <img
+      src="{{site.baseurl}}/assets/profiles/avatar.jpg"
+      alt="Kişisel fotoğrafım. Son değiştirilme tarihi: 2020"
+      width="140" height="140" />
+
+    <div class="text-center">
+      <a class="rss" href="{{site.baseurl}}">ana sayfa</a>
+      ·
+      <a href="{{site.baseurl}}/ozgecmis.html">özgeçmiş</a>
+      ·
+      <a href="{{site.baseurl}}/projeler.html">projeler</a>
+
+    </div>
+
+    <dl class="external-links">
+      <dt>email</dt>
+      <dd><a href="mailto:zaryob.dev@gmail.com">zaryob.dev@gmail.com</a></dd>
+      <dt>pgp</dt>
+      <dd><a href="/">0x9F7CD0DC93792047</a></dd></dd>
+    </dl>
+  </aside>
+  <section class="article-list">
+    <h1>Süleyman Poyraz'ın Güncesi</h1>
+
+    {% for post in site.posts %}
+    <div class="article">
+      <span class="date">
+        {% assign m = post.date | date: "%-m" %}
+        {{ post.date | date: "%Y, %-d" }}
+        {% case m %}
+          {% when '1' %}Ocak
+          {% when '2' %}Şubat
+          {% when '3' %}Mart
+          {% when '4' %}Nisan
+          {% when '5' %}Mayıs
+          {% when '6' %}Haziran
+          {% when '7' %}Temmuz
+          {% when '8' %}Ağustos
+          {% when '9' %}Eylül
+          {% when '10' %}Ekim
+          {% when '11' %}Kasım
+          {% when '12' %}Aralık
+        {% endcase %}
+      </span>
+
+      <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+      <div class="details">{{post.detail}}</div>
+    </div>
+
+    {% endfor %}
+
+
+
+  </section>
+
+</main>
+
+<footer>
+  The content for this site is
+  <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>.
+  The <a href="https://github.com/Zaryob/zaryob.github.io">code for this site</a>
+  is <a href="https://opensource.org/licenses/MIT">MIT</a>.
+</footer>
