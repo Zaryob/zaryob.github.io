@@ -6,6 +6,7 @@ layout: default
 <!DOCTYPE html>
 <html>
 <body>
+    <meta charset="utf-8">
     <header class="masthead" style="background-image:url('/assets/img/home-bg.jpg?h=519d7460af34e87e71835178cf862552');">
       <!-- Photo by Sai Kiran Anagani on Unsplash -->
         <div class="overlay"></div>
@@ -13,12 +14,52 @@ layout: default
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto">
                     <div class="site-heading">
-                        <h1>Zaryob</h1><span class="subheading">Bir bilgisayar manyağının kişisel blogu</span></div>
+                        <h1 style="font-family: Aclonica, sans-serif;">Zaryob</h1><span class="subheading" style="font-family: Gafata, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span></div>
                 </div>
             </div>
         </div>
     </header>
+
     <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <!-- Home Post List -->
+            {% for post in site.posts limit : 5 %}
+    
+            <article class="post-preview">
+              <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.subtitle %}
+                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                {% else %}
+                <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+                {% endif %}
+              </a>
+              <p class="post-meta">
+                {% if post.author %}
+                {{ post.author }}
+                {% else %}
+                {{ site.author }}
+                {% endif %}
+                tarafından
+                {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}            
+              </p>
+            </article>
+    
+            <hr>
+    
+            {% endfor %}
+    
+            <!-- Pager -->
+            <div class="clearfix">
+              <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">Tüm Gönderiler &rarr;</a>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+
+    <!--div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8">
               {% for post in site.posts %}
@@ -43,7 +84,7 @@ layout: default
               {% endfor %}
             </div>
         </div>
-    </div>
+    </div-->
 
 </body>
 </html>
