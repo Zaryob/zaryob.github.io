@@ -15,7 +15,7 @@ permalink: /galeri/
             {% for image in site.static_files %}
               {% if image.path contains 'galeri' %}
                 <div class="col-md-6 col-lg-4 item zoom-on-hover">
-                    <a href="#">
+                    <a href="{{ site.url }}{{ image.path }}">
                         <img class="img-fluid image" src="{{ site.url }}{{ image.path }}">
                         <!--span class="description">
                             <span class="description-heading">Lorem Ipsum</span>
