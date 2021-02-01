@@ -3,34 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=815387d933e104daaf10caa0e5f0fa42">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=3b52035342e0162b0311455c02319ee3">
+  <link rel="stylesheet" href="/assets/bootstrap/css/footer.css?h=cabc25193678a4e8700df5b6f6e02b7c">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <!--   Syntax highlighting is only needed for posts -->
   <title>Anasayfa - Zaryob</title>
   <meta name="description" content="Kişisel bir blog.">
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{site.baseurl}}/css/syntax-highlighter.css">
   {% endif %}
-  <link href="//fonts.googleapis.com/css?family=Space+Mono|Work+Sans:700" rel="stylesheet">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Space+Mono|Work+Sans:700&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gafata&subset=latin,latin-ext">
 
 </head>
 <body>
 
+  
   <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-      <div class="container"><a class="navbar-brand" href="/index.html">Zaryob</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+      <div class="container"><a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: Alata, sans-serif;"><i class="fas fa-home"></i></a></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
           <div
               class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/"><i class="fa fa-home"></i>&nbsp;Ana Sayfa</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/linux/"><i class="fa fa-linux"></i>&nbsp;Linux</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/python/"><i class="fa fa-code"></i>&nbsp;Python</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/siber/"><i class="fa fa-terminal"></i>&nbsp;Siber Güvenlik</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/arsiv/"><i class="fa fa-file-zip-o"></i>&nbsp;Arşiv</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/hakkinda/"><i class="fa fa-user"></i>&nbsp;Hakkında</a></li>
-                <li class="nav-item" role="presentation"><a href="{{site.baseurl}}/iletisim/"><i class="fa fa-address-book-o"></i>&nbsp;İletişim</a></li>
-                <li class="nav-item" role="presentation"><a href="https://github.com/Zaryob"><i class="fa fa-code-fork"></i>&nbsp;Profil</a></li>
+                <li class="nav-item dropdown">
+                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-family: Alata, sans-serif;"><i class="fas fa-cubes">&nbsp;Blog</i>&nbsp;</a>
+                    <div class="dropdown-menu">,
+                      <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/linux/"><i class="fab fa-linux"></i>&nbsp;Linux</a>
+                      <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/programlama/"><i class="fas fa-code"></i>&nbsp;Programlama</a>
+                      <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-file-zip-o"></i>&nbsp;Arşiv</a>
+                    </div>
+                </li>
+                
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/kilavuzlar/"><i class="fab fa-guilded"></i>&nbsp;Kılavuzlar</a></li>
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/hakkinda/"><i class="fas fa-user"></i>&nbsp;Hakkında</a></li>
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/iletisim/"><i class="fas fa-address-book"></i>&nbsp;İletişim</a></li>
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-fork"></i>&nbsp;Profil</a></li>
               </ul>
           </div>
       </div>
@@ -42,20 +54,20 @@
   </header-->
   {{ content }}
 
-  <footer>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-10 col-lg-8 mx-auto">
-                  <ul class="list-inline text-center">
-                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></li>
-                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></li>
-                      <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></span></li>
-                  </ul>
-                  <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Zaryob 2019</p>
-              </div>
-          </div>
+ 
+  <div class="footer-dark">
+    <footer>
+      <div class="row">
+          <div class="col item social">
+            <a href="https://github.com/Zaryob"><i class="fab fa-github"></i></a>
+            <a href="https://gitlab.com/Zaryob"><i class="fab fa-gitlab"></i></a>
+            <a href="https://bitbucket.com/Zaryob"><i class="fab fa-bitbucket"></i></a>
+            <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a></div>
       </div>
-  </footer>
+      <p class="copyright">GPL 3 ile lisanslanmıştır<br>Suleyman Poyraz © 2016-2021</p>
+
+    </footer>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/script.min.js?h=6c07da54c4d2d77c149cca568a16930a"></script>
