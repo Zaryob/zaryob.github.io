@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Siber Güvenlik
-permalink: /siber/
+title: Programlama
+permalink: /programlama/
 ---
 
 
 {% for post in site.posts %}
 
   {% unless post.next %}
-  {% if post.group == 'siber' %}
+  {% if post.group == 'programlama' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
