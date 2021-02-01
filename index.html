@@ -5,61 +5,69 @@ layout: default
 
 <!DOCTYPE html>
 <html>
-<body>
-    <meta charset="utf-8">
-    <header class="masthead" style="background-image:url('/assets/img/home-bg.jpg?h=519d7460af34e87e71835178cf862552');">
-      <!-- Photo by Sai Kiran Anagani on Unsplash -->
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-lg-8 mx-auto">
-                    <div class="site-heading">
-                        <h1 style="font-family: Aclonica, sans-serif;">Zaryob</h1><span class="subheading" style="font-family: Gafata, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span></div>
-                </div>
-            </div>
-        </div>
-    </header>
 
+<body>
+  <meta charset="utf-8">
+  <header class="masthead" style="background-image:url('/assets/img/home-bg.jpg?h=519d7460af34e87e71835178cf862552');">
+    <!-- Photo by Sai Kiran Anagani on Unsplash -->
+    <div class="overlay"></div>
     <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <!-- Home Post List -->
-            {% for post in site.posts limit : 5 %}
-    
-            <article class="post-preview">
-              <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-                <h2 class="post-title">{{ post.title }}</h2>
-                {% if post.subtitle %}
-                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-                {% else %}
-                <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
-                {% endif %}
-              </a>
-              <p class="post-meta">
-                {% if post.author %}
-                {{ post.author }}
-                {% else %}
-                {{ site.author }}
-                {% endif %}
-                tarafından
-                {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}            
-              </p>
-            </article>
-    
-            <hr>
-    
-            {% endfor %}
-    
-            <!-- Pager -->
-            <div class="clearfix">
-              <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">Tüm Gönderiler &rarr;</a>
-            </div>
-    
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+          <div class="site-heading">
+            <h1 style="font-family: Aclonica, sans-serif;">Zaryob</h1><span class="subheading"
+              style="font-family: Gafata, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
           </div>
         </div>
       </div>
+    </div>
+  </header>
 
-    <!--div class="container">
+  <div class="container">
+    <div class="intro">
+      <h2 class="text-center">Son Gönderilerim</h2>
+      <!--p class="text-center"></p-->
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Home Post List -->
+        {% for post in site.posts limit : 5 %}
+
+        <article class="post-preview">
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h3 class="post-title">{{ post.title }}</h3>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+            {% endif %}
+          </a>
+          <p class="post-meta">
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            tarafından
+            {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
+            content=post.content %}
+          </p>
+        </article>
+
+        <hr>
+
+        {% endfor %}
+
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{" /posts" | relative_url }}">Tüm Gönderiler &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8">
               {% for post in site.posts %}
@@ -86,5 +94,172 @@ layout: default
         </div>
     </div-->
 
+  <hr>
+
+  <div class="container">
+    <div class="intro">
+
+      <h2 class="text-center">Galerim</h2>
+      <p class="text-center">Son amatör fotoğrafçılık facialarım.</p>
+      <!--p class="text-center"></p-->
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Home Galeri List -->
+        <section id="portfolio" class="p-0">
+          <div class="container-fluid p-0">
+            <div class="row no-gutters popup-gallery">
+              <div class="col-sm-6 col-lg-4">
+                <a class="portfolio-box" href="galeri/1.jpg"><img class="img-fluid" src="galeri/1.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <a class="portfolio-box" href="galeri/2.jpg"><img class="img-fluid"
+                    src="galeri/2.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/3.jpg"><img class="img-fluid"
+                    src="galeri/3.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/4.jpg"><img class="img-fluid"
+                    src="galeri/4.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/5.jpg"><img class="img-fluid"
+                    src="galeri/5.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/6.jpg"><img class="img-fluid"
+                    src="galeri/6.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <hr>
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="{{" /galeri" | relative_url }}">Tüm Fotoğraflarım &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+
+  <!--
+
+  <div class="container">
+    <div class="intro">
+
+      <h2 class="text-center">Galerim</h2>
+      <p class="text-center">Son amatör fotoğrafçılık facialarım.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <section id="portfolio" class="p-0">
+          <div class="container-fluid p-0">
+            <div class="row no-gutters popup-gallery">
+              <div class="col-sm-6 col-lg-4">
+                <a class="portfolio-box" href="galeri/1.jpg"><img class="img-fluid" src="galeri/1.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/2.jpg"><img class="img-fluid"
+                    src="galeri/2.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/3.jpg"><img class="img-fluid"
+                    src="galeri/3.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/4.jpg"><img class="img-fluid"
+                    src="galeri/4.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/5.jpg"><img class="img-fluid"
+                    src="galeri/5.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+              <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="galeri/6.jpg"><img class="img-fluid"
+                    src="galeri/6.jpg">
+                  <div class="portfolio-box-caption">
+                    <div class="portfolio-box-caption-content">
+                      <div class="project-category text-faded"><span>Fotoğrafı Görüntüle</span></div>
+
+                    </div>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <hr>
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="{{" /galeri" | relative_url }}">Tüm Fotoğraflarım &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+    
+  -->
+
 </body>
+
 </html>
