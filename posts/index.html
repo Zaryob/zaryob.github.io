@@ -14,8 +14,8 @@ title: Gönderiler
       <div class="row">
         <div class="col-md-10 col-lg-8 mx-auto">
           <div class="site-heading">
-            <h1 style="font-family: Aclonica, sans-serif;">Zaryob</h1><span class="subheading"
-              style="font-family: Gafata, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
+            <h1 style="font-family: Aclonica, sans-serif;">Gönderiler</h1><span class="subheading"
+              style="font-family: Gafata, sans-serif;">Geçmişe doğru neler yazdıklarım...</span>
           </div>
         </div>
       </div>
@@ -33,13 +33,14 @@ title: Gönderiler
         <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
         {% endif %}
       </a>
-      <p class="post-meta">Posted by
+      <p class="post-meta">
         {% if post.author %}
         {{ post.author }}
         {% else %}
         {{ site.author }}
         {% endif %}
-        on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+        tarafından
+        {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}
       </p>
     </article>
 
