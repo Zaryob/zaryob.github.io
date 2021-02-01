@@ -1,14 +1,21 @@
 ### your site title here
 
 title: Bir genç geliştiricinin kişisel blogu.
-
+author: Süleyman Poyraz
+email: zaryob.dev@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Kişisel blogum.
 baseurl: /
+
+
+twitter_username: pyrz_suleyman
+github_username: Zaryob
+
 sass:
     style: compressed
 
-
 # Tracker
-analytics: UA-83979019-1
+#analytics: UA-83979019-1
 
 
 exclude:
@@ -16,3 +23,14 @@ exclude:
 
 include:
 - _pages
+
+
+exclude: [vendor]
+
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
