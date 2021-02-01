@@ -4,6 +4,7 @@ title: Arşiv
 permalink: /arsiv/
 ---
 
+<div class="col-lg-8 col-md-10 mx-auto">
 <section id="archive">
 <h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu yılın arşivi</h2>
 {% for post in site.posts %}
@@ -24,3 +25,4 @@ permalink: /arsiv/
 {% endfor %}
   </ul>
 </section>
+</div>

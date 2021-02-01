@@ -29,7 +29,23 @@ layout: default
 
                       <span>
                           <time datetime="">
-                                 {{ page.date | date: '%B %d, %Y' }}
+                            {% assign m = page.date | date: "%-m" %}
+                            {{ page.date | date: "%-d" }}
+                            {% case m %}
+                              {% when '1' %}Ocak
+                              {% when '2' %}Şubat
+                              {% when '3' %}Märt
+                              {% when '4' %}Nisam
+                              {% when '5' %}Mayıs
+                              {% when '6' %}Haziran
+                              {% when '7' %}Temmuz
+                              {% when '8' %}Ağustos
+                              {% when '9' %}Eylül
+                              {% when '10' %}Ekim
+                              {% when '11' %}Kasım
+                              {% when '12' %}Aralık
+                            {% endcase %}
+                            {{ page.date | date: "%Y" }}
                           </time>
                       </span>
 

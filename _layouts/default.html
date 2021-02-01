@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=3b52035342e0162b0311455c02319ee3">
   <link rel="stylesheet" href="/assets/bootstrap/css/footer.css?h=cabc25193678a4e8700df5b6f6e02b7c">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -20,13 +21,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alata&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gafata&subset=latin,latin-ext">
-
 </head>
 <body>
 
   
   <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-      <div class="container"><a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: Alata, sans-serif;"><i class="fas fa-home"></i></a></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+      <div class="container"><a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: Alata, sans-serif;"><i class="fas fa-home"></i><span>&nbsp;Ev</span></a></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
           <div
               class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="nav navbar-nav ml-auto">
@@ -35,14 +35,15 @@
                     <div class="dropdown-menu">,
                       <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/linux/"><i class="fab fa-linux"></i>&nbsp;Linux</a>
                       <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/programlama/"><i class="fas fa-code"></i>&nbsp;Programlama</a>
-                      <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-file-zip-o"></i>&nbsp;Arşiv</a>
+                      <a class="dropdown-item" style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-archive"></i>&nbsp;Arşiv</a>
                     </div>
                 </li>
                 
                 <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/kilavuzlar/"><i class="fab fa-guilded"></i>&nbsp;Kılavuzlar</a></li>
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/galeri/"><i class="far fa-images"></i>&nbsp;Galeri</a></li>
                 <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/hakkinda/"><i class="fas fa-user"></i>&nbsp;Hakkında</a></li>
                 <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="{{site.baseurl}}/iletisim/"><i class="fas fa-address-book"></i>&nbsp;İletişim</a></li>
-                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-fork"></i>&nbsp;Profil</a></li>
+                <li class="nav-item" role="presentation"><a style="font-family: Alata, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-branch"></i>&nbsp;Profil</a></li>
               </ul>
           </div>
       </div>
@@ -68,12 +69,11 @@
 
     </footer>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/script.min.js?h=6c07da54c4d2d77c149cca568a16930a"></script>
 </div>
-  <!-- Calling Fontawesome at the end to avoid delay in loading -->
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 {% include analytics.html %}
 </body>
 </html>
