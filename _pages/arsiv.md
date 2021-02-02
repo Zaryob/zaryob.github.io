@@ -2,6 +2,7 @@
 layout: post
 title: Arşiv
 permalink: /arsiv/
+images: "archive-bg.jpg"
 ---
 
 <div class="col-lg-8 col-md-10 mx-auto">

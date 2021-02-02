@@ -2,6 +2,7 @@
 layout: post
 title: İletişim
 permalink: /iletisim/
+images: "contact-bg.jpg"
 ---
 
 <head>

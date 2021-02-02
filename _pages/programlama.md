@@ -2,6 +2,7 @@
 layout: post
 title: Programlama
 permalink: /programlama/
+images: "programming-bg.jpg"
 ---
 
 

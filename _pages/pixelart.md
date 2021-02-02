@@ -1,15 +1,14 @@
 ---
 layout: post
-title: Linux
-permalink: /linux/
-images: "code-bg.jpg"
+title: Pixel Art
+permalink: /pixelart/
 ---
 
 
 {% for post in site.posts %}
 {% unless post.next %}
 {% for cat in post.categories %}
-{% if cat == 'linux' %}
+{% if cat == 'pixelart' %}
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
     <h3 class="post-title">{{ post.title }}</h3>
@@ -32,7 +31,6 @@ images: "code-bg.jpg"
 </article>
 <hr>
 {% else %}
-
 {% endif %}
 {% endfor %}
 {% endunless %}

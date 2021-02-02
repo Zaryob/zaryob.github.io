@@ -2,6 +2,7 @@
 layout: post
 title: Hakkında
 permalink: /hakkinda/
+images: "contact-bg.jpg"
 ---
 
 
