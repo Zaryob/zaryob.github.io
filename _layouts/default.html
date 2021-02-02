@@ -10,11 +10,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <!--   Syntax highlighting is only needed for posts -->
-  <title>Anasayfa - Zaryob</title>
-  <meta name="description" content="Kişisel bir blog.">
   {% if page.layout == 'post' %}
+  <title>{{page.title}} - Zaryob</title>
   <link rel="stylesheet" href="{{site.baseurl}}/css/syntax-highlighter.css">
+  {% else %}
+  <title>Anasayfa - Zaryob</title>
   {% endif %}
+
+  <meta name="description" content="Kişisel bir blog.">
+  
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Space+Mono|Work+Sans:700&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme&subset=latin,latin-ext">
