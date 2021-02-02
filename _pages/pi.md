@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Linux
-permalink: /linux/
-images: "code-bg.jpg"
+title: Raspberry Pi
+permalink: /pi/
+image: "raspberrypi-bg.jpg"
 ---
 
 
 {% for post in site.posts %}
 {% unless post.next %}
 {% for cat in post.categories %}
-{% if cat == 'linux' %}
+{% if cat == 'pi' %}
 <article class="post-preview">
   <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
     <h3 class="post-title">{{ post.title }}</h3>

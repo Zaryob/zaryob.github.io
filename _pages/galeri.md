@@ -2,7 +2,7 @@
 layout: post
 title: Galeri
 permalink: /galeri/
-
+image: "galeri_bg.jpg"
 ---
 
 
