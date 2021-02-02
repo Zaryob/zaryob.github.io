@@ -2,6 +2,8 @@
 layout: post
 title: Kılavuz
 permalink: /kilavuz/
+image: ""
+image_hash: ""
 ---
 
 

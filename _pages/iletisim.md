@@ -2,7 +2,8 @@
 layout: post
 title: İletişim
 permalink: /iletisim/
-images: "contact-bg.jpg"
+image: "contact-bg.jpg"
+image_hash: "2af2a773ed9404ccf5cc076e63759fed"
 ---
 
 <head>
