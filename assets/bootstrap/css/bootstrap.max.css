@@ -9578,3 +9578,103 @@
 .portfolio-block.projects-cards .card {
     margin-bottom: 30px
 }
+
+.avatar{
+    width:  150px;
+    height: 150px;
+    background-size:    cover;
+    background-repeat:  no-repeat;
+    margin: auto;
+    border-radius:  100px;
+    margin-bottom:  30px
+}
+
+.portfolio-block{
+    padding-bottom:60px;
+    padding-top:60px
+}
+.portfolio-block .heading{
+    margin-bottom:50px;
+    text-align:center
+}
+.portfolio-block .heading h2{
+    font-weight:700;
+    font-size:1.4rem;
+    text-transform:uppercase
+}
+.portfolio-block .heading p{
+    text-align:center;
+    max-width:420px;
+    margin:auto;
+    opacity:.7
+}
+.portfolio-block.block-intro{
+    text-align:center;
+    background-color: #1c3046be;
+}
+.portfolio-block.block-intro .avatar{
+    margin-top: 100px;
+}
+.portfolio-block.block-intro .about-me{
+    max-width:800px;
+    margin:0 auto;
+}
+.portfolio-block.block-intro p{
+    font-size:1.5em;
+    font-weight:300;
+    margin-bottom:30px
+}
+.portfolio-block.block-intro , .portfolio-block.website h3{
+    font-weight:700
+}
+.portfolio-block.website p{
+    opacity:.9
+}
+.portfolio-laptop-mockup{
+    margin:auto;
+    margin-top:30px;
+    max-width:280px
+}
+.portfolio-block.mobile-app .text, .portfolio-block.website .text{
+    text-align:center
+}
+.portfolio-laptop-mockup .screen{border:1px solid #9c9c9c;
+    border-bottom:none;
+    width:250px;
+    height:160px;
+    padding:10px;
+    border-radius:5px;
+    background-color:#fff;
+    position:relative;
+    left:15px
+}
+.portfolio-laptop-mockup .screen .screen-content{
+    border:1px solid #c5c5c5;
+    background-position:50%;
+    background-size:cover;
+    height:100%
+}
+.portfolio-laptop-mockup .keyboard{
+    width:280px;
+    height:10px;
+    border:1px solid #9c9c9c;
+    border-bottom-left-radius:7px;
+    border-bottom-right-radius:7px;
+    background-color:#fff
+}
+.portfolio-block.photography{
+    padding-top:0;
+    padding-bottom:0
+}
+.portfolio-block.photography .item{
+    overflow:hidden;
+    margin-bottom:0;
+    background:#000;
+    opacity:1
+}
+.portfolio-block.photography .item a img{
+    transition:.8s ease
+}
+.portfolio-block.skills{
+    border-bottom:1px solid #ddd
+}
