@@ -27,8 +27,24 @@ image_hash: "8da8c95398564475073e06f25143d370"
     {{ site.author }}
     {% endif %}
     tarafından
-    {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
-    content=post.content %}
+    {% assign m = page.date | date: "%-m" %}
+    {{ page.date | date: "%-d" }}
+    {% case m %}
+      {% when '1' %}Ocak
+      {% when '2' %}Şubat
+      {% when '3' %}Mart
+      {% when '4' %}Nisam
+      {% when '5' %}Mayıs
+      {% when '6' %}Haziran
+      {% when '7' %}Temmuz
+      {% when '8' %}Ağustos
+      {% when '9' %}Eylül
+      {% when '10' %}Ekim
+      {% when '11' %}Kasım
+      {% when '12' %}Aralık
+    {% endcase %}
+    {{ page.date | date: "%Y" }} tarihinde yayınladı. &middot; 
+    {% include read_time.html content=post.content %}
   </p>
 </article>
 <hr>
