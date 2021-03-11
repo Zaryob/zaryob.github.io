@@ -19,48 +19,12 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
   {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
   {% if year != nyear %}
   </ul>
-  <h2>                      
-  {% assign m = page.date | date: "%-m" %}
-  {{ page.date | date: "%-d" }}
-  {% case m %}
-    {% when '1' %}Ocak
-    {% when '2' %}Şubat
-    {% when '3' %}Mart
-    {% when '4' %}Nisam
-    {% when '5' %}Mayıs
-    {% when '6' %}Haziran
-    {% when '7' %}Temmuz
-    {% when '8' %}Ağustos
-    {% when '9' %}Eylül
-    {% when '10' %}Ekim
-    {% when '11' %}Kasım
-    {% when '12' %}Aralık
-  {% endcase %}
-  {{ page.date | date: "%Y" }}
-  </h2>
+  <h2>{{ post.date | date: '%Y' }}</h2>
 
   <ul class="past">
   {% endif %}
   {% endunless %}
- <li class="arch-list"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>&nbsp;<time>         
-  {% assign m = page.date | date: "%-m" %}
-    {{ page.date | date: "%-d" }}
-    {% case m %}
-      {% when '1' %}Ocak
-      {% when '2' %}Şubat
-      {% when '3' %}Mart
-      {% when '4' %}Nisam
-      {% when '5' %}Mayıs
-      {% when '6' %}Haziran
-      {% when '7' %}Temmuz
-      {% when '8' %}Ağustos
-      {% when '9' %}Eylül
-      {% when '10' %}Ekim
-      {% when '11' %}Kasım
-      {% when '12' %}Aralık
-    {% endcase %}
-   {{ post.date | date:"%d %b" }}
-   </time></li>
+ <li class="arch-list"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>&nbsp;<time>{{ post.date | date:"%d %b" }}</time></li>
 {% endfor %}
   </ul>
 </section>

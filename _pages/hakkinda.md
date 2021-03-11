@@ -16,7 +16,7 @@ permalink: /hakkinda/
                 <div>
                     <p style="  font-size: 37px;">Ben Süleyman Poyraz</p>
                     <div class="container">
-                        <p>Daima <span class="typed-text"></span><span class="cursor"></span> birisiyim.</p>
+                        <p>Daima <span class="typed-text"></span><span class="cursor"></span> birisi.</p>
                     </div>
                 </div>
             </div>
