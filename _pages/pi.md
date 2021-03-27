@@ -8,10 +8,8 @@ image_hash: "80738471d1f9b811754aca914194612e"
 
 
 
-{% for post in site.posts %}
+{% for post in site.categories.pi %}
 
-  {% unless post.next %}
-  {% if post.group == 'pi' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -35,8 +33,4 @@ image_hash: "80738471d1f9b811754aca914194612e"
     </div>
   </div>
   </div>
-  {% else %}
-
-  {% endif %}
-  {% endunless %}
 {% endfor %}

@@ -8,10 +8,8 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
 
 
 
-{% for post in site.posts %}
+{% for post in site.categories.linux %}
 
-  {% unless post.next %}
-  {% if post.group == 'elektronik' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -35,8 +33,4 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
     </div>
   </div>
   </div>
-  {% else %}
-
-  {% endif %}
-  {% endunless %}
 {% endfor %}

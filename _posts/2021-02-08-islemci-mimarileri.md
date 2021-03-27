@@ -2,7 +2,7 @@
 layout: post
 title: "Bilgisayar Mimarileri: RISC ve CISC Makineleri"
 date: 2021-02-08 09:08:18 +0300
-categories: ['genel', 'elektronik']
+categories: [genel, elektronik]
 image: "2021-02-08-islemci-mimarileri.jpg"
 image_hash: "f0de082e28da5a9e3ff7afb2ee4decc2"
 ---

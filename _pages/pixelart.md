@@ -8,10 +8,8 @@ image_hash: "934bee399ce669974100a5d559925157"
 
 
 
-{% for post in site.posts %}
+{% for post in site.categories.linux %}
 
-  {% unless post.next %}
-  {% if post.group == 'pixelart' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -35,8 +33,5 @@ image_hash: "934bee399ce669974100a5d559925157"
     </div>
   </div>
   </div>
-  {% else %}
 
-  {% endif %}
-  {% endunless %}
 {% endfor %}

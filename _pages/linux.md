@@ -2,13 +2,13 @@
 layout: post
 title: Linux
 permalink: /linux/
+image: "code-bg.jpg"
+image_hash: "8da8c95398564475073e06f25143d370"
 ---
 
 
-{% for post in site.posts %}
+{% for post in site.categories.linux %}
 
-  {% unless post.next %}
-  {% if post.group == 'linux' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -32,8 +32,4 @@ permalink: /linux/
     </div>
   </div>
   </div>
-  {% else %}
-
-  {% endif %}
-  {% endunless %}
 {% endfor %}

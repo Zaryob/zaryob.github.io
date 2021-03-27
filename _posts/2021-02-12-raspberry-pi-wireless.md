@@ -2,7 +2,7 @@
 layout: post
 title: "Raspberry Pi Zero USB Üzerinden Bağlantı Sağlamak"
 date: 2021-02-08 09:08:18 +0300
-categories: ['pi', 'elektronik']
+categories: [pi, elektronik]
 image: "2021-02-12-rasp5.jpg"
 image_hash: "b655f6aceea6fb6b33e5dca01b4beab6"
 ---
