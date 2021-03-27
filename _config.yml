@@ -27,6 +27,9 @@ include:
 
 exclude: [vendor]
 
+permalink: /:categories/:title/
+
+
 markdown:           kramdown
 paginate:           5
 paginate_path:      "/posts/page:num/"

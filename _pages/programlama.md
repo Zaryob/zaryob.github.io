@@ -8,10 +8,8 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 
 
 
-{% for post in site.posts %}
+{% for post in site.categories.programlama %}
 
-  {% unless post.next %}
-  {% if post.group == 'programlama' %}
   <div class="list">
   <div class="post-index">
     <div class="post-image">
@@ -35,8 +33,5 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
     </div>
   </div>
   </div>
-  {% else %}
 
-  {% endif %}
-  {% endunless %}
 {% endfor %}

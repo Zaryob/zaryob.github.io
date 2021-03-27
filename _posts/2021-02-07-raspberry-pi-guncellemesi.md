@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Dağıtımları Bizlere Ne Kadar Şeffaf: Raspbian’ın Son Güncellemesinde, Sisteminize Gizlice Microsoft Deposu Yüklenmiş Olabilir"
 date: 2021-02-07 16:08:18 +0300
-categories: ['genel', 'pi', 'linux']
+categories: [genel, pi, linux]
 image: "2021-02-07-raspberry-pi-guncellemesi.jpg"
 image_hash: "7e197b5e67942d892d1c3e41da5e1735"
 ---

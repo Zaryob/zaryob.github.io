@@ -2,7 +2,7 @@
 layout: post
 title: "Google, Chromium’dan Sync özelliğini çıkarttı"
 date: 2021-02-07 09:08:18 +0300
-categories: ['genel']
+categories: [genel]
 image: "2021-02-07-chromium.png"
 image_hash: "06fb628c4d8e357d610f4e04808dcee3"
 ---
