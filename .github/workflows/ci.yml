@@ -64,8 +64,12 @@ jobs:
 
       - name: Build Site
         run: |
-          bash tools/build.sh
+          bundle exec jekyll b
 
       - name: Test Site
         run: |
-          bash tools/test.sh
+          bundle exec htmlproofer _site  \
+                  --disable-external \
+                  --check-html \
+                  --empty_alt_ignore \
+                  --allow_hash_href
