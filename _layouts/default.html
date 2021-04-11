@@ -30,7 +30,11 @@ layout: compress
   <title>{{page.title}} - Zaryob</title>
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
   {% else %}
+  {% if page.title %}
+  <title>{{ page.title }}</title>
+  {% else %}
   <title>Anasayfa - Zaryob</title>
+  {% endif %}
   {% endif %}
 
   <meta name="description" content="Kişisel bir blog.">
