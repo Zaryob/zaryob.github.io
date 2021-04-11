@@ -1,21 +1,11 @@
-<<<<<<< HEAD
 _site
 Gemfile.lock
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
-=======
-<<<<<<< HEAD
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.bundle
-vendor
-
 Gemfile.lock
-=======
+
 # hidden files
 .*
 
@@ -31,7 +21,5 @@ Gemfile.lock
 # yui-compressor
 *.jar
 
-# bundle cache
-vendor
->>>>>>> blog_tr/master
->>>>>>> master
+# Emacs system
+*~
