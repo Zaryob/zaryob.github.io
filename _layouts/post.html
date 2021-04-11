@@ -8,7 +8,7 @@ layout: default
 <head>
   {% if page.image %}
   <!--header class="masthead" style="background-image:url('{{page.image}}?h={{page.imagehash}}');"-->
-  <header class="masthead" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
+  <header class="masthead" loading="lazy" style="background-image:url('{{site.url}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
 
   {% else %}
   <header class="masthead">
@@ -49,7 +49,7 @@ layout: default
                           {% assign categories = page.categories %}
                         {% endif %}
                         {% for category in categories %}
-                        <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+                        <a href="{{site.url}}/categories/#{{category|slugize}}">{{category}}</a>
                         {% unless forloop.last %}&nbsp;{% endunless %}
                         {% endfor %}
                       </div-->
