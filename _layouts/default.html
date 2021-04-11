@@ -1,3 +1,8 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -25,7 +30,11 @@
   <title>{{page.title}} - Zaryob</title>
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
   {% else %}
+  {% if page.title %}
+  <title>{{ page.title }}</title>
+  {% else %}
   <title>Anasayfa - Zaryob</title>
+  {% endif %}
   {% endif %}
 
   <meta name="description" content="Kişisel bir blog.">
@@ -68,16 +77,16 @@
   </header-->
   {{ content }}
 
- 
   <footer class="footer-dark">
       <div class="row">
           <div class="col item social">
             <a href="https://github.com/Zaryob"><i class="fab fa-github"></i></a>
             <a href="https://gitlab.com/Zaryob"><i class="fab fa-gitlab"></i></a>
             <a href="https://bitbucket.com/Zaryob"><i class="fab fa-bitbucket"></i></a>
-            <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a></div>
-            <a href="https://dev.to/zaryob/"><i class="fab fa-dev"></i></a></div>
-            <a href="https://zaryob.medium.com/"><i class="fab fa-medium"></i></a></div>
+            <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://dev.to/zaryob/"><i class="fab fa-dev"></i></a>
+            <a href="https://zaryob.medium.com/"><i class="fab fa-medium"></i></a>
+  	  </div>
       </div>
       <p class="copyright">Sitenin Kaynak Kodları GPLv3 ile lisanslanmıştır<br>Süleyman Poyraz © 2016-2021</p>
 
