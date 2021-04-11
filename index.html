@@ -33,7 +33,7 @@ layout: default
         {% for post in site.posts limit : 5 %}
 
         <article class="post-preview">
-          <a href="{{ post.url | prepend: site.url | replace: '//', '/' }}">
+          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             <h3 class="post-title">{{ post.title }}</h3>
             {% if post.subtitle %}
             <h3 class="post-subtitle">{{ post.subtitle }}</h3>
@@ -79,12 +79,12 @@ layout: default
                       </a>
                   </div>
                   <div class="post-content">
-                      <p class="post-index-title"><a href="{{site.url}}{{post.url}}">{{post.title}}</a></p>
+                      <p class="post-index-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></p>
                       <p>
                               <span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 90 }}</span>
                       </p>
                       <p class="post-detail">{{ post.date | date: '%B %d, %Y' }}
-                           <a href="{{site.url}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+                           <a href="{{site.baseurl}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
                       </p>
                   </div>
               </div>
