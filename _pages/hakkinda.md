@@ -9,7 +9,7 @@ permalink: /hakkinda/
   <meta charset="utf-8">
     <link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/blinking_text.css">
     <section class="portfolio-block block-intro border-bottom">
-        <div class="avatar" style="background-image:url('{{site.baseurl}}/assets/avatars/avatar.jpg');"></div>
+        <div class="avatar" style="background-image:url('{{site.baseurl}}/assets/avatars/avatar.webp');"></div>
         <div class="containerh">
             <div class="about-me">
                 <div>
