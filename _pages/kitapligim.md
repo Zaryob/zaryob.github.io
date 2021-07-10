@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Kitapligim
+title: Kitaplığım
 permalink: /kitapligim/
 image: "archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
 ---
-
 
 <section class="portfolio-block projects-cards">
     <div class="container">
