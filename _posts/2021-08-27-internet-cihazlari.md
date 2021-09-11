@@ -151,7 +151,5 @@ Ağ oluşturmak için kullanılan genel cihazları öğrenmemizin ardından, tem
 ### Kaynakça:
 
 * [**Networking hardware - Wikipedia**](https://en.wikipedia.org/wiki/Networking_hardware)
-<div name="b04a" id="b04a" class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed">
-* [**Network Devices Explained**
-_To build a strong network and defend it](https://blog.netwrix.com/2019/01/08/network-devices-explained/)
+* [**Network Devices Explained**](https://blog.netwrix.com/2019/01/08/network-devices-explained/)
 * [**Internet - Wikipedia**](https://en.wikipedia.org/wiki/Internet)

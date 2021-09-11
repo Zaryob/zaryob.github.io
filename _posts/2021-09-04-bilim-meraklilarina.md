@@ -26,23 +26,8 @@ Sonrasında üniversiteye gittim tabi. Ve tabi ki de Fen Lisesi hocalarımdan be
 
 En az dili ana dili kadar iyi bilmek (translate kullanmayı öğrenmekten bahsetmiyorum) ve bilim merakı araştırma aşkına sahip birisiyseniz, emin olun tek derdi tıp okuyun sağlıkçı olun olan ezberci zihniyet sizi kemirecektir. Beni de kemirdi ve ayakta tutan tek şey açık kaynak oldu diyebilir.
 
-</div>
-
-</div>
-
-</section>
-
-<section name="cf79" class="section section--body">
-
-<div class="section-divider">
 
 * * *
-
-</div>
-
-<div class="section-content">
-
-<div class="section-inner sectionLayout--insetColumn">
 
 ### Bilim ve Açık Kaynak
 
@@ -65,70 +50,32 @@ Bu aşamada direk bilimsel yazılımları listelemek mantıksız geliyor. Kim ne
 
 Benim için hep ilklerin programıdır kendisi. Gökyüzü gözlemi için bundan daha iyisini bulamazsınız. Gökyüzündeki yıldızları gökadaları, bulunduğunuz konuma göre ve zamana göre görebilir, resmen bir dijital teleskop gibi kullanabilirsiniz. Dahası hem bilgisayar için hem mobil için dağıtılan bir yazılım. Ayrıca web sürümü de olmalı.
 
-<figure name="5592" id="5592" class="graf graf--figure graf-after--p">![](https://cdn-images-1.medium.com/max/800/0*1wwlKmUX7mhBmfLE.jpg)</figure>
+![](https://cdn-images-1.medium.com/max/800/0*1wwlKmUX7mhBmfLE.jpg)
 
-<div name="db5b" id="db5b" class="graf graf--mixtapeEmbed graf-after--figure">[**Stellarium Astronomy Software**  
-_Stellarium is a free open source planetarium for your computer. It shows a realistic sky in 3D, just like what you see…_stellarium.org](https://stellarium.org/ "https://stellarium.org/")[](https://stellarium.org/)</div>
+[**Stellarium Astronomy Software** Stellarium is a free open source planetarium for your computer. It shows a realistic sky in 3D, just like what you see…_stellarium.org](https://stellarium.org/)
 
 #### Celestia
 
 Yine gökyüzünden gidiyorum. Pardus 2011 dönemlerinde aşık olduğum bir yazılımdır kendisi. Gerçek zamanlı bir uzak simulasyonudur Celestia. Gerek ışık hızı ile hareket ederek ışık hızının uzayın devasa boşluğunda hareket etmek için ne kadar da yavaş olduğunu kendiniz gözlemleyebilir, gerekse pek çok gözlem sonucunda elde edilmiş gezegen ve gökadalarını hatta bazı çok ufak gökcisimlerini 3 boyutlu olarak inceleyebilirsiniz. Ve hatta zamanda hareket edip eski orbitlerini dahi gözlemlenize imkan sağlayan muhteşem bir gerçek zamanlı gökyüzü simulasyonudur Celestia.
 
-<div name="02d6" id="02d6" class="graf graf--mixtapeEmbed graf-after--p">[**Celestia**  
-_The free space simulation that lets you explore our universe in three dimensions. Celestia runs on Windows, Linux…_celestia.space](https://celestia.space/ "https://celestia.space/")[](https://celestia.space/)</div>
+[**Celestia** The free space simulation that lets you explore our universe in three dimensions. Celestia runs on Windows, Linux…_celestia.space](https://celestia.space/)
 
 #### Avogadro
 
 Vahap hoca tarafından öldürülmeden önce kimyaya ilgi duymama sebep olan yazılımdır kendisi. Sürükle bırak yaparak kimyasal moleküller oluşturabildiğimiz bir molekül editörü. Ancak bir çocuğun elinde saçma sapan şekiller üretebileceği ve ulan bütün tanecikler yuvarlaksa kare nasıl var oluyor sorusuna cevap aramaya başlayacağı (evet gerçekten ben bunu demiştim) güzel bir program. Tam böyle düğmelere dokunarak saçma sapan şeyler yaptığım sonra da vooooaaaa diye sesler çıkarttığım bir yazılımdı.
 
-<div name="9c5e" id="9c5e" class="graf graf--mixtapeEmbed graf-after--p">[**Avogadro - Free cross-platform molecular editor**  
-_Avogadro is an advanced molecule editor and visualizer designed for cross-platform use in computational chemistry…_avogadro.cc](https://avogadro.cc/ "https://avogadro.cc/")[](https://avogadro.cc/)</div>
+[**Avogadro - Free cross-platform molecular editor** Avogadro is an advanced molecule editor and visualizer designed for cross-platform use in computational chemistry…_avogadro.cc](https://avogadro.cc/)
 
 #### Marble
 
 Açık kaynak demiştik. Marble’den daha çok kullandığım yazılım tabi ki Google Earth. Ancak Google Earth’i tanımadan önce Pardus ile tanıdığım ilk yazılım da Marble. Tabi benim dönemlerimde daha çok bir küreden ibaret yazılımdı. Çoğunlukla uydu görüntülerine sahip değildi. Sadece her haritada bulunan yer şekilleri ve bunlara ait bazen detaylar yer alan güzel bir yazılımdı. Bugün araştırırken şöyle ana sayfasına bakınca, vay be iyi gelişmiş dedirtti kendine.
 
-<div name="be07" id="be07" class="graf graf--mixtapeEmbed graf-after--p graf--trailing">[**Marble - find your way and explore the world**  
-_Find your way and explore the world! Marble is a virtual globe and world atlas - your swiss army knife for maps…_marble.kde.org](https://marble.kde.org/index.php "https://marble.kde.org/index.php")[](https://marble.kde.org/index.php)</div>
+[Marble](https://marble.kde.org/index.php)
 
-</div>
-
-</div>
-
-</section>
-
-<section name="7000" class="section section--body section--last">
-
-<div class="section-divider">
 
 * * *
 
-</div>
-
-<div class="section-content">
-
-<div class="section-inner sectionLayout--insetColumn">
 
 Benim çocukken bilime olan aşkımın şans eseri Pardus’ta uğraşırken yüklediğim programlarla iyice körüklenmesini sağlayan yazılımlardı. En çok stellarium tabi ki. Zaman geçti, her şey farklı bir yola girdi (Pardus projesi de) ancak geriye dönüp baktığımda bunların hepsi kendimi bu yola itmeme sebep veren şeyler olarak görüyorum. Belki ben de bir merak ile araştırıp bunları öğrenmeseydim şu an günde bilmem kaç yüz soru çözüp tıpa giden kişilerle beraber tıp okuyacaktım. Kim bilir belki de mühendisliğe ilgim olduğunu seneler sonra keşfedecektim ve olan sadece kaybettiğim yıllarıma olacaktı.
 
 Bu kadar…
-
-</div>
-
-</div>
-
-</section>
-
-</section>
-
-<footer>
-
-By [Süleyman Poyraz](https://medium.com/@zaryob) on [<time class="dt-published" datetime="2021-09-04T09:36:44.097Z">September 4, 2021</time>](https://medium.com/p/fc456ca9e8f5).
-
-[Canonical link](https://medium.com/@zaryob/bilim-merakl%C4%B1lar%C4%B1na-a%C3%A7%C4%B1k-kaynak-fc456ca9e8f5)
-
-Exported from [Medium](https://medium.com) on September 5, 2021.
-
-</footer>
-
-</article>

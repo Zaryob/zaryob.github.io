@@ -10,10 +10,6 @@ image_hash: "5d55d48c217a4c74ba72c08acfa886f7"
 
 İnternet belki de insanlık için ampulün icadından sonraki en büyük adım olabilir.
 
-![İnternet'in bir Opte Project simulasyonu](https://cdn-images-1.medium.com/max/800/0*bq9cBX_m2Voq2u9Z.jpg)
-
-
-
 Çünkü nasıl bugün elektrik deyince insanların aklına ilk aydınlatma sistemleri geliyorsa, bilgisayar deyince de herkesin aklına ilk olarak internet gelmekte.
 
 Peki nedir bu internet hiç düşündünüz mü veya internet evlerimize nasıl geliyor hiç merak ettiniz mi?
@@ -91,5 +87,4 @@ _İnternet, bilgisayar sistemlerini birbirine bağlayan elektronik iletişim ağ
 
 * [**Computer Networking: A Top-Down Approach Featuring the Internet Chapter 2 -- 1.8: Internet…**](https://www.cs.huji.ac.il/course/2002/com1/book/chapter1/1_8.htm)
 
-* [**Internet structure: Backbones, NAP's and ISP's**
-_Our discussion of layering in the previous section has perhaps given the impression that the Internet is a carefully…_www2.ic.uff.br](http://www2.ic.uff.br/~michael/kr1999/1-introduction/1_08-topology.htm)
+* [**Internet structure: Backbones, NAP's and ISP's** _Our discussion of layering in the previous section has perhaps given the impression that the Internet is a carefully…_www2.ic.uff.br](http://www2.ic.uff.br/~michael/kr1999/1-introduction/1_08-topology.htm)
