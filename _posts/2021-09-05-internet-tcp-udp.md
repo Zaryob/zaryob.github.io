@@ -153,5 +153,5 @@ Bu yazımda TCP ve UDP iletişimin nasıl yapıldığını ve veri protokolünde
 * [**User Datagram Protocol - Wikipedia**](https://en.wikipedia.org/wiki/User_Datagram_Protocol)
 * [**UDP - Vikipedi**](https://tr.wikipedia.org/wiki/UDP)
 * [**TCP - Vikipedi**](https://tr.wikipedia.org/wiki/TCP)
-* [**TCP/IP Protocol Suite | Guide books**](https://dl.acm.org/doi/abs/10.5555/572565)
+* [**TCP/IP Protocol Suite Guide books**](https://dl.acm.org/doi/abs/10.5555/572565)
 * [http://justpain.com/eBooks/Networking/TCP-IP/TCP-IP%20Illustrated%20-%20Vol%201.pdf](http://justpain.com/eBooks/Networking/TCP-IP/TCP-IP%20Illustrated%20-%20Vol%201.pdf)
