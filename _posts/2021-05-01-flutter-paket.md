@@ -268,9 +268,14 @@ Tamamen deneysel ve öğrenme amaçlı çöp kodlardan mürekkep bir depodur. - 
 
 # Kaynakça:
 
-[Flutter Desktop: ](https://flutter.dev/desktop)
-[AppImage Packaging Guide: ](https://docs.appimage.org/packaging-guide/index.html)
-[AppImage Packaging Guide 2:](https://discourse.appimage.org/t/how-to-create-an-appimage/155)
-[Flutter Desktop Linux Deployment:](https://flutter.dev/docs/deployment/linux)
-[Snapcraft:](https://snapcraft.io/snapcraft)
-[Flatpak:](https://docs.flatpak.org/en/latest/first-build.html)
+* [Flutter Desktop:](https://flutter.dev/desktop)
+
+* [AppImage Packaging Guide: ](https://docs.appimage.org/packaging-guide/index.html)
+
+* [AppImage Packaging Guide 2:](https://discourse.appimage.org/t/how-to-create-an-appimage/155)
+
+* [Flutter Desktop Linux Deployment:](https://flutter.dev/docs/deployment/linux)
+
+* [Snapcraft:](https://snapcraft.io/snapcraft)
+
+* [Flatpak:](https://docs.flatpak.org/en/latest/first-build.html)
