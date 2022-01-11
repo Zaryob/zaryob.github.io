@@ -5,7 +5,7 @@ author: Süleyman Poyraz
 email: zaryob.dev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Kişisel blogum.
-#baseurl: /
+baseurl: /
 
 
 twitter_username: pyrz_suleyman
