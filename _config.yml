@@ -1,28 +1,40 @@
-title: Personal portfolio site.
+### your site title here
+
+title: Bir genç geliştiricinin kişisel blogu.
 author: Süleyman Poyraz
 email: zaryob.dev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Qualified computer engineer with algorithmic perspective. I have been producing projects with Python for 6
-  years. In addition, I am making a backend with dotNet Core. I have been dealing with algorithms of
-  programming and mathematical optimization of programs for 2 years. I am working on artificial intelligence
-  algorithms with the knowledge I have gained from here. I am working on the automation software design and
-  mission software for Unmanned Aerial Vehicles (UAV) inside projects of the Defense Technologies Club of my
-  university. I work on data science and hardware-protection algorithms for operating systems.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+  Kişisel blogum.
+url: localhost::8080
+  #baseurl: /
 
-# Build settings
-markdown: kramdown
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+twitter_username: pyrz_suleyman
+github_username: Zaryob
+
+sass:
+    style: compressed
+
+# Tracker
+#analytics: UA-83979019-1
+
+
+exclude:
+- README.md
+
+include:
+- _pages
+
+
+exclude: [vendor]
+
+permalink: /:categories/:title/
+
+
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
