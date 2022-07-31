@@ -72,6 +72,8 @@
      line-height: 1.5;
      text-align: left;
      background-color: #fff;
+     overflow: hidden;
+     overflow-y: visible;
  }
  [tabindex="-1"]:focus {
      outline: 0 !important;
@@ -9443,7 +9445,7 @@
      margin-bottom: 0;
      text-align: center;
  }
- 
+
  .portfolio-box {
     position: relative;
     display: block;
