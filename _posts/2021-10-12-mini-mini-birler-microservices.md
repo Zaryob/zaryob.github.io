@@ -82,6 +82,6 @@ Kendiniz olun, ihtiyaçlarınızı algılayın, ona göre aksiyon alın…
 Kaynaklar
 =========
 
-* [What are microservices?](https://microservices.io/)[
+* [What are microservices?](https://microservices.io/)
 * [martinfowler.com](https://martinfowler.com/)
 * [What is a REST API?](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
