@@ -32,7 +32,7 @@ permalink: /:categories/:title/
 
 
 markdown:           kramdown
-paginate:           5
+paginate:           15
 paginate_path:      "/posts/page:num/"
 plugins:
   - jekyll-feed
