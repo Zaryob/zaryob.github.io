@@ -26,38 +26,38 @@ Ancak bu cihazlar biz son kullanıcılara interneti ileten cihazlardır. Ağ olu
 
 * * *
 
-![Gateway’lerin temel mantığı](https://cdn-images-1.medium.com/max/600/0*B05HxFNk351PSoNu.PNG)
+![Gateway’lerin temel mantığı](/assets/img/posts/0*B05HxFNk351PSoNu.PNG)
 
 
 **Gateway — Ağ Geçidi**: iletim hızlarını, protokolleri, kodları veya güvenlik önlemlerini dönüştürerek ağlar arasında uyumluluk sağlayan bir arayüz cihazıdır. Gerek ağlar arasında kullanır, gerek son haline ulaşan ağı, internet sağlayıcısından getirilen fiber optik kablolara bağlamayı sağlar. Bu açıdan dönüştürücü ve düzenleyici sistem vazifesi görmektedir.
 
 * * *
 
-![Cisco Router](https://cdn-images-1.medium.com/max/600/0*wb8A5caEVU7o1KAY.png)
+![Cisco Router](/assets/img/posts/0*wb8A5caEVU7o1KAY.png)
 
 **Router — Yönlendirici :** veri paketlerini bilgisayar ağları arasında ileten bir ağ aygıttır. Yönlendiriciler, İnternet’te “trafik yönlendirme” işlevlerini yerine getirir. Bir veri paketi, hedef düğümüne ulaşana kadar ağları oluşturan ağlar aracılığıyla tipik olarak bir yönlendiriciden diğerine iletilir.
 
 * * *
 
-![Temel bir switch cihazı](https://cdn-images-1.medium.com/max/600/0*gY3mGfV2SmxqSgA6)
+![Temel bir switch cihazı](/assets/img/posts/0*gY3mGfV2SmxqSgA6)
 
 **Switch — Ağ Anahtarları:** Verileri almak, işlemek ve hedef cihaza iletmek için paket değiştirme işlemini kullanarak bir bilgisayar ağında cihazları birbirine bağlayan bir cihazdır. Bu bağlama işlemi VLAN kurularak yapılır.
 
 Sanal yerel alan ağı anlamına gelen VLAN(Virtual Local Area Network), yerel ağ içerisinde çalışma grupları oluşturmak için kullanılır. Bu sayede bağlı cihazlar birden fazla anahtarlarla bölünerek farklı alt ağlar oluşur.
 
-![Basit bir VLAN yapısı](https://cdn-images-1.medium.com/max/800/0*mNCYhm12dipBP8CL)
+![Basit bir VLAN yapısı](/assets/img/posts/0*mNCYhm12dipBP8CL)
 
 Daha az gelişmiş ağ hub’larından farklı olarak , bir ağ anahtarı, her bir bağlantı noktasından aynı verileri yayınlamak yerine, verileri yalnızca onu alması gereken bir veya daha fazla cihaza iletir. Ağ anahtarı cihazlarının eski modelleri, ayarlama yapmaksızın kullanılırken (örneğin cihaz üzerinde ip atamalarını kontrol etmek mümkün değilken) veya sadece yönlendirme için kullanılırken, akıllı ağ anahtarları bugün hem yönlendirici hem de ayarlanabilir ağ anahtarı olarak da kullanılabilmektedir.
 
 * * *
 
-![Temel olarak bu cihaz iki alt alanı birbirine bağlar.](https://cdn-images-1.medium.com/max/600/0*Ky-CqpD7Bs2zhVAD.gif)
+![Temel olarak bu cihaz iki alt alanı birbirine bağlar.](/assets/img/posts/0*Ky-CqpD7Bs2zhVAD.gif)
 
 **Bridge — Köprü:** birden çok ağı birbirine bağlayan bir aygıttır. Ancak son dönemde ayarlanabilir router cihazları da bu işi yapabilmektedir. Ağ anahtarlarından farklı yanı anahtar bir ağı bağlanan eş cihazlara dağıtırken, köprü cihazları yalnızca ağları birbirine bağlar. Veri geçişine paket değiştirme işlemi yapmadan izin verir. Böylece paketin gideceği cihazı belirlemenin aksine sadece paketin iletimini sağlar. (Ağ anahtarları paketleri uygun bilgisayarlar için ayırmaktadır.)
 
 * * *
 
-![](https://cdn-images-1.medium.com/max/600/0*p3wBLd9AM8pFS4tm.jpg)
+![](/assets/img/posts/0*p3wBLd9AM8pFS4tm.jpg)
 
 **Repeaters — Tekrarlayıcı:** Bir sinyali alan ve sinyali daha uzun mesafeleri kapsayabilmesi için daha yüksek bir seviyede veya daha yüksek bir güçte veya bir engelin diğer tarafına yeniden ileten elektronik bir cihazdır. Hub tarzı tekrarlayıcılar ise birden fazla ağın tek bir ağ segmenti gibi davranmasını sağlamak için kullanılır. Uzak mesafeler arasında kurulan ağlarda temel olarak ağı güçlendirmek ve cihazları eşgüdümlü çalıştırabilmek için kullanılmaktadır. Ancak hub’lar artık yerini büyük ölçüde akıllı ağ anahtarlarına bıraktı ve çok eski kurulumlar veya özel uygulamalar haricinde tekrarlayıcılar kullanılmamaktadır.
 
@@ -80,7 +80,7 @@ Bu arayüzlerden bir veya birden fazlasını kullanarak bir ağ üzerinde tek bi
 
 * * *
 
-![](https://cdn-images-1.medium.com/max/600/0*2Qy4KeyuaR-Fl_gV.jpg)
+![](/assets/img/posts/0*2Qy4KeyuaR-Fl_gV.jpg)
 
 **Protocol Converter — Protokol Çevirici:** Protokol Dönüştürücü, bir cihazın standart veya tescilli protokolünü, birlikte çalışabilirliği sağlamak için diğer cihaz veya araçlara uygun protokole dönüştürmek için kullanılan bir cihazdır. Bu sayede aynı ağ üzerine farklı protokolleri kullanan cihazlar eş zamanlı olarak bağlanabilmektedir.
 
@@ -88,7 +88,7 @@ Bir protokol dönüştürücünün genel olarak, harici bağımlı cihazlarla il
 
 * * *
 
-![Brouter kullanan iki ağ birbiri ile hem yönlendirmeli hem yönlendirmesiz olarak haberleşebilir.](https://cdn-images-1.medium.com/max/600/0*QigvBqBoTfp074WU.png)
+![Brouter kullanan iki ağ birbiri ile hem yönlendirmeli hem yönlendirmesiz olarak haberleşebilir.](/assets/img/posts/0*QigvBqBoTfp074WU.png)
 
 
 **Brouter (Bridge Router — Köprü Yönlendirici):** Köprü yönlendirici, köprü ve yönlendirici olarak çalışan bir ağ aygıtıdır. Brouter paketleri bilinen protokoller için yönlendirir ve diğer tüm paketleri bir köprünün yapacağı gibi iletir. Standart yönlendiriciler, karmaşık ağ yapılarında yönlendirilebilir protokoller için hem ağ katmanında hem de yönlendirilemez protokoller için veri bağlantı katmanında çalışır. Bu sayede hem yönlendirme yaparak bir router gibi çalışan hem de yönlendirme yapmadan ağlar arası bağlantı sağlayan bridge gibi çalışan cihaz ihtiyacını gidermiş ve karmaşık ağlarda birden fazla router ve bridge kullanarak ağları düzenleme zorunluluğunu ortadan kaldırmıştır.
@@ -99,20 +99,20 @@ Bir ağ için sınır, bir ağın özel ve yerel olarak yönetilen tarafı, gene
 
 Tipik olarak sınır cihazlar farklı ağların (örneğin, bir dahili ağ ve bir harici ağ arasındaki) bağlantı noktasında bulunan donanım veya yazılım bileşenleri içerir.
 
-![Bir proxy sunucusu donanımsal bir cihaz olabildiği gibi bir ana sunucu üzerinden yazılımsal olarak bu özelliği sağlamak üzere yapılandırılmış bir VM bile olabilir.](https://cdn-images-1.medium.com/max/600/0*jhghZrkh1MuqgCpz.jpg)
+![Bir proxy sunucusu donanımsal bir cihaz olabildiği gibi bir ana sunucu üzerinden yazılımsal olarak bu özelliği sağlamak üzere yapılandırılmış bir VM bile olabilir.](/assets/img/posts/0*jhghZrkh1MuqgCpz.jpg)
 
 
 **Proxy Sunucusu:** İstemcilerin diğer ağ hizmetlerine dolaylı ağ bağlantıları kurmasını sağlayan bilgisayar ağı hizmetine Proxy Sunucu sistemi denir. Proxy sunucusu, masaüstü bilgisayar veya mobil cihaz gibi bir uç “istemci” ile internetteki bir web sitesi, sunucu veya web veya bulut tabanlı uygulama gibi bir hedef arasında bulunur, istemciden bir web isteği alır geri dönütü ağ içerisine verir ve bağlantıyı sonlandırır.
 
 * * *
 
-![Endüstride sıkça kullanılan bir firewall cihazı](https://cdn-images-1.medium.com/max/600/0*0hsuNXOhJx6dWflw.jpg)
+![Endüstride sıkça kullanılan bir firewall cihazı](/assets/img/posts/0*0hsuNXOhJx6dWflw.jpg)
 
 **Firewall — Güvenlik Duvarı:** Ağ politikası tarafından yasaklanan bazı iletişimleri önlemek için ağa yerleştirilen bir donanım veya yazılım parçasıdır. Bir güvenlik duvarı, tipik olarak, güvenilir bir dahili ağ ile internet arasıdaki iletişimi filtreleyerek iletişimin güvenli veya güvenilir olmadığı tespit eder ve güvensiz bir dış ağ arasında bir engel oluşturur. Çeşitli sitelerin engellenmesi, veri kaybının ve virüslerin önüne geçilmesi için güvenlik gerektiren bir ağda en önemli komponent güvenlik duvarı olmalıdır.
 
 * * *
 
-![Donanımsal bir NAT bileşeni](https://cdn-images-1.medium.com/max/600/0*XiwKdaOMlurOaPqd.jpg)
+![Donanımsal bir NAT bileşeni](/assets/img/posts/0*XiwKdaOMlurOaPqd.jpg)
 
 **Ağ adresi çeviricisi (NAT):** Dahili ağ adreslerini harici ağ adreslerine dönüştüren veya bunun harici ağ adreslerini dahili ağ adreslerine dönüştüren ağ hizmetidir. Sınır cihazların tamamı gibi bu da donanımsal veya yazılımsal olarak sağlanabilmektedir.
 
@@ -125,13 +125,13 @@ Tipik olarak sınır cihazlar farklı ağların (örneğin, bir dahili ağ ve bi
 
 Bu cihazlar genel olarak günlük yaşamımızda kullandığımız cihazlara ağ ve çevirmeli ağ (telefon hattı) sağlayan cihazlardır.
 
-![](https://cdn-images-1.medium.com/max/600/0*6raqkINELt8CYguP.jpg)
+![](/assets/img/posts/0*6raqkINELt8CYguP.jpg)
 
 **Ağ arabirim denetleyicisi (Network Interface Controller — NIC):** Bir bilgisayarı kablo tabanlı bir bilgisayar ağına bağlayan bir aygıttır. Bir aygıt dediğime bakmayın bile. Bu sizin laptoplarınızda bulunan bir ethernet soketi veya aşağıdaki gibi bir ethernet kartı da olabilir
 
 * * *
 
-![](https://cdn-images-1.medium.com/max/600/0*GbcCw-Wvvo7uVesV)
+![](/assets/img/posts/0*GbcCw-Wvvo7uVesV)
 
 **Kablosuz ağ arabirim denetleyicisi:** Evimizde kullandığımız wifi sinyallerini işleyerek interneti bilgisayarımıza ileten aletlere verilen isimdir. Şu anda laptopların çoğundaki dahili WiFi adaptörleri bu işleri yapmaktadır.
 

@@ -15,7 +15,7 @@ image_hash: "0eaa74f1c6c658a026a8385aacddeb38"
 
 Her pakete IP bilgisi eklenir ve bu bilgi yönlendiricilerin paketleri doğru yere göndermesine yardımcı olur ve paketler bunlara bağlı IP adresine yönlendirildikçe veriler ihtiyaç duyulan yere ulaşır. Paketler hedeflerine ulaştığında, IP ile birlikte hangi taşıma protokolünün kullanıldığına bağlı olarak farklı şekilde işlenirler. Bundan sonrasını ise TCP protokolleri olan aktarım protokolleri yapar, buna daha sonra deyineceğim.
 
-![IP paketinin içeriği](https://cdn-images-1.medium.com/max/600/0*AondrwKM62RdqT6u.png)
+![IP paketinin içeriği](/assets/img/posts/0*AondrwKM62RdqT6u.png)
 
 IP protokolü datagramları taşımakta kullanılır demiştim. Datagram aktarılan paketin genel adıdır. Her datagramın iki bileşeni vardır: bir başlık ve bir yük. IP başlığı, kaynak IP adresini, hedef IP adresini ve datagramı yönlendirmek ve teslim etmek için gereken diğer meta verileri içerir. Yük, taşınan verilerdir. Veri yükünü bir başlık ile bir pakete yerleştirmenin bu yöntemine **kapsülleme** denir.
 
@@ -29,9 +29,9 @@ Son olarak paketlerin yönlendirilmesine değineyim. IP yönlendirme, ana işlev
 
 ### IP Paket Formu
 
-İnternette, cihazlar arası iletişimde, iki cihaz arasında her türlü mesajı gönderilir. Bir mesaj, başka bir cihazın çevrimiçi olup olmadığını kontrol etmek için küçük bir ping paketi olabileceği gibi bir mesaj tüm bir web sayfasını içerebilir.  
-Ancak bir mesajın büyüklüğünün bir sınırı vardır, çünkü cihazlar arasındaki fiziksel ağ bağlantıları tarafından bir kerede ne kadar verinin makul bir şekilde iletilebileceğinin bir sınırı vardır.  
-Bu nedenle birçok ağ protokolü, her mesajı birden çok küçük pakete böler. İnternet Protokolü (IP), İnternet’te dolaşan paketlerin yapısını tanımlar.  
+İnternette, cihazlar arası iletişimde, iki cihaz arasında her türlü mesajı gönderilir. Bir mesaj, başka bir cihazın çevrimiçi olup olmadığını kontrol etmek için küçük bir ping paketi olabileceği gibi bir mesaj tüm bir web sayfasını içerebilir.
+Ancak bir mesajın büyüklüğünün bir sınırı vardır, çünkü cihazlar arasındaki fiziksel ağ bağlantıları tarafından bir kerede ne kadar verinin makul bir şekilde iletilebileceğinin bir sınırı vardır.
+Bu nedenle birçok ağ protokolü, her mesajı birden çok küçük pakete böler. İnternet Protokolü (IP), İnternet’te dolaşan paketlerin yapısını tanımlar.
 Her IP paketi hem bir başlık (20 veya 24 bayt uzunluğunda) hem de veri (değişken uzunluk) içerir. Başlık, kaynak ve hedefin IP adreslerini ve ayrıca paketin yönlendirilmesine yardımcı olan diğer alanları içerir. Veriler, bir harf dizisi veya bir web sayfasının parçası gibi gerçek içeriktir.
 
 IP paketinin başlık kısmı bir postanın arkasında yazan adres gibi düşünürsek, paketin diğer kısmı ise mektubu ifade etmektedir.
@@ -42,7 +42,7 @@ IP paketi başlığını iki başlık altında inceleyebiliriz.
 
 **IPv4**
 
-![](https://cdn-images-1.medium.com/max/800/0*mboIluuSsE2UxaKY.png)
+![](/assets/img/posts/0*mboIluuSsE2UxaKY.png)
 
 *   **Version:** IP sürümünün kaç olduğunu ifade eder. IPv4 için bu değer 4'dür.
 *   **Header Length:** kaç baytlık bir başlığa sahip olduğumuzu çözümler.
@@ -59,7 +59,7 @@ IP paketi başlığını iki başlık altında inceleyebiliriz.
 
 **IPv6**
 
-![](https://cdn-images-1.medium.com/max/800/0*8bQfykiaRZ7KOfCX.png)
+![](/assets/img/posts/0*8bQfykiaRZ7KOfCX.png)
 
 *   **Version:** İnternet Protokolünün 4 bit sürüm numarası. IPv6 için bu değer 6'dır.
 *   **Traffic Class:** 8 bit trafik sınıfı alanı.
@@ -86,26 +86,26 @@ El hasılı kelam internet’in büyümesi ve mevcut IPv4 adreslerinin tükenmes
 
 Ağ yöneticileri, bir ağa bağlı her cihaza bir IP adresi atar. Bu tür atamalar, ağ uygulamalarına ve yazılım özelliklerine bağlı olarak statik (sabit veya kalıcı) veya dinamik bir temelde olabilir.
 
-IP adresleri, IPv4'te 192.0.2.1 ve IPv6'da 2001:db8:0:1234:0:567:8:1 gibi insan tarafından okunabilen gösterimlerde yazılır ve görüntülenir. Ancak bu adresler (özellikle IPv6 adresleri) pek insanın okuması için uygun değildir. Bu sebeple DNS sunucuları kullanarak her bir alan adı için bir IP ataması yapılır.  
+IP adresleri, IPv4'te 192.0.2.1 ve IPv6'da 2001:db8:0:1234:0:567:8:1 gibi insan tarafından okunabilen gösterimlerde yazılır ve görüntülenir. Ancak bu adresler (özellikle IPv6 adresleri) pek insanın okuması için uygun değildir. Bu sebeple DNS sunucuları kullanarak her bir alan adı için bir IP ataması yapılır.
 Bir diğer IP konusu ise IP adreslerinin bir yapısı vardır. Bunu IP Subnetting ile ilgili yazacağım bir yazıda detaylı olarak anlatırım. Ancak IP adresinin bir yönlendirme öneki bir de host soneki kısmı vardır. IPv4 için örneğin 192.168.1.1 adresi 32 bitlik yazımda şu şekilde ifade edilir
 
 **11000000.10101000.00000001.00000001**
 
 Burada her bir 8 bitlik kısım bir parçayı ifade eder. genellikle bugünkü kullandığımız ağlarda ilk 24 bit yönlendirme öneki, son 8 bit ise cihaz sonekidir. Bu durumda yönlendirme biti adresin sonuna eklenir. Bu durumda IPv4 adresi 192.168.1.1/24 olarak ifade edilir. Ve ağ maskesi de yine bu yönlendirme önekine göre oluşturulur.
 
-IP adres alanı, küresel olarak İnternet Tahsisli Numaralar Kurumu (IANA) ve kendi belirlenmiş bölgelerinde İnternet servis sağlayıcıları (ISP’ler) ve diğer uç noktalar gibi yerel İnternet sicillerine atamadan sorumlu beş bölgesel İnternet sicili (RIR) tarafından yönetilir.   
+IP adres alanı, küresel olarak İnternet Tahsisli Numaralar Kurumu (IANA) ve kendi belirlenmiş bölgelerinde İnternet servis sağlayıcıları (ISP’ler) ve diğer uç noktalar gibi yerel İnternet sicillerine atamadan sorumlu beş bölgesel İnternet sicili (RIR) tarafından yönetilir.
 IPv4 adresleri, IANA tarafından RIR’lere her biri yaklaşık 16,8 milyon adresten oluşan bloklar halinde dağıtıldı, ancak 2011'den beri IANA düzeyinde tükendi. RIR’lerden yalnızca birinin Afrika’da yerel atamalar için hala bir miktar IPv4 kaynağı var. Ancak bazı IPv4 adresleri özel ağlar için ayrılmıştır ve genel olarak benzersiz değildir.
 
 ### IP Yönlendirme Sistemi
 
 İnternet Protokolünde (IP), bilgisayarlar mesajları paketlere böler ve bu paketler hedeflerine giderken yönlendiriciden yönlendiriciye atlar:
 
-![](https://cdn-images-1.medium.com/max/800/0*uVkD3r-oViftL05Y.png)
+![](/assets/img/posts/0*uVkD3r-oViftL05Y.png)
 
-Bir paketi bir kaynaktan bir hedefe yönlendirme sürecini adım adım inceleyelim.  
+Bir paketi bir kaynaktan bir hedefe yönlendirme sürecini adım adım inceleyelim.
 Bilgisayarlar ilk paketi en yakın yönlendiriciye gönderir. Yönlendirici, bilgisayar ağlarında paketleri hareket ettirmeye yardımcı olan bir tür bilgi işlem aygıtıdır. Şu anda evinizde veya ağınızda büyük olasılıkla bir yönlendiriciniz var ve bu yönlendirici, mevcut bilgisayarınızın paketleri için ilk durak olarak kullanılır.
 
-![](https://cdn-images-1.medium.com/max/800/0*eqL3-jOw7ZJH3e-X.jpg)
+![](/assets/img/posts/0*eqL3-jOw7ZJH3e-X.jpg)
 
 Yönlendirici bir paket aldığında, IP başlığına bakar. En önemli alan, yönlendiriciye paketin nereye varmak istediğini söyleyen hedef IP adresidir.
 
@@ -113,7 +113,7 @@ Yönlendiricinin bir paket gönderebileceği birden fazla yolu vardır ve amacı
 
 IP adresleri hiyerarşiktir. İki IP adresi aynı önekle başladığında, bu genellikle Comcast SF ağı gibi aynı büyük ağda oldukları anlamına gelir. Yönlendirici yönlendirme tabloları, çok daha az bilgi depolayabilmeleri için bu durumdan yararlanır.
 
-Yönlendirici, hedef IP adresi için tabloda en spesifik satırı bulduğunda, paketi bu yol boyunca gönderir. Her şey yolunda giderse, paket sonunda onu tam olarak nereye göndereceğini bilen bir yönlendiriciye ulaşacaktır.  
+Yönlendirici, hedef IP adresi için tabloda en spesifik satırı bulduğunda, paketi bu yol boyunca gönderir. Her şey yolunda giderse, paket sonunda onu tam olarak nereye göndereceğini bilen bir yönlendiriciye ulaşacaktır.
 Yönlendirici artık mesajı kişisel bir bilgisayar veya sunucu olabilecek hedef IP adresine gönderebilir.
 
 ### **Sonuç:**

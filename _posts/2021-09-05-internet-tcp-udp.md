@@ -30,7 +30,7 @@ TCP iletişiminde bu faz komutlar ve iletişim verisi paketler haline getirilir.
 
 ### TCP Segmentleri
 
-![](https://cdn-images-1.medium.com/max/600/0*_lNdd13RRLgL4NSt.jpg)
+![](/assets/img/posts/0*_lNdd13RRLgL4NSt.jpg)
 
 Bir TCP segmenti, bir _segment_ _başlığından_ ve bir _veri_ katarından oluşur. Segment başlığı 10 zorunlu alan ve isteğe bağlı bir uzantı alanı içerir. Veri bölümü başlığı takip eder ve uygulama için taşınan yük verileridir. Veri bölümünün uzunluğu, segment başlığında belirtilmemiştir; IP başlığında belirtilen toplam IP datagram uzunluğundan segment başlığının ve IP başlığının birleşik uzunluğunun çıkarılmasıyla hesaplanabilir. Ardından bu segment şekilde görüldüğü üzere IP başlığı ile birleştirilerek veri akışı sağlanır. TCP komutlarının başlıkları ise şu şekilde sıralanabilir:
 
@@ -69,7 +69,7 @@ Bir TCP segmenti, bir _segment_ _başlığından_ ve bir _veri_ katarından olu�
 
 **TCP Options:** Bu alanın uzunluğu _Data Offset_ tarafından belirlenir. TCP aktarımına dair seçenekleri ifade eder. Seçenek numarası atamaları IANA tarafından sağlanır. Veri aktarımına ait seçenekler kullanılarak verilerin aktarım yoları ifade edilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*5yyYm-pw05Bnm5ElfoY3og.png)
+![](/assets/img/posts/1*5yyYm-pw05Bnm5ElfoY3og.png)
 
 **Padding:** TCP başlık dolgusu olarak adlandırılır, 32 bitlik bir sınıra sahiptir. TCP başlığının belirtilen veri biti sınırında bitmesini ve verilerin istenilen bitten sonra başlamasını sağlamak için kullanılır. Dolgu kısmı tamamı ile sıfırlardan oluşur.
 
@@ -109,13 +109,13 @@ TCP bağlantısının sağlanması ise bazı bayraklara sahip paketlerin aktarı
 2.  **SYN-ACK** : Yanıt olarak sunucu bir SYN-ACK ile yanıt verir. Onay numarası, alınan sıra numarasından bir fazlaya, yani A+1'e ayarlanır ve sunucunun paket için seçtiği sıra numarası, başka bir rasgele sayıdır, B.
 3.  **ACK** : Son olarak, istemci sunucuya bir ACK gönderir. Sıra numarası, alınan alındı ​​değerine, yani A+1'e ayarlanır ve alındı ​​numarası, alınan sıra numarasından bir fazlaya, yani B+1'e ayarlanır.
 
-![](https://cdn-images-1.medium.com/max/600/0*JiNf7WyhrtNJwO6j.png)
+![](/assets/img/posts/0*JiNf7WyhrtNJwO6j.png)
 
 Adım 1 ve 2, bir yön için sıra numarasını belirler ve onaylar. Adım 2 ve 3, diğer yön için sıra numarasını belirler ve onaylar. Bu adımların tamamlanmasının ardından hem istemci hem de sunucu veri yanıtı ​​alıdı demektir ​​ve bu aşamadan sonra tam çift yönlü iletişim kurulur.
 
 Bağlantı sonlandırma aşaması ise bağlantı kurulmasından biraz daha karmaşıktır. Bağlantının her iki tarafının bağımsız olarak sona erdiği dört yönlü bir el sıkışma kullanır. İki taraftan birisi, bağlantının yarısını durdurmak istediğinde, diğer ucun bir ACK ile onayladığı bir paket gönderir.
 
-![](https://cdn-images-1.medium.com/max/600/0*A4WhqPOuwm0kIgZT.gif)
+![](/assets/img/posts/0*A4WhqPOuwm0kIgZT.gif)
 
 Ardından karşı taraf da bir FIN paketi iletir. Son olarak bağlantı sonlaracak taraf da bir ACK paketi göndererek bağlantı sonladırılır ve “Connection refused” mesajı çekirdek tarafından uygulamaya iletilir. Bazen ise 2\. ve 3\. adımlardaki ayrı ayrı gönderilen ACK ve FIN paketi tek bir paket üzerinden FIN&ACK şeklinde gönderilerek 3 adımda bağlantı sonlandırması yapılabilir. Bazı durumlarda ana bilgisayar bir bağlantıyı aktif olarak kapatırsa ve hala okunmamış gelen veriler mevcutsa, ana bilgisayar FIN yerine RST sinyalini (alınan verileri kaybederek) gönderir. Bu, bir TCP uygulamasının bir veri kaybı olduğunun farkında olmasını sağlar ve bağlantı yeniden kurulması için yine bağlantı kaybı mesajı uygulamaya iletilir ve iletişim sonlandırılır.
 

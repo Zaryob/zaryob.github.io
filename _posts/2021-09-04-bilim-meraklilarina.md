@@ -50,7 +50,7 @@ Bu aşamada direk bilimsel yazılımları listelemek mantıksız geliyor. Kim ne
 
 Benim için hep ilklerin programıdır kendisi. Gökyüzü gözlemi için bundan daha iyisini bulamazsınız. Gökyüzündeki yıldızları gökadaları, bulunduğunuz konuma göre ve zamana göre görebilir, resmen bir dijital teleskop gibi kullanabilirsiniz. Dahası hem bilgisayar için hem mobil için dağıtılan bir yazılım. Ayrıca web sürümü de olmalı.
 
-![](https://cdn-images-1.medium.com/max/800/0*1wwlKmUX7mhBmfLE.jpg)
+![](/assets/img/posts/0*1wwlKmUX7mhBmfLE.jpg)
 
 [**Stellarium Astronomy Software** Stellarium is a free open source planetarium for your computer. It shows a realistic sky in 3D, just like what you see…_stellarium.org](https://stellarium.org/)
 

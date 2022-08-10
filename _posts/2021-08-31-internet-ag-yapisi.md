@@ -19,7 +19,7 @@ Bu kısımda protokollerin temel aldığı ağ yapısından bahsedeceğim. Bir s
 
 ### TCP/IP
 
-![TCP/IP Model](https://cdn-images-1.medium.com/max/800/0*xsemEx5b7DPJ0mFG.png)
+![TCP/IP Model](/assets/img/posts/0*xsemEx5b7DPJ0mFG.png)
 
 
 #### TCP/IP Nedir?
@@ -43,7 +43,7 @@ Bu kısımda bazı soyut bilgiler vereceğim. Çünkü buradaki bilgilerin tamam
 *   **İnternet katmanı:** Bu katman temel ağ bağlantılarının gerçek topolojisini (düzenini) gizleyen tek tip bir ağ arabirimi sağlar. Bu nedenle, ağlar arası iletişimi bu katman üzerinde kurarız. Aslında bu katman interneti tanımlar ve kurar. Bu katman, **TCP/IP** protokol takımı için kullanılan adresleme ve yönlendirme yapılarını tanımlamaktadır. Bu kapsamda birincil protokol, cihazların ağ üzerindeki adreslerini tanımlayan **İnternet Protokol (IP)** adresleridir . Yönlendirmedeki işlevi, son veri hedefine daha yakın bir ağa bağlantısı olan bir IP yönlendiricisi olarak işlev gören bir sonraki ana bilgisayara datagramları taşımaktır.
 *   **Bağlantı katmanı:** Barındıran yönlendiricilere müdahale etmeden iletişim hangi yerel ağ bağlantısı kapsamında ağ yöntemleri tanımlar. Bu katman, yerel ağ topolojisini tanımlamak için kullanılan protokolleri ve İnternet katmanı datagramlarının komşu ana bilgisayarlara iletimini etkilemek için gereken arayüzleri içerir.
 
-![](https://cdn-images-1.medium.com/max/600/0*FsyLCNdE1qRdtcw4.jpg)
+![](/assets/img/posts/0*FsyLCNdE1qRdtcw4.jpg)
 
 Bu katmanlar en dıştan en içe doğru sıralandığında
 
@@ -105,7 +105,7 @@ Farkettiğiniz gibi OSI modeli protokollerle harmanlanmış bir model olmaktan �
 
 ### OSI ve TCP/IP Modellerinin Karşılaştırması:
 
-![TCP/IP ve OSI modellerinin katman karşılaştırması şekildeki gibidir.](https://cdn-images-1.medium.com/max/800/0*QJh-OT-cnZ9N7uqd.png)
+![TCP/IP ve OSI modellerinin katman karşılaştırması şekildeki gibidir.](/assets/img/posts/0*QJh-OT-cnZ9N7uqd.png)
 
 
 #### OSI ve TCP/IP Modelleri Arasındaki Benzerlikler
