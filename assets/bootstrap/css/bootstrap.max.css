@@ -9204,7 +9204,7 @@
  @media only screen and (min-width: 992px) {
      #mainNav {
          border-bottom: 1px solid transparent;
-         background: transparent;
+         background: #202124c2;
      }
      #mainNav .navbar-brand {
          padding: 10px 20px;
@@ -9278,14 +9278,14 @@
  header.masthead .page-heading,
  header.masthead .post-heading,
  header.masthead .site-heading {
-     padding: 200px 0 150px;
+    padding: 20% 10% 10%;
      color: #fff;
  }
  @media only screen and (min-width: 768px) {
      header.masthead .page-heading,
      header.masthead .post-heading,
      header.masthead .site-heading {
-         padding: 200px 0;
+         padding: 20% 10%;
      }
  }
  header.masthead .page-heading,
@@ -9297,6 +9297,18 @@
      font-size: 50px;
      margin-top: 0;
  }
+
+ header.masthead .page-heading .heading-text,
+ header.masthead .post-heading .heading-text,
+ header.masthead .site-heading .heading-text {
+    text-shadow: 2px 2px 8px #282d32c2;
+ }
+ header.masthead .page-heading .subheading,
+ header.masthead .post-heading .subheading,
+ header.masthead .site-heading .subheading {
+ text-shadow: 2px 2px 8px #282d32;
+}
+
  header.masthead .page-heading .subheading,
  header.masthead .site-heading .subheading {
      font-size: 24px;
