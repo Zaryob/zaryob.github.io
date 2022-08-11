@@ -3,8 +3,9 @@
  * Copyright 2013-2019, Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
  */
- @import "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800";
+ /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800";
  @import "https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic";
+ /*
  /*!
   * Bootstrap v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors
@@ -71,7 +72,7 @@
      font-weight: 400;
      line-height: 1.5;
      text-align: left;
-     background-color: #fff;
+     background-color: #202124;
      overflow: hidden;
      overflow-y: visible;
  }
@@ -9162,8 +9163,8 @@
      font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
  }
  .btn-primary {
-     background-color: #0085a1;
-     border-color: #0085a1;
+     background-color: #637afe;
+     border-color: #637afe;
  }
  .btn-primary:active,
  .btn-primary:focus,
@@ -9243,14 +9244,14 @@
      }
      #mainNav.is-fixed .navbar-brand:focus,
      #mainNav.is-fixed .navbar-brand:hover {
-         color: #0085a1;
+         color: #637afe;
      }
      #mainNav.is-fixed .navbar-nav > li.nav-item > a {
          color: #212529;
      }
      #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
      #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-         color: #0085a1;
+         color: #637afe;
      }
      #mainNav.is-visible {
          -webkit-transform: translate3d(0, 100%, 0);
@@ -9348,7 +9349,7 @@
  .post-preview > a:focus,
  .post-preview > a:hover {
      text-decoration: none;
-     color: #0085a1;
+     color: #637afe;
  }
  .post-preview > a > .post-title {
      font-size: 30px;
@@ -9372,7 +9373,7 @@
  .post-preview > .post-meta > a:focus,
  .post-preview > .post-meta > a:hover {
      text-decoration: underline;
-     color: #0085a1;
+     color: #637afe;
  }
  @media only screen and (min-width: 768px) {
      .post-preview > a > .post-title {
@@ -9425,7 +9426,7 @@
      opacity: 1;
  }
  .floating-label-form-group-with-focus label {
-     color: #0085a1;
+     color: #637afe;
  }
  form .form-group:first-child .floating-label-form-group {
      border-top: 1px solid #dee2e6;
@@ -10222,4 +10223,5 @@
 }
 .portfolio-block.project .image {
     height: 450px;
+}
 }
