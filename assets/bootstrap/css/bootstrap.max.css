@@ -9237,7 +9237,7 @@
          transition: transform 0.2s;
          transition: transform 0.2s, -webkit-transform 0.2s;
          border-bottom: 1px solid #fff;
-         background-color: hsla(0, 0%, 100%, 0.9);
+         background-color: #202124c2;
      }
      #mainNav.is-fixed .navbar-brand {
          color: #ebebeb;
