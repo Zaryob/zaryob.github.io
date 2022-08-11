@@ -14,9 +14,6 @@ permalink: /hakkinda/
             <div class="about-me">
                 <div>
                     <p style="  font-size: 37px;">Ben Süleyman Poyraz</p>
-                    <div class="container">
-                        <p>Daima <span class="typed-text"></span><span class="cursor"></span> birisiyim.</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -24,55 +21,33 @@ permalink: /hakkinda/
     <section class="portfolio-block cv">
         <div class="container">
             <div class="work-experience group">
-            <!--
                 <div class="heading">
                     <h2 class="text-center">İş Deyimi</h2>
                 </div>
                 <div class="item">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h3>Web Developer</h3>
-                            <h4 class="organization">Amazing Co.</h4>
-                        </div>
-                        <div class="col-md-6"><span class="period">10/2013 - 04/2015</span></div>
-                    </div>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
-                </div>
-                <div class="item">
-                    <div class="row">
                         <div class="col-6">
-                            <h3>Front End Developer</h3>
-                            <h4 class="organization">Innovative Org.</h4>
+                            <h3>VR Teknolji Araştırmacısı</h3>
+                            <h4 class="organization">Adal Grup</h4>
                         </div>
-                        <div class="col-md-6"><span class="period">05/2015 - 12/2017</span></div>
+                        <div class="col-md-6"><span class="period">31/03/2022 – 01/08/2022</span></div>
                     </div>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    <p class="text-muted">Adal Grup bir mimari proje firmasıdır. Bu firmada gönüllü olarak staj yapıyorum ve Ar-Ge departmanında çalışıyorum.İlk önceliği mimari projeleri artırılmış gerçeklik kullanarak sanal gerçeklik gözlükleriyle kullanıcılara sunmaktır. Sanal gerçeklik gözlükleri ile etkileşimli, gezilebilir ve değişken mimari iç mekan tasarımları ve şehir planları yapılmaktadır.Bu şirkette Oculus gözlüklerini kullanarak VR deneyimi üzerinde çalışıyorum. Oculus Networks ile çok oyunculu erişim üzerinde çalışıyorum. Ayrıca, içinde bulunduğum süreçte gerçek dışı bir motor kullanıyorum. Unreal motoruyla hiper-gerçekçi malzeme ve animasyon oluşturmaya çalışıyorum. Burada içinde bulunduğum projeler aslında bir Ar-Ge projesi ve gelecekte bu tasarımların ve kullanıcı deneyiminin metaversi üzerine gelişmesi hedefleniyor..</p>
                 </div>
                 <div class="item">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Web Developer</h3>
-                            <h4 class="organization">Special Inc.</h4>
+                            <h3>Bilgi İşlem Stajı</h3>
+                            <h4 class="organization">TÜRASAŞ</h4>
                         </div>
-                        <div class="col-md-6"><span class="period">12/2017 - Present</span></div>
+                        <div class="col-md-6"><span class="period">27/06/2021 – 15/08/2021</span></div>
                     </div>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                    <p class="text-muted">TÜRASAŞ, sahip olduğu teknik altyapı, bilgi birikimi ve iş tecrübesi ile demiryolu araçlarının tamir, bakım ve revizyonunun yanı sıra her türlü lokomotif, yolcu vagonu, yük vagonu ve raylı sistem araçları için yedek parça imalatı yapmaktadır. Stajımı iki farklı alt bölümde yaptım. Donanım Destek Bölümü ve Yazılım Teknolojileri Departmanı.Yazılım Teknolojileri Bölümü stajı sırasında Linux üzerine kurulu JBoss sunucuları ve gömülü sistem yazılımları ile uğraştım. ERP yazılımı, veritabanı ve kaynak planlaması, yazılım ve ağ güvenliğinin yazılım tarafından sağlandığını öğreniyorum. Stajımın sonunda bu bölümün desteğiyle tekerlek test üniteleri için sürtünme analizi projesi geliştirdim. Donanım Destek Bölümü stajı sırasında ağ ekipmanları ile çalıştım. Kurumsal ağ yönetimi, LAN ve orta boy WAN üzerinde çalıştım. Cisco'nun akıllı anahtarları, Firebox marka güvenlik duvarları, Huawei Kablosuz distribütörleri ile çalıştım.</p>
                 </div>
             </div>
-            -->
             <div class="education group">
                 <div class="heading">
                     <h2 class="text-center">Öğrenim Geçmişi</h2>
-                </div>
-                <div class="item">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>Lise</h3>
-                            <h4 class="organization">Sivas Fen Lisesi</h4>
-                        </div>
-                        <div class="col-6"><span class="period">09/2014 - 05/2018</span></div>
-                    </div>
-                    <p class="text-muted">Sivas Fen Lisesi'nde, 4 sene boyunca mevcut derslere ek olarak robotik ve linux üzerine bir öğretmenimiz ile çalışma fırsatına sahip oldum. SulinOS projesine burada başladım.</p>
                 </div>
                 <div class="item">
                     <div class="row">
@@ -85,31 +60,41 @@ permalink: /hakkinda/
                     <p class="text-muted"> 2. sınıf sonbahar dönemi sonu itibarı ile GPA 3.11'dir
                     Abdullah Gül Üniversitesinde 3 senedir okumaktayım. 100% İngilizce olduğu için ilk sene zorunlu hazırlık okulundan dersler aldım.</p>
                 </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Lise</h3>
+                            <h4 class="organization">Sivas Fen Lisesi</h4>
+                        </div>
+                        <div class="col-6"><span class="period">09/2014 - 05/2018</span></div>
+                    </div>
+                    <p class="text-muted">Sivas Fen Lisesi'nde, 4 sene boyunca mevcut derslere ek olarak robotik ve linux üzerine bir öğretmenimiz ile çalışma fırsatına sahip oldum. SulinOS projesine burada başladım.</p>
+                </div>
             </div>
             <div class="group">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="skills portfolio-info-card">
                             <h2>Beceriler</h2>
+                            <h3>C/C++</h3>
+                            <div class="progress">
+                                <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
+                            </div>
                             <h3>Python</h3>
                             <div class="progress">
                                 <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
                             </div>
-                            <h3>C</h3>
-                            <div class="progress">
-                                <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
-                            </div>
-                            <h3>C++</h3>
+                            <h3>Linux</h3>
                             <div class="progress">
                                 <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">90%</span></div>
                             </div>
-                            <h3>Java</h3>
+                            <h3>Gömülü sistemler</h3>
                             <div class="progress">
-                                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">80%</span></div>
+                                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">90%</span></div>
                             </div>
                             <h3>Web Tasarımı (HTML- CSS)</h3>
                             <div class="progress">
-                                <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">60%</span></div>
+                                <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"><span class="sr-only">40%</span></div>
                             </div>
                         </div>
                     </div>
@@ -178,15 +163,8 @@ permalink: /hakkinda/
                     </div>
                 </div>
             </div>
-            <div class="hobbies group">
-                <div class="heading">
-                    <h2 class="text-center">Hobilerim</h2>
-                </div>
-                <p class="text-center text-muted">Hobilerim arasında satranç oynamak ve yürüyüş yapmak bulunmakta. Bunlara ek olarak programlamanın özellikle algoritma ve matematiksel programlama konuları hakkında makale ve kitapları okumaktan hoşlanırım. Buna ek olarak popüler kültür ve yaşadığım bölgenin tarihi ve sosyokültürel yapısı üzerine yazılmış kitaplardan oluşan bir kütüphanem de bulunmakta.
-                Bunların haricinde bireysel olarak doğa yürüyüşleri, gezi ve kamplar yapıyorum.  Genellikle arta kalan zamanımda, zamanımın büyük bir kısmını Türkçe belgeler oluşturmaya ve kendim geliştirmeye harcıyorum.</p>
-            </div>
         </div>
-   
+
 <script src="{{site.baseurl}}/assets/bootstrap/js/blinking_text.js"></script>
 
 
