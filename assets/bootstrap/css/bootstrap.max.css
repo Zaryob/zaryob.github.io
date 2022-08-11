@@ -39,8 +39,8 @@
      --breakpoint-md: 768px;
      --breakpoint-lg: 992px;
      --breakpoint-xl: 1200px;
-     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+     --font-family-sans-serif: -apple-system,  IBM Plex Sans, IBM Plex Serif, "Apple Color Emoji";
+     --font-family-monospace: IBM Plex Mono,, monospace;
  }
  *,
  :after,
@@ -67,12 +67,12 @@
  }
  body {
      margin: 0;
-     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+     font-family: -apple-system, IBM Plex Sans, IBM Plex Serif,  IBM Plex Mono, sans-serif;
      font-size: 1rem;
      font-weight: 400;
      line-height: 1.5;
      text-align: left;
-     background-color: #202124;
+     background-color: #282d32;
      overflow: hidden;
      overflow-y: visible;
  }
@@ -179,7 +179,7 @@
  kbd,
  pre,
  samp {
-     font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+     font-family: IBM Plex Sans, IBM Plex Serif, IBM Plex Mono, monospace;
      font-size: 1em;
  }
  pre {
@@ -470,7 +470,7 @@
      padding: 0.2rem 0.4rem;
      font-size: 87.5%;
      color: #fff;
-     background-color: #212529;
+     background-color: #ebebeb;
      border-radius: 0.2rem;
  }
  kbd kbd {
@@ -481,7 +481,7 @@
  pre {
      display: block;
      font-size: 87.5%;
-     color: #212529;
+     color: #ebebeb;
  }
  pre code {
      font-size: inherit;
@@ -1471,7 +1471,7 @@
  .table {
      width: 100%;
      margin-bottom: 1rem;
-     color: #212529;
+     color: #ebebeb;
  }
  .table td,
  .table th {
@@ -1509,7 +1509,7 @@
      background-color: rgba(0, 0, 0, 0.05);
  }
  .table-hover tbody tr:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: rgba(0, 0, 0, 0.075);
  }
  .table-primary,
@@ -1818,7 +1818,7 @@
      padding-bottom: 0.375rem;
      margin-bottom: 0;
      line-height: 1.5;
-     color: #212529;
+     color: #ebebeb;
      background-color: transparent;
      border: solid transparent;
      border-width: 1px 0;
@@ -2209,7 +2209,7 @@
  .btn {
      display: inline-block;
      font-weight: 400;
-     color: #212529;
+     color: #ebebeb;
      text-align: center;
      vertical-align: middle;
      -webkit-user-select: none;
@@ -2230,7 +2230,7 @@
      }
  }
  .btn:hover {
-     color: #212529;
+     color: #ebebeb;
      text-decoration: none;
  }
  .btn.focus,
@@ -2375,12 +2375,12 @@
      box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
  }
  .btn-warning {
-     color: #212529;
+     color: #ebebeb;
      background-color: #ffc107;
      border-color: #ffc107;
  }
  .btn-warning:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #e0a800;
      border-color: #d39e00;
  }
@@ -2390,14 +2390,14 @@
  }
  .btn-warning.disabled,
  .btn-warning:disabled {
-     color: #212529;
+     color: #ebebeb;
      background-color: #ffc107;
      border-color: #ffc107;
  }
  .btn-warning:not(:disabled):not(.disabled).active,
  .btn-warning:not(:disabled):not(.disabled):active,
  .show > .btn-warning.dropdown-toggle {
-     color: #212529;
+     color: #ebebeb;
      background-color: #d39e00;
      border-color: #c69500;
  }
@@ -2439,12 +2439,12 @@
      box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
  }
  .btn-light {
-     color: #212529;
+     color: #ebebeb;
      background-color: #f8f9fa;
      border-color: #f8f9fa;
  }
  .btn-light:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #e2e6ea;
      border-color: #dae0e5;
  }
@@ -2454,14 +2454,14 @@
  }
  .btn-light.disabled,
  .btn-light:disabled {
-     color: #212529;
+     color: #ebebeb;
      background-color: #f8f9fa;
      border-color: #f8f9fa;
  }
  .btn-light:not(:disabled):not(.disabled).active,
  .btn-light:not(:disabled):not(.disabled):active,
  .show > .btn-light.dropdown-toggle {
-     color: #212529;
+     color: #ebebeb;
      background-color: #dae0e5;
      border-color: #d3d9df;
  }
@@ -2627,7 +2627,7 @@
      border-color: #ffc107;
  }
  .btn-outline-warning:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #ffc107;
      border-color: #ffc107;
  }
@@ -2643,7 +2643,7 @@
  .btn-outline-warning:not(:disabled):not(.disabled).active,
  .btn-outline-warning:not(:disabled):not(.disabled):active,
  .show > .btn-outline-warning.dropdown-toggle {
-     color: #212529;
+     color: #ebebeb;
      background-color: #ffc107;
      border-color: #ffc107;
  }
@@ -2687,7 +2687,7 @@
      border-color: #f8f9fa;
  }
  .btn-outline-light:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #f8f9fa;
      border-color: #f8f9fa;
  }
@@ -2703,7 +2703,7 @@
  .btn-outline-light:not(:disabled):not(.disabled).active,
  .btn-outline-light:not(:disabled):not(.disabled):active,
  .show > .btn-outline-light.dropdown-toggle {
-     color: #212529;
+     color: #ebebeb;
      background-color: #f8f9fa;
      border-color: #f8f9fa;
  }
@@ -2845,10 +2845,10 @@
      padding: 0.5rem 0;
      margin: 0.125rem 0 0;
      font-size: 1rem;
-     color: #212529;
+     color: #ebebeb;
      text-align: left;
      list-style: none;
-     background-color: #fff;
+     background-color: #2a2a2a;
      background-clip: padding-box;
      border: 1px solid rgba(0, 0, 0, 0.15);
      border-radius: 0.25rem;
@@ -2991,7 +2991,7 @@
      padding: 0.25rem 1.5rem;
      clear: both;
      font-weight: 400;
-     color: #212529;
+     color: #ebebeb;
      text-align: inherit;
      white-space: nowrap;
      background-color: transparent;
@@ -3029,7 +3029,7 @@
  .dropdown-item-text {
      display: block;
      padding: 0.25rem 1.5rem;
-     color: #212529;
+     color: #ebebeb;
  }
  .btn-group,
  .btn-group-vertical {
@@ -4519,12 +4519,12 @@
      box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
  }
  .badge-warning {
-     color: #212529;
+     color: #ebebeb;
      background-color: #ffc107;
  }
  a.badge-warning:focus,
  a.badge-warning:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #d39e00;
  }
  a.badge-warning.focus,
@@ -4547,12 +4547,12 @@
      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
  }
  .badge-light {
-     color: #212529;
+     color: #ebebeb;
      background-color: #f8f9fa;
  }
  a.badge-light:focus,
  a.badge-light:hover {
-     color: #212529;
+     color: #ebebeb;
      background-color: #dae0e5;
  }
  a.badge-light.focus,
@@ -4790,7 +4790,7 @@
      background-color: #f8f9fa;
  }
  .list-group-item-action:active {
-     color: #212529;
+     color: #ebebeb;
      background-color: #e9ecef;
  }
  .list-group-item {
@@ -5319,7 +5319,7 @@
      z-index: 1070;
      display: block;
      margin: 0;
-     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+     font-family: -apple-system, IBM Plex Sans, IBM Plex Serif,  IBM Plex Mono, sans-serif;
      font-style: normal;
      font-weight: 400;
      line-height: 1.5;
@@ -5425,7 +5425,7 @@
      left: 0;
      z-index: 1060;
      max-width: 276px;
-     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+     font-family: -apple-system, IBM Plex Sans, IBM Plex Serif,  IBM Plex Mono, sans-serif;
      font-style: normal;
      font-weight: 400;
      line-height: 1.5;
@@ -5575,7 +5575,7 @@
  }
  .popover-body {
      padding: 0.5rem 0.75rem;
-     color: #212529;
+     color: #ebebeb;
  }
  .carousel {
      position: relative;
@@ -8821,7 +8821,7 @@
      }
  }
  .text-monospace {
-     font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
+     font-family: IBM Plex Mono, monospace !important;
  }
  .text-justify {
      text-align: justify !important;
@@ -9089,8 +9089,8 @@
  }
  body {
      font-size: 20px;
-     color: #212529;
-     font-family: Lora, Times New Roman, serif;
+     color: #ebebeb;
+     font-family: IBM Plex Serif,  serif;
  }
  p {
      line-height: 1.5;
@@ -9106,10 +9106,10 @@
  h5,
  h6 {
      font-weight: 800;
-     font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+     font-family:  IBM Plex Sans, sans-serif;
  }
  a {
-     color: #212529;
+     color: #ebebeb;
      transition: all 0.2s;
  }
  a:focus,
@@ -9160,7 +9160,7 @@
      letter-spacing: 1px;
      text-transform: uppercase;
      border-radius: 0;
-     font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+     font-family: IBM Plex Sans, sans-serif;
  }
  .btn-primary {
      background-color: #637afe;
@@ -9181,8 +9181,8 @@
  #mainNav {
      position: absolute;
      border-bottom: 1px solid #e9ecef;
-     background-color: #fff;
-     font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+     background-color: #202124;/*#;*/
+     font-family: IBM Plex Sans, sans-serif;
  }
  #mainNav .navbar-brand {
      font-weight: 800;
@@ -9240,14 +9240,14 @@
          background-color: hsla(0, 0%, 100%, 0.9);
      }
      #mainNav.is-fixed .navbar-brand {
-         color: #212529;
+         color: #ebebeb;
      }
      #mainNav.is-fixed .navbar-brand:focus,
      #mainNav.is-fixed .navbar-brand:hover {
          color: #637afe;
      }
      #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-         color: #212529;
+         color: #ebebeb;
      }
      #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
      #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
@@ -9272,7 +9272,7 @@
      left: 0;
      height: 100%;
      width: 100%;
-     background-color: #212529;
+     background-color: #ebebeb;
      opacity: 0.5;
  }
  header.masthead .page-heading,
@@ -9304,7 +9304,7 @@
      line-height: 1.1;
      display: block;
      margin: 10px 0 0;
-     font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+     font-family: IBM Plex Sans, sans-serif;
  }
  @media only screen and (min-width: 768px) {
      header.masthead .page-heading h1,
@@ -9324,13 +9324,13 @@
      font-size: 24px;
      font-weight: 600;
      margin: 10px 0 30px;
-     font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+     font-family: IBM Plex Sans, sans-serif;
  }
  header.masthead .post-heading .meta {
      font-size: 20px;
      font-weight: 300;
      font-style: italic;
-     font-family: Lora, Times New Roman, serif;
+     font-family: IBM Plex Serif, serif;
  }
  header.masthead .post-heading .meta a {
      color: #fff;
@@ -9344,7 +9344,7 @@
      }
  }
  .post-preview > a {
-     color: #212529;
+     color: #ebebeb;
  }
  .post-preview > a:focus,
  .post-preview > a:hover {
@@ -9368,7 +9368,7 @@
  }
  .post-preview > .post-meta > a {
      text-decoration: none;
-     color: #212529;
+     color: #ebebeb;
  }
  .post-preview > .post-meta > a:focus,
  .post-preview > .post-meta > a:hover {
@@ -9398,12 +9398,12 @@
      border-radius: 0;
      background: none;
      box-shadow: none !important;
-     font-family: Lora, Times New Roman, serif;
+     font-family: IBM Plex Serif, serif;
  }
  .floating-label-form-group input::-webkit-input-placeholder,
  .floating-label-form-group textarea::-webkit-input-placeholder {
      color: #6c757d;
-     font-family: Lora, Times New Roman, serif;
+     font-family: IBM Plex Serif, serif;
  }
  .floating-label-form-group label {
      font-size: 0.85em;
@@ -9476,7 +9476,7 @@
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     padding: 0 15px;
-    font-family: Open Sans, Helvetica Neue, Arial, sans-serif;
+    font-family:  IBM Plex Sans, IBM Plex Serif, sans-serif;
 }
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 14px;
@@ -9953,7 +9953,7 @@
     font-weight: 700;
 }
 .portfolio-block.projects-with-sidebar a {
-    color: #212529;
+    color: #ebebeb;
     font-weight: 300;
 }
 .portfolio-block.projects-with-sidebar a:hover {
@@ -10023,7 +10023,7 @@
     font-size: .9em;
 }
 .portfolio-block.projects-cards a {
-    color: #212529;
+    color: #ebebeb;
 }
 .portfolio-block.projects-cards a:hover {
     text-decoration: none;
