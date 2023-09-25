@@ -9,12 +9,12 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 <div class="container">
   <div class="col-lg-12 col-md-14 mx-auto">
   {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
-  {% assign m = page.date | date: "%-m" | minus: 1 %}
-  {% assign day = page.date | date: "%d" %}
-  {% assign month = months[m] %}
-  {% assign year = page.date | date: "%Y" %}
 
   {% for post in site.categories.programlama %}
+  {% assign m = post.date | date: "%-m" | minus: 1 %}
+  {% assign day = post.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = post.date | date: "%Y" %}
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
             <h3 class="post-title">{{ post.title }}</h3>
