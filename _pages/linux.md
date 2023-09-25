@@ -7,6 +7,8 @@ image_hash: "8da8c95398564475073e06f25143d370"
 ---
 
 <div class="container">
+  <div class="col-lg-8 col-md-10 mx-auto">
+
   {% for post in site.categories.linux %}
 
   <article class="post-preview">
@@ -32,9 +34,9 @@ image_hash: "8da8c95398564475073e06f25143d370"
   <hr>
 
   {% endfor %}
+  </div>
 
   <!-- Pager -->
-  <!-- {% if site.categories.linux.total_pages > 1 %} -->
   {% if paginator.total_pages > 1 %}
   
   <div class="clearfix">

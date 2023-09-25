@@ -7,6 +7,8 @@ image_hash: "934bee399ce669974100a5d559925157"
 ---
 
 <div class="container">
+  <div class="col-lg-8 col-md-10 mx-auto">
+
   {% for post in site.categories.pixelart %}
 
   <article class="post-preview">
@@ -32,9 +34,9 @@ image_hash: "934bee399ce669974100a5d559925157"
   <hr>
 
   {% endfor %}
+  </div>
 
   <!-- Pager -->
-  <!-- {% if site.categories.pixelart.total_pages > 1 %} -->
   {% if paginator.total_pages > 1 %}
   
   <div class="clearfix">

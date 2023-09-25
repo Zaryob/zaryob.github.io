@@ -7,6 +7,7 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 ---
 
 <div class="container">
+  <div class="col-lg-8 col-md-10 mx-auto">
   {% for post in site.categories.programlama %}
 
   <article class="post-preview">
@@ -32,9 +33,9 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
   <hr>
 
   {% endfor %}
-
+  <div>
+  
   <!-- Pager -->
-  <!-- {% if site.categories.linux.total_pages > 1 %} -->
   {% if paginator.total_pages > 1 %}
   
   <div class="clearfix">

@@ -7,6 +7,8 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
 ---
 
 <div class="container">
+  <div class="col-lg-8 col-md-10 mx-auto">
+
   {% for post in site.categories.elektronik %}
 
   <article class="post-preview">
@@ -32,9 +34,9 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
   <hr>
 
   {% endfor %}
+  </div>
 
   <!-- Pager -->
-  <!-- {% if site.categories.elektronik.total_pages > 1 %} -->
   {% if paginator.total_pages > 1 %}
 
   <div class="clearfix">
