@@ -29,8 +29,14 @@ layout: default
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-14 mx-auto">
+        {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+
         <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
+        {% assign m = post.date | date: "%-m" | minus: 1 %}
+        {% assign day = post.date | date: "%d" %}
+        {% assign month = months[m] %}
+        {% assign year = post.date | date: "%Y" %}
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
@@ -48,7 +54,7 @@ layout: default
             {{ site.author }}
             {% endif %}
             tarafından
-            {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
+            {{ day }} {{ month }} {{ year }} tarihinde yayınladı. &middot; {% include read_time.html
             content=post.content %}
           </p>
         </article>
