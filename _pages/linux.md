@@ -8,6 +8,11 @@ image_hash: "8da8c95398564475073e06f25143d370"
 
 <div class="container">
   <div class="col-lg-12 col-md-14 mx-auto">
+  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+  {% assign m = page.date | date: "%-m" | minus: 1 %}
+  {% assign day = page.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = page.date | date: "%Y" %}
 
   {% for post in site.categories.linux %}
   <article class="post-preview">
@@ -26,7 +31,7 @@ image_hash: "8da8c95398564475073e06f25143d370"
             {{ site.author }}
             {% endif %}
             tarafından
-            {{ day }}/{{ month }}/{{ year }} tarihinde yayınladı. &middot; {% include read_time.html
+            {{ day }} {{ month }} {{ year }} tarihinde yayınladı. &middot; {% include read_time.html
             content=post.content %}
           </p>
   </article>

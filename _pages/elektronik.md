@@ -8,6 +8,11 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
 
 <div class="container">
   <div class="col-lg-12 col-md-14 mx-auto">
+  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+  {% assign m = page.date | date: "%-m" | minus: 1 %}
+  {% assign day = page.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = page.date | date: "%Y" %}
 
   {% for post in site.categories.elektronik %}
 
