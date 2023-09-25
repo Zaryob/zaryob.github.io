@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Linux
 permalink: /linux/
 image: "code-bg.jpg"

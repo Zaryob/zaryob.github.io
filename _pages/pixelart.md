@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Pixel Art
 permalink: /pixelart/
 image: "pixelart.jpg"

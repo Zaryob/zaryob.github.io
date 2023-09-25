@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: İnternet
 permalink: /internet/
 image: "internet-bg.jpeg"

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Raspberry Pi
 permalink: /pi/
 image: "raspberrypi-bg.jpg"

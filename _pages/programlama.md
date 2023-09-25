@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Programlama
 permalink: /programlama/
 image: "programming-bg.jpg"
