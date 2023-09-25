@@ -10,27 +10,27 @@ image_hash: "80738471d1f9b811754aca914194612e"
   <div class="col-lg-12 col-md-14 mx-auto">
 
   {% for post in site.categories.pi %}
-
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-      <h2 class="post-title">{{ post.title }}</h2>
-      {% if post.subtitle %}
-      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-      {% else %}
-      <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-      {% endif %}
-    </a>
-    <p class="post-meta">
-      {% if post.author %}
-      {{ post.author }}
-      {% else %}
-      {{ site.author }}
-      {% endif %}
-      tarafından
-      {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}
-    </p>
+            <h3 class="post-title">{{ post.title }}</h3>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+            {% endif %}
+          </a>
+          <p class="post-meta">
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            tarafından
+            {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
+            content=post.content %}
+          </p>
   </article>
-
+  
   <hr>
 
   {% endfor %}

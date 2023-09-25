@@ -13,22 +13,23 @@ image_hash: "a2949bc1310b53ff52b8b97492be4de9"
 
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-      <h2 class="post-title">{{ post.title }}</h2>
-      {% if post.subtitle %}
-      <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-      {% else %}
-      <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-      {% endif %}
-    </a>
-    <p class="post-meta">
-      {% if post.author %}
-      {{ post.author }}
-      {% else %}
-      {{ site.author }}
-      {% endif %}
-      tarafından
-      {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}
-    </p>
+            <h3 class="post-title">{{ post.title }}</h3>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+            {% endif %}
+          </a>
+          <p class="post-meta">
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            tarafından
+            {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
+            content=post.content %}
+          </p>
   </article>
 
   <hr>
