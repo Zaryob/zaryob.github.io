@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+{% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+{% assign m = page.date | date: "%-m" | minus: 1 %}
+{% assign day = page.date | date: "%d" %}
+{% assign month = months[m] %}
+{% assign year = page.date | date: "%Y" %}
+
+<head>
+  {% if page.image %}
+  <!--header class="masthead" style="background-image:url('{{page.image}}?h={{page.imagehash}}');"-->
+  <header class="masthead" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
+
+  {% else %}
+  <header class="masthead">
+  {% endif %}
+    <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-10 col-lg-8 mx-auto">
+                <div class="post-heading">
+                  <h2 class="heading-text">{{page.title}}</h2>
+
+                  <!--div class="post-categories">
+                    {% if post %}
+                      {% assign categories = post.categories %}
+                    {% else %}
+                      {% assign categories = page.categories %}
+                    {% endif %}
+                    {% for category in categories %}
+                    <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+                    {% unless forloop.last %}&nbsp;{% endunless %}
+                    {% endfor %}
+                  </div-->
+
+                </div>
+              </div>
+        </div>
+    </div>
+  </header>
+</head>
+<div class="col-md-10 col-lg-8 mx-auto">
+{{content}}
+</div>
