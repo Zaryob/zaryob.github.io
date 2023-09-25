@@ -23,14 +23,14 @@ Kurulum esnasında kesinlikle ama kesinlikle adınızı Türkçe karakter içere
 
 Bir diğer tavsiyem de kurulum sırasında şöyle bir ekran çıkıyor
 
-![](https://miro.medium.com/max/20000/0*QgQO-3BRQWAg_CFW.png)
+![](/assets/img/posts/0*QgQO-3BRQWAg_CFW.png)
 
 Benim yegane tavsiyem bunların tamamını kapatın. Gerek yok yani boşuna bunlarla uğraşmaya “bence”. Kaç kere Cortana kullanıyorsunuz ki normal hayatınızda, veya kaç kere cihazımı bul özelliğini kullanıyorsunuz ki. Ben kullanmadım hiç gerek de duymadım. Bu yüzden kapatıyorum.
 
 İlk ve En Temel Sorun
 =====================
 
-![](https://miro.medium.com/max/2000/1*O7CnEokQJ_GeKiRBHmw-Fg.png)
+![](/assets/img/posts/1*O7CnEokQJ_GeKiRBHmw-Fg.png)
 
 Yani şundan nasıl kurtulunulacağını anlattırmayın bana.
 
@@ -39,28 +39,28 @@ Temalama
 
 Etkinleştirmeyi hallettikten sonra en önemli işlerden birisi temalama oldu benim için. Abi açık renkli (light) temalardan nefret ediyorum. Bu yüzden karanlık tema mutlaka benim gibi rahatsız olan insanlar için birebir. Öncelikle sağ tıklayıp kişiselleştir diyoruz, ardından Renkler sekmesinden renginizi seçiniz kısmına gelip koyu rengi seçiyoruz, işte şöyle:
 
-![](https://miro.medium.com/max/20000/1*wHPO1UbeJX85rGE3TL4aBQ.png)
+![](/assets/img/posts/1*wHPO1UbeJX85rGE3TL4aBQ.png)
 
 Temizlik
 ========
 
-![](https://miro.medium.com/max/20004/1*zj9Oy9x7WVvDr9IEMR4Xzg.jpeg)
+![](/assets/img/posts/1*zj9Oy9x7WVvDr9IEMR4Xzg.jpeg)
 
 Başlat menüsünde şu yandaki gibi görünen bir sürü gereksiz simge var. Eminim son kullanıcı da bu simgelerden neredeyse çoğunu kullanmıyordur. Bu simgeler gereksiz yere arka planda veri çekiyor (Finans, Hava Durumu, Önerilen Uygulamalar, Haber ve dahası), bazı durumlarda gereksiz yere başlat menüsünün yavaş açılmasına sebep veriyor. Öncelikli olarak ben bu simgelerden kurtularak şöyle temiz bir başlat menüsü görünümü elde ettim.
 
-![](https://miro.medium.com/max/2000/1*7rPMTeJe71iDm077Xe-LbA.png)
+![](/assets/img/posts/1*7rPMTeJe71iDm077Xe-LbA.png)
 
 Ardından alt panele gelelim. Alt panelde de çoğunlukla benim kullanmadığım bazı şeyler var. Hava durumu, Cortana düğmesi ve Arama Çubuğu gibi. Aşağıda görüldüğü gibi:
 
-![](https://miro.medium.com/max/20000/1*tE5TgrhBwtbONImddFCYBg.png)
+![](/assets/img/posts/1*tE5TgrhBwtbONImddFCYBg.png)
 
 Zaten Windows’ta rendering her manada kütük gibi çalışıyor (Hatta böyle bir şeyin olduğuna bile şüpheliyim, hele hele MacOSX kullandıktan sonra daha da şüphe etmeye başladım). O yüzden bunları sıra sıra kapatıyoruz. Bunun içinse Görev Çubuğuna sağ tıklamak yeterli oluyor.
 
-![](https://miro.medium.com/max/20008/1*krQUdLP47lK8vhQcyyDgqg.png)Bunda öntanımlı açık olan “Arama kutusunu göster” seçeneğidir. Bunu “Gizli” yapın![](https://miro.medium.com/max/20008/1*BiiXJ006NM0UDdtE0TdT6w.png)Bunda öntanımlı olan ise “Simge ve metin göster” seçeneğidir. Bunu da “Kapat” yapın![](https://miro.medium.com/max/2000/1*oZ5RAkznYgG5ymstcxRYRQ.png)En son ise şu “Cortana düğmesini göster” seçeneğini kapatın
+![](/assets/img/posts/1*krQUdLP47lK8vhQcyyDgqg.png)Bunda öntanımlı açık olan “Arama kutusunu göster” seçeneğidir. Bunu “Gizli” yapın![](/assets/img/posts/1*BiiXJ006NM0UDdtE0TdT6w.png)Bunda öntanımlı olan ise “Simge ve metin göster” seçeneğidir. Bunu da “Kapat” yapın![](/assets/img/posts/1*oZ5RAkznYgG5ymstcxRYRQ.png)En son ise şu “Cortana düğmesini göster” seçeneğini kapatın
 
 Bunlar ile çalışma alanımı daha temiz bir hale getirdiğimi düşünüyorum. Sonuç aşağıdadır:
 
-![](https://miro.medium.com/max/20000/1*mxIX5_SUntDSsEYYdYITXA.png)Gereksizliklerden arındırılmış, sade bir görünüm…
+![](/assets/img/posts/1*mxIX5_SUntDSsEYYdYITXA.png)Gereksizliklerden arındırılmış, sade bir görünüm…
 
 Pano
 ====
@@ -69,15 +69,15 @@ Windows’un bir diğer özelliği ise pano. KDE’de güzel bir panomuz vardı 
 
 Panoyu açmak için **“Windows — V”** tuşlarına basıyoruz.
 
-![](https://miro.medium.com/max/2000/1*6iECHDycXzZreehN-KU7ww.png)
+![](/assets/img/posts/1*6iECHDycXzZreehN-KU7ww.png)
 
 Geçmiş gösterilemiyor diyecek çünkü bu özellik kapalı. Hemen açalım, “Aç” tuşuna tıklayınca ayarlara yönlendirecek ve şu pencere açılacak:
 
-![](https://miro.medium.com/max/20000/1*E21tdAaSFyioHcmBmm7IXA.png)
+![](/assets/img/posts/1*E21tdAaSFyioHcmBmm7IXA.png)
 
 Buradan pano geçmişini açıyoruz.
 
-![](https://miro.medium.com/max/2000/1*WceSXzaCVzlJmaYui1XENQ.png)
+![](/assets/img/posts/1*WceSXzaCVzlJmaYui1XENQ.png)
 
 Gördüğünüz gibi yüzen bir pencere oluşmuş olacak.
 
@@ -88,17 +88,17 @@ Powershell ve Windows Terminal
 
 Geliştiriciyseniz bazen farklı araçlara işiniz düşmüyor değil. Şimdi hacılar benim de bazen PowerShell’e işim düşüyor. Her PowerShell açtığımda çıkan şu bildirimden bıktım:
 
-![](https://miro.medium.com/max/2000/1*_B2Mldo8t4VaDSlqXunBlA.png)
+![](/assets/img/posts/1*_B2Mldo8t4VaDSlqXunBlA.png)
 
 Bunun gelmesinin temel sebebi PowerShell’in yeni bir sürümünün oluşu ancak lisans kısıtlamaları sebebiyle bu sürümünü kurulum isosu içerisinde dağıtamaması (gözünü seveyim açık kaynak lisanslarının) Öncelikle tavsiyem yeni sürüm PowerShell kullanmanız çünkü yeni sürümleri eskiye nazaran hem çok daha hızlı hem de daha güzel özelliklere sahip. Ayrıca çapraz platform, yani diğer platformlarda da PowerShell (son sürümleri ile beraber) kullanılabiliyor.
 
 Bir diğer konu ise benim gibi GNU ekosisteminden çıkanların yaşadığı konulardan birisi. Neden Windows’un bir terminali yok. CMD veya PowerShell demiyorum. Terminal diyorum. Onu da Windows Mağaza’dan çözüyoruz. Karşınızda Windows Terminal:
 
-![](https://miro.medium.com/max/20000/1*vPw_1Zsjt9tPS6hOats1Tw.png)
+![](/assets/img/posts/1*vPw_1Zsjt9tPS6hOats1Tw.png)
 
 Bu uygulamanın en güzel yanı sekmeler özelliği.
 
-![](https://miro.medium.com/max/2000/1*BgNyVG9k2B6wgm6UKd0nbQ.png)
+![](/assets/img/posts/1*BgNyVG9k2B6wgm6UKd0nbQ.png)
 
 Özellikle Azure ve WSL kullanan insanlar için oldukça yararlı bu sekmeler, ayrıca kendi sekmenizi de ekleyebiliyorsunuz.
 
@@ -111,7 +111,7 @@ WSL
 
 Yani herkes duymuştur sanırım. **WSL** veya **Windows için Linux Alt Sistemi** dediğimiz araç Hypervisor kullanarak sanallaştırılmış bir Linux çekirdeğini kullanarak Windows altında bir Linux ekosistemi kullanmaya yarıyor. Özellikle çapraz platform uygulama geliştirirken (C# artık çapraz platform, ona da bir sonraki yazımda değinirim) oldukça işe yarar bir şey bu WSL.
 
-![](https://miro.medium.com/max/20008/1*nPDoil8V-RZIxR2RwbFwxQ.png)
+![](/assets/img/posts/1*nPDoil8V-RZIxR2RwbFwxQ.png)
 
 WinGet
 ======
@@ -127,11 +127,11 @@ GitHub - microsoft/winget-cli: Windows Package Manager CLI (aka winget)
 
 github.com
 
-](https://github.com/microsoft/winget-cli)![](https://miro.medium.com/max/20000/1*fBbSQYj-mfj-yeuEV8SmeQ.png)winget çıktısı
+](https://github.com/microsoft/winget-cli)![](/assets/img/posts/1*fBbSQYj-mfj-yeuEV8SmeQ.png)winget çıktısı
 
 Bu araç üzerinden istediğiniz herhangi bir paketi kolaylıkla kurabiliyoruz. 3. parti dağıtılanlar da dahil.
 
-![](https://miro.medium.com/max/20000/1*v6iQ8teWRC6-moU7Tce1nA.png)Biraz apt-get vari ama güzel bir paket yönetim sistemi bence.
+![](/assets/img/posts/1*v6iQ8teWRC6-moU7Tce1nA.png)Biraz apt-get vari ama güzel bir paket yönetim sistemi bence.
 
 PowerToys
 =========
@@ -143,20 +143,20 @@ Kurulumu ise hemen winget ile yapalım :D
 ```
 **winget install PowerToys --source winget**
 ```
-![](https://miro.medium.com/max/20004/1*uYpaxedA_tNZN75jrLr6ew.png)
+![](/assets/img/posts/1*uYpaxedA_tNZN75jrLr6ew.png)
 
-![](https://miro.medium.com/max/2000/1*530ikyR6dvDO7GrXk2wjeQ.png)
+![](/assets/img/posts/1*530ikyR6dvDO7GrXk2wjeQ.png)
 
 Ve hemen başlat üzerinden açalım, unutmadan Administrator olarak açmakta yarar var:
 
-![](https://miro.medium.com/max/20000/1*elXE9FTZ9X0AZnWDgQoh3g.png)
+![](/assets/img/posts/1*elXE9FTZ9X0AZnWDgQoh3g.png)
 
 VSCode
 ======
 
 Çok fazla anlatmaya gerek yok herhalde. Eski Visual Studio aklımda canlandıkça midem bulanıyor.
 
-![](https://miro.medium.com/max/20000/1*lZNY6e2VKvh_StKCuOdb7A.png)
+![](/assets/img/posts/1*lZNY6e2VKvh_StKCuOdb7A.png)
 
 Hadi bu da son ekran alıntısı olsun
 

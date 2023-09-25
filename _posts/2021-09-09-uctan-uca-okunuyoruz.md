@@ -42,7 +42,7 @@ Birinci çelişki burada, bunu garanti ederek sunduğun bir uygulama var. Bunun 
 
 Şimdi WhatsApp’ı kabul etmek için okuduğumuz ve **onayladığımız** WhatsApp Hizmet Şartlarına bir bakış atalım isterseniz. Öncelikle bizden topladıkları verilere dair
 
-![](https://miro.medium.com/max/20000/1*GbCveLny21zktZDCRwqUWA.png)
+![](/assets/img/posts/1*GbCveLny21zktZDCRwqUWA.png)
 
 Yani bu şu demek, bazı bilgilerimiz toplanıyor. Peki nedir bu bilgiler:
 
@@ -56,7 +56,7 @@ Yani bu şu demek, bazı bilgilerimiz toplanıyor. Peki nedir bu bilgiler:
 
 Peki nasıl kullanılıyor. Bunun iki boyutu var (2 sayısına çok kafayı taktım bugün). Verilerimizin ilk kullanım alanı kendi hizmetlerini güncel tutmak ve kullanıcılara dair tanımlama bilgileri (cihaz, konum vs.) kaydederek servisi bu verilerle beslemek ve hizmetlerini iyileştirmek. Bu amaçla evet verilerimizi Facebook servisine **entegre ediyor,** çünkü bunu biz **kabul ettik.** İkincisi ise WhatsApp’ın kendini savunduğu alan. Hizmet şartlarında şunlar yazmakta.
 
-![](https://miro.medium.com/max/20000/1*-fr_MGT57XnTYqAIehWs1Q.png)
+![](/assets/img/posts/1*-fr_MGT57XnTYqAIehWs1Q.png)
 
 Yani biz topladığımız bilgilerin tamamını (mesajlarınızdan, konumunuza, cihazınıza hatta rehber listenize kadar) WhatsApp **yasal olarak:**
 
@@ -97,7 +97,7 @@ Peki etik midir? Bu soru çok yönlü bir soru. Hiçbir insan özel mesajların�
 
 Buradaki katakulli şu: bize sözleşmeyi okutup imzalatırken gri alanlar bırakılmış. Yani direk Hizmet Sözleşmesi’nden bir örnek
 
-![](https://miro.medium.com/max/20000/1*s7_1LL_VPE-OXWRuIYZQMw.png)
+![](/assets/img/posts/1*s7_1LL_VPE-OXWRuIYZQMw.png)
 
 İşte bunlara gri alan diyoruz. Hani biz yapmayız ama yapabiliriz de demek gri alandır.
 
@@ -136,4 +136,4 @@ En En Son Söz:
 
 Başlığa ilham kaynağım olan tweet.
 
-![](https://miro.medium.com/max/20000/1*t4VIBsMp__8YmBIjyndx-w.png)
+![](/assets/img/posts/1*t4VIBsMp__8YmBIjyndx-w.png)

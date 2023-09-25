@@ -81,7 +81,7 @@ Bir regex genellikle bu `**/abc/**` biçiminde gelir, burada arama modeli iki e�
 **m (çok satırlı)** etkinleştirildiğinde `^` ve `$` tüm dize yerine satırın başlangıcı ve sonuyla eşleşir.
 **i (duyarsız)** tüm ifadeyi büyük/küçük harfe duyarlı yapmaz (örneğin `/aBc/’`i, **abc**, **ABC** veya **AbC** ile eşleştirir)
 
-![](https://miro.medium.com/max/20000/0*LZfT4uqWBNY0sYE6.jpg)Bu ifadeler sıklıkla kullanılan regex ifadeleridir.
+![](/assets/img/posts/0*LZfT4uqWBNY0sYE6.jpg)Bu ifadeler sıklıkla kullanılan regex ifadeleridir.
 
 **Orta Düzey İfadeler**
 =======================
@@ -124,7 +124,7 @@ Daha esnek bir çözümün kullanımından kaçınması regexte önem arz eder. 
 
 `**<[^<>+]>**` **:** < ve > -> içinde bir veya daha fazla kez bulunan < veya > dışında herhangi bir karakterle eşleşir.
 
-![](https://miro.medium.com/max/2000/0*TpFV74av7jhTCoSU)
+![](/assets/img/posts/0*TpFV74av7jhTCoSU)
 
 Gelişmiş Birkaç Kullanım
 ========================
@@ -161,7 +161,7 @@ Olumsuzlama operatörünü de şu şekilde kullanabilirsiniz!
 `**d(?!r)**` **:** d ile yalnızca ardından r gelmiyorsa eşleşir, ancak r genel regex eşleşmesinin bir parçası olmaz.
 `**(?<=!r)d**` **:** d ile yalnızca başında bir r yoksa eşleşir, ancak r genel regex eşleşmesinin bir parçası olmayacaktır.
 
-![](https://miro.medium.com/max/20000/0*2nuLRDorKE0hZyJh.jpg)
+![](/assets/img/posts/0*2nuLRDorKE0hZyJh.jpg)
 
 Sonuç
 =====
