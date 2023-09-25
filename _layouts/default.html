@@ -18,18 +18,64 @@ layout: compress
 
   <!--   Syntax highlighting is only needed for posts -->
   <link rel="icon" type="image/ico" href="/favicon.ico"/>
-  {% if page.layout == 'post' %}
-  <title>{{page.title}} - Zaryob</title>
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
+
+
+
+  {% if page.image %}
+  <!--header class="masthead" style="background-image:url('{{page.image}}?h={{page.imagehash}}');"-->
+  <header class="masthead" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
+
   {% else %}
-  {% if page.title %}
-  <title>{{ page.title }}</title>
-  {% else %}
-  <title>Anasayfa - Zaryob</title>
-  {% endif %}
+  <header class="masthead">
   {% endif %}
 
-  <meta name="description" content="Kişisel bir blog.">
+    <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-10 col-lg-8 mx-auto">
+                <div class="post-heading">
+                  {% if page.layout == 'post' %}
+                    <title>{{page.title}} - Zaryob</title>
+                    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
+                    <span>
+                      <time datetime="">
+                              {% assign m = page.date | date: "%-m" %}
+                              {{ page.date | date: "%-d" }}
+                              {% case m %}
+                                {% when '1' %}Ocak
+                                {% when '2' %}Şubat
+                                {% when '3' %}Mart
+                                {% when '4' %}Nisan
+                                {% when '5' %}Mayıs
+                                {% when '6' %}Haziran
+                                {% when '7' %}Temmuz
+                                {% when '8' %}Ağustos
+                                {% when '9' %}Eylül
+                                {% when '10' %}Ekim
+                                {% when '11' %}Kasım
+                                {% when '12' %}Aralık
+                              {% endcase %}
+                              {{ page.date | date: "%Y" }}
+                      </time>
+                    </span>
+                    {% else %}
+                    
+                    {% if page.title %}
+                    <title>{{ page.title }}</title>
+                    {% else %}
+                    <title>Anasayfa - Zaryob</title>
+                    <meta name="description" content="Kişisel bir blog.">
+
+                    {% endif %}
+                  {% endif %}
+                  <h2 class="heading-text">{{page.title}}</h2>
+                </div>
+              </div>
+        </div>
+    </div>
+
+  
+</header>
 
 </head>
 <body>

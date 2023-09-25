@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Kitaplığım
 permalink: /kitapligim/
 image: "archive-bg.jpg"
