@@ -34,7 +34,7 @@ image_hash: "fd7fff582b02262c7e3377b981048d36"
   {% endfor %}
 
   <!-- Pager -->
-  {% if site.categories.linux.total_pages > 1 %}
+  {% if site.categories.elektronik.total_pages > 1 %}
 
   <div class="clearfix">
 
