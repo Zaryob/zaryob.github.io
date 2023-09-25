@@ -25,24 +25,13 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
   {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
   {% endif %}
   {% endunless %}
- <li class="arch-list">
-    <span>{% assign m = page.date | date: "%-m" %}
-                            {{ page.date | date: "%-d" }}
-                            {% case m %}
-                              {% when '1' %}Ocak
-                              {% when '2' %}Şubat
-                              {% when '3' %}Mart
-                              {% when '4' %}Nisan
-                              {% when '5' %}Mayıs
-                              {% when '6' %}Haziran
-                              {% when '7' %}Temmuz
-                              {% when '8' %}Ağustos
-                              {% when '9' %}Eylül
-                              {% when '10' %}Ekim
-                              {% when '11' %}Kasım
-                              {% when '12' %}Aralık
-                            {% endcase %}
-                            {{ page.date | date: "%Y" }}</span> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
+
+  {% assign m = post.date | date: "%-m" | minus: 1 %}
+  {% assign day = post.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = post.date | date: "%Y" %}
+
+ <li class="arch-list"> {{ day }} {{ month }} {{ year }} &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
 {% endfor %}
   </ul>
 </section>
