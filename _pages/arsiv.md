@@ -25,12 +25,11 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
   {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
   {% endif %}
   {% endunless %}
-
+  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
   {% assign m = post.date | date: "%-m" | minus: 1 %}
   {% assign day = post.date | date: "%d" %}
   {% assign month = months[m] %}
   {% assign year = post.date | date: "%Y" %}
-
  <li class="arch-list"> {{ day }} {{ month }} {{ year }} &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
 {% endfor %}
   </ul>
