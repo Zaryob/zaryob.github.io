@@ -18,7 +18,7 @@ layout: compress
 
   <!--   Syntax highlighting is only needed for posts -->
   <link rel="icon" type="image/ico" href="/favicon.ico"/>
-  
+
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
   {% endif %}
@@ -37,7 +37,6 @@ layout: compress
               <div class="col-md-10 col-lg-8 mx-auto">
                 <div class="post-heading">
                     
-
                     {% if page.title %}
                     <title class="heading-text">{{ page.title }}</title>
                     
@@ -65,7 +64,7 @@ layout: compress
                                 {{ page.date | date: "%Y" }}
                         </time>
                       </span>
-                      {% else %}
+                      {% endif %}
                     
                       <span class="subheading" style="font-family: Lora, sans-serif;">{{ page.subtitle }}</span>
                     </div>
@@ -77,7 +76,6 @@ layout: compress
                       <span class="subheading" style="font-family: IBM Plex Mono, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
                     </div>
                     {% endif %}
-                  {% endif %}
                 </div>
               </div>
         </div>
