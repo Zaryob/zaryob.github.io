@@ -7,7 +7,7 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 ---
 
 <div class="container">
-  <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="col-lg-12 col-md-14 mx-auto">
   {% for post in site.categories.programlama %}
 
   <article class="post-preview">
@@ -34,7 +34,7 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 
   {% endfor %}
   <div>
-  
+
   <!-- Pager -->
   {% if paginator.total_pages > 1 %}
   

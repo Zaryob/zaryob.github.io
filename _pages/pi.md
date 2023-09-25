@@ -7,7 +7,7 @@ image_hash: "80738471d1f9b811754aca914194612e"
 ---
 
 <div class="container">
-  <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="col-lg-12 col-md-14 mx-auto">
 
   {% for post in site.categories.pi %}
 
