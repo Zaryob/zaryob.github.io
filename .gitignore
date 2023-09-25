@@ -26,3 +26,8 @@ Gemfile.lock
 
 # Jekyll Cache
 .jekyll-cache
+
+# Node JS
+node_modules/
+package-lock.json
+package.json
