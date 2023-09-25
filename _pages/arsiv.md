@@ -6,41 +6,52 @@ image: "archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
 ---
   
-<div class="col-lg-8 col-md-10 mx-auto">
-<section id="archive">
-<h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu yılın arşivi</h2>
-{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'"  %}
-{% for year in postsByYear %}
+<div class="card">
+  <div class="card-header bg-dark text-light">
+    <p class="card-title float-left">Archives</p>
+    <span class="fa fa-archive float-right"></span>
+    <div class="clearfix"></div>
+  </div>
+  <div class="card-body">
+  {% assign pg_year  = page.date | date: '%Y' %}
+  {% assign pg_month = page.date | date: '%m' %}
+  
+  {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'"  %}
+  {% for year in postsByYear %}
+      <div class ="archive-year">
+        <a href="{{ site.baseurl }}/pages/archives-y#{{ year.name }}">
+        {{ year.name }}</a>
+      </div>
 
-  {% for post in site.posts %}
-  {% unless post.next %}
+    {% if pg_year == year.name %}
+    <ul class="archive-month">
+      {% assign postsByMonth = year.items | group_by_exp:"post", "post.date | date: '%m'" %}
+      {% assign postsByMonthSorted = postsByMonth | sort: 'name' | reverse %}
 
-  <ul class="this">
-  {% assign year = post.date | date: '%Y' %}
-  {% assign n_year = post.next.date | date: '%Y' %}
-  {% if year != last_year %}
-  </ul>
-  <h2>{{ post.date | date: '%Y' }}</h2>
+      {% for month in postsByMonthSorted %}
+      <li class="list-month">
+        {% for post in month.items limit:1 %}
+        <span class ="archive-month">
+          <a href="{{ site.baseurl }}/pages/archives-m#{{ post.date | date: '%Y-%m' }}">
+            {{ post.date | date: '%B %Y' }}
+          </a></span>
+        {% endfor %}
 
-  <ul class="past">
-  {% else %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-
-  {% endif %}
-  {% endunless %}
-  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
-  {% assign m = post.date | date: "%-m" | minus: 1 %}
-  {% assign dd = post.date | date: "%d" %}
-  {% assign mm = months[m] %}
-  {% assign yy = post.date | date: "%Y" %}
-
- <li class="arch-list"> {{ dd }} {{ mm }} {{ yy }} &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
+          {% if pg_month == month.name %}
+          <ul class="archive-item">
+          {% for post in month.items %}
+          <li class="list-content">    
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   {% endfor %}
-  </ul>
-{% endfor %}
-</section>
-</div>
-
+  </div>
+</div> 
 
 
