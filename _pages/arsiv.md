@@ -24,7 +24,12 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
   {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
   {% endif %}
   {% endunless %}
- <li class="arch-list"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>&nbsp;<time>{{ post.date | date:"%d %b" }}</time></li>
+ <li class="arch-list">
+    <span>{% assign m = post.date | date: "%-m" | minus: 1 %}
+      {% assign day = post.date | date: "%d" %}
+      {% assign month = months[m] %}
+      {% assign year = post.date | date: "%Y" %}
+    </span> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
 {% endfor %}
   </ul>
 </section>
