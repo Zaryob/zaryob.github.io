@@ -34,8 +34,9 @@ image_hash: "934bee399ce669974100a5d559925157"
   {% endfor %}
 
   <!-- Pager -->
-  {% if site.categories.pixelart.total_pages > 1 %}
-
+  <!-- {% if site.categories.pixelart.total_pages > 1 %} -->
+  {% if paginator.total_pages > 1 %}
+  
   <div class="clearfix">
 
   {% if paginator.previous_page %}

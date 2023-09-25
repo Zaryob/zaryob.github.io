@@ -34,7 +34,8 @@ image_hash: "a2949bc1310b53ff52b8b97492be4de9"
   {% endfor %}
 
   <!-- Pager -->
-  {% if site.categories.internet.total_pages > 1 %}
+  <!-- {% if site.categories.internet.total_pages > 1 %} -->
+  {% if paginator.total_pages > 1 %}
 
   <div class="clearfix">
 
