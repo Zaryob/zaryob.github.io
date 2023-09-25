@@ -53,4 +53,4 @@ Kaynaklar
 1.  OpenCV belgeleri ( [https://docs.opencv.org/](https://docs.opencv.org/) ) — kitaplık tarafından sağlanan işlevler ve sınıflar hakkında ayrıntılı bilgiler içeren kitaplığın resmi belgeleri.
 2.  PyImageSearch ( [https://www.pyimagesearch.com/](https://www.pyimagesearch.com/) ) — Python kullanımına odaklanarak OpenCV ve diğer bilgisayarla görme araçlarını kullanma hakkında eğitimler ve makaleler sağlayan bir web sitesi.
 3.  Eğitim Noktası ( [https://www.tutorialspoint.com/opencv/index.htm](https://www.tutorialspoint.com/opencv/index.htm) )
-4.  LearnOpenCV ( [LearnOpenCV](https://learnopencv.com/getting-started-with-opencv/) )
+4.  LearnOpenCV ( OpenCV’ye Başlarken [LearnOpenCV](https://learnopencv.com/getting-started-with-opencv/) )
