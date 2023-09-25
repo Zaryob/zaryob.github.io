@@ -8,9 +8,9 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
 
 <section class="portfolio-block projects-cards">
     <div class="container">
-        <div class="heading">
+        <!--div class="heading">
             <h2>Kitaplarım</h2>
-        </div>
+        </div-->
         <div class="row">
             <div class="col-md-6 col-lg-4">
                 <div class="card border-0">
