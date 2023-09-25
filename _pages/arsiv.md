@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Arşiv
+subtitle: Geçmişe doğru neler yazdığım...
 permalink: /arsiv/
 image: "archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
