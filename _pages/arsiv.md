@@ -13,14 +13,15 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
   {% unless post.next %}
 
   <ul class="this">
-  {% else %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+  
   {% if year != nyear %}
   </ul>
   <h2>{{ post.date | date: '%Y' }}</h2>
 
   <ul class="past">
+  {% else %}
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
   {% endif %}
   {% endunless %}
  <li class="arch-list"><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>&nbsp;<time>{{ post.date | date:"%d %b" }}</time></li>
