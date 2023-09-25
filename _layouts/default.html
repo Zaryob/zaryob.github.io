@@ -24,7 +24,6 @@ layout: compress
   {% if page.image %}
   <!--header class="masthead" style="background-image:url('{{page.image}}?h={{page.imagehash}}');"-->
   <header class="masthead" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
-
   {% else %}
   <header class="masthead">
   {% endif %}
@@ -61,7 +60,7 @@ layout: compress
                   {% else %}
                     
                     {% if page.title %}
-                    <title>{{ page.title }}</title>
+                    <title class="heading-text">{{ page.title }}</title>
                     {% else %}
                     <title class="heading-text" style="font-family: IBM Plex Sans, sans-serif;">Zaryob</title>
                     <meta style="font-family: IBM Plex Mono, sans-serif;"content="Bir bilgisayar manyağının kişisel blogu">
