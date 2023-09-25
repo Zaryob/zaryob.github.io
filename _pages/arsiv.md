@@ -36,7 +36,6 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
  <li class="arch-list"> {{ day }} {{ month }} {{ year }} &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
   {% endfor %}
   </ul>
-  {% endunless %}
   {% endfor %}
 {% endfor %}
 </section>
