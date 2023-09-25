@@ -6,7 +6,6 @@ image: "archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
 ---
 
-
 <div class="col-lg-8 col-md-10 mx-auto">
 <section id="archive">
 <h2><i class="fa fa-file-archive-o"></i>&nbsp;Bu yılın arşivi</h2>
