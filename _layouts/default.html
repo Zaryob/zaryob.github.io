@@ -27,54 +27,52 @@
   <header class="masthead">
   {% endif %}
 
-    <div class="overlay">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-10 col-lg-8 mx-auto">
-                <div class="post-heading">
-                    
-                    {% if page.title %}
-                    <title class="heading-text">{{ page.title }}</title>
-                    
-                    <div class="site-heading">
-                      <h1 class="heading-text" style="font-family: Aclonica, sans-serif;">{{ page.title }}</h1>
-                      {% if page.layout == 'post' %}
-                      <span>
-                        <time datetime="">
-                                {% assign m = page.date | date: "%-m" %}
-                                {{ page.date | date: "%-d" }}
-                                {% case m %}
-                                  {% when '1' %}Ocak
-                                  {% when '2' %}Şubat
-                                  {% when '3' %}Mart
-                                  {% when '4' %}Nisan
-                                  {% when '5' %}Mayıs
-                                  {% when '6' %}Haziran
-                                  {% when '7' %}Temmuz
-                                  {% when '8' %}Ağustos
-                                  {% when '9' %}Eylül
-                                  {% when '10' %}Ekim
-                                  {% when '11' %}Kasım
-                                  {% when '12' %}Aralık
-                                {% endcase %}
-                                {{ page.date | date: "%Y" }}
-                        </time>
-                      </span>
-                      {% endif %}
-                    
-                      <span class="subheading" style="font-family: Lora, sans-serif;">{{ page.subtitle }}</span>
-                    </div>
-                    {% else %}
-                    <title class="heading-text">Anasayfa</title>
-
-                    <div class="site-heading">
-                      <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif;">Zaryob</h1>
-                      <span class="subheading" style="font-family: IBM Plex Mono, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+              <div class="post-heading">
+                  
+                  {% if page.title %}
+                  <title class="heading-text">{{ page.title }}</title>
+                  
+                  <div class="site-heading">
+                    <h1 class="heading-text" style="font-family: Aclonica, sans-serif;">{{ page.title }}</h1>
+                    {% if page.layout == 'post' %}
+                    <span>
+                      <time datetime="">
+                              {% assign m = page.date | date: "%-m" %}
+                              {{ page.date | date: "%-d" }}
+                              {% case m %}
+                                {% when '1' %}Ocak
+                                {% when '2' %}Şubat
+                                {% when '3' %}Mart
+                                {% when '4' %}Nisan
+                                {% when '5' %}Mayıs
+                                {% when '6' %}Haziran
+                                {% when '7' %}Temmuz
+                                {% when '8' %}Ağustos
+                                {% when '9' %}Eylül
+                                {% when '10' %}Ekim
+                                {% when '11' %}Kasım
+                                {% when '12' %}Aralık
+                              {% endcase %}
+                              {{ page.date | date: "%Y" }}
+                      </time>
+                    </span>
                     {% endif %}
-                </div>
+                  
+                    <span class="subheading" style="font-family: Lora, sans-serif;">{{ page.subtitle }}</span>
+                  </div>
+                  {% else %}
+                  <title class="heading-text">Anasayfa</title>
+
+                  <div class="site-heading">
+                    <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif;">Zaryob</h1>
+                    <span class="subheading" style="font-family: IBM Plex Mono, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
+                  </div>
+                  {% endif %}
               </div>
-              </div>
+            </div>
         </div>
     </div>
   </header>
