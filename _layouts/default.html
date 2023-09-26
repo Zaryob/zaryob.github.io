@@ -31,7 +31,7 @@ layout: compress
   <header class="masthead">
   {% endif %}
 
-    <div class="overlay"></div>
+    <div class="overlay">
       <div class="container">
           <div class="row">
               <div class="col-md-10 col-lg-8 mx-auto">
@@ -78,12 +78,10 @@ layout: compress
                     {% endif %}
                 </div>
               </div>
+              </div>
         </div>
     </div>
-
-  
-</header>
-
+  </header>
 </head>
 <body>
   <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav">
@@ -117,9 +115,6 @@ layout: compress
   </nav>
 
   <div class="content">
-    <!--header>
-        <a href="{{site.baseurl}}/"><h1 class="site-title">{{site.title}}</h1></a>
-    </header-->
 
     {{ content }}
   
