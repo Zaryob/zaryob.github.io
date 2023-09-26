@@ -25,7 +25,7 @@ Python, bir programlama dilidir. Normalde C veya C++ gibi dillerin resmi spesifi
 CPython Nedir?
 ==============
 
-![](https://miro.medium.com/max/20000/0*DRK0fZ4oaBSKHeVB.png)
+![](/assets/img/posts/0*DRK0fZ4oaBSKHeVB.png)
 
 CPython, geleneksel Python yorumlayıcıdır. Python’da yazdığımız betikler başta bytecode’lara çevrilir ve kabuk ortamla etkileşim sağlayacak şekilde çalıştırılır. Bu olay daha öncesinde anlattığım JVM gibi bir durum değildir. CPython bytecode’yi adım adım yorumlar ve herhangi bir interrupt yiyene kadar (bytecode’de sona gelinmesi de interrupt olarak kabul edilir) kodları işletir.
 
@@ -45,7 +45,7 @@ Bir diğer hangikap ise Python’un üst düzey bir programlama dili oluşundan 
 PyPy
 ====
 
-![](https://miro.medium.com/max/20000/0*nwV1ynDPLFg_5WMv.jpg)
+![](/assets/img/posts/0*nwV1ynDPLFg_5WMv.jpg)
 
 Özellikle Python’un bellek tahsisi ve init sürelerini kısaltmak için 2007 yılında yapılan PyPy isminde bir proje var. Bu proje Python kodunu derleyerek derleme esnasında makine diline çevirmek suretiyle çalışır ki bu yönteme de çalışma zamanı (JIT) derleme yöntemi denilir. Yani PyPy’de bir nevi Python yorumlayıcısıdır. Ancak tamamen CPython alternatifi olarak göremeyiz. Yalnızca Python Dil Referansının ve CPython’un yeniden yorumlanmış bir halidir diyebiliriz.
 
@@ -60,7 +60,7 @@ Hız Karşılaştırması
 
 Şimdi üstteki kod ile 1000 tane sayının toplamını başta CPython ile hesaplayalım.
 
-![](https://miro.medium.com/max/2000/1*f6dDwhO9isDji6G_uxDAAw.png)Python3 çıktısı![](https://miro.medium.com/max/2000/1*48gjbZap23p28FLvxoZgZw.png)PyPy çıktısı
+![](/assets/img/posts/1*f6dDwhO9isDji6G_uxDAAw.png)Python3 çıktısı![](/assets/img/posts/1*48gjbZap23p28FLvxoZgZw.png)PyPy çıktısı
 
 Son Düşünceler
 ==============

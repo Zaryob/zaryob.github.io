@@ -1,36 +1,62 @@
 ---
-layout: post
+layout: page
 title: Raspberry Pi
 permalink: /pi/
 image: "raspberrypi-bg.jpg"
 image_hash: "80738471d1f9b811754aca914194612e"
 ---
 
+<div class="container">
+  <div class="col-lg-12 col-md-14 mx-auto">
+  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+
+  {% for post in site.categories.programlama %}
+  {% assign m = post.date | date: "%-m" | minus: 1 %}
+  {% assign day = post.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = post.date | date: "%Y" %}
+  <article class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h3 class="post-title">{{ post.title }}</h3>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+            {% endif %}
+          </a>
+          <p class="post-meta">
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            tarafından
+            {{ day }}{{ month }}{{ year }} tarihinde yayınladı. &middot; {% include read_time.html
+            content=post.content %}
+          </p>
+  </article>
+  
+  <hr>
+
+  {% endfor %}
+
+  <!-- Pager -->
+  {% if paginator.total_pages > 1 %}
 
 
-{% for post in site.categories.pi %}
+  {% if paginator.previous_page %}
+    <a class="btn btn-primary float-left"
+      href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
+      Yeni<span class="d-none d-md-inline"> Gönderiler</span></a>
+  {% endif %}
 
-  <div class="list">
-  <div class="post-index">
-    <div class="post-image">
-        <a href="{{post.url}}">
+  {% if paginator.next_page %}
+    <a class="btn btn-primary float-right"
+      href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Eski<span
+        class="d-none d-md-inline"> Gönderiler</span> &rarr;</a>
+  {% endif %}
 
-              <i class="fa fa-{{post.icon}} fa-fw"></i>
-
-        </a>
-    </div>
-    <div class="post-content">
-        <p class="post-index-title"><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></p>
-        <p>
-
-                <span class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 90 }}</span>
-
-        </p>
-        <p class="post-detail">{{ post.date | date: '%B %d, %Y' }}
-
-             <a href="{{site.baseurl}}{{post.url}}/index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
-        </p>
-    </div>
   </div>
-  </div>
-{% endfor %}
+
+  {% endif %}
+</div>

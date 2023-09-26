@@ -23,7 +23,7 @@ IP adresleri temel olarak 2 protokol ile dağıtılır. Eski model IPv4 ve daha 
 `**ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff**`
 şeklindedir ve her bir blok 0 ile `**ffff**` hexadecimal değeri (yani 65535 arasında bir sayı değeri) olarak ifade edilir
 
-![](https://miro.medium.com/max/2000/1*L0a1C8afrEbROjsmjUIDnw.png)Örnek bir IP çıktısı.
+![Örnek bir IP çıktısı](/assets/img/posts/1*L0a1C8afrEbROjsmjUIDnw.png)
 
 Biz öntanımlı bir broadcast (ağ bağlantı adresi) üzerinden ağ sahibi isek yukarıdaki çıktıda gördüğümüz gibi /24 olan bir IPv4 ağımız olacaktır, bu bizim internet adresimizin ilk 24 bitlik kısmının ağ bağlantı noktası son 8 bitlik kısmının ise host portion (ana bilgisayar bağlantı adresini) oluşturduğunu ifade eder. Bu ağda bağlantı kısmı 0 ile 255 arasında olan toplamda 254 (0 ve 255 numaralı hostlar rezerve edilmiştir) cihaz bağlanabilir. Benim ağım özelinde bu şu demektir, benimle aynı ağda bulunan cihazlar:
 
@@ -94,7 +94,7 @@ Bu ağ maskesine ek olarak ağ bağlantı noktası ve ana bilgisayar bağlantı 
 
 Derleyip topladığımız zaman karşımıza şöyle bir tablo çıkmakta.
 
-![](https://miro.medium.com/max/20008/0*4gbmhIVjHQwE-GBj.png)
+![](/assets/img/posts/0*4gbmhIVjHQwE-GBj.png)
 
 Alt ağ maskesi, alt ağın boyutunu ve kaç tane IP’ye sahip olacağını belirler. Alt ağ maskesi kullanıcı sayısına ve istenen IP sayısına göre seçilmelidir.
 

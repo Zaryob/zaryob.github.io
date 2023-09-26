@@ -29,17 +29,17 @@ Quic temel olarak TCP ile UDP’nin iyi yönlerini birleştirir. Sunucu ile iste
 
 Quic protokolü bir de UDP protokolünün güvensizliğine bir çözüm getirmiştir. İletişimde ilk olarak UDP üzerinden bağlantı sağlanır. Ardından UDP’de olduğu gibi iletişim yapılır. Ancak Quic burada UDP üzerine ek bir katman ekler. Öntanımlı olarak açık olan “Quic Handshake” dalgasıdır bu. Şimdi temelde TCP protokolü şu şekilde iletişim yapar.
 
-![](https://miro.medium.com/max/2000/1*iI0AErSF6T8vyoCmz7me6w.png)
+![](/assets/img/posts/1*iI0AErSF6T8vyoCmz7me6w.png)
 
 TCP 3 adımda iletişime başlar. “SYN” bayraklı paket sunucuya gönderilir, sunucu “SYN+ACK” ile paketin kabul edildiğini verir ardından istemci “ACK” bayraklı paket göndererek iletişime başlanır. Buraya kadar her şey tamam. Ancak TCP iletişimini korumak için TLS altyapısı da son 15 senedir kullanılmakta. Temel fark yanda gördüğünüz üzere burada 5 adımda bir doğrulama yapılmakta. “SYN+ACK” alındıktan sonra istemci TLS 1.3 ile şifreleme için “ClientKeyExchange” paketi gönderir. Ardından “KeyChipherSpec” paketi onaylandığı taktirde (“**verified**” bayraklı paket alınması halinde) veri iletişimi başlar. TLS 1.2 zamanlarında ise bu 3adımda doğrulamaya ek 2 adım daha uzun bir TLS el sıkışması var ve hala da kullanılmakta. Peki bu neye sebep oluyor.
 
-![](https://miro.medium.com/max/2000/1*I5lLuHopIII1pqF1lMHKTQ.png)
+![](/assets/img/posts/1*I5lLuHopIII1pqF1lMHKTQ.png)
 
 Yanda TCP/TLS1.3 kullanarak bir HTTP iletişimi var. Server tarafından oturum açılması için ayrı bir işlem süresi ki o bu grafikte yok, sonra TLS el sıkışması için ayrı bir süre, HTTP request alınması için ayrı bir işlem derken veri aktarımına başlarken resmen 300ms kaybediliyor.
 
 Quic işte tam bu sorunu çözmek amacıyla başlanılan bir proje oldu. Quick temelde iletişim için UDP bağlantısı kuruyor. Kurulan UDP bağlantısı üzerinden de kendi 2 adımlı QUIC el sıkışmasını yapıyor. Bu el sıkışmasının ardından gönderilen veri sunucu ile istemci arasında şifrelenmiş olarak gidiyor ve TCP-TLS’de olduğundan çok daha kısa sürede paket teslimi yapılabiliyor.
 
-![](https://miro.medium.com/max/2000/1*IujXHZ4VWHXa2v6WNzEf3w.png)
+![](/assets/img/posts/1*IujXHZ4VWHXa2v6WNzEf3w.png)
 
 2 adımda UDP bağlantısı başlatıldıktan sonra yanda görüldüğü üzere QUIC handshake yapılarak veri transferi başlamakta. Bu da 4 adımda bir iletişim yapmaya kadir olmak demek
 

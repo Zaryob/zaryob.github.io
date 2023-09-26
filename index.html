@@ -1,36 +1,26 @@
 ---
-title: Hoşgeldiniz
 layout: default
+image: "home-bg.jpg"
+image_hash: "519d7460af34e87e71835178cf862552"
 ---
 
-<html>
 
 <body>
-  <meta charset="utf-8">
-  <header class="masthead" style="background-image:url('/assets/img/pages/home-bg.jpg?h=519d7460af34e87e71835178cf862552');">
-    <!-- Photo by Sai Kiran Anagani on Unsplash -->
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-lg-8 mx-auto">
-          <div class="site-heading">
-              <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif;">Zaryob</h1><span class="subheading"
-                style="font-family: IBM Plex Mono, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
   <div class="container">
     <div class="intro">
       <h2 class="text-center">Son Gönderilerim</h2>
       <!--p class="text-center"></p-->
     </div>
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-12 col-md-14 mx-auto">
+        {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+
         <!-- Home Post List -->
         {% for post in site.posts limit : 5 %}
+        {% assign m = post.date | date: "%-m" | minus: 1 %}
+        {% assign day = post.date | date: "%d" %}
+        {% assign month = months[m] %}
+        {% assign year = post.date | date: "%Y" %}
 
         <article class="post-preview">
           <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
@@ -48,7 +38,7 @@ layout: default
             {{ site.author }}
             {% endif %}
             tarafından
-            {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html
+            {{ day }} {{ month }} {{ year }} tarihinde yayınladı. &middot; {% include read_time.html
             content=post.content %}
           </p>
         </article>
@@ -102,7 +92,7 @@ layout: default
       <p class="text-center">Son amatör fotoğrafçılık facialarım.</p>
     </div>
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-12 col-md-14 mx-auto">
         <section id="portfolio" class="p-0">
           <div class="container-fluid p-0">
             <div class="row no-gutters popup-gallery">
@@ -161,7 +151,7 @@ layout: default
         </section>
       </div>
     </div-->
-    <!--div class="col-lg-8 col-md-10 mx-auto">
+    <!--div class="col-lg-12 col-md-14 mx-auto">
       <hr>
       <div class="clearfix">
         <a class="btn btn-primary float-right" href="{{"/galeri" | relative_url }}">Tüm Fotoğraflarım &rarr;</a>
@@ -178,7 +168,7 @@ layout: default
       <p class="text-center">Son amatör fotoğrafçılık facialarım.</p>
     </div>
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-12 col-md-14 mx-auto">
         <section id="portfolio" class="p-0">
           <div class="container-fluid p-0">
             <div class="row no-gutters popup-gallery">
@@ -239,7 +229,7 @@ layout: default
         </section>
       </div>
     </div>
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col-lg-12 col-md-14 mx-auto">
       <hr>
       <div class="clearfix">
         <a class="btn btn-primary float-right" href="{{" /galeri" | relative_url }}">Tüm Fotoğraflarım &rarr;</a>
@@ -251,4 +241,3 @@ layout: default
 
 </body>
 
-</html>

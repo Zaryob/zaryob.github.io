@@ -1,57 +1,65 @@
 ---
-layout: post
+layout: page
 title: Linux
 permalink: /linux/
 image: "code-bg.jpg"
 image_hash: "8da8c95398564475073e06f25143d370"
 ---
 
-  <div class="container">
-    {% for post in site.categories.linux %}
+<div class="container">
+  <div class="col-lg-12 col-md-14 mx-auto">
+  {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
 
-    <article class="post-preview">
-      <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-        <h2 class="post-title">{{ post.title }}</h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-        {% else %}
-        <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-        {% endif %}
-      </a>
-      <p class="post-meta">
-        {% if post.author %}
-        {{ post.author }}
-        {% else %}
-        {{ site.author }}
-        {% endif %}
-        tarafından
-        {{ post.date | date: '%B %d, %Y' }} tarihinde yayınladı. &middot; {% include read_time.html content=post.content %}
-      </p>
-    </article>
+  {% for post in site.categories.programlama %}
+  {% assign m = post.date | date: "%-m" | minus: 1 %}
+  {% assign day = post.date | date: "%d" %}
+  {% assign month = months[m] %}
+  {% assign year = post.date | date: "%Y" %}
+  <article class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+            <h3 class="post-title">{{ post.title }}</h3>
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
+            {% endif %}
+          </a>
+          <p class="post-meta">
+            {% if post.author %}
+            {{ post.author }}
+            {% else %}
+            {{ site.author }}
+            {% endif %}
+            tarafından
+            {{ day }} {{ month }} {{ year }} tarihinde yayınladı. &middot; {% include read_time.html
+            content=post.content %}
+          </p>
+  </article>
 
-    <hr>
+  <hr>
 
-    {% endfor %}
-
-    <!-- Pager -->
-    {% if site.categories.linux.total_pages > 1 %}
-
-    <div class="clearfix">
-
-      {% if paginator.previous_page %}
-      <a class="btn btn-primary float-left"
-        href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
-        Yeni<span class="d-none d-md-inline"> Gönderiler</span></a>
-      {% endif %}
-
-      {% if paginator.next_page %}
-      <a class="btn btn-primary float-right"
-        href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Eski<span
-          class="d-none d-md-inline"> Gönderiler</span> &rarr;</a>
-      {% endif %}
-
-    </div>
-
-    {% endif %}
+  {% endfor %}
   </div>
+
+  <!-- Pager -->
+  {% if paginator.total_pages > 1 %}
+  
+  <div class="clearfix">
+
+  {% if paginator.previous_page %}
+    <a class="btn btn-primary float-left"
+      href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr;
+      Yeni<span class="d-none d-md-inline"> Gönderiler</span></a>
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <a class="btn btn-primary float-right"
+      href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Eski<span
+        class="d-none d-md-inline"> Gönderiler</span> &rarr;</a>
+  {% endif %}
+
+  </div>
+
+  {% endif %}
+</div>
 

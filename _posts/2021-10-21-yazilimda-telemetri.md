@@ -52,7 +52,7 @@ Bu aşamaya kadar temel telemetri mantığına dair bilgileri verdim. Şimdi ola
 
 Pek çok kişi işletim sistemlerinin bizden veriler topladığını bilir. Hatta Windows 10 ve sonrası için şöyle bir telemetri olarak bunları işleyeceğiz ama “isterseniz” kapatabilirsiniz seçeneği bile sunuyorlar (ne kadar da nezaketli bir hareket)
 
-![](https://miro.medium.com/max/20000/0*mdgpLe66q1Lxp0L4.jpg)
+![](/assets/img/posts/0*mdgpLe66q1Lxp0L4.jpg)
 
 Bu tip işletim sistmei telemetrileri sayesinde geliştiriciler veya şirketler ürün süreçlerini daha yakından takip edip sonuç odaklı çalışabilmekte. Hani benim verilerimle ne yapacak diyoruz ya işte neler yaptıklarına bir örnek geliştirme süreçlerini yapılandırmak. Aslında bu kısıma gizlilik boyutunda geleceğim.
 
@@ -64,11 +64,11 @@ Bu süreç işletim sistemleri için aslında önemli bir süreç, yani yazılı
 
 Apple fanboyları telemetri konusunda “Moruk Apple ürün satmıyor, teknoloji satıyor, tutup da bizim verimizi işlemez diyorlar”. Bunu diyenlere direk cevabı Apple’ın güvenlik sayfasının linkini aşağıya bırakarak veriyorum.
 
-![](https://miro.medium.com/max/20000/0*TsaAnIXFyn1k8HJC.png)Apple telefonlarının ve Google Android cihazların telemetri veri listesi.
+![](/assets/img/posts/0*TsaAnIXFyn1k8HJC.png)Apple telefonlarının ve Google Android cihazların telemetri veri listesi.
 
 Sizden veri toplamayı, bunları tutmayı ve bunları yaparken “emin olun dostum tamamen aramızda kalacak” demeyi “Privacy” ismindeki parlatılmış bir kapta sunup etrafına bu kadar mürit toplayan Apple’ye helal olsun. Ama yine Apple iyi de sayılır ki Google Android’de yapılan son araştırmalarda iOS’tan 20 kat daha fazla veri topladığı raporlandı.
 
-![](https://miro.medium.com/max/20000/0*AhjHHJPVJkPZAmTd.png)
+![](/assets/img/posts/0*AhjHHJPVJkPZAmTd.png)
 
 Bunu okuyup gülen Linux kullanıcıları size geldim şimdi. Dağıtımların da hepsi telemetri toplamakta ve hatta Linux çekirdeği de. Ancak burada bir fark var. Linux çekirdeği dmesg çıktıları ile, dağıtımlar ise gerek “systemd” gerek diğer servis yöneticileri ile işletim sistemi içerisindeki her olayı ayrı ayrı günlükler. Bu günlükler genellikle “systemd” tarafında “journald” isimli servis tarafından tasnif edilir ve kullanıcılar bu günlükleri, sorunlarına çözüm olması için takip ederler. Linux’ta bu tip günlüklerin tutulması diğer işletim sistemlerinde olduğu gibi ek bir süreç ile değil, her bir program/servis tarafından veya servis yöneticileri tarafından yapılır. Bugün Linux’un ktread kernel servisi bile günlük oluşturuyor en basitinden. Ancak aradaki fark şu. Apple ve Windows bu günlükleri kendi amaçları doğrultusunda kullanmak için uzak sunuculara yüklerken ve bu yüklemede her ne kadar size “bunu yüklemek ister misin” diye sormasına rağmen işin arka planında sizi umursamadan bunu yapıyor.
 
@@ -87,7 +87,7 @@ zaryob.medium.com
 
 Linux’ta ise bu olay sadece enterprise destek veya topluluk desteği içeren dağıtımlarda (örneğin RHEL veya Ubuntu) ve gerçekten kullanıcı onayına bağlı olarak var.
 
-![](https://miro.medium.com/max/20000/1*AAOmXsjBSGrQT-XHF-NaRw.png)RedHat telemetri
+![](/assets/img/posts/1*AAOmXsjBSGrQT-XHF-NaRw.png)RedHat telemetri
 
 Ayrıca Linux dağıtımları telemetri konusunda şeffaf davranmak zorunda kalıyor. Çünkü daha öncesinde Ubuntu’nun arama barında Amazon alışveriş sitesinden arama yapıp önümüze veriler çıkardığı için topluluk ile Canonical arasında bayaa sorunlar yaşanmıştı. Ayrıca Çin menşeyli Deepin’de benzeri bir şey yaptığı için mükemmel ötesi olarak lanse edilen ve benim de hoşuma giden masaüstü ortamına rağmen kullanıcılar tarafından diri diri gömüldü. Sebebi ise bu telemetrileri Çinli sitelere göndermesi idi.
 

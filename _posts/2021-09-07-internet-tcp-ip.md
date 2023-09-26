@@ -21,7 +21,7 @@ Bu yazımda, birçok uygulamanın desteklediği TCP/IP protokolünü kullanan ba
 Server-Client Mantığı
 =====================
 
-![](https://miro.medium.com/max/20000/0*TEWXb8-YhuXxkPR8.png)
+![](/assets/img/posts/0*TEWXb8-YhuXxkPR8.png)
 
 Bu mantık aslında Unix ekosistemi ile gelen bir mantıktır. Temel olarak her büyük program ve kendi içerisinde haberleşen sistemler işletim sistemi içerisinde aynı bir web sunucusunda olduğu gibi davranır. Yani iletişimini bir soket üzerinden sunucu kullanarak ve bunu alan bir istemci yazılım ile sağlar. Bu temelde performansı azaltsa bile birden fazla kez aynı programı çalıştırmanız durumunda aynı sunucu üzerinden eşzamanlı olarak çalışmak hem deadlock oluşmasını engeller hem de süreçleri manüple etmesi daha zor bir hale getirir. Ayrıca bir sunucu (örneğin Xorg veya DBus gibi — gerçi Dbusun durumu biraz daha farklı ama olsun) üzerinden tüm süreçleri takip edebilmeyi sağlar. Ayrıca pek çok program temelinde Unix soketi üzerinden diğer servislere bağlanarak haberleşir. Unix etki alanı soketi veya IPC soketi, aynı ana bilgisayar işletim sisteminde yürütülen işlemler arasında veri alışverişi için bir veri iletişim uç noktası oluşturur, ve çoğu süreç bazlı istem (fork, veya kill gibi) de bu etki alan soketi üzerinden yapılır.
 
@@ -35,7 +35,7 @@ Bu uygulamalar TCP protokolünü kullanan bir protokoller ailesidir aslında.
 HTTP
 ----
 
-![](https://miro.medium.com/max/20000/0*PSAwLkL4h1I6Rvo8.png)
+![](/assets/img/posts/0*PSAwLkL4h1I6Rvo8.png)
 
 **Köprü Metni Aktarım Protokolü** ( **HyperText Transfer Protocol — HTTP** ) hypermedia bilgi sistemleri dediğimiz, son kullanıcı tarafından okunabilecek forma getirilecek olan verilerin aktarıldığı en temel protokoldür. İlk geliştirildiği dönemde yazı aktarımı yapmak için kullanılmıştır. HTTP veri iletişiminin temelidir World Wide Web (onu da bir sonraki yazıda detaylandırayım), köprü metni adı verdiğimiz şeyler düz yazı, kaynaklara kullanıcı kolayca erişim sağlayan linkler, medya dosyaları veya etkileşim komutu (örneğin fare tıklaması veya bir web tarayıcısında ekrana dokunma işlemi)verilerini taşımakta kullanılır.
 
@@ -63,7 +63,7 @@ Diğer Bazı TCP/IP Uygulamaları
 X Pencere Sistemi
 -----------------
 
-![](https://miro.medium.com/max/20004/0*pbqfDSNqVPgV_zAB)
+![](/assets/img/posts/0*pbqfDSNqVPgV_zAB)
 
 Bilinen en bariz Server-Client mantığına sahip yazılımdır. X Pencere Sistemi veya sadece X, birden fazla istemcinin (uygulamanın) bir sunucu tarafından yönetilen bit eşlemeli ekranı kullanmasına izin veren bir sunucu-istemci uygulamasıdır.
 
@@ -73,7 +73,7 @@ Bilinen en bariz Server-Client mantığına sahip yazılımdır. X Pencere Siste
 
 İnternet üzerinden görüntü paylaşılması durumunda, bağımsız bir çalışma istasyonu, istemci ve sunucu aynı ana bilgisayar üzerindedir ve herhangi bir ağ katılımı olmadan bu ana bilgisayardaki işlemler arası iletişimi kullanarak iletişim kurar. Bu iki uç nokta arasında, aynı ana bilgisayardaki istemcileri ve diğer ana bilgisayarlardaki istemcileri destekleyen bir iş istasyonu bulunur. X, güvenilir, çift yönlü bir TCP gibi akış protokolü (X protokolü TCP üzerine kurulu bir protokoldür, bilinenin aksine UDP gibi güvenilmez bir protokol tasarımına sahip değildir) ile tasarlanmıştır. İstemci ve sunucu arasındaki iletişim, bu bağlantı üzerinden değiş tokuş edilen 8 bitlik baytlardan oluşur. X protokolü, TCP bağlantısı üzerinden istemci ve sunucu arasında değiş tokuş edilen 150'den fazla mesajın biçimine sahiptir.
 
-![](https://miro.medium.com/max/20000/1*nrKWjyMREfKj9sCjwPu0jg.png)
+![](/assets/img/posts/1*nrKWjyMREfKj9sCjwPu0jg.png)
 
 Bir Unix sisteminde, X istemcisi ve X sunucusu aynı ana bilgisayarda olduğunda, TCP yerine normal olarak Unix etki alanı protokolleri kullanılır, çünkü TCP’nin kullanılmasından daha az protokol işlem kullanılır. Unix etki alanı protokolleri daha öncesinde söylediğim gibi, aynı ana bilgisayardaki istemciler ve sunucular arasında kullanılabilen bir süreçler arası iletişim biçimidir.
 
@@ -82,7 +82,7 @@ Bir Unix sisteminde, X istemcisi ve X sunucusu aynı ana bilgisayarda olduğunda
 WhoIS Sistemi
 -------------
 
-![](https://miro.medium.com/max/20000/0*yeajZZEeKkGR3N3o.png)
+![](/assets/img/posts/0*yeajZZEeKkGR3N3o.png)
 
 Whois İnternet içerisinde kullanılan belki de en yaygın bilgi servisidir. Whois kendi protokolü üzerine kurulmuş bir sunucu sistemidir. Herhangi bir site bir Whois sunucusu sağlayabilse de, en yaygın olarak [InterNIC](http://rs.internic.net)’deki sunucusu kullanılır. Bu sunucu, tüm kayıtlı DNS etki alanları ve İnternet’e bağlı sistemlerden sorumlu birçok sistem yöneticisi hakkında bilgi tutar. ([nic.ddn.mil](http://nic.ddn.mil)’de başka bir sunucu sağlanır, ancak yalnızca MILNET hakkında bilgi içerir.). [RFC 954](https://datatracker.ietf.org/doc/html/rfc954) belgesinde Harrenstien, Stahl ve Feinler (1985) tarafından Whois hizmeti belgelenmiştir. Protokol açısından bakıldığında, Whois sunucusunun bağlantı noktası 43 numaralı porttur. Bu port üzerinden istemcilerden gelen bağlantı isteklerini kabul eder ve istemci sunucuya tek satırlık bir sorgu gönderir. Sunucu, mevcut olan bilgilerle yanıt verir ve ardından bağlantıyı kapatır. İstekler ve cevaplar NVT ASCII kullanılarak iletilir. İstekler ve yanıtlar farklı bilgiler içermesine rağmen bu, Finger sunucusu mantığı ile neredeyse aynıdır.
 

@@ -18,7 +18,7 @@ Olayı biliyorsunuzdur diye kısa keseceğim. Yapay zeka dediğimiz şey basitç
 
 Microsoft da yapay zeka destekli bir programlama asistanı olan GitHub Copilot’u duyurdu. Temel amacını IDE’lerin otomatik tamamlama ve eksikler için öneride bulunma özelliğinin biraz daha büyük boyutlusunu düşünün. Ama adamlar burada sadece basir bir kelime değil komple fonksiyon implementasyonu önerisinde bulunuyor.
 
-![](https://miro.medium.com/max/20000/1*1rGPuRxePDwgQDodWFKFhQ.png)ama hala sorting için bubble sort öneriyor o başka tabi
+![](/assets/img/posts/1*1rGPuRxePDwgQDodWFKFhQ.png)ama hala sorting için bubble sort öneriyor o başka tabi
 
 GitHub Copilot, temelde GitHub’daki açık kaynak projeleri ve mevcut kodunuzu kullanan bir veri tarama motoru ve IDE üzerinden mevcut kodunuza destek atan bir eklenti olarak iki kısımdan oluşmakta.
 
@@ -31,7 +31,7 @@ Analiz
 
 Ana sorumuz şu. Kodlamaya ne kadar zaman harcıyoruz?
 
-![](https://miro.medium.com/max/20000/0*BFM5dw974jClyk1b)
+![](/assets/img/posts/0*BFM5dw974jClyk1b)
 
 Küçük geliştiriciler olarak bizim yaptığımız şeyler genellikle ortaya bir amaca hizmet eden bir uygulama ortaya koymak. Büyük kütüphanelerden bahsetmiyorum. Örneğin PDF’leri birleştiren basit bir komut satırı dosyası gibi şeyler genellikle yaptığımız. Yazılım şirketlerinde çalışan arkadaşlarımdan gözlemle onların yaptıkları ise önceden yazılmış bir koddaki olası hataları ortaya çıkartmak ve gerekli olması halinde yeni özellikler eklemek. Şimdi biraz gerçekçi olalım. Aslında çoğu yazılım şirketinde kod yazmak için harcadığımız zaman, genel yazılım geliştirme döngüsünün çok çok küçük bir kısmı. Bir yazılımın ortaya çıkış sürecinde, ihtiyaçlardan ve buna ait çözümleri ortaya raporlamakla başlayan bir süreç var. Bu sürecin sonunda bir yol haritası konularak çalışılmaya ve ilk ürün çıkarılmaya çalışılır. Bu sırada tabi ki kodlamada ihtiyacımıza yönelik sektörde kullanılan çözümleri inceleriz bazen hazır kodlar arasında dolaşıp bunu projeye ekleyebilir miyim deriz. Hatta aptalca gibi görünse bile basit bir string concatenation operasyonu için bile araştırma yaparız. Ardından bir ürün çıkartırız ancak bu aşamadan sonra ise çok dhaa büyük bir süreç başlar, test aşaması. Defalarca kere farklı durumlar için yazılımımızı test ederiz, bazen kullanıcı feedbackleri ile tasarımsal değişimler yapılırken bazen bir hatayı supress etmek için kodun bazı kısımlarında büyük çaplı değişimler yaparız.
 
@@ -54,7 +54,7 @@ Her iş için böyle gerçi böyle ama dünyanın ve sektörün hızlı değişe
 
 Neyse konu dağıldı. Sonuç olarak hızlı kod yazmanın bir alameti farikası bence yok.
 
-![](https://miro.medium.com/max/20000/0*-l23657-Yp_ciSq0)
+![](/assets/img/posts/0*-l23657-Yp_ciSq0)
 
 Gelgelelim yapay zeka konusunda, CoPilot hala erken bir seviyede. Bu seviyesinden bakarak gelecekte programcılar kod yazacak demek, 50 sene öncesinde gelecek 50 yılda Jetgiller gibi bir geleceğimiz olacak umudu gibi geliyor bana.
 

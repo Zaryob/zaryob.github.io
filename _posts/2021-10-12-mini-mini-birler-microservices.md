@@ -16,13 +16,13 @@ Microservice Architecture
 
 Microservice yapısı veya mikrohizmet yapısı büyük bir uygulamayı bir hizmet koleksiyonu olarak yapılandıran bir mimari stildir. Bir çeşit Servis Odaklı Hizmet Mimarisidir (SOA). Temelde bir microservice hizmeti birden fazla irili ufaklı hizmeti birleştirerek tek bir temel uygulama oluşturmakta kullanılır. Örneğin farklı programlama dilleri, veri tabanları, donanım ve yazılım çözümleri kullanılarak bir servisin gerektirdiği her bir hizmet ayrı ayrı oluşturularak bunlar **gevşek bağlanma** olarak adlandırılan bir yöntemle birbirine bağlanır ve eş zamanlı çalışabilir hale getirilir.
 
-![](https://miro.medium.com/max/2000/1*MOA-XcKkT9i1TkX3Q0ox3A.png)Monolitik uygulama mimarisi
+![](/assets/img/posts/1*MOA-XcKkT9i1TkX3Q0ox3A.png)Monolitik uygulama mimarisi
 
 Bu aşamada çokça karıştırılan bir olgu var. Bir microservice sanılanın aksine monolitik bir uygulamadaki küçük bir bölüm değildir. Monolitik servisler genelde bütünü ile kullanıcı arayüzünden veri tabanına her şeyi içerisinde bulunduran ve denetleme işini de yine kendisi yapan bir uygulama yönetimi şeklidir.
 
 Microservice mantığı ise bundan tamamen farklı bir yapıdır. Aslında mimarisi ve felsefesi itibariyle Unix’e de benzeyen bir mimaridir microservice mimarisi. Unix’te temel felsefe “Bir işi yapacaksan onu en iyi şekilde yap” olmuştur. Microservice altyapısında da aynı durum söz konusu. Her bir hizmet kendi alanında özelleştirilmek suretiyle hazırlanılır. Ayrıca gevşek bağlama konusunda da Unix’e benzer bir yapı sunmaktadır. Hizmetler arasındaki koordinasyon basitlik sağlamak için Unix benzeri zamanlama ve boru hatları ile yapılır. Burada tabi ki boru hatlarından kastettiğimiz iki farklı şeydir. Ya bir servisi diğerine gerçek bir veri hattı ile bağlarsınız veya Web özelinde konuşmak gerekirse her bir servis bir diğerine REST API olarak tasarlanmış bir API kullanarak bağlanır. Yani anlayacağınız üzere infrastructure konusunda microservice küçük küçük dizayn edilmiş servislerin hepsini tutan bir hizmet yapısı olarak ifade edildiği için küçük yapılardır şeklinde düşünülse de, sanılanın aksine monolitik sistemlerden daha esnek oluşu ile büyük çaplı işler için oldukça başarılı bir mimari mantığına sahiptir.
 
-![](https://miro.medium.com/max/20000/1*u-TiVCgdJJdLPKnWj_iruA.png)Mikroservice Architecture
+![](/assets/img/posts/1*u-TiVCgdJJdLPKnWj_iruA.png)Mikroservice Architecture
 
 Sonuç olarak mikro hizmetler, esnek, bağımsız olarak dağıtılabilir yazılım sistemleri oluşturmak için kullanılan hizmet odaklı mimariler (SOA) için bir uygulama yaklaşımının uzmanlığıdır. Microservices, büyük ve karmaşık uygulamaların hızlı, sık ve güvenilir bir şekilde teslim edilmesini sağlar. Ayrıca bir kuruluşun teknoloji yığınını geliştirmesini sağlar.
 
@@ -45,7 +45,7 @@ Microservices yapısı ile alakalı düşülen en temel ve bilindik yanılgı se
 
 Doğruyu söylemek gerekirse, ben de araştırırken, çeşitli yazıları okurken nerdeyse tamamında mikro hizmet tanımını yaptıktan sonra yazarın REST API’leri hakkında yazdığı güzel dokümanları ve bol bol Kubernetes yönergelerini görüyorum. Ama abi burada bir saçmalık var. Tanım olarak, REST API’leri kullanarak tek başına mikro hizmet mimarisi oluşturamayız, bunları her biri tek bir sorumluluğu üstlenen birden çok küçük öğeye bölseniz bile sadece milyon tane REST API oluşturmuş olursunuz. Çünkü tanımı gereği bir REST API’sini doğrudan kullanabilmeniz için bunu bilmeniz gerekir.
 
-![](https://miro.medium.com/max/20004/0*COkmyE8KhWUdl6Ti)
+![](/assets/img/posts/0*COkmyE8KhWUdl6Ti)
 
 Bir yan not olarak şunu da ifade edetim ki iki tür REST geliştiricisi vardır (yani geliştiriciler REST API’leri iki farklı şekilde oluştururlar):
 
@@ -63,7 +63,7 @@ Yani microservices yapısındaki ilk ve en önemli adım bağımsız bileşenler
 
 İletişim konusunda en etkili ve mantıklı yöntemlerden birisi de: Asenkron mesajlaşma. Bu seçenek, istemciyi ve hizmetlerimizi doğrudan bağlamaz, bunun yerine, mesajların istemci ve hizmetler arasında birbirlerini bilmelerine gerek kalmadan iletilmesiyle ilgilenen merkezi bir mesaj veriyolu gerektirir. RESTAPI ile beraber asenkron mesajlaşma kullanarak ne elde ettiğimizi görebiliyor musun? Basit bir paradigma değişikliği ile istemciyi ve sunucuyu tamamen ayırdık.
 
-![](https://miro.medium.com/max/20000/0*iQCpDJyy2I2YWG9t.png)
+![](/assets/img/posts/0*iQCpDJyy2I2YWG9t.png)
 
 Bu mesajlaşma yöntemi ile arkada neler olduğunu, kaç hizmetin dahil olduğunu veya olacağını bilmek zorunda bile değiliz, ki bu harika bir yapı sunuyor bize. Bu da, karmaşık istek dizilerini düzenlemenin artık istemcinin sorumluluklarının bir parçası olmadığı anlamına gelir. Sonuç olarak da bir şekilde istemci sunucudan istediğini alır, “bir şekilde diyorum” çünkü bu senkron bir iletişim modeli değil, nasıl çalıştığına bakılırsa asenkron olması gerekiyor. Bunu bir sorun olarak görseniz dahi bir sorun değil, sadece istemcilerimizi (ve diğer mikro servislerimizi de, birbirleriyle bu şekilde konuşabileceklerini göz önünde bulundurarak) kodlama şeklimizde bir değişiklik gerektiriyor. Bir saniyeliğine gerçekçi olalım: Mesaj yolu tabanlı bir iletişim modeli, hizmetlerinize doğru bir şekilde “microservices” diyebilmeniz için yeterli değildir, ayrıca bazı güzel avantajlar da sağlar: İstemci uygulamalarınız da dahil olmak üzere tüm mimariniz reaktif hale gelir. Özellikle doğası gereği çözülmesi uzun zaman alan taleplerle uğraşıyorsanız bu harika bir çözüm olacaktır. Belki çok karmaşık hesaplamalarla uğraşıyorsunuz, bazı ML modelleri çalıştırıyorsunuz veya yalnızca diğer üçüncü taraf API’lerinden veri topluyorsunuz. İşte bu durumda asenkron olarak haberleşmek oldukça karlı olacaktır. Yanı sonuç olarak sebep ne olursa olsun, istemcileriniz, zaman aşımına uğramayacağını umarak aktif bir bağlantıyla kilitlenmek yerine, yanıtı beklerken başka bir şey yapmaya devam edebilir.
 
@@ -77,7 +77,7 @@ Buraya kadar mimariye dair pek çok noktadan bahsettim ve hala ikna olmadınız 
 
 Kendiniz olun, ihtiyaçlarınızı algılayın, ona göre aksiyon alın…
 
-![](https://miro.medium.com/max/20008/0*R9xmaIvO7E0Mr1jL.jpg)
+![](/assets/img/posts/0*R9xmaIvO7E0Mr1jL.jpg)
 
 Kaynaklar
 =========

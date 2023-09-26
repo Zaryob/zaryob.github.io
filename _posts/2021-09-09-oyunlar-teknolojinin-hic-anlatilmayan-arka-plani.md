@@ -17,7 +17,7 @@ Ve yine aynı tarihlerde AT&T şirketinde bir odada iki kafadar belki de bilgisa
 
 1969 yılı başlarında AT&T şirketi ve Bell Laboratuvarları ortak projeleri olan Multics’ten vazgeçmişti. Uygulamalı matematik konusunda doktora tezini yetiştirmiş ve bir diğer yandan da 2 sene boyunca Multics projesi için AT&T çatısı altında çalışan Dennis Ritchie’ye gün doğmuştu. Resmen yoğun geçen birkaç senin ağırlığından ilk defa fırsat bulmuştu, hala doktora tezine cevap beklerken bütün yorgunluğunu atmaya çalışıyordu. Ancak kafası hala 2 senedir çalıştığı projede de kalmıştı. Senenin ilk aylarında daha projeye yeni son verilmişken, Dennis Ritchie, daha öncesinde Multics için yazdığı araçları ve uygulamaları karıştırmakta, yangından ne kurtarsak kardır mantığıyla geliştirdiği şeyleri karıştırmakta idi.
 
-![](https://miro.medium.com/max/2000/0*G4Qg0YSgTI72U9g_.png)Space Travel oyunundan bir kesit.
+![](/assets/img/posts/0*G4Qg0YSgTI72U9g_.png)Space Travel oyunundan bir kesit.
 
 Zamanında beraber Multics projesinde çalıştığı Ken Thompson da bu işletim sistemi içerisinde çalışabilen basit bir oyun yazmış ancak iki şirketin bu projeden el çekmesi ile bu projesi de rafa kalkmıştı. Ancak Thompson bu projeyi sonlandırmak istemiyordu da, çünkü kısa dönemde bu uygulamayı jetonlu oyunlar arasında pazarlaması hem kendi için hem çalıştığı şirket içinde de karlı olacağına inanıyordu. Nitekim her şey de ona göre hazırdı. Sadece yarım kalan oyunun birkaç detayını tamamlayıp üstlerine sunacaktı. Fikrini üstlerine sunup çalışma onayı aldıktan sonra Ritchie ile beraber bu proje üzerinde yoğunlaşmaya başlamıştı. Hele ki tam da Apollo projesi konuşulurken ve uzay temalı filmlerine bilet dahi bulunamıyor, bilim kurgu eserlerinin tirajları bu kadar yükselmiş ve insanlar uzaya bu kadar merak duyuyorken, uzay temalı olan bu Space Travel oyunu elbette sağlam kar elde ettirirdi. Bu oyun bir güneş sistemi simulasyonu gibiydi. Uzay gemisi ile gezegenden ayrılıyor, güneş sisteminde bir tur atıp gezegene iniş yapıyorduk. Tam bir Apollo 11 teması yani. Kim bilir ne kadar çok kar elde ettirirdi. Adı da belirlenmişti. **“Space Travel”…**
 
@@ -27,7 +27,7 @@ Tabi ki oyun projesinin tek sorunu donanım değildi. Her bilgisayar projesinde 
 
 Daha proje ilk geliştirildiğinde farklı bir bilgisayar için kavramsal olarak tasarlanmış ve modülleri assembly ile yazılmış olan bu oyun GeckOS için bir daha yazılmış, şimdi bir daha yazılmış ve tekrar bir daha yazılmış… yarın satışa çıkacak olsa satışa çıkacağı sistem için uygun olacak şekilde bir daha yazılacaktı… Her bir cihaz için sıfırdan programlamayı gerektiren bu projeyle uğraştırmak ekibin canını sıkmıştı. Çünkü basit bir oyun adaptasyonu olan bu proje gitgide içinden çıkılamaz bir hal almış ve etrafında 4 kişilik bir ekip oluşmasına sebep olmuştu. Tamamı Multics ekibinden olan bu 4'lü bu projeden beklentisi biraz vakit geçirmek ve hazır sayılan bir oyunu yayınlayabilecek kıvama getirip kar elde etmek iken şidmi herkes oturup bu oyun projesinin nereye evrileceğini görmeye çalışıyordu. Çünkü geliştirme ilerledikçe sorunlar da karmaşıklaşıyor ve sorunlar da karmaşıklaştıkça bir şekilde bulmaları gereken çözümler de evrilmesi gerekiyordu.
 
-![](https://miro.medium.com/max/2000/0*5KKFdzj7iHlF-nY-)
+![](/assets/img/posts/0*5KKFdzj7iHlF-nY-)
 
 Artık assembly ile bu oyunun işinden çıkan ekip kolları sıvayıp yeniden yazmaya hazırdı ve diğer departmanlardan da bu iş için PDP-7 kullanmış kişilerden yardım istiyorlardı. Bu aşamada Ken Thompson’ın hadi başka dille yazalım önerisi herhalde herkesi kötü hissettirmiş olsa gerek. Ancak burada Ken Thompson’un getirdiği öneri hayli ilginç idi. Projeyi Multics için geliştirilirken yarım bırakılan bir dil olan B dili ile yapmayı önermişti. B dili yorumlanarak çalıştırılan bir dildi, Fortran gibi. Ancak işlerine bir hayli yarayabilirdi çünkü Fortranın aksine geliştirebilecekleri bir dildi, ticari hiçbir engel yoktu önlerinde. Hayli yavaş olan ve daha değişken tanımlama işlemlerine sahip olmayan bir dil bir hayli elden geçirilerek C dili oluşturuldu. C dili için bir derleyici yazıldı, oyun projesi için sancılı geçen kış artık yaza evriliyordu denilebilirdi.
 
@@ -35,7 +35,7 @@ Artık assembly ile bu oyunun işinden çıkan ekip kolları sıvayıp yeniden y
 
 Tabi yine “oyun geliştirmek için” farklı farklı gereksinimlere ihtiyaç duyduklarını farkettiler. Bu oyunu bir işaretçiyi yöneterek oynayacakları için kullanacakları bir girdi cihazı olacaktı, onu da aygıt yönetiminden anlayan Bell Laboratuvarlarından bir mühendisten sipariş ettiler, sonra bir başka bir şeye ihtiyaç duydular ve onu da şirket içinden bir mühendisden yazması için rica ettirdiler, sonra başka bir şey ve bambaşka bir şeye daha ihtiyaç duydular derken oyuna için (!) gerekli her şey üzerinde ilk defa bu kadar yoğun bir şekilde çalışmaya başlamışlardı. Kimisi derleyici üzerinde çalışıyor, kimisi derlenen kodu PDP-7 üzerinde çalıştıracak uygulamaları yazıyor, kimisi oyunu ve derleyiciyi donanım bazında yönetecek çekirdek modülleri yazıyor, Bell laboratuvarlarından bazı mühendisler gerek bu çekirdek modülüne aygıtların bağlanarak oyun kontrolcülerini yönetecek aygıt yöneticisini yazıyordu, gerekse oyun verilerini tutmak için bir dosya sistemine ihtiyaç olduğunu anlayınca hiyerarşik bir dosya sistemi de geliştirmeye koyulmuşlardı. Her iki şirket de bir anda bir oyun projesine odaklarını çevirmişlerdi. Ve iki şirkette de çalışan mühendisler aslında bir oyun projesi üzerinde çalışmayı çoktan bıraktıklarını anladıklarında Apollo 11 çoktan ay yüzeyinden başarılı bir kalkış yaparak evin yolunu tutmuştu…
 
-![](https://miro.medium.com/max/2000/0*XVI8f4OK8iqB-7Jt)
+![](/assets/img/posts/0*XVI8f4OK8iqB-7Jt)
 
 Olayın sonraki kısımlarını da biliyorsunuz herhalde…
 
@@ -45,13 +45,13 @@ Bilgisayar teknolojisini kökünden değiştiren ve geleceğin işletim sistemle
 
 İlk kişisel bilgisayarların gelişimi IBM ile oldu denilebilir, hatta PC isminin de babası IBM’den başkası değildir. IBM, Motorola derken 70'lerin sonuna gelirken Atari oyun için bilgisayar kavramını kafalarımıza sokmaya başladı. Ancak asıl bomba 80'lerde idi. Bu bomba C64 tipi bir bombaydı, yani bugün bile adını duyduğumuz Commodore 64, kocaman beyaz kasalı, mekanik klavyeli ve tüplü televizyonlara bağlanan şu oyun aleti.
 
-![](https://miro.medium.com/max/20000/0*VpYnJCHhH0gq7_xG.jpg)
+![](/assets/img/posts/0*VpYnJCHhH0gq7_xG.jpg)
 
 Zamanındaki bilgisayarları bir düşünün. Şu an bunu okuduğunuz telefonunuz veya bilgisayarınızın özelliklerini az çok biliyorsunuz. O zamanki bilgisayarlarda sadece 64 kilobayt bir depolama ve 8 bit bir işlemci vardı ve bu bilgisayarlar için çıkan oyunlar. İrili ufaklı bir sürü oyun. Avrupa’da o dönemde pek çok kişi bilgisayara ulaşabilmişti (bu Avrupa’ya Türkiye’yi de dahil ediyorum). Bir yerde bilgisayar bile tamamen oyun oynamak için var olan bir alet halindeydi. Hatta oyunlar bilgisayarlardan daha hızlı yayıldı diyebilirim. Takarsın kartuşunu ve oyunu oynarsın sonra geri kapatırsın. Ama oyunların da bir handikapı vardı. Herkesin ulaşabileceği fiyatlarda değildi. O yüzden sürekli bir oyun bitti gideyim yenisini alayım lüksü yoktu, bir oyun sen alır bir oyun ben alırdım ve bu oyunlar bir bölgedeki tüm bilgisayar sahipleri arasında gezerdi.
 
 Bu aşamada bir şey ortaya çıktı, kopya koruma. Pek çok program da bu kopya koruması ile geliyordu. Aslında kopya koruması olayının tarihi daha da eskiye dayanır ve yine bu sahipli yazılım muhabbeti, özgür yazılımın çıkışına sebep vermiştir. Ama o başka bir zamanın konusu. Şimdi önünüzde bir yazılım var, bu yazılımı başkalarının kullanımına açmak için örneğin bir arkadaşınızla paylaşmak istiyorsunuz ve araştırmaya başlıyorsunuz. Uğraşıp didinirken bunu kırıyorsunuz da. Şimdi bu aşamada temel bir psikolojik hile var. Bu çalışmanızı bir şekilde taçlandırmanız lazım çünkü sizin için önemli olan bir şeyi “**kırdınız**”.
 
-![](https://miro.medium.com/max/2000/0*m7HPIfYS-cnharI6)
+![](/assets/img/posts/0*m7HPIfYS-cnharI6)
 
 Temel olarak her insan adının daha geniş kitlelerce duyulmasından ego temelli bir zevk duyar. Nitekim böyle de oldu. Her yeni oyunu veya programı kıran kişi bu benim diye kendi isimlerini ve nickname’lerini ortada dolaştırmaya başladı. Başlangıçta program kıran kişiler, yazılımın içerisine ek olarak basit bir yazı ile işte bunu yapan benim yazdı. Ancak kişiler ustalaştı ve ustalaştıkça basit yazılar yetersiz gelmeye başladı. Kayan yazılar (en zor şeylerden birisi idi), bazı şarkı ve ezgilerin melodilerinin 8 bitlik ses kartı üzerinden çalınması derken 3B dönen küpler, aklınıza gelebilecek en şaşaalı şekilde bunu ben yaptım diye göstermeye başladılar.
 
@@ -71,19 +71,19 @@ Tarihler 1996'yı gösterdiğinde 80'lerin yetersiz donanımları, yerini daha p
 
 Tam o dönemde gelen israrlar iki devi karşı karşıya getirdi. Bir tarafta tarihin en güçlü satranç oyuncusu Garry Kasparov, diğer tarafta Amerika’nın gururlu şirketi IBM’in geliştirdiği zamanının en güçlü bilgisayarlarından birisi olan DeepBlue.
 
-![](https://miro.medium.com/max/20000/0*3PJFYCBG1Ug_r5vh.png)
+![](/assets/img/posts/0*3PJFYCBG1Ug_r5vh.png)
 
 **Kasparov Dünyaya Karşı** programı ile dünyada onlarca kişiyle kapışan ve tarumar eden Kasparov’a ve satranca ilgiyi bilgisayar sektörü görmüş ve işe koyulmuştu. Amaç insanı yenen bir bilgisayar yaratmaktı. Ve bunu yapmak için saniyede 200 milyon pozisyon deneyerek karşısındaki dünya şampiyonunu yenecek bir yazılım ve bu yazılımı kullanan zamanının en komplike bilgisayarı olan DeepBlue geliştirildi. Pek çok satranç ustasını kolayca eleyen Deep Blue artık Kasparov’un önüne çıkmaya hazırdı.
 
 İlk karşılaşmalar 1996'da yapıldı. Ancak Deep Blue için sonuç hüsrandı. 6 setlik maçta Deep Blue 4–2 yenilmiş. 1997'de yapılan bu müsabakanın rövanşı için IBM iyi hazırlanmıştı. Deep Blue’nun saniyede yaptığı hesaplama miktarı artırılmış ve daha güçlü bir donanım kullanmaktaydı. Ayrıca bu donanıma emir veren birisi de vardı. Nasıl mı? İkinci rövanşta karşılaşma bütün hızı ile devam etmekteydi. 2. oyunun 37. hamlesine gelince bir terslik olmuştu.
 
-![](https://miro.medium.com/max/2000/0*jMULuakdUUUJdl5A.jpeg)
+![](/assets/img/posts/0*jMULuakdUUUJdl5A.jpeg)
 
 Çoğu bilgisayar satranç oynarken bir ağaç yapısı kullanır. Bu ağaç yapısında o anki satranç tahtasında sonraki adımların bütün olasılıkları hesaplanır, buna karşılık olarak kazanmayı getirecek dallarda bilgisayar ilerler. Temel motivasyonlardan çoğu ise tehdit oluşturan taşları egale ederek merkez karolar üzerinde olan baskıyı azaltmaya dayanır. Bunu Kasparov iyi bilmekteydi ve düşmanına karşı onun ağaç yapısındaki oyun aritmetiğine uygun hareketler yapmaktaydı.
 
 Ancak bu maçta hiç beklenmeyen bir şey oldu. 37. hamlede bütün bu motivasyonla hareket eden bilgisayarın oynaması gereken hamle vezirini b6'ya çekerek piyon kazanmak olması gerekirdi. Böylece merkez taşlar üzerinde e5'deki piyon ile hakimiyet kuran Kasparov, olası bir galibiyete oynayacak, bu olmazsa bile beraberlik durumunda daha avantajlı bir konuma sahip olacaktı. Ama bilgisayar bunu yapmadı. Filini e4'e oynarak taşın önünü kapattı ve oyunun temposunu alışkın olunmayan bir şekilde değiştirerek ilerleyen hamlelerde siyahı köşeye sıkıştırıp mat etti.
 
-![](https://miro.medium.com/max/20000/0*LngJNCj5zNroN-Td.jpg)
+![](/assets/img/posts/0*LngJNCj5zNroN-Td.jpg)
 
 Herkes Deep Blue’nun galibiyetini konuşurken bu hamle Kasparov’un gözünden kaçmamıştı ve satranç komitesine bu durumu iletti. Pek çok satranç komitesi önceki maçlarını izledikleri deep blue’nun algoritmasının bu şekilde olduğunu belgelendirdi ve IBM’den inceleme talep etti. Ancak IBM hiçbir şekilde bu itirazlara kulak asmadı. Dahası yeni maç önerisini de reddederek bu kadar büyük başarıya ulaşmış Deep Blue projesinin fişini çekti.
 
