@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hoşgeldiniz
+title: empty
 permalink: /hakkinda/
 ---
 

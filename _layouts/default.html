@@ -33,6 +33,7 @@
               <div class="post-heading">
                   
                   {% if page.title %}
+                  {% if page.title != 'empty' %}
                   <title class="heading-text">{{ page.title }}</title>
                   
                   <div class="site-heading">
@@ -63,6 +64,7 @@
                   
                     <span class="subheading" style="font-family: Lora, sans-serif;">{{ page.subtitle }}</span>
                   </div>
+                  {% endif %}
                   {% else %}
                   <title class="heading-text">Anasayfa</title>
 
