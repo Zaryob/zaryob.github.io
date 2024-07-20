@@ -10,7 +10,7 @@ image_hash: "a2949bc1310b53ff52b8b97492be4de9"
   <div class="col-lg-12 col-md-14 mx-auto">
   {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
 
-  {% for post in site.categories.programlama %}
+  {% for post in site.categories.internet %}
   {% assign m = post.date | date: "%-m" | minus: 1 %}
   {% assign day = post.date | date: "%d" %}
   {% assign month = months[m] %}

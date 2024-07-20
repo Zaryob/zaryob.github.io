@@ -3,8 +3,8 @@ layout: post
 title: "Soğuk Savaşın Mirası: Sovyetler Birliği’nin Bilgisayar Teknolojisi"
 date: 2023-03-15 12:23:43 +0300
 categories: [genel, internet]
-image: "2022-03-05-nedir-bu-opencv.webp"
-image_hash: "8c882204fc4b0bfbda252d10112d8a9c"
+image: "0*iKnRspKQsW_YPL7z.webp"
+image_hash: "4a207a0c12003ac693cfa3edf9cb4ff8"
 ---
 
 Takvimler 25 Aralık 1991'i gösterdiğinde dünya tarihinin en önemli olaylarından birisi yaşandı. 40 yıldan uzun süredir devam eden soğuk savaş Sovyet Sosyalist Cumhuriyetler Birliği’nin yıkılması ile son buldu. Bu zamana kadar pek çok kişi SSCB’nin yıkılmasının ekonomik sosyal ve kültürel sonuçlarını irdelemişken kimse 90'ların “patlayan teknolojik gelişmelerini” incelemedi.
@@ -18,7 +18,11 @@ Aslında bilgisayar bilimleri Sovyet Rusya’da Batı’dakine benzer şekilde g
 
 1930'ların ortasına kadar, elektrik mühendisleri matematiksel ve mantık problemlerini çözmek için elektronik devreler inşa ediyorlardı, ancak çoğu devre herhangi bir teorik titizlikten yoksun bir şekilde belirli bir görev için yapıldı. Genellikle bu tip makineler bir fizikçi önderliğinde çalışan onlarca katip tarafından kullanılır ve sürekli değerlerle hesaplama yapılırdı. Bu makineler _analog_ makineler olarak bilinir. Bir şaft dönüş açısı veya elektrik potansiyelindeki fark gibi sürekli sayısal miktarları hesaplamada kullanan makineler ticaret, hükümet ve araştırma kuruluşlarında, kimi zaman astronomik takvim hazırlamak için, kimi zaman balistik füze hesaplamaları yapmak için kullanıldı.
 
-Vladimir Lukyanov tarafından yapılan ilk analog bilgisayar, Su Entegratörü
+
+
+![Vladimir Lukyanov tarafından yapılan ilk analog bilgisayar, Su Entegratörü](/assets/img/posts/0*GSBFqflZIteg-IMl.webp)
+
+
 
 1936'da Amerika’da Alan Turing, Evrensel Turing Makineleri üzerine çalışırken, Rusya’da bir başka bilim adamı Vladimir Lukyanov ise Sovyetlerin ilk analog bilgisayarını Bu bilgisayarı özel yapan şey ise kısmi diferansiyel denklemleri çözmek için dünyanın ilk bilgisayarı yine bu bilgisayardı.
 
@@ -28,13 +32,17 @@ Daha öncesinde söylemiştim analog bilgisayarlar spesifik amaçlarla yapılmak
 
 İşte bu dönemde Batı dijital bilgisayarların öneminin farkına vararak bilgisayar teknolojisine ağırlık verirken Sovyet Rusya’da bir başka durum vardı. Her despot yönetimde olduğu üzere şüpheler…
 
+![](/assets/img/posts/0*NSaFlRMgu90FphnN.webp)
+
 1950 yılında Sovyet Rusya’nın ilk dijital ve programlanabilir bilgisayarı olan MESM (Малая Электронно-Счетная Машина, Küçük Elektronik Hesaplama Makinesi), Sergey Lebedev öncülüğünde bir ekip tarafından üretildiğinde, Sovyet yetkililerinin bilgisayarlara karşı tutumu pek akılcı değildi. Josef Stalin bilgisayarı kapitalizmin şeytani bir ürünü olarak görüyordu, hükümet yetkililerinin pek çoğu ise sibernetikin, işçi haklarını daha da zayıflatmaya yönelik kapitalist bir girişim olarak tasvir ediyordu. Hatta bu propaganda o kadar ileri gitti ki bugn sibernetikin babası olarak bilinen **Norbert Wiener**’ın **“Cybernetics: Or Control and Communication in the Animal and the Machine**” isimli kitabı Literaturnaya Gazeta’da yerden yere vuruldu. Sibernetikin şeytani bir kapitalizm oyunu olduğu propagandası ile bu kitap Sovyet araştırma kütüphanelerinden toplatıldı.
+
+![](/assets/img/posts/0*PFmesMum6TELl8uu.webp)
 
 Ancak bütün bu tutumlara rağmen Soğuk Savaş’ta Sovyet biliminsanları bilgisayarın öneminin farkındaydı. Birileri gibi “efendim hükümet desteklemiyor vazgeçelim” demediler.
 
 1953'de Stalin’in ölümü ile kurulan yeni hükümet biliminsanlarını dinleyerek bilgisayar sistemlerine gerekli önemin verilmesi talimatını verdi. 1955'te Darmstadt Konferansı’nda ilk büyük ölçekli bilgisayar olan **BESM-1** tanıtıldı. Ardından Radyo Teknolojisi Bakanlığı tarafından **Minsk** ve **Ural** isimli bilgisayar sistemleri tasarlandı. Aynı dönemde Enstrüman Yapımı Bakanlığı PDP-8'e tabanlı **ASVT** isimli bilgisayar sistemi ile bilgisayar alanına girdi.
 
-Strela
+![Strela](/assets/img/posts/0*4WxqmbGOb657556q.webp)
 
 Tarihler 1956'yı gösterdiğinde ise bir bilgisayar ilk defa bir insanı uzaya taşıyacaktı, 1961 yılında Yuri Gagarin’i uzaya taşıyan ve sağ salim indiren bilgisayar **Strela** tam bu tarihte **Y. Y. Bazilevsky** öncülüğünde geliştirildi.
 
@@ -47,6 +55,9 @@ Perestroyka
 
 Perestroyka denilince pek çok kişinin aklına Sovyetlerin ekonomiyi kurtarmak için oluşturduğu bir takım yenilikler gelir. Temel amaç ekonomiyi kurtarmaksa tabi ki bilgisayarlar da bu Yenilik hareketinde yer almalıdır. Gorbaçov Sovyet okullarında bilgisayar okuryazarlığını genişletmeye yönelik bir program ilan etti. Nitekim bu program ayrıca Perestroyka’nın ilk girişimlerden biriydi. Okullarda ve tüketici ürünü olarak yaygın olarak kullanılan ilk Sovyet kişisel bilgisayarı Elektronika BK-0010, birkaç binden fazla ünitede üretilerek tek Sovyet kişisel bilgisayarı olarak satışa sunuldu. Perestroyka ve 12. Beşyıllık Plan kapsamında, bir milyondan fazla kişisel bilgisayarın ve 10 milyon disketin üretilmesini gerektiriyordu. 1986–1988 yılları arasında Sovyet okullarına 86binden fazla bilgisayar dağıtıldı.
 
+
+![Strela](/assets/img/posts/0*0cRSi5ROaQPBEovo.webp)
+
 Bu dönemde Sovyet bilgisayarları Batılı meslektaşlarının çalışmalarını klonladı. Bir Agat, Vector-1986C, BK-256 gibi pek çok girişim başarısızlıkla sonuçlandı. IBM donanımlarına uyumlu Sovyet yapımı bilgisayarlar 1980'lerin sonlarında tanıtıldı, ancak maliyetleri onları Sovyet hanelerinin ulaşamayacağı bir yere koydu. 1989'da piyasaya sürülen Poisk, IBM uyumlu en yaygın Sovyet bilgisayarıydı. Üretim zorlukları nedeniyle, hiçbir kişisel bilgisayar modeli binlerce ünite seri üretim görmedi. Hep az miktarda ve yerel olarak kaldı.
 
 Mayıs 1987'de Kooperatifler Kanunu’nun kabul edilmesi, bilgisayar ve donanım bileşenleri ticareti yapan şirketlerin hızla çoğalmasına neden oldu. 1988 yılına kadar tüm Sovyet programcılarının beşte birini istihdam eden birçok yazılım kooperatifi kuruldu. Artyom Taraso vtarafından kurulan _Tekhnika_ kooperatifi, Gossnab (Malzeme Bakanlığı) da dahil olmak üzere devlet kurumlarına kendi yazılımını satmayı başardı.
@@ -57,6 +68,8 @@ Batılı üreticilerle giderek daha büyük ithalat anlaşmaları imzalandı, an
 
 Ağustos 1990'da Helsinki üzerinden EUnet’e bağlanan ve Usenet’e erişim sağlayan RELCOM ağı kuruldu. Eylül 1990'da **.su** alan adı oluşturuldu. 1991'in sonunda yaklaşık 20.000 kullanıcısı vardı. Bu ağın kullanıcılarından olan Boris Yeltsin’i yine internetin gücü kurtardı diyebilirim. Kendisine yapılacak darbeyi e-posta üzerinden haber alarak olası bir darbe girişimini engelledi. Nitekim bu sayede tarihte ilk defa bir darbe internet sayesinde engellendi.
 
+![](/assets/img/posts/0*OvRx9q7QWG7MbF1n.webp)
+
 Ancak bu gelişmelere rağmen Sovyetler Birliği’nin çöküşüne giden yolda hiçbir gelişme yeterli ilerleme kat edemedi.
 
 Sovyetler Birliği’nin çöküşüyle birlikte, birçok önde gelen Sovyet bilgisayar geliştiricisi ve mühendisi yurtdışına taşındı. Sovyet ordusu için bilgisayar üreten büyük şirketler ve tesisler ortadan kalktı.
@@ -66,9 +79,11 @@ Sovyetler Birliği’nin çöküşüyle birlikte, birçok önde gelen Sovyet bil
 
 Sovyetler’in dağılması ile birlikte tüm gelişmeler Amerika bloğuna kaydı. Rusya’nın kapitalizme dönmesi ile AMD ve Intel gibi firmalar kalan Rus mühendislerle çalışabilmek için Moskova’ya araştırma merkezleri kurdu. Nitekim bahsetmiştim OpenCV bu merkezin bir ürünü olarak çıktı.
 
+![](/assets/img/posts/0*L6ja2J-xrUM_qPig.webp)
+
 Pek çoğunuz en azından 2000 öncesi doğanlar Pentium efsanesini bilir. Intel Pentium işlemciler, 1993 yılında piyasaya sürülen bir oyun değiştirici idi. Pentium işlemciler, Intel’in önceki işlemci ailelerine göre önemli bir gelişmeydi; daha yüksek saat hızları, daha iyi performans ve gelişmiş yetenekler sunuyordu. İşte bu işlemcilerde Rusya’nın Elbrus Projesinin lideri Vladimir Pentkovski’nin ve Elbrus’un etkisi olduğu iddia ediliyor. (Nitekim Pentium ismine Pentkovski’nin soyisminden esinlenildiği de bir başka iddia).
 
-Bu tonton dedemiz Vladimir Pentkovski
+![Bu tonton dedemiz Vladimir Pentkovski](/assets/img/posts/0*D2Mt7cAp-RUnYAgD.webp)
 
 Tetris’in yazarı Pajitnov’u Microsoft kendi ekibine transfer ederken, pek çok farklı bilgisayar bilimcisi de Amerikan üniversiteleri ve şirketlerinde kendine yer buldu.
 
