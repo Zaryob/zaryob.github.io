@@ -1,43 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
-  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"-->
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/bootstrap.min.css">
-  <!--link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/bootstrap.max.css"-->
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/footer.css?h=cabc25193678a4e8700df5b6f6e02b7c">
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/fonts/IBM_Plex/css/ibm-plex.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/bootstrap.css">
 
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/fontawesome/css/all.min.css?h=c4af24ce595437830af0a401897698b2">
-  <!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"!-->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/fonts/IBM_Plex/css/ibm-plex.min.css">
 
-  <!--   Syntax highlighting is only needed for posts -->
-  <link rel="icon" type="image/ico" href="/favicon.ico"/>
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/fontawesome/css/all.min.css?h=c4af24ce595437830af0a401897698b2">
+  
+    <link rel="icon" type="image/ico" href="/favicon.ico"/>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bd-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-home"></i><span>&nbsp;Ev</span></a>
 
-  {% if page.layout == 'post' %}
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
-  {% endif %}
-
-
-  {% if page.image %}
-  <!--header class="masthead" style="background-image:url('{{page.image}}?h={{page.imagehash}}');"-->
-  <header class="masthead" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
-  {% else %}
-  <header class="masthead">
-  {% endif %}
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto">
-              <div class="post-heading">
                   
-                  {% if page.title %}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown</li>">
+                      <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-cubes"></i>&nbsp;Blog&nbsp;</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/posts/"><i class="far fa-clipboard"></i>&nbsp;Gönderiler</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/linux/"><i class="fab fa-linux"></i>&nbsp;Linux</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/internet/"><i class="fas fa-globe-europe"></i>&nbsp;İnternet</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/elektronik/"><i class="fas fa-microchip"></i>&nbsp;Elektronik</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pi/"><i class="fab fa-raspberry-pi"></i>&nbsp;Raspberry Pi</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pixelart/"><i class="fab fa-artstation"></i>&nbsp;Pixel Art</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/programlama/"><i class="fas fa-code"></i>&nbsp;Programlama</a>
+                        <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-archive"></i>&nbsp;Arşiv</a>
+                      </div>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kitapligim/"><i class="fas fa-journal-whills"></i>&nbsp;Kitaplığım</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kilavuzlar/"><i class="fab fa-guilded"></i>&nbsp;Kılavuzlar</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/hakkinda/"><i class="fas fa-user"></i>&nbsp;Hakkında</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-branch"></i>&nbsp;Profil</a>
+                    </li>
+          
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    {% if page.image %}
+    <div class="hero-section" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}');">
+    {% else %}
+    <div class="hero-section bg-dark"></div>
+    {% endif %}
+        <div class="text-white text-center py-5">
+          <div class="container">
+
+          {% if page.title %}
                   {% if page.title != 'empty' %}
                   <title class="heading-text">{{ page.title }}</title>
                   
                   <div class="site-heading">
-                    <h1 class="heading-text" style="font-family: Aclonica, sans-serif;">{{ page.title }}</h1>
+                    <h1 class="heading-text" style="font-family: Aclonica, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ page.title }}</h1>
                     {% if page.layout == 'post' %}
                     <span>
                       <time datetime="">
@@ -67,75 +100,41 @@
                   {% endif %}
                   {% else %}
                   <title class="heading-text">Anasayfa</title>
-
-                  <div class="site-heading">
-                    <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif;">Zaryob</h1>
-                    <span class="subheading" style="font-family: IBM Plex Mono, sans-serif;">Bir bilgisayar manyağının kişisel blogu</span>
-                  </div>
+                  <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Zaryob</h1>
+                  <p class="lead" style="font-family: IBM Plex Mono, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Bir bilgisayar manyağının kişisel blogu</p>
+       
                   {% endif %}
-              </div>
-            </div>
-        </div>
-    </div>
-  </header>
-</head>
-<body>
-  <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-home"></i><span>&nbsp;Ev</span></a>
-        <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
-        <div
-            class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-cubes"></i>&nbsp;Blog&nbsp;</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/posts/"><i class="far fa-clipboard"></i>&nbsp;Gönderiler</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/linux/"><i class="fab fa-linux"></i>&nbsp;Linux</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/internet/"><i class="fas fa-globe-europe"></i>&nbsp;İnternet</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/elektronik/"><i class="fas fa-microchip"></i>&nbsp;Elektronik</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pi/"><i class="fab fa-raspberry-pi"></i>&nbsp;Raspberry Pi</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pixelart/"><i class="fab fa-artstation"></i>&nbsp;Pixel Art</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/programlama/"><i class="fas fa-code"></i>&nbsp;Programlama</a>
-                  <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-archive"></i>&nbsp;Arşiv</a>
-                </div>
-              </li>
-
-              <li class="nav-item" role="presentation"><a style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kitapligim/"><i class="fas fa-journal-whills"></i>&nbsp;Kitaplığım</a></li>
-              <li class="nav-item" role="presentation"><a style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kilavuzlar/"><i class="fab fa-guilded"></i>&nbsp;Kılavuzlar</a></li>
-              <li class="nav-item" role="presentation"><a style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/hakkinda/"><i class="fas fa-user"></i>&nbsp;Hakkında</a></li>
-              <li class="nav-item" role="presentation"><a style="font-family: IBM Plex Mono, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-branch"></i>&nbsp;Profil</a></li>
-            </ul>
-        </div>
+             </div>
       </div>
-  </nav>
+    </div>
 
-  <div class="content">
+    <!-- Content Section -->
+    <section id="content" class="py-5">
+      {{ content }}
+    </section>
 
-    {{ content }}
-  
-    <footer class="footer-dark">
-        <div class="row">
-            <div class="col item social">
-              <a href="https://github.com/Zaryob"><i class="fab fa-github"></i></a>
-              <a href="https://gitlab.com/Zaryob"><i class="fab fa-gitlab"></i></a>
-              <a href="https://bitbucket.com/Zaryob"><i class="fab fa-bitbucket"></i></a>
-              <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://dev.to/zaryob/"><i class="fab fa-dev"></i></a>
-              <a href="https://zaryob.medium.com/"><i class="fab fa-medium"></i></a>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+      <div class="row"></div>
+        <div class="col item social">
+          <a href="https://github.com/Zaryob"><i class="fab fa-github"></i></a>
+          <a href="https://gitlab.com/Zaryob"><i class="fab fa-gitlab"></i></a>
+          <a href="https://bitbucket.com/Zaryob"><i class="fab fa-bitbucket"></i></a>
+          <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://dev.to/zaryob/"><i class="fab fa-dev"></i></a>
+          <a href="https://zaryob.medium.com/"><i class="fab fa-medium"></i></a>
         </div>
-        <p>Sürüm : {{ site.time | date: '%B %d, %Y - %H:%M:%S %Z'}}</p>
-        <p class="copyright">İş Bu Sitenin Kaynak Kodları GPLv3 ile lisanslanmıştır<br>Süleyman Poyraz © 2016-2023</p>
-
+      </div> 
+     
+      <p class="copyright">İş Bu Sitenin Kaynak Kodları GPLv3 ile lisanslanmıştır<br>Süleyman Poyraz © 2016 - {{ site.time | date: '%Y'}}</p>
+      <p>Sürüm : {{ site.time | date: '%B %d, %Y - %H:%M:%S %Z'}}</p>
     </footer>
-    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
-    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script-->
-    <script src="{{site.baseurl}}/assets/bootstrap/js/jquery.min.js?h=dc5e7f18c8d36ac1d3d4753a87c98d0a"></script>
-    <script src="{{site.baseurl}}/assets/bootstrap/js/script.min.js?h=a454220fc07088bf1fdd19313b6bfd50"></script>
-    <script src="{{site.baseurl}}/assets/bootstrap/js/bootstrap.bundle.min.js?h=6c07da54c4d2d77c149cca568a16930a"></script>
-  </div>
-{% include analytics.html %}
+    
+    <!-- JS -->
+    <script src="{{site.baseurl}}/assets/bootstrap/js/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/assets/bootstrap/js/script.min.js"></script>
+    <script src="{{site.baseurl}}/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+
