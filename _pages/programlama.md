@@ -6,8 +6,45 @@ image: "programming-bg.jpg"
 image_hash: "14e966d46bb6ece26db3432d8171b1b4"
 ---
 
-<div class="container">
-  <div class="col-lg-12 col-md-14 mx-auto">
+<style>
+
+      .blog-post {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 2rem;
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 1rem;
+      }
+      .blog-post img {
+          max-width: 200px;
+          margin-right: 1rem;
+          border-radius: 8px;
+          background-color: #ccc; /* Default gray color */
+      }
+      .blog-post .details {
+          flex: 1;
+      }
+      .blog-post .details h5 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+      }
+      .blog-post .details p {
+          margin: 0.5rem 0;
+      }
+      .blog-post .meta {
+          font-size: 0.9rem;
+          color: #888;
+      }
+      .blog-post img {
+          width: 150px; /* Set a consistent width */
+          height: 150px; /* Set a consistent height */
+          object-fit: cover; /* Ensures the image fits well without distortion */
+          margin-right: 1rem; /* Spacing between the image and text */
+          border-radius: 8px; /* Optional: Rounds the corners */
+      }
+
+</style>
+<div id="blog" class="container mt-5">
   {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
 
   {% for post in site.categories.programlama %}
@@ -15,34 +52,30 @@ image_hash: "14e966d46bb6ece26db3432d8171b1b4"
   {% assign day = post.date | date: "%d" %}
   {% assign month = months[m] %}
   {% assign year = post.date | date: "%Y" %}
-  <article class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-            <h3 class="post-title">{{ post.title }}</h3>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
-            <a class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 30 }}</a>
-            {% endif %}
-          </a>
-          <p class="post-meta">
-            {% if post.author %}
+
+  <div class="blog-post">
+      <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><img src="{{site.baseurl}}/assets/img/pages/{{post.image}}?h={{post.image_hash}}" onerror="this.style.backgroundColor='#ccc'; this.style.objectFit='contain'; this.src='';"></a>
+      <div class="details">
+          <h5><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h5>
+          <p class="meta">  {% if post.author %}
             {{ post.author }}
             {% else %}
             {{ site.author }}
-            {% endif %}
-            tarafından
-            {{ day }} {{ month }} {{ year }} tarihinde yayınladı. &middot; {% include read_time.html
-            content=post.content %}
-          </p>
-  </article>
-  <hr>
+            {% endif %} | {{ month }} {{ day }}, {{ year }}  | {% include read_time.html content=post.content %}</p>
 
+            {% if post.subtitle %}
+            <p class="post-subtitle">{{ post.subtitle }}</p>
+            {% else %}
+            <p>{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+            {% endif %}
+          
+      </div>
+  </div>
   {% endfor %}
-  <div>
 
   <!-- Pager -->
   {% if paginator.total_pages > 1 %}
-  
+
   <div class="clearfix">
 
   {% if paginator.previous_page %}
