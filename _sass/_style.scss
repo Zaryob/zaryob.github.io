@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    transition: top 0.3s;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.hero {
+    position: relative;
+    height: 100vh; /* Adjust based on your design */
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; /* Ensures the content doesn't overflow */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit; /* Use the same background image */
+    background-position: inherit;
+    background-size: inherit;
+    filter: blur(7px); /* Adjust the blur intensity */
+    z-index: 1; /* Keep it behind the content */
+    opacity: 0.7; /* Optional: Add transparency for a softer effect */
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2; /* Ensures content stays on top of the blurred background */
+    text-align: center;
+    color: white; /* Adjust text color for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+.footer .social a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer .social a:hover {
+    color: #0d6efd;
+}
+.footer .copyright {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+.footer .release {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: #8e98a1;
+}

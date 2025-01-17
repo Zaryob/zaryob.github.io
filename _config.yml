@@ -14,6 +14,7 @@ github_username: Zaryob
 
 sass:
     style: compressed
+    post: compressed
 
 # Tracker
 #analytics: UA-83979019-1

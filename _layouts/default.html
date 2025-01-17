@@ -14,83 +14,15 @@
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
     {% endif %}
     <link rel="icon" type="image/ico" href="/favicon.ico"/>
-    <style>
-      body {
-          margin: 0;
-          padding: 0;
-      }
-      .navbar {
-          transition: top 0.3s;
-      }
-      
-      .hero {
-          position: relative;
-          height: 100vh; /* Adjust based on your design */
-          background-position: center;
-          background-size: cover;
-          overflow: hidden; /* Ensures the content doesn't overflow */
-      }
+    
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
 
-      .hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: inherit; /* Use the same background image */
-          background-position: inherit;
-          background-size: inherit;
-          filter: blur(7px); /* Adjust the blur intensity */
-          z-index: 1; /* Keep it behind the content */
-          opacity: 0.7; /* Optional: Add transparency for a softer effect */
-      }
-
-      .hero .content {
-          position: relative;
-          z-index: 2; /* Ensures content stays on top of the blurred background */
-          text-align: center;
-          color: white; /* Adjust text color for readability */
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-      }
-      .footer {
-          background-color: #212529;
-          color: white;
-          text-align: center;
-          padding: 20px 0;
-          margin-top: auto;
-      }
-      .footer .social a {
-          margin: 0 10px;
-          color: white;
-          font-size: 1.2rem;
-          text-decoration: none;
-          transition: color 0.3s;
-      }
-      .footer .social a:hover {
-          color: #0d6efd;
-      }
-      .footer .copyright {
-          margin-top: 10px;
-          font-size: 1rem;
-          color: #6c757d;
-      }
-      .footer .release {
-          margin-top: 8px;
-          font-size: 0.7rem;
-          color: #8e98a1;
-      }
-    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-home"></i><span>&nbsp;Ev</span></a>
+            <a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-home"></i><span id="ev">&nbsp;Ev</span></a>
 
                   
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,6 +65,7 @@
         </div>
     </nav>
 
+    
     <!-- Hero Section -->
     {% if page.image %}
     <div class="hero" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}'); background-position: center; background-size: cover;">
@@ -185,10 +118,13 @@
              </div>
         </div>
       </div>
+      <div class="scroll-down" onclick="scrollToNextSection()">
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </div>
 
     <!-- Content Section -->
-    <section id="content" class="py-5">
+    <section id="page_content" class="py-5">
       {{ content }}
     </section>
 
@@ -230,6 +166,15 @@
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Ensure scrollTop doesn't go negative
       });
 
+      function scrollToNextSection() {
+          const nextSection = document.querySelector('#page_content');
+          if (nextSection) {
+              window.scrollTo({
+                  top: nextSection.offsetTop,
+                  behavior: 'smooth',
+              });
+          }
+      }
   </script>
 </body>
 </html>
