@@ -3,7 +3,7 @@ layout: post
 title: "Soğuk Savaşın Mirası: Sovyetler Birliği’nin Bilgisayar Teknolojisi"
 date: 2023-03-15 12:23:43 +0300
 categories: [genel, internet]
-image: "0*iKnRspKQsW_YPL7z.webp"
+image: "2023-03-15-soguk-savas.webp"
 image_hash: "4a207a0c12003ac693cfa3edf9cb4ff8"
 ---
 

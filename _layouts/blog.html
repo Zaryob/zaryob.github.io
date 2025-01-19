@@ -8,7 +8,7 @@ layout: page
   {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
 
 {% assign category = page.permalink | split: '/' | last %}
-{% for post in site.categories.[category] %}
+{% for post in site.categories[category] %}
   {% assign m = post.date | date: "%-m" | minus: 1 %}
   {% assign day = post.date | date: "%d" %}
   {% assign month = months[m] %}
