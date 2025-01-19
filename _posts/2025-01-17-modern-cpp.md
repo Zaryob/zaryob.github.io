@@ -23,10 +23,11 @@ türlü başına oturup da bir post yazmayı başaramadım. Artık o akşam bu a
 
 Başta belirtmek isterim ki, bu yazıda C++'ın ne tarihine gireceğim ne de çok bilinen
 yok işte variable türleri budur, pointerlar şunlar, referanslar bunlar gibi şeylerden
-bahsetmeyeceğim. Çünkü büyüklü küçüklü herkes "Ben C++ gurusuyum" diyip oturup Bejarne diye bir 
+bahsetmeyeceğim. Çünkü büyüklü küçüklü herkes "Ben C++ gurusuyum" diyip oturup Bjarne diye bir 
 adam C'nin şu sorunlarını görmüş hede hödö diye bir sürü Wikipedia bilgisini oturup 
 paylaşıyor. Ama bununla kaldığın zaman C++'ın gurusuyum demek havuzda yüzüp Manş Denizini
 geçebilirim demek gibi bir şey. Neyse lafı uzatmadan Modern C++ hikayeleri anlatalım biraz da.
+
 
 # C++'ın Orta Çağları: C++98 ve C++03 
 
@@ -40,12 +41,10 @@ hatta verilerin başlangıç tanımlamaları gibi konularda bile C++ oldukça il
 Örneğin çokça bildiğimiz aşağıdaki tanımlama C++'ın o dönemlerinde yoktu:
 
 ```cpp
-
 class MyClass {
 public:
     int value = 5; // C++98/03'de derleme hatası verir.
 };
-
 ```
 
 Bu dönemlerin ardından daha öncesinde bahsettiğim Java ve C# gibi dillerin popülerliği ile 2003-2005
@@ -61,7 +60,8 @@ adlandırıldı.
 daha ifade gücü yüksek ve geliştirici dostu hale getiren özellikler tanıttı. Standart kütüphanelerde
 oldukça büyük değişiklikler yapıldı ve C++11 ile birlikte C++'ın modern çağı başlamış oldu diyebilirim.
 
-## Buz Devri Öncesi C++'ın Sorunları
+
+## Buz Devri Öncesi C++'ın Sorunları
 
 Esasında C++ dili oldukça güçlü bir dildi, o zamanlar bile... Ancak geliştiricileri konforsuz hale getiren
 bazı sıkıntılar var idi.
@@ -73,10 +73,8 @@ gireceğim. Özellikle iteratörler gibi karmaşık türler için tür bildiriml
 Örneğin bir iteratör tanımlamak için aşağıdaki gibi bir şey yapmanız gerekiyordu:
 
 ```cpp
-
 std::vector<int> vec = {1, 2, 3, 4, 5};
 std::vector<int>::iterator it = vec.begin();
-
 ```
 
 Bellek yönetimi ve eşzamanlılık eksikleri de C++'ın en baş ağtırıcı sorunlarıydı. C++'ın ham işaretçileri
@@ -87,6 +85,7 @@ C++'ı pek tercih edilmeyen bir dil haline getirilmişti.
 Bu açıdan bakldığında C++11 bir güncellemeden çok daha fazlasıydı; adeta bir devrimdi. Standart, 
 uzun süredir var olan sorunlara çözüm getiren ve dili daha modern, güvenli ve verimli hale getiren
 düzinelerce özellik tanıttı ki şimdi bunlardan birkaçına değinelim.
+---
 
 # Modern C++'ın Temel Bazı Yenilikleri
 
@@ -168,6 +167,7 @@ Son olarak `auto` ile `decltype` arasındaki farkı vurgulamakta fayda var:
 * auto türler (types) üzerinde çalışır,
 * decltype ise ifadeler (expressions) üzerinde çalışır.
 
+---
 
 ## Uniform Initialization (Birörnekli Başlatma)
 
@@ -197,6 +197,7 @@ Birörnekli başlatma, tehlikeli dönüşümleri de derleme aşamasında engelle
 int x = 3.14;  // İzin verilir ama kesme (truncation) olur
 int y{3.14};   // Hata: daraltıcı dönüşüm
 ```
+---
 
 ## Akıllı İşaretçiler ve Bellek Yönetimi
 
@@ -276,6 +277,7 @@ int main() {
     return 0;
 }
 ```
+---
 
 ## Lambda Fonksiyonlar
 
@@ -294,6 +296,7 @@ std::for_each(vec.begin(), vec.end(), [](int value) {
 
 Bu örnekte `std::for_each` algoritması, `vec` vektöründeki her bir eleman için lambda fonksiyonunu
 basitçe çağırır. Bu sayede algoritmaları daha okunabilir hale geldi.
+---
 
 ## Eşzamanlılık ve Paralellik
 
@@ -322,6 +325,7 @@ Windows'ta da Linux'ta da macOS'ta da aynı şekilde çalıştırabilirsiniz.
 C++11 ayrıca `std::async` ve `std::future` öğeleriyle asenkron görev yönetimini 
 (async task management) de destekler. Böylece manuel olarak `std::thread` yönetmek yerine, 
 asenkron olarak çalıştırılan işlerden dönüş değerleri alabilirsiniz.
+---
 
 ## Meta Programlama Şablonlar ve Derleme Zamanı Hesaplamaları
 
@@ -377,6 +381,7 @@ int main() {
 
 Bu tarz metaprogramlama, kütüphane geliştiricileri veya çerçeve (framework) yazarları 
 için özellikle yararlıdır.
+---
 
 # Sonraki Blog Yazılarıma Referans Niteliğinde...
 
