@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Modern C++’ın Gücünü Keşfetmek"
-date: 2025-01-18 23:42:02 +0300
+date: 2025-01-26 23:42:02 +0300
 categories: [programlama]
-image: "2025-01-18-modern-cpp-semantikler.jpeg"
+image: "2025-01-26-modern-cpp-semantikler.jpeg"
 image_hash: "3bde78199468d6affeb6539c56af87c9"
 ---
 
@@ -22,9 +22,9 @@ C++’ta **değerler** (values), özelliklerine ve yaşam sürelerine göre fark
 
 ---
 
-### **1. C++’taki Değer Kategorileri**
+#### **1. C++’taki Değer Kategorileri**
 
-#### **1.1 lvalue (Locator Value)**
+##### **1.1 lvalue (Locator Value)**
 - **Tanım**: Bellekte kalıcı bir konuma (persistent location) sahip bir nesneyi temsil eder.
 - **Örnekler**:
   ```cpp
@@ -37,7 +37,7 @@ C++’ta **değerler** (values), özelliklerine ve yaşam sürelerine göre fark
 
 ---
 
-#### **1.2 rvalue (Right-Hand Value)**
+##### **1.2 rvalue (Right-Hand Value)**
 - **Tanım**: Kalıcı bir bellek konumuna sahip olmayan geçici nesneyi veya değeri temsil eder.
 - **Örnek**:
   ```cpp
@@ -49,7 +49,7 @@ C++’ta **değerler** (values), özelliklerine ve yaşam sürelerine göre fark
 
 ---
 
-#### **1.3 xvalue, glvalue ve prvalue (C++11 ve Sonrası)**
+##### **1.3 xvalue, glvalue ve prvalue (C++11 ve Sonrası)**
 Modern C++’ta referanslar daha ince ayrımlarla tanıtılmıştır:
 - **prvalue (Pure rvalue)**:
   - Geçici nesneleri veya sabit değerleri (literal) temsil eder.
@@ -76,7 +76,7 @@ Modern C++’ta referanslar daha ince ayrımlarla tanıtılmıştır:
     int&& y = 20;       // `y` bir rvalue'dir ve glvalue değildir!!
     ```
 
-#### **1.4 Referans Tablosu**
+##### **1.4 Referans Tablosu**
 
 Özetle, C++’ta değerlerin kategorileri aşağıdaki gibi sınıflandırılabilir:
 
@@ -92,7 +92,7 @@ Modern C++’ta referanslar daha ince ayrımlarla tanıtılmıştır:
 
 [](/assets/img/posts/GNhBF.png)
 
-### **2. Sahiplik ve Yaşam Zamanı Kavramları**
+#### **2. Sahiplik ve Yaşam Zamanı Kavramları**
 
 Rust'tan aşina olan insanlar vardır, mutuatörler ve sahiplik kavramları C++'ta da mevcuttur. Bu kavramlar, nesnelerin yaşam
 sürelerini ve kaynak yönetimini anlamak için önemlidir ve modern C++'da sahiplik ve yaşam zamanı (lifetime), kaynak 
@@ -101,7 +101,7 @@ kaynağın bellekte ne kadar süreyle var olacağını tanımlar. Bu iki kavram 
 bellekte bulunacağı süreyi o kaynağa sahip olan belirler ve modern C++'ın sahiplik modeli, yaşam zamanı sorunlarını çözmek 
 ve hataları önlemek için güçlü araçlar sunar.
 
-#### **2.1 Yaşam Zamanları**
+##### **2.1 Yaşam Zamanları**
 
 Yaşam zamanları nesnenin tanımlanmasına bağlı olarak belirlenir. Nesnenin yaşam zamanınını 4 farklı durumda inceleyebiliriz:
 
@@ -133,7 +133,7 @@ Yaşam zamanları nesnenin tanımlanmasına bağlı olarak belirlenir. Nesnenin 
     std::string str = std::string("hello").substr(0, 3); // "hello" str'a atanmak için kullanılan geçici bir nesnedir
     ```
 
-#### **2.2 Sahiplik ve Yaşam Zamanı İlişkisi**
+##### **2.2 Sahiplik ve Yaşam Zamanı İlişkisi**
 
 Yaşam zamanlarını üç aşağı beş yukarı anladık diye düşünüyorum. Sahiplik de daha önce belirttiğim gibi, bir kaynağın yaşam
 zamanı boyunca onun yönetiminden kimin sorumlu olduğunu belirler. Eğer sahiplik ve yaşam zamanı doğru yönetilmezse, şu sorunlar ortaya çıkabilir:
@@ -151,7 +151,7 @@ std::cout << *ptr; // Tanımsız davranış: Geçersiz işaretçi kullanımı
 bu gibi durumlar, programın beklenmedik şekilde davranmasına ve hatalara yol açabilir (en iyimser ihtimalle segmentation
 fault alınır).
 
-#### **2.3 Modern C++’ta Sahiplik Modelleri: RAII**
+##### **2.3 Modern C++’ta Sahiplik Modelleri: RAII**
 
 Modern C++, **Resource Acquisition Is Initialization (RAII)** prensibiyle sahiplik ve yaşam zamanı sorunlarını çözer. RAII,
 bir kaynağın sahipliğini bir nesneye bağlayarak, kaynağın yaşam süresini nesnenin yaşam süresiyle eşleştirir.
@@ -164,13 +164,13 @@ Bu prensip kısaca şu şekilde çalışır:
     - Ya kendisi otomatik depolama süresine (automatic storage duration) sahip olması ya da geçici (temporary) bir yaşam süresine sahip olması,
     - Ya da yaşam süresinin, bir otomatik ya da geçici nesnenin yaşam süresiyle sınırlı olması gerekir
 
-### **3. Akıllı İşaretçiler ile Yaşam Zamanı Yönetimi**
+#### **3. Akıllı İşaretçiler ile Yaşam Zamanı Yönetimi**
 
 Akıllı işaretçiler (smart pointers), RAII prensibini uygulayarak bellek yönetimini kolaylaştırır ve bellek sızıntılarından
 kaçınmanıza yardımcı olur. Modern C++'ta, `std::unique_ptr`, `std::shared_ptr` ve `std::weak_ptr` gibi standart kütüphane
 sınıfları, bellek yönetimini otomatikleştirir ve kaynakların güvenli bir şekilde serbest bırakılmasını sağlar.
 
-#### **3.1 std::unique_ptr**
+##### **3.1 std::unique_ptr**
 
  yalnızca bir nesneye sahip olabilir 
 
@@ -187,7 +187,7 @@ void example() {
 }
 ```
 
-#### **3.2 std::shared_ptr**
+##### **3.2 std::shared_ptr**
 
 `std::shared_ptr`, oluşturulan bir nesneye ait birden fazla işaretçiye sahip olabilir, her kullanıldığı zaman sayacı artırılır ve nesneyi kullanan işaretçi sayısı 0 olduğunda nesne serbest bırakılır.
 
@@ -213,7 +213,7 @@ Aslında bu örnek pek yerinde olmadı çünkü `std::shared_ptr`'nin kullanım�
 sahip olmak istediğiniz durumlarda kullanılır ve bunu en güzel açıklayacağımız örnek threadlerdeki paylaşılan verilerin
 güvenli bir şekilde paylaşılmasında kullanılabilir. Onu da örneklendireceğim :) geliyor.
 
-#### **3.3 std::weak_ptr**
+##### **3.3 std::weak_ptr**
 
 `std::weak_ptr`, `std::shared_ptr`'nin zayıf bir referansıdır ve bir nesneye sahip olmaz, yalnızca bir `std::shared_ptr`'den
 oluşturulabilir ve bu sayede döngüsel referansları önler. Şimdi bu bu konuyu örneklendireceğim ama hem thread'lerde buna örnek vermek istiyorum hem de bu referans çeşitini ben bile tam olarak anlamadım :). 
@@ -241,9 +241,9 @@ int main() {
 ```
 
 
-### **4. Move Semantiği ve Sahiplik Transferi**
+#### **4. Move Semantiği ve Sahiplik Transferi**
 
-#### **4.1. Neden Move Semantiği Var?**
+##### **4.1. Neden Move Semantiği Var?**
 Dimi, sahiplik transferine gerçekten ihtiyacımız var mı? Evet, var. Klasik C++’ta (C++11 öncesi), nesneler varsayılan 
 olarak kopyalanırdı. Bunu şöyle düşünün, elinizde bir kaynak var, onu başka bir fonksiyona göndermek istiyorsunuz, bu
 durumda hem elinizdeki kaynak, hem de fonksiyona gönderdiğiniz kaynak aynı anda bellekte olacak ve bu durumda iki kaynak
@@ -254,7 +254,7 @@ pahalıdır. *Move semantics* (taşıma semantiği), kaynakları kopyalamak yeri
 
 ---
 
-#### **4.2. Move Semantiği Nasıl Çalışır?**
+##### **4.2. Move Semantiği Nasıl Çalışır?**
 - **Move Constructor**: Kaynakları bir nesneden diğerine aktarır, kaynağı geçerli ancak tanımsız bir duruma bırakır.  
 - **Move Assignment Operator**: Halihazırda başlatılmış nesneler için, move constructor’a benzer şekilde kaynak aktarımı yapar.
 
@@ -309,7 +309,7 @@ int main() {
 
 ---
 
-#### **4.3. Değerler ve Move Semantiği Arasındaki Bağlantı**
+##### **4.3. Değerler ve Move Semantiği Arasındaki Bağlantı**
 
 **Move Semantiğinde rvalue’ların Rolü**
 Move semantiği, rvalue’ları performansı optimize etmek için kullanır:
@@ -352,7 +352,7 @@ Kopya kurucu çağırıldı
 Move kurucu çağırıldı
 ```
 
-#### **4.4. Move Semantiği ve Bellek Yönetimi**
+##### **4.4. Move Semantiği ve Bellek Yönetimi**
 
 RAII'yi sağlamak için bazı temel noktalar var:
 
@@ -378,18 +378,35 @@ int main() {
 ```
 Modern derleyicilerde, **return value optimization (RVO)** veya move işlemleri kaynak yönetimini verimli kılar.
 
+### Dipnot: `nullptr` ve `std::nullptr_t`
+
+Şu diğer dillerde bulunan `Null Safety` kavramı geçmiş 2 senemi (Dart ve Kotlin sayesinde) işgal ettiği için `nullptr` 
+değinmeden geçemeyeceğim.
+
+
+`nullptr`, C++11’de tanıtılan bir özel değerdir ve bir işaretçinin (pointer) geçerli olmadığını belirtir. Tarihin eski 
+çağlarından kalan `NULL` ile karşılaştırıldığında `nullptr`, işaretçi türlerinde daha güvenli ve tutarlı bir şekilde 
+kullanılır. Örneğin `NULL` aynı zamanda `0` gibi algılandığı için yani bir çeşit işlev aşırı yüklemesine sahip olduğu için 
+`NULL` istenmeyen dönüşümlerde kafa karışıklığına yol açabilir. `nullptr` ise dilin içerisinde açık bir şekilde null 
+pointer'ı temsil eder ve bu tür sorunları önler.
+
+`nullptr` öncesinde söylediğim gibi bir *değerdir*, ve `std::nullptr_t` türündedir. Herhangi bir işaretçi türüne örtük 
+olarak dönüştürülebilir, ancak herhangi bir tamsayı türüne dönüştürülemez. Bu durum, işaretçi ve tamsayılar arasında 
+yapılan aşırı yükleme çağrılarında oluşabilecek belirsizlikleri ortadan kaldırır.
+
+
 ---
 
 ## Lambda İfadeleri
 
-### 1. Lambdalar Nedir?
+### Lambdalar Nedir?
 
 *Lambda expressions*, satır içi (inline) tanımlanabilen anonim fonksiyonlardır. Özellikle sıralama (sorting), filtreleme (filtering) ve geri çağrı (callback) gibi kısa süreli işlemler için idealdir.
 Lambdalar, fonksiyonel programlamayı sadeleştirir ve STL algoritmaları ile sorunsuz bütünleşir.
 
 ---
 
-### 2. Neden Lambda Kullanmalı?
+### Neden Lambdalar Kullanılır?
 
 - **Kısa ve Özdür**: Ekstra fonksiyon nesneleri veya şablon (boilerplate) kod yazma ihtiyacını ortadan kaldırır.  
 - **Esnektir**: Değer veya referans olarak değişken yakalamayı (capture) destekler, böylece lambda içinde bu değişkenleri kullanabilirsiniz.
@@ -431,11 +448,11 @@ print(); // Çıktı: 10
 
 ## Concurrency (Eşzamanlılık) - std::thread ve Diğerleri
 
-### 1. Concurrency Nedir?
+### Concurrency Nedir?
 
 Eşzamanlılık (concurrency), programın aynı anda birden fazla görevi yürütmesine imkân tanıyarak performans ve etkileşimi (responsiveness) artırır. C++11 öncesinde eşzamanlılık çoğunlukla platforma özgü kütüphanelere bağlıydı ve taşınabilirlik (portability) sorunları yaşanıyordu.
 
-#### 1.1. C++11’de Eşzamanlılık Desteği
+#### 1. C++11’de Eşzamanlılık Desteği
 
 C++11, eşzamanlılık desteği için standart kütüphaneler ekleyerek bu sorunu çözer. Bu kütüphaneler, iş parçacıkları (threads), senkronizasyon (mutex) ve gelecekteki sonuçlar (futures) gibi modern eşzamanlılık araçlarını içerir.
 
@@ -629,12 +646,51 @@ almasını ve yürütmesini sağlar. `Logger`, iş parçacıklarının durumunu 
 `stop()` yöntemi, hiçbir görev kalmadığında iş parçacıklarının temiz bir şekilde çıkmasını sağlar.
 
 
+## Atomic ve Lock-Free Programlama
+
+Bu yazı oldukça uzadı ama bu konuyu da atlamak istemedim. `std::atomic` ve lock-free programlama, modern C++'ın eşzamanlılık
+ve performansı artırmak için sunduğu güçlü araçlardır. `std::atomic`, halihazırda mutex gibi yapılarla korunmayan veri türleri
+ile oluşturulmuş ve birden fazla iş parçacığı ile paylaşılan değişkenlere eşzamanlı erişim sağlar. ancak sadece korunmayan
+veri türleri veya temel türler ile çalışır gibi bir yanılgıya düşmeyin, kullanıcı tanımlı türler için de (kendi oluşturduğunuz
+mutex içeren veri türleri için ne kadar mantıklıdır bilmem ama) kullanılabilir.
+
+Atomik işlemler, başka bir işlem tarafından kesintiye uğramadan tamamlanır, yani birden fazla iş parçacığı aynı değişkene 
+aynı anda erişmeye çalışsa bile verileri bellek erişimi esasına göre güvenli bir şekilde günceller. Bu türün kullanımı,
+standart kütüphanede `std::shared_ptr` ile ortaya çıkmış olup, mutex ve diğer senkronizasyon araçlarına kıyasla daha
+hızlı bir arayüz sunar.
+
+```cpp
+#include <iostream>
+#include <thread>
+#include <atomic>
+
+std::atomic<int> counter = 0;
+
+void increment() {
+    for (int i = 0; i < 1000; ++i) {
+        counter.fetch_add(1, std::memory_order_relaxed);
+    }
+}
+
+int main() {
+    std::thread t1(increment);
+    std::thread t2(increment);
+
+    t1.join();
+    t2.join();
+
+    std::cout << "Counter: " << counter << std::endl;
+    return 0;
+}
+```
+
+
 
 
 ---
 
-# Sonuç
+# Bitirirken...
 
-*Move semantics*, *lambda expressions* ve *concurrency* gibi özelliklerle C++11, geliştiricilere verimli ve modern kod yazma konusunda güçlü araçlar sunar. Bu özellikler yalnızca performansı artırmakla kalmaz, aynı zamanda karmaşık programlama görevlerini de basitleştirir.
+Sözün özü *Move semantics*, *lambda expressions* ve *concurrency* gibi özelliklerle C++, geliştiricilere verimli ve modern kod yazma konusunda güçlü araçlar sunar. Bu özellikler yalnızca performansı artırmakla kalmaz, aynı zamanda karmaşık programlama görevlerini de basitleştirir.
 
 Bir ileri seviye Modern C++ özelliklerine daha derinlemesine bakacağız.

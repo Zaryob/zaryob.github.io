@@ -396,3 +396,16 @@ daha güvenli, daha anlaşılır ve performans odaklı kod üretme olanağı sa�
 Umarım bu ek örnekler ve açıklamalar, Modern C++’ın sunduğu yenilikleri daha iyi anlamanıza yardımcı olur.
 
 İlerleyen postlarımda görüşmek üzere, esen kalın!
+
+
+# Referanslar
+
+Benim bu aşamada başucu kaynağı gibi kullandığım bazı kaynakları sizinle de paylaşmak isterim:
+
+* [Effective Modern C++ - Scott Meyers ](https://www.oreilly.com/library/view/effective-modern-c/9781491908419/)
+
+* [C++20 for Programmers: An Objects-Natural Approach](https://www.pearson.com/en-us/subject-catalog/p/c20-for-programmers-an-objects-natural-approach/P200000000211/9780136905660)
+
+* [Modern C++ for Absolute Beginners](https://link.springer.com/book/10.1007/978-1-4842-9274-7)
+
+* [Learn C++ by Example](https://www.manning.com/books/learn-c-plus-plus-by-example)
