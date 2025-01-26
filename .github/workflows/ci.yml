@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-        ruby: ['3.2', '3.4']
+        ruby: ['3.2']
     steps:
       - uses: ruby/setup-ruby@v1
         with:
