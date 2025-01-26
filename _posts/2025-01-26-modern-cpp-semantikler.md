@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Modern C++’ın Gücünü Keşfetmek"
-date: 2025-01-26 23:42:02 +0300
+date: 2025-01-26 15:42:02 +0300
 categories: [programlama]
-image: "2025-01-26-modern-cpp-semantikler.jpeg"
-image_hash: "3bde78199468d6affeb6539c56af87c9"
+image: "2025-01-26-modern-cpp-semantikler.jpg"
+image_hash: "85c34a1b4fb373340b895ed60e421bfb"
 ---
 
-Önceki yazımızda C++11’i önceki sürümünden ayıran özelliklerinden bahsederken şimdi bahsedeceğim üç temel özelliğinden 
+Önceki yazımda C++11’i önceki sürümünden ayıran özelliklerinden bahsederken şimdi bahsedeceğim üç temel özelliğinden 
 bahsetmiştik. Bunlar *type inference* (tür çıkarımı), *uniform initialization* (birörnekli başlatma) ve *smart pointers* 
 (akıllı işaretçiler) konularını ele almıştık. Bu yazıda ise bu üç hususa ve *move semantics* (taşıma semantiği) konusuna
 daha detaylı olarak gireceğiz, *lambda expressions* (lambda ifadeleri) ve *concurrency* (eşzamanlılık) gibi, bizim için 
@@ -24,50 +24,50 @@ C++’ta **değerler** (values), özelliklerine ve yaşam sürelerine göre fark
 
 #### **1. C++’taki Değer Kategorileri**
 
+C++'da değerler bellekteki konumuna ve yeniden kullanılabilirliğine göre ayrılır. Bu ayrım aslında dil ile bilmemiz gereken bir özellik olduğu gibi işin özünde, C++ derleyicisinin makine kodu oluşturmasına içkin bir durum diyebilirim. Yine de kısaca bu değerler ve özelliklerinden bahsedeceğim ki bellek yönetimi hakkı ile anlaşılabilsin.
+
 ##### **1.1 lvalue (Locator Value)**
-- **Tanım**: Bellekte kalıcı bir konuma (persistent location) sahip bir nesneyi temsil eder.
-- **Örnekler**:
+Bellekte kalıcı bir konuma (persistent location) sahip bir nesneyi temsil eder.
+**Örnek**:
   ```cpp
   int x = 10;       // `x` bir lvalue'dir
   int& ref = x;     // `ref`, `x`'i refere eden bir lvalue referanstır
   ```
-- **Temel Özellikler**:
-  - Bir adı vardır veya kendisine başvurulabilir (ör. `x`).
-  - Atama işleminin sol tarafında (veya sağ tarafında) yer alabilir.
+Bu ifadelerin bir adı vardır veya kendisine başvurulabilir (ör. `x`).
+Atama işleminin sol tarafında (veya sağ tarafında) yer alabilir.
 
 ---
 
 ##### **1.2 rvalue (Right-Hand Value)**
-- **Tanım**: Kalıcı bir bellek konumuna sahip olmayan geçici nesneyi veya değeri temsil eder.
+Kalıcı bir bellek konumuna sahip olmayan geçici nesneyi veya değeri temsil eder.
 - **Örnek**:
   ```cpp
   int&& y = 20;       // `y` bir rvalue'dir
   ```
-- **Temel Özellikler**:
-  - Adresi alınamaz.
-  - Tam ifade (full expression) bittiğinde yok olurlar (eğer bir değişkende saklanmazlarsa).
+Adresi alınamaz.
+Tam ifade (full expression) bittiğinde yok olurlar (eğer bir değişkende saklanmazlarsa).
 
 ---
 
 ##### **1.3 xvalue, glvalue ve prvalue (C++11 ve Sonrası)**
 Modern C++’ta referanslar daha ince ayrımlarla tanıtılmıştır:
 - **prvalue (Pure rvalue)**:
-  - Geçici nesneleri veya sabit değerleri (literal) temsil eder.
-  - Örnek: 
+  Geçici nesneleri veya sabit değerleri (literal) temsil eder.
+  Örnek: 
     ```cpp
     int x = 10;       // burada `x` bir lvalue iken `10` bir prvalue'dir
     string str = "Hello";  // burada `"Hello"` bir prvalue'dir
     ```
 - **xvalue (Expiring value)**:
-  - Kaynaklarının yeniden kullanılabileceği nesneyi temsil eder (örnek: `std::move` ile elde edilen sonuç).
-  - Örnek: 
+  Kaynaklarının yeniden kullanılabileceği nesneyi temsil eder (örnek: `std::move` ile elde edilen sonuç).
+  Örnek: 
     ```cpp
     std::vector<int> vec = {1, 2, 3};
     int&& x = std::move(vec[0]);  // `std::move(vec[0])` bir xvalue'dir
     ```
 - **glvalue (Generalized lvalue)**:
-  - lvalue ve xvalue’ları birleştirerek bellekte bir konuma sahip nesneleri temsil eder. Kabaca tüm lvalue’lar ve rvalue referanslarını içeren ifadeler glvalue’lardır.
-  - Örnek: 
+  lvalue ve xvalue’ları birleştirerek bellekte bir konuma sahip nesneleri temsil eder. Kabaca tüm lvalue’lar ve rvalue referanslarını içeren ifadeler glvalue’lardır.
+  Örnek: 
   ```cpp
     int x = 10;       // `x` bir lvalue olduğu gibi ayrıca glvalue'dir
     int& ref = x;     // `ref` bir lvalue olduğu gibi ayrıca glvalue'dir
@@ -460,12 +460,15 @@ C++11, eşzamanlılık desteği için standart kütüphaneler ekleyerek bu sorun
 2. `std::mutex`: Paylaşılan kaynaklara eşzamanlı, güvenli erişim sağlama.  
 3. `std::future` ve `std::promise`: Asenkron programlamada sonuç senkronizasyonu sağlar.
 
+Şimdi hangisi ne için kullanılacak diye sorduğunuzu duyar gibiyim.Kural oldukça basit:
 
 - Hafif eşzamanlılık gerektiren görevler için `std::thread` kullanın.  
 - Paylaşılan kaynakları `std::mutex` ile koruyarak veri yarışlarını (data race) önleyin.  
 - Sonuç senkronizasyonuna ihtiyaç duyan görevler için `std::future`’ı tercih edin.
 
 #### 2. Eşzamanlılık Sağlayan C++11 Özellikleri
+
+Burada bazı örnekler vererek devam edeceğim ama bu konuların detaylarına ilerleyen yazılarımda mutlaka gireceğim.
 
 1. **Thread Oluşturma ve Birleştirme (join):**
 
@@ -533,6 +536,8 @@ int main() {
 Eşzamanlılık ve bellek yönetimi, programın performansını ve güvenilirliğini etkileyen kritik bir konudur. Eşzamanlı işleri 
 yürütürken, paylaşılan kaynaklara eşzamanlı erişimde güvenlik sorunları ortaya çıkabilir. Bu sorunları önlemek için,
 `std::mutex` ve `std::lock_guard` gibi eşzamanlılık araçlarını kullanarak Modern C++'da verilerin güvenliğini sağlanabilir.
+
+Şimdi önceki kısımlarda örneklerini gördüğümüz yapıları tek bir örnekte, bellek yönetimi amacıyla nasıl kullanabiliriz, onu ele alalım:
 
 ```cpp
 #include <iostream>
