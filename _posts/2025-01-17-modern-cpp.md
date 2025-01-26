@@ -277,6 +277,8 @@ int main() {
     return 0;
 }
 ```
+
+[](/assets/img/posts/1*lVeFcVcq5DbPArtRZARTfQ.png)
 ---
 
 ## Lambda Fonksiyonlar
