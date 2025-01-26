@@ -145,6 +145,8 @@
       <p class="release">Sürüm : {{ site.time | date: '%B %d, %Y - %H:%M:%S %Z'}}</p>
     </footer>
     
+    {% include google-analytics.html %}
+
     <!-- JS -->
     <script src="{{site.baseurl}}/assets/bootstrap/js/jquery.min.js"></script>
     <script src="{{site.baseurl}}/assets/bootstrap/js/script.min.js"></script>
@@ -176,6 +178,7 @@
           }
       }
   </script>
+
 </body>
 </html>
 

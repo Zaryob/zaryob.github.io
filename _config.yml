@@ -17,8 +17,7 @@ sass:
     post: compressed
 
 # Tracker
-#analytics: UA-83979019-1
-
+google_analytics: "G-M6NQ8DV1XP"
 
 exclude:
 - README.md
