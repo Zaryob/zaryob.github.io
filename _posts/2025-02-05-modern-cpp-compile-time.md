@@ -3,8 +3,8 @@ layout: post
 title: "Modern C++'ta Derleme Zamanı Özellikleri"
 date: 2025-02-05 18:29:22 +0300
 categories: [programlama]
-image: "2025-02-05-modern-cpp-compile-time.jpeg"
-image_hash: "3bde78199468d6affeb6539c56af87c9"
+image: "2025-02-05-modern-cpp-compile-time.webp"
+image_hash: "28e960d2654d12b03416972c02c6ce00"
 ---
 
 
@@ -352,12 +352,13 @@ başlatıcılar bulunuyor, hatta bu başlatıcılar `range-based for loops` konu
 Artık C++17 ile birlikte, bir `if` veya `switch` ifadesinin içinde doğrudan değişken başlatmaya olanak tanır.
 
 **Örnek: Basitleştirilmiş `if` İfadesi**
+
 ```cpp
 #include <map>
 #include <iostream>
 
 int main() {
-    std::map<int, std::string> data = {{1, "Bir"}, {2, "İki"}};
+    std::map<int, std::string> data = { {1, "Bir"}, {2, "İki"} };
     if (auto it = data.find(2); it != data.end()) {
         std::cout << "Bulundu: " << it->second;
     } else {
