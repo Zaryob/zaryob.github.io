@@ -75,6 +75,7 @@ bloğu gerekmez. Çünkü kaynak edinimi ve başlatmalar (RAII) idiomu ile ele a
 temizleme için gerekli işlevselliği sağlar. Bu da bizi en başından itibaren ham işaretçiler ve C tarzı bellek yönetiminden 
 uzak durmaya iten bir diğer sebeptir.
 
+
 ## assert ve static_assert 
 
 `assert` fonksiyonu, programın belirli bir koşulu sağlaması gerektiğini belirtir. Eğer koşul sağlanmazsa, programın
