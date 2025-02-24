@@ -1,17 +1,13 @@
 ---
 layout: post
 title: "E O Kadar Yazdık: Modern C++'ın Hata Yakalama ve Ayıklama Yetenekleri"
-date: 2025-02-12 20:46:12 +0300
+date: 2025-02-24 20:46:12 +0300
 categories: [programlama]
-image: "2025-02-12-modern-cpp-o-kadar-yazdik.jpeg"
-image_hash: "3bde78199468d6affeb6539c56af87c9"
+image: "2025-02-24-modern-cpp-o-kadar-yazdik.png"
+image_hash: "28b5e972255de1398b3d657915d420e8"
 ---
 
-Şimdi bu noktaya kadar hep yeni eklenen özelliklerinden bahsettik lakin şimdiye kadar olan kısımlarda hep yazmaya
-odaklandık, ancak bilirsiniz ki geliştirilerin hayat döngüsü 24 saatten oluşur; 3 saati kodu yazmak, 21 saati ise
-kodu okumak, anlamak ve hataları düzeltmekle geçer. İşte bu özellikleri bu sebeple oldukça muhim buluyorum ve bu
-yazıda da C++'ın hata yakalama ve ayıklama yeteneklerine değineceğiz.
-
+Şimdi bu noktaya kadar hep yeni eklenen özelliklerinden bahsettik lakin şimdiye kadar olan kısımlarda hep yazmaya odaklandık, ancak bilirsiniz ki geliştirilerin hayat döngüsü 24 saatten oluşur; 3 saati kodu yazmak, 21 saati ise kodu okumak, anlamak ve hataları düzeltmekle geçer.
 
 ## Hata Yakalama
 
@@ -257,8 +253,6 @@ int main() {
 
 ## Bir Yazıyı Daha Arkamızda Bırakırken
 
-Yazıya geri dönüp baktığımda biraz yeni gelen özelliklere de değindiğimi gördüm, ancak bu özellikleri anlatmak ve C++'ın sanıldığı
-aksine oldukça güçlü ve ayakları yere basan idiomlara sahip bir dil olduğunu göstermek istedim. Umarım bu isteğimi ilerleyen yazılarıma da
-uygun bir şekilde devam ettirebilirim.
+Kısa ve öz yazdığım bu yazıya geri dönüp baktığımda hata ayıklama özelliklerini ki bunlar biraz yeni gelen özelliklerdir, değindim, ancak bu özellikleri anlatmak ve C++'ın güçlü ve ayakları yere basan idiomlara sahip bir dil olarak gelişmeye devam ettiğini göstermek istedim. Umarım bu isteğimi ilerleyen yazılarıma da uygun bir şekilde devam ettirebilirim.
 
 Hadi, bir sonraki yazıda görüşmek üzere, esen kalın.
