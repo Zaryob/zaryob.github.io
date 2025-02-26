@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "STL Madenleri: Modern C++'ın Derinliklerine Doğru Bir Kazı"
-date: 2025-02-24 20:46:12 +0300
+date: 2025-02-28 20:46:12 +0300
 categories: [programlama]
-image: "2025-02-24-cpp-madenleri.jpeg"
+image: "2025-02-28-cpp-madenleri.jpeg"
 image_hash: "3bde78199468d6affeb6539c56af87c9"
 ---
 
@@ -56,17 +56,17 @@ azalır.
 - **`try_emplace`**: C++17 ile tanıtılan bu özellik, var olan bir elemanı güncellemeden yeni bir eleman ekleme işlemini 
 birleştirir.
 
-    ```cpp
-    #include <map>
-    #include <string>
+```cpp
+#include <map>
+#include <string>
 
-    int main() {
-        std::map<int, std::string> myMap;
-        myMap.try_emplace(1, "İlk Eleman"); // Eğer anahtar yoksa ekler
-        myMap.try_emplace(1, "Yoksayılır"); // Anahtar mevcut olduğu için eklenmez
-        return 0;
-    }
-    ```
+int main() {
+    std::map<int, std::string> myMap;
+    myMap.try_emplace(1, "İlk Eleman"); // Eğer anahtar yoksa ekler
+    myMap.try_emplace(1, "Yoksayılır"); // Anahtar mevcut olduğu için eklenmez
+    return 0;
+}
+```
 
 ---
 
@@ -78,50 +78,50 @@ Modern C++'ta, belirli ihtiyaçlara yönelik yeni konteynerler tanıtılmıştı
 
 - STL konteyner benzeri davranış sergileyen sabit boyutlu bir dizi oluşturmaya yarar.
 
-    ```cpp
-    #include <array>
-    #include <iostream>
+```cpp
+#include <array>
+#include <iostream>
 
-    int main() {
-        std::array<int, 3> arr = {1, 2, 3};
-        for (auto x : arr) {
-            std::cout << x << " ";
-        }
-        return 0;
+int main() {
+    std::array<int, 3> arr = {1, 2, 3};
+    for (auto x : arr) {
+        std::cout << x << " ";
     }
-    ```
+    return 0;
+}
+```
 
 #### **2.2 `std::forward_list`**
 
 Hafıza verimliliği ve ileri yönlü iterasyon için optimize edilmiş tek yönlü bağlı listedir.
 
-    ```cpp
-    #include <iostream>
-    #include <forward_list>
+```cpp
+#include <iostream>
+#include <forward_list>
 
-    int main() {
-        // Bir forward_list oluştur
-        std::forward_list<int> flist = {1, 2, 3, 4, 5};
+int main() {
+    // Bir forward_list oluştur
+    std::forward_list<int> flist = {1, 2, 3, 4, 5};
 
-        // Elemanları yazdır
-        std::cout << "Liste elemanları: ";
-        for (int x : flist) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        // Listenin başına bir eleman ekle
-        flist.push_front(0);
-
-        std::cout << "Başına 0 eklendi: ";
-        for (int x : flist) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        return 0;
+    // Elemanları yazdır
+    std::cout << "Liste elemanları: ";
+    for (int x : flist) {
+        std::cout << x << " ";
     }
-    ```
+    std::cout << std::endl;
+
+    // Listenin başına bir eleman ekle
+    flist.push_front(0);
+
+    std::cout << "Başına 0 eklendi: ";
+    for (int x : flist) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
 
 #### **2.3 `std::unordered_map` ve `std::unordered_set`**
 - C++11 ile tanıtılan bu hash tabanlı konteynerler, `std::map` ve `std::set`'e kıyasla daha hızlı ortalama zaman 
@@ -132,73 +132,73 @@ Hash tablosu kullandığı için arama, ekleme ve silme işlemleri ortalama O(1)
 Elemanlar sıralı tutulmaz. Her anahtar yalnızca bir kez kullanılabilir. Aynı anahtarla ikinci bir ekleme, mevcut değeri günceller.
 Hash tablosu için varsayılan olarak std::hash kullanır, ancak özelleştirilmiş bir hash fonksiyonu da belirtilebilir.
 
-    ```cpp
-    #include <iostream>
-    #include <unordered_map>
+```cpp
+#include <iostream>
+#include <unordered_map>
 
-    int main() {
-        // Bir unordered_map oluştur
-        std::unordered_map<std::string, int> myMap;
+int main() {
+    // Bir unordered_map oluştur
+    std::unordered_map<std::string, int> myMap;
 
-        // Eleman ekle
-        myMap["Ali"] = 25;
-        myMap["Veli"] = 30;
-        myMap["Ayşe"] = 28;
+    // Eleman ekle
+    myMap["Ali"] = 25;
+    myMap["Veli"] = 30;
+    myMap["Ayşe"] = 28;
 
-        // Elemanları yazdır
-        for (const auto& pair : myMap) {
-            std::cout << pair.first << ": " << pair.second << std::endl;
-        }
-
-        // Anahtar kullanarak bir değere erişim
-        std::cout << "Ali'nin yaşı: " << myMap["Ali"] << std::endl;
-
-        return 0;
+    // Elemanları yazdır
+    for (const auto& pair : myMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
     }
-    ```
+
+    // Anahtar kullanarak bir değere erişim
+    std::cout << "Ali'nin yaşı: " << myMap["Ali"] << std::endl;
+
+    return 0;
+}
+```
 
 #### **2.4 `std::deque`**
 
 - Her iki uçtan verimli ekleme ve silme işlemlerini destekleyen çift uçlu bir kuyruk.
 
-    ```cpp
-    #include <iostream>
-    #include <deque>
+```cpp
+#include <iostream>
+#include <deque>
 
-    int main() {
-        // Bir deque oluştur
-        std::deque<int> dq = {1, 2, 3};
+int main() {
+    // Bir deque oluştur
+    std::deque<int> dq = {1, 2, 3};
 
-        // Elemanları yazdır
-        std::cout << "Deque başlangıç durumu: ";
-        for (int x : dq) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        // Başa ve sona eleman ekle
-        dq.push_front(0);
-        dq.push_back(4);
-
-        std::cout << "Başa 0, sona 4 eklendi: ";
-        for (int x : dq) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        // Baştan ve sondan eleman sil
-        dq.pop_front();
-        dq.pop_back();
-
-        std::cout << "Baştan ve sondan eleman silindi: ";
-        for (int x : dq) {
-            std::cout << x << " ";
-        }
-        std::cout << std::endl;
-
-        return 0;
+    // Elemanları yazdır
+    std::cout << "Deque başlangıç durumu: ";
+    for (int x : dq) {
+        std::cout << x << " ";
     }
-    ```
+    std::cout << std::endl;
+
+    // Başa ve sona eleman ekle
+    dq.push_front(0);
+    dq.push_back(4);
+
+    std::cout << "Başa 0, sona 4 eklendi: ";
+    for (int x : dq) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+
+    // Baştan ve sondan eleman sil
+    dq.pop_front();
+    dq.pop_back();
+
+    std::cout << "Baştan ve sondan eleman silindi: ";
+    for (int x : dq) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
 
 
 ### **3. Polimorfik Bellek Kaynakları (`std::pmr`)**
