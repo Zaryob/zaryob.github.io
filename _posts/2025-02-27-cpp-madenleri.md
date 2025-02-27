@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "STL Madenleri: Modern C++'ın Derinliklerine Doğru Bir Kazı"
-date: 2025-02-28 20:46:12 +0300
+date: 2025-02-27 16:46:12 +0300
 categories: [programlama]
-image: "2025-02-28-cpp-madenleri.jpeg"
-image_hash: "3bde78199468d6affeb6539c56af87c9"
+image: "2025-02-27-cpp-madenleri.jpeg"
+image_hash: "96e8ad973bb2830ad38e48f7d7a7b2d0"
 ---
 
 Neden STL'i bir maden olarak adlandırdığım ile giriş yapmak istiyorum. STL, bir dilin en güçlü olan yanlarından birisidir.
