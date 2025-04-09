@@ -1,10 +1,8 @@
 _site
-Gemfile.lock
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
-Gemfile.lock
 
 # hidden files
 .*
@@ -15,8 +13,6 @@ Gemfile.lock
 # jekyll debug
 _site
 
-# Jeykll Gemfile.lock
-Gemfile.lock
 
 # yui-compressor
 *.jar

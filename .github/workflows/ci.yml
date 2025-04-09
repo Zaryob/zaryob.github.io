@@ -1,77 +1,24 @@
-name: 'Continuous Integration'
+name: Build and check site
+
 on:
   push:
-    branches-ignore:
-      - 'production'
-    tags-ignore:
-      - '*'
-    paths-ignore:
-      - '.github/**'
-      - '!.github/workflows/ci.yml'
-      - '.travis.yml'
-      - '.gitignore'
-      - 'docs/**'
-      - 'README.md'
-      - 'LICENSE'
   pull_request:
-    paths:
-      - '**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-        ruby: ['3.2']
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
-
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Bundle Caching
-        id: bundle-cache
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Install GNU-Coreutils(for macOS)
-        if: runner.os == 'macOS'
-        run: |
-          brew install coreutils
-
-      - name: Bundle config
-        run: |
-          bundle config path vendor/bundle
-
-      - name: Bundle Install
-        if: steps.bundle-cache.outputs.cache-hit != 'true'
-        run: |
-          bundle install
-
-      - name: Bundle Install locally
-        if: steps.bundle-cache.outputs.cache-hit == 'true'
-        run: |
-          bundle install --local
-
-      - name: Build Site
-        run: |
-          bundle exec jekyll b
-
-      - name: Test Site
-        run: |
-          #bundle exec htmlproofer _site  \
-          #          --disable-external \
-          #          --check-html \
-          #          --empty_alt_ignore \
-          #          --allow_hash_href \
-          #          --url_ignore "//"
-
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --trace
+      - name: Check generated pages and local assets
+        run: python3 scripts/check_site.py _site

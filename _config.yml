@@ -1,40 +1,38 @@
-### your site title here
-
-title: Bir genç geliştiricinin kişisel blogu.
+title: Süleyman Poyraz
 author: Süleyman Poyraz
 email: zaryob.dev@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Kişisel blogum.
-url: localhost::8080
-  #baseurl: /
-
+description: >-
+  C++, Linux, ağlar ve yazılım geliştirme üzerine yazılarım, notlarım ve projelerim.
+url: https://zaryob.github.io
+baseurl: ""
+lang: tr-TR
 
 twitter_username: pyrz_suleyman
 github_username: Zaryob
 
 sass:
-    style: compressed
-    post: compressed
+  style: compressed
 
 # Tracker
 google_analytics: "G-M6NQ8DV1XP"
 
-exclude:
-- README.md
-
 include:
-- _pages
+  - _pages
 
-
-exclude: [vendor]
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts
 
 permalink: /:categories/:title/
+markdown: kramdown
+paginate: 15
+paginate_path: "/posts/page:num/"
 
-
-markdown:           kramdown
-paginate:           15
-paginate_path:      "/posts/page:num/"
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
