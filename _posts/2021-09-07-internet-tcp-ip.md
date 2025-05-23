@@ -63,7 +63,7 @@ Diğer Bazı TCP/IP Uygulamaları
 X Pencere Sistemi
 -----------------
 
-![](/assets/img/posts/0*pbqfDSNqVPgV_zAB)
+![](/assets/img/posts/0*pbqfDSNqVPgV_zAB.png)
 
 Bilinen en bariz Server-Client mantığına sahip yazılımdır. X Pencere Sistemi veya sadece X, birden fazla istemcinin (uygulamanın) bir sunucu tarafından yönetilen bit eşlemeli ekranı kullanmasına izin veren bir sunucu-istemci uygulamasıdır.
 

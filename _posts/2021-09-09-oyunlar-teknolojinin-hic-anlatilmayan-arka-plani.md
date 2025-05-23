@@ -27,7 +27,7 @@ Tabi ki oyun projesinin tek sorunu donanım değildi. Her bilgisayar projesinde 
 
 Daha proje ilk geliştirildiğinde farklı bir bilgisayar için kavramsal olarak tasarlanmış ve modülleri assembly ile yazılmış olan bu oyun GeckOS için bir daha yazılmış, şimdi bir daha yazılmış ve tekrar bir daha yazılmış… yarın satışa çıkacak olsa satışa çıkacağı sistem için uygun olacak şekilde bir daha yazılacaktı… Her bir cihaz için sıfırdan programlamayı gerektiren bu projeyle uğraştırmak ekibin canını sıkmıştı. Çünkü basit bir oyun adaptasyonu olan bu proje gitgide içinden çıkılamaz bir hal almış ve etrafında 4 kişilik bir ekip oluşmasına sebep olmuştu. Tamamı Multics ekibinden olan bu 4'lü bu projeden beklentisi biraz vakit geçirmek ve hazır sayılan bir oyunu yayınlayabilecek kıvama getirip kar elde etmek iken şidmi herkes oturup bu oyun projesinin nereye evrileceğini görmeye çalışıyordu. Çünkü geliştirme ilerledikçe sorunlar da karmaşıklaşıyor ve sorunlar da karmaşıklaştıkça bir şekilde bulmaları gereken çözümler de evrilmesi gerekiyordu.
 
-![](/assets/img/posts/0*5KKFdzj7iHlF-nY-)
+![](/assets/img/posts/0*5KKFdzj7iHlF-nY-.jpg)
 
 Artık assembly ile bu oyunun işinden çıkan ekip kolları sıvayıp yeniden yazmaya hazırdı ve diğer departmanlardan da bu iş için PDP-7 kullanmış kişilerden yardım istiyorlardı. Bu aşamada Ken Thompson’ın hadi başka dille yazalım önerisi herhalde herkesi kötü hissettirmiş olsa gerek. Ancak burada Ken Thompson’un getirdiği öneri hayli ilginç idi. Projeyi Multics için geliştirilirken yarım bırakılan bir dil olan B dili ile yapmayı önermişti. B dili yorumlanarak çalıştırılan bir dildi, Fortran gibi. Ancak işlerine bir hayli yarayabilirdi çünkü Fortranın aksine geliştirebilecekleri bir dildi, ticari hiçbir engel yoktu önlerinde. Hayli yavaş olan ve daha değişken tanımlama işlemlerine sahip olmayan bir dil bir hayli elden geçirilerek C dili oluşturuldu. C dili için bir derleyici yazıldı, oyun projesi için sancılı geçen kış artık yaza evriliyordu denilebilirdi.
 
@@ -35,7 +35,7 @@ Artık assembly ile bu oyunun işinden çıkan ekip kolları sıvayıp yeniden y
 
 Tabi yine “oyun geliştirmek için” farklı farklı gereksinimlere ihtiyaç duyduklarını farkettiler. Bu oyunu bir işaretçiyi yöneterek oynayacakları için kullanacakları bir girdi cihazı olacaktı, onu da aygıt yönetiminden anlayan Bell Laboratuvarlarından bir mühendisten sipariş ettiler, sonra bir başka bir şeye ihtiyaç duydular ve onu da şirket içinden bir mühendisden yazması için rica ettirdiler, sonra başka bir şey ve bambaşka bir şeye daha ihtiyaç duydular derken oyuna için (!) gerekli her şey üzerinde ilk defa bu kadar yoğun bir şekilde çalışmaya başlamışlardı. Kimisi derleyici üzerinde çalışıyor, kimisi derlenen kodu PDP-7 üzerinde çalıştıracak uygulamaları yazıyor, kimisi oyunu ve derleyiciyi donanım bazında yönetecek çekirdek modülleri yazıyor, Bell laboratuvarlarından bazı mühendisler gerek bu çekirdek modülüne aygıtların bağlanarak oyun kontrolcülerini yönetecek aygıt yöneticisini yazıyordu, gerekse oyun verilerini tutmak için bir dosya sistemine ihtiyaç olduğunu anlayınca hiyerarşik bir dosya sistemi de geliştirmeye koyulmuşlardı. Her iki şirket de bir anda bir oyun projesine odaklarını çevirmişlerdi. Ve iki şirkette de çalışan mühendisler aslında bir oyun projesi üzerinde çalışmayı çoktan bıraktıklarını anladıklarında Apollo 11 çoktan ay yüzeyinden başarılı bir kalkış yaparak evin yolunu tutmuştu…
 
-![](/assets/img/posts/0*XVI8f4OK8iqB-7Jt)
+![](/assets/img/posts/0*XVI8f4OK8iqB-7Jt.jpg)
 
 Olayın sonraki kısımlarını da biliyorsunuz herhalde…
 
@@ -51,7 +51,7 @@ Zamanındaki bilgisayarları bir düşünün. Şu an bunu okuduğunuz telefonunu
 
 Bu aşamada bir şey ortaya çıktı, kopya koruma. Pek çok program da bu kopya koruması ile geliyordu. Aslında kopya koruması olayının tarihi daha da eskiye dayanır ve yine bu sahipli yazılım muhabbeti, özgür yazılımın çıkışına sebep vermiştir. Ama o başka bir zamanın konusu. Şimdi önünüzde bir yazılım var, bu yazılımı başkalarının kullanımına açmak için örneğin bir arkadaşınızla paylaşmak istiyorsunuz ve araştırmaya başlıyorsunuz. Uğraşıp didinirken bunu kırıyorsunuz da. Şimdi bu aşamada temel bir psikolojik hile var. Bu çalışmanızı bir şekilde taçlandırmanız lazım çünkü sizin için önemli olan bir şeyi “**kırdınız**”.
 
-![](/assets/img/posts/0*m7HPIfYS-cnharI6)
+![](/assets/img/posts/0*m7HPIfYS-cnharI6.gif)
 
 Temel olarak her insan adının daha geniş kitlelerce duyulmasından ego temelli bir zevk duyar. Nitekim böyle de oldu. Her yeni oyunu veya programı kıran kişi bu benim diye kendi isimlerini ve nickname’lerini ortada dolaştırmaya başladı. Başlangıçta program kıran kişiler, yazılımın içerisine ek olarak basit bir yazı ile işte bunu yapan benim yazdı. Ancak kişiler ustalaştı ve ustalaştıkça basit yazılar yetersiz gelmeye başladı. Kayan yazılar (en zor şeylerden birisi idi), bazı şarkı ve ezgilerin melodilerinin 8 bitlik ses kartı üzerinden çalınması derken 3B dönen küpler, aklınıza gelebilecek en şaşaalı şekilde bunu ben yaptım diye göstermeye başladılar.
 

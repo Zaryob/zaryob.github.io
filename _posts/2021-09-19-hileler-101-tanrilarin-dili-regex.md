@@ -124,7 +124,7 @@ Daha esnek bir çözümün kullanımından kaçınması regexte önem arz eder. 
 
 `**<[^<>+]>**` **:** < ve > -> içinde bir veya daha fazla kez bulunan < veya > dışında herhangi bir karakterle eşleşir.
 
-![](/assets/img/posts/0*TpFV74av7jhTCoSU)
+![](/assets/img/posts/0*TpFV74av7jhTCoSU.jpg)
 
 Gelişmiş Birkaç Kullanım
 ========================

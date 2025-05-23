@@ -5,6 +5,7 @@ date: 2025-02-10 19:42:52 +0300
 categories: [programlama]
 image: "2025-02-10-paralel-programlama.webp"
 image_hash: "1d9326f63b4fce9436dd7c59afd364e4"
+math: true
 ---
 
 Yapay zeka konusu açıldığı zaman insanlar teknik altyapılarından ziyade, düşünce deneylerinden toplumsal etkisine, teknolojik değerinden uygulama alanlarında kadar pek çok konusuna değiniyor. Ben de değineceğim ama boşuna karalamayayım. Hatta özellikle Çin-Amerika Yapay Zeka Savaşı'nın Yeni Soğuk Savaş mı olacağına ayrıca gireceğim. Ancak işin matematik tabanı ve bilgisayar bilimi ayağına girildiğinde o kadar çok anlatılabilecek konu varken sadece elimize graflar verip yapay sinir ağları çizmek bence yeterli olmuyor. Ben de yazılarımda bu gibi konulara girmekten zevk alıyorum. Örneğin görüntü işleme konusunda insanlar hep yüz tespiti, nesne tanımayı anlatırken ben görüntü işlemede kullanılan metodların matematiksel temellerini (hatta zamanım genişse örnekleri ile beraber) daha fazla seviyorum. Bugün de benzer bir yazı yazacağım, bugünkü konumuz özellikle yapay zekanın hesaplama ayağına değen paralel programlama ile alakalı olacak.

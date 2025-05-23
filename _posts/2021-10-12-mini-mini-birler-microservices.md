@@ -45,7 +45,7 @@ Microservices yapısı ile alakalı düşülen en temel ve bilindik yanılgı se
 
 Doğruyu söylemek gerekirse, ben de araştırırken, çeşitli yazıları okurken nerdeyse tamamında mikro hizmet tanımını yaptıktan sonra yazarın REST API’leri hakkında yazdığı güzel dokümanları ve bol bol Kubernetes yönergelerini görüyorum. Ama abi burada bir saçmalık var. Tanım olarak, REST API’leri kullanarak tek başına mikro hizmet mimarisi oluşturamayız, bunları her biri tek bir sorumluluğu üstlenen birden çok küçük öğeye bölseniz bile sadece milyon tane REST API oluşturmuş olursunuz. Çünkü tanımı gereği bir REST API’sini doğrudan kullanabilmeniz için bunu bilmeniz gerekir.
 
-![](/assets/img/posts/0*COkmyE8KhWUdl6Ti)
+![](/assets/img/posts/0*COkmyE8KhWUdl6Ti.png)
 
 Bir yan not olarak şunu da ifade edetim ki iki tür REST geliştiricisi vardır (yani geliştiriciler REST API’leri iki farklı şekilde oluştururlar):
 

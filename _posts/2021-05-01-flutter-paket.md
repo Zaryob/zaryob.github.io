@@ -52,7 +52,7 @@ Oluşan derlenmiş dosyaları içeren klasörümüzü Uygulamamızın adı ile u
 ```bash
 $ cd ..
 $ mkdir appimage_flutter.AppDir
-$ ls 
+$ ls
 appimage_flutter  appimage_flutter.AppDir  appimagetool-x86_64.AppImage
 ```
 
@@ -66,7 +66,15 @@ $ cp appimage_flutter/build/linux/x64/release/bundle/* appimage_flutter.AppDir -
 
 **AppRun:**
 
-<script src="https://gist.github.com/Zaryob/85d89d0232c6462d90ca00d6e53b4bf5.js"></script>
+**`AppRun`**
+
+```bash
+#!/bin/sh
+cd "$(dirname "$0")"
+exec ./appimage_flutter
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/85d89d0232c6462d90ca00d6e53b4bf5)
 
 Ve ardından bunun için de çalıştırılabilir yetkisi verelim.
 
@@ -78,7 +86,20 @@ Eğer isteseniz uygulamamız için bir ikon belirleyelim. Ben öntanımlı Flutt
 
 **appimage_flutter.AppDir/appimage_flutter.desktop:**
 
-<script src="https://gist.github.com/Zaryob/e36104974ab32797fdfba1dd855279c4.js"></script>
+**`appimage_flutter.desktop`**
+
+```ini
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=Flutter AppImage
+Exec=appimage_flutter %u
+Icon=appimage_flutter
+Categories=Utility;
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/e36104974ab32797fdfba1dd855279c4)
 
 Bu işlemlerin ardından appimage_flutter.AppDir dizini şu şekilde görünmelidir.
 
@@ -152,7 +173,7 @@ $ sudo snap install snapcraft --classic
 Bu aşamadan sonra bazı paketler için selinux modülleri gerekmektedir. Bunun için aşağıdaki komutları root yetkisi alarak işletelim.
 
 ```bash
-# ausearch -c 'systemd' --raw | audit2allow -M my-systemd 
+# ausearch -c 'systemd' --raw | audit2allow -M my-systemd
 # semodule -X 300 -i my-systemd.pp
 ```
 
@@ -201,27 +222,112 @@ $ dart migrate --apply-changes
 Şimdi snapcraft.yaml dosyasını oluşturacağız. Bu dosya bizim proje klasörümüzde snap/ dizini altında yer alacak ve bu dosya sayesinde snap uygulamamızı oluşturacağız. Şimdi parça parça snapcraft dosyasının içeriğine bakalım.
 İlk olarak bizim bu uygulamamıza verdiğimiz ad ve diğer detayları girmemiz gerekmektedir. Bu bizim paketimizin metadata kısmıdır
 
-<script src="https://gist.github.com/Zaryob/d531b735319161c382f5e06ad42cc598.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+name: snap-flutter
+version: 0.1.0
+summary: Snap Flutter
+description: This is an example app for flutter snap desktop
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/d531b735319161c382f5e06ad42cc598)
 
 Sonrasında ise bizim bu paketi nasıl inşaa edeceğimize dair detayları build kısmına gireceğiz.
 
-<script src="https://gist.github.com/Zaryob/c58fa94cb3bc2712b0512b25fc89f6db.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+confinement: strict
+base: core18
+grade: stable
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/c58fa94cb3bc2712b0512b25fc89f6db)
 
 Bu uygulamamız için bir çalıştırma slotu oluşturmamız gerekmektedir. Bunu da şu şekilde yapacağız.
 
-<script src="https://gist.github.com/Zaryob/d84e16e601e573b73043050fa7c73d67.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+slots:
+  dbus-snap-flutter:
+    interface: dbus
+    bus: session
+    name: com.example.snap_flutter
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/d84e16e601e573b73043050fa7c73d67)
 
 Şimdi de uygulamamızın tanımlasını yapalım.
 
-<script src="https://gist.github.com/Zaryob/81d96bd419c74332ca27f5e592c5993f.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+apps:
+  snap_flutter:
+    command: snap-flutter
+    extensions: [flutter-master]
+    plugs:
+    - network
+    slots:
+      - dbus-snap-flutter
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/81d96bd419c74332ca27f5e592c5993f)
 
 Ve build için kullanacağımız plugini ve main.dart yolunu belirteceğimiz parts kısmını da yazalım.
 
-<script src="https://gist.github.com/Zaryob/a5a24858d8883a03d06e03477f29b7a8.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+parts:
+  snap-flutter:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/a5a24858d8883a03d06e03477f29b7a8)
 
 Sonuç olarak şöyle bir snapcraft dosyası oluşturmuş olacağız.
 
-<script src="https://gist.github.com/Zaryob/b3a27f8dea46b766bc220c1cd7e96169.js"></script>
+**`snapcraft.yaml`**
+
+```yaml
+name: snap-flutter
+version: 0.1.0
+summary: Snap Flutter
+description: This is an example app for flutter snap desktop
+
+
+confinement: strict
+base: core18
+grade: stable
+
+slots:
+  dbus-snap-flutter:
+    interface: dbus
+    bus: session
+    name: com.example.snap_flutter
+
+apps:
+  snap-flutter:
+    command: snap-flutter
+    extensions: [flutter-master]
+    plugs:
+    - network
+    slots:
+      - dbus-snap-flutter
+
+parts:
+  snap-flutter:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/b3a27f8dea46b766bc220c1cd7e96169)
 
 Diğer gui bazlı gereksinimler için snap/gui yoluna bir dizin açalım.
 
@@ -231,7 +337,20 @@ $ mkdir snap/gui
 
 AppImage için kullandığımız gibi bir ikonu buraya atalım. Ayrıca bir de .desktop dosyası oluşturmamız gerekmektedir. Bunun için:
 
-<script src="https://gist.github.com/Zaryob/f99cfe915522e9025ffe1e988eed6913.js"></script>
+**`snap_flutter.desktop`**
+
+```ini
+[Desktop Entry]
+Name=Snap Flutter
+Comment=This is an example app for how to use snap to packing flutter
+Exec=snap_flutter
+Icon=${SNAP}/gui/snap_flutter.png
+Terminal=false
+Type=Application
+Categories=Development;
+```
+
+[Kaynak kod (Gist)](https://gist.github.com/Zaryob/f99cfe915522e9025ffe1e988eed6913)
 
 Artık hazırız. Projemizin ana dizinine gelerek şu komutu çalıştıralım.
 İnşaa esnasında Multipass kullanmak için:
