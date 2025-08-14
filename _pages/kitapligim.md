@@ -2,25 +2,14 @@
 layout: page
 title: Kitaplığım
 permalink: /kitapligim/
-image: "archive-bg.jpg"
-image_hash: "cc30914dbb849385dc6c0bf877626671"
+description: "Süleyman Poyraz'ın Türkçe OpenZFS kitabı ve kaynak kodu."
 ---
 
-<section class="portfolio-block projects-cards">
-    <div class="container">
-        <!--div class="heading">
-            <h2>Kitaplarım</h2>
-        </div-->
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="card border-0">
-                    <a href="https://github.com/Zaryob/zfs_kitabi"><img class="card-img-top scale-on-hover" src="https://gh-card.dev/repos/Zaryob/zfs_kitabi.svg" alt="zfs_kitabi"/></a>
-                    <div class="card-body">
-                        <h6><a href="https://zaryob-dev.gitbook.io/zfs-kitabi/">ZFS Kitabı</a></h6>
-                        <p class="card-text">ZFS ve OpenZFS üzerine Türkçe bir kaynak oluşturma çabamın meyvesidir.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<p class="page-intro">Yazılım ve sistemler hakkında hazırladığım uzun soluklu kaynaklar.</p>
+
+<section class="project-detail" aria-labelledby="zfs-book-title">
+  <p class="project-detail__meta">AÇIK KAYNAK KİTAP · OPENZFS</p>
+  <h2 id="zfs-book-title">ZFS Kitabı</h2>
+  <p>ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitabım. Depolama havuzları, dosya sistemi özellikleri ve kullanım örnekleri için bölümlere ayrılmış bir başvuru kaynağı.</p>
+  <p><a href="https://zaryob-dev.gitbook.io/zfs-kitabi/">Kitabı oku ↗</a> · <a href="https://github.com/Zaryob/zfs_kitabi">Kaynak kodunu incele ↗</a></p>
 </section>

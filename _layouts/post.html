@@ -2,10 +2,12 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="{{site.baseurl}}/assets/css/post.css">
-<div class="col-md-10 col-lg-8 mx-auto">
-
-    <div class="post-content">
-    {{content}}
-    </div>
-</div>
+<article class="post-layout">
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <nav class="post-end-nav" aria-label="Yazı gezinmesi">
+    {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate">Medium'daki özgün yazı</a><span aria-hidden="true"> · </span>{% endif %}
+    <a href="{{ '/posts/' | relative_url }}">← Tüm yazılar</a>
+  </nav>
+</article>

@@ -1,190 +1,114 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'tr-TR' }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/bootstrap/css/bootstrap.css">
-
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/fonts/IBM_Plex/css/ibm-plex.min.css">
-
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/fontawesome/css/all.min.css?h=c4af24ce595437830af0a401897698b2">
-    {% if page.layout == 'post' %}
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/syntax-highlighter.css">
-    {% endif %}
-    <link rel="icon" type="image/ico" href="/favicon.ico"/>
-    
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/bootstrap/css/bootstrap-site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/fonts/IBM_Plex/css/site-fonts.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% if page.layout == 'post' %}
+  <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/syntax-highlighter.css' | relative_url }}">
+  {% elsif page.layout == 'blog' or page.path == 'posts/index.html' or page.path == 'index.html' %}
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  {% endif %}
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{site.baseurl}}/" style="font-family: IBM Plex Mono, sans-serif;"><i class="fas fa-home"></i><span id="ev">&nbsp;Ev</span></a>
+  <a class="skip-link" href="#main-content">İçeriğe geç</a>
 
-                  
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                      <a class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#" style="font-family: IBM Plex Mono, sans-serif;">
-                          <i class="fas fa-cubes"></i>&nbsp;Blog&nbsp;
-                      </a>
-                      <div class="dropdown-menu">
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/posts/"><i class="far fa-clipboard"></i>&nbsp;Gönderiler</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/linux/"><i class="fab fa-linux"></i>&nbsp;Linux</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/internet/"><i class="fas fa-globe-europe"></i>&nbsp;İnternet</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/elektronik/"><i class="fas fa-microchip"></i>&nbsp;Elektronik</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pi/"><i class="fab fa-raspberry-pi"></i>&nbsp;Raspberry Pi</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/pixelart/"><i class="fab fa-artstation"></i>&nbsp;Pixel Art</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/programlama/"><i class="fas fa-code"></i>&nbsp;Programlama</a>
-                          <a class="dropdown-item" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/arsiv/"><i class="fas fa-archive"></i>&nbsp;Arşiv</a>
-                      </div>
-                    </li>
-                
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Ana gezinme">
+    <div class="container">
+      <a class="navbar-brand" href="{{ '/' | relative_url }}">Zaryob<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü aç veya kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="{{ '/projeler/' | relative_url }}">Projeler</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="{{ '/posts/' | relative_url }}" id="writingMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Yazılar</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="writingMenu">
+              <li><a class="dropdown-item" href="{{ '/posts/' | relative_url }}">Tüm yazılar</a></li>
+              <li><a class="dropdown-item" href="{{ '/programlama/' | relative_url }}">Programlama</a></li>
+              <li><a class="dropdown-item" href="{{ '/linux/' | relative_url }}">Linux</a></li>
+              <li><a class="dropdown-item" href="{{ '/internet/' | relative_url }}">İnternet</a></li>
+              <li><a class="dropdown-item" href="{{ '/elektronik/' | relative_url }}">Elektronik</a></li>
+              <li><a class="dropdown-item" href="{{ '/pi/' | relative_url }}">Raspberry Pi</a></li>
+              <li><a class="dropdown-item" href="{{ '/arsiv/' | relative_url }}">Tarih arşivi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/kitapligim/' | relative_url }}">Kitaplığım</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://zaryob.github.io/kilavuzlar/">Kılavuzlar <span class="nav-external" aria-hidden="true">↗</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/hakkinda/' | relative_url }}">Hakkımda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                    <li class="nav-item">
-                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kitapligim/"><i class="fas fa-journal-whills"></i>&nbsp;Kitaplığım</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/kilavuzlar/"><i class="fab fa-guilded"></i>&nbsp;Kılavuzlar</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="{{site.baseurl}}/hakkinda/"><i class="fas fa-user"></i>&nbsp;Hakkında</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" style="font-family: IBM Plex Mono, sans-serif;" href="https://github.com/Zaryob"><i class="fas fa-code-branch"></i>&nbsp;Profil</a>
-                    </li>
-          
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    
-    <!-- Hero Section -->
-    {% if page.type != 'noimage' %}
+  <main id="main-content" class="flex-grow-1">
+    {% assign hero_image = page.cover_image %}
+    {% unless hero_image %}
       {% if page.image %}
-      <div class="hero" loading="lazy" style="background-image:url('{{site.baseurl}}/assets/img/pages/{{page.image}}?h={{page.image_hash}}'); background-position: center; background-size: cover;">
-      {% else %}
-      <div class="hero bg-dark"></div>
+        {% if page.image contains '/' %}
+          {% assign hero_image = page.image %}
+        {% else %}
+          {% assign hero_image = '/assets/img/pages/' | append: page.image %}
+        {% endif %}
       {% endif %}
-        <div class="content">
-          <div class="text-white text-center py-5">
-            <div class="container">
-
-            {% if page.title %}
-                    {% if page.title != 'empty' %}
-                    <title class="heading-text">{{ page.title }}</title>
-                    
-                    <div class="site-heading">
-                      <h1 class="heading-text" style="font-family: Aclonica, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">{{ page.title }}</h1>
-                      {% if page.layout == 'post' %}
-                      <span>
-                        <time datetime="">
-                                {% assign m = page.date | date: "%-m" %}
-                                {{ page.date | date: "%-d" }}
-                                {% case m %}
-                                  {% when '1' %}Ocak
-                                  {% when '2' %}Şubat
-                                  {% when '3' %}Mart
-                                  {% when '4' %}Nisan
-                                  {% when '5' %}Mayıs
-                                  {% when '6' %}Haziran
-                                  {% when '7' %}Temmuz
-                                  {% when '8' %}Ağustos
-                                  {% when '9' %}Eylül
-                                  {% when '10' %}Ekim
-                                  {% when '11' %}Kasım
-                                  {% when '12' %}Aralık
-                                {% endcase %}
-                                {{ page.date | date: "%Y" }}
-                        </time>
-                      </span>
-                      {% endif %}
-                    
-                      <span class="subheading" style="font-family: Lora, sans-serif;">{{ page.subtitle }}</span>
-                    </div>
-                    {% endif %}
-                    {% else %}
-                    <title class="heading-text">Anasayfa</title>
-                    <h1 class="heading-text" style="font-family: IBM Plex Sans, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Zaryob</h1>
-                    <p class="lead" style="font-family: IBM Plex Mono, sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Bir bilgisayar manyağının kişisel blogu</p>
-        
-                    {% endif %}
-              </div>
+    {% endunless %}
+    {% if page.type != 'noimage' %}
+      {% if page.path == 'index.html' %}
+      <header class="hero hero--home{% if hero_image %} hero--image{% endif %}"{% if hero_image %} style="background-image: linear-gradient(95deg, rgba(17, 25, 34, .93), rgba(17, 25, 34, .72)), url('{{ hero_image | relative_url }}');"{% endif %}>
+        <div class="container hero__inner">
+          <p class="hero__eyebrow">Yazılım mühendisi · Açık kaynak · Teknik yazılar</p>
+          <h1>Süleyman Poyraz</h1>
+          <p class="hero__lead">Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.</p>
+          <div class="hero__actions">
+            <a class="btn btn-accent" href="{{ '/projeler/' | relative_url }}">Projelerimi gör <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline-light" href="{{ '/posts/' | relative_url }}">Yazıları oku <span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <div class="scroll-down" onclick="scrollToNextSection()">
-          <i class="fas fa-chevron-down"></i>
+      </header>
+      {% elsif page.title and page.title != 'empty' %}
+      <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_image %} hero--image{% endif %}"{% if hero_image %} style="background-image: linear-gradient(95deg, rgba(17, 25, 34, .91), rgba(17, 25, 34, .77)), url('{{ hero_image | relative_url }}');"{% endif %}>
+        <div class="container hero__inner">
+          {% if page.layout == 'post' %}<p class="hero__eyebrow"><a href="{{ '/posts/' | relative_url }}">Yazılar</a></p>{% endif %}
+          <h1>{{ page.title }}</h1>
+          {% if page.subtitle %}<p class="hero__lead">{{ page.subtitle }}</p>{% endif %}
+          {% if page.layout == 'post' %}<time class="hero__date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time>{% endif %}
         </div>
-      </div>
+      </header>
+      {% endif %}
     {% endif %}
 
-
-    <!-- Content Section -->
-    <section id="page_content" class="py-5">
+    <div id="page_content" class="page-content container">
       {{ content }}
-    </section>
+    </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer bg-dark text-white text-center py-3 mt-auto">
-      <div class="row"></div>
-        <div class="col item social">
-          <a href="https://github.com/Zaryob"><i class="fab fa-github"></i></a>
-          <a href="https://gitlab.com/Zaryob"><i class="fab fa-gitlab"></i></a>
-          <a href="https://bitbucket.com/Zaryob"><i class="fab fa-bitbucket"></i></a>
-          <a href="https://linkedin.com/suleyman-poyraz"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://dev.to/zaryob/"><i class="fab fa-dev"></i></a>
-          <a href="https://zaryob.medium.com/"><i class="fab fa-medium"></i></a>
-        </div>
-      </div> 
-     
-      <p class="copyright">İş Bu Sitenin Kaynak Kodları GPLv3 ile lisanslanmıştır<br>Süleyman Poyraz © 2016 - {{ site.time | date: '%Y'}}</p>
-      <p class="release">Sürüm : {{ site.time | date: '%B %d, %Y - %H:%M:%S %Z'}}</p>
-    </footer>
-    
-    {% include google-analytics.html %}
+  <footer class="site-footer mt-auto">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-name">Süleyman Poyraz</p>
+        <p class="footer-note">Kod, sistemler ve öğrenme notları.</p>
+      </div>
+      <nav class="footer-links" aria-label="Sosyal bağlantılar">
+        <a href="https://github.com/Zaryob">GitHub</a>
+        <a href="https://linkedin.com/in/suleyman_poyraz">LinkedIn</a>
+        <a href="https://medium.com/@zaryob">Medium</a>
+        <a href="mailto:{{ site.email }}">E-posta</a>
+      </nav>
+    </div>
+    <div class="container footer-legal">
+      <span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz</span>
+      <span><a href="https://github.com/Zaryob/zaryob.github.io">Site kaynak kodu</a> · GPLv3</span>
+    </div>
+  </footer>
 
-    <!-- JS -->
-    <script src="{{site.baseurl}}/assets/bootstrap/js/jquery.min.js"></script>
-    <script src="{{site.baseurl}}/assets/bootstrap/js/script.min.js"></script>
-    <script src="{{site.baseurl}}/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // Hide the navbar when scrolling down, show when scrolling up
-      let lastScrollTop = 0;
-      const navbar = document.getElementById('navbar');
-
-      window.addEventListener('scroll', function () {
-          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          if (scrollTop === 0) {
-              navbar.style.top = '0';
-          } else if (scrollTop > lastScrollTop) {
-              navbar.style.top = '-56px'; // Adjust to match the height of the navbar
-          } else {
-              navbar.style.top = '0';
-          }
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Ensure scrollTop doesn't go negative
-      });
-
-      function scrollToNextSection() {
-          const nextSection = document.querySelector('#page_content');
-          if (nextSection) {
-              window.scrollTo({
-                  top: nextSection.offsetTop,
-                  behavior: 'smooth',
-              });
-          }
-      }
-  </script>
-  <script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
+  {% include google-analytics.html %}
+  <script src="{{ '/assets/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}" defer></script>
+  {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>{% endif %}
 </body>
 </html>
-
-

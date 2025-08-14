@@ -1,58 +1,53 @@
 ---
 layout: default
-image: "home-bg.jpg"
-image_hash: "519d7460af34e87e71835178cf862552"
+image: "home-bg.webp"
+description: "Süleyman Poyraz'ın açık kaynak projeleri ve Linux, sistem yazılımı, C++ üzerine Türkçe teknik yazıları."
 ---
 
-<link rel="stylesheet" href="{{site.baseurl}}/assets/css/blog.css">
-<div class="container">
-  <div class="intro">
-    <h2 class="text-center">Son Gönderilerim</h2>
+<section class="content-section" aria-labelledby="projects-heading">
+  <div class="section-heading">
+    <h2 id="projects-heading">Üzerinde çalıştıklarım</h2>
+    <a href="{{ '/projeler/' | relative_url }}">Tüm projeler <span aria-hidden="true">→</span></a>
   </div>
-  <!-- Blog Section -->
-  <div id="blog" class="container mt-5">
-    <div class="row">
-      <div class="col-md-9 col-12">
-        {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
+  <div class="project-grid">
+    {% for project in site.data.projects %}
+    <article class="project-card">
+      <p class="project-card__eyebrow">{{ project.type }}</p>
+      <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.name }}</a></h3>
+      <p>{{ project.summary }}</p>
+      <a class="project-card__link" href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">Projeyi incele <span aria-hidden="true">→</span></a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
 
-        {% for post in site.posts limit : 5 %}
-        {% assign m = post.date | date: "%-m" | minus: 1 %}
-        {% assign day = post.date | date: "%d" %}
-        {% assign month = months[m] %}
-        {% assign year = post.date | date: "%Y" %}
+<section class="content-section" aria-labelledby="writing-heading">
+  <div class="section-heading">
+    <h2 id="writing-heading">Son yazılar</h2>
+    <a href="{{ '/posts/' | relative_url }}">Bütün yazılar <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="blog-list">
+    {% assign featured_count = 0 %}
+    {% for post in site.posts %}
+      {% unless post.lang == 'en' %}
+        {% include post-card.html post=post %}
+        {% assign featured_count = featured_count | plus: 1 %}
+        {% if featured_count == 4 %}{% break %}{% endif %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
 
-        <div class="blog-post">
-            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}"><img src="{{site.baseurl}}/assets/img/pages/{{post.image}}?h={{post.image_hash}}" onerror="this.style.backgroundColor='#ccc'; this.style.objectFit='contain'; this.src='';"></a>
-            <div class="details">
-                <h5><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h5>
-                <p class="meta">  {% if post.author %}
-                  {{ post.author }}
-                  {% else %}
-                  {{ site.author }}
-                  {% endif %} | {{ month }} {{ day }}, {{ year }}  | {% include read_time.html content=post.content %}</p>
-
-                  {% if post.subtitle %}
-                  <p class="post-subtitle">{{ post.subtitle }}</p>
-                  {% else %}
-                  <p>{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
-                  {% endif %}
-                
-            </div>
-        </div>
-        {% endfor %}
-
-        <div class="mx-auto">
-          <a class="btn btn-primary float-right" href="{{"/posts" | relative_url }}">Tüm Gönderiler &rarr;</a>
-        </div>
-      </div>
-      <div class="col-md-3 col-12">
-        <div class="info-pane">
-            <img src="https://avatars.githubusercontent.com/u/22801690?v=4" alt="Profile Photo">
-            <p>Merhabalar, ben Süleyman Poyraz, Nickimden anlayacağınız üzere biraz ters bir bilgisayar programcısıyım.</p>
-            <p>Gündem bloglarım, kullandığım yazılım dilleri, programlar ve işletim sistemleri ile ilgili notlarımı sitemde bulabilirsiniz.</p>
-        </div>
-      </div>
+<section class="content-section" aria-labelledby="paths-heading">
+  <div class="section-heading"><h2 id="paths-heading">Bir konudan başla</h2></div>
+  <div class="reading-paths">
+    <div class="reading-path">
+      <h3><a href="{{ '/programlama/' | relative_url }}">Modern C++ ve programlama <span aria-hidden="true">→</span></a></h3>
+      <p>Derleme zamanı, semantik, hata ayıklama ve pratik yazılım notları.</p>
     </div>
-
-</div>
-
+    <div class="reading-path">
+      <h3><a href="{{ '/internet/' | relative_url }}">İnternet 101 <span aria-hidden="true">→</span></a></h3>
+      <p>Ağ donanımından TCP/IP ve protokollere uzanan temel yazılar.</p>
+    </div>
+  </div>
+</section>

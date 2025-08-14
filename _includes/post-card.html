@@ -1,0 +1,23 @@
+{% assign post = include.post %}
+{% assign cover = post.thumbnail %}
+{% unless cover %}
+  {% if post.cover_image %}
+    {% assign cover_name = post.cover_image | split: '/' | last %}
+    {% assign cover = '/assets/img/thumbs/' | append: cover_name %}
+  {% elsif post.image %}
+    {% assign cover_name = post.image | split: '/' | last %}
+    {% assign cover = '/assets/img/thumbs/' | append: cover_name %}
+  {% endif %}
+{% endunless %}
+<article class="blog-post">
+  {% if cover %}
+  <a class="blog-post__image-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }} yazısını oku">
+    <img src="{{ cover | relative_url }}" alt="" loading="lazy" decoding="async" width="180" height="136">
+  </a>
+  {% endif %}
+  <div class="details">
+    <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d.%m.%Y' }}</time>{% if post.lang == 'en' %} · English{% endif %} · {% include read_time.html content=post.content %}</p>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{% if post.subtitle %}{{ post.subtitle }}{% else %}{{ post.excerpt | strip_html | truncatewords: 28 }}{% endif %}</p>
+  </div>
+</article>

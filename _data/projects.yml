@@ -1,0 +1,30 @@
+- name: Inary
+  type: Linux paket yönetimi · Python 3
+  summary: PiSi kökenli açık kaynak paket yöneticisinin Python 3 ile geliştirilen çatalı.
+  problem: Mevcut PiSi tabanındaki eksikleri giderirken paket ve kurulu dosya bilgilerini daha iyi izlemek.
+  contribution: Çatalın geliştirilmesinde çalıştım; depo bu emeği diğer katkıcılarla birlikte belgeliyor.
+  approach: Python 3 uygulaması, XML paket tanımları ve dosya değişikliklerini takip eden dinamik veritabanı.
+  result: Komut satırı aracı, kurulum yönergeleri ve testler açık depoda incelenebilir.
+  repo: https://github.com/Zaryob/inary
+  link_text: Kaynak kodu
+
+- name: iksemel
+  type: XML / XMPP · C
+  summary: Jabber uygulamalarının kullandığı C tabanlı XML ayrıştırıcısının bakım çatalı.
+  problem: Eski projeyi güncel derleme araçları ve Python bağlayıcılarıyla kullanılabilir tutmak.
+  contribution: Çatalın bakım ve değişiklikleri depoda adıma atfediliyor.
+  approach: Mevcut SAX, DOM ve Jabber akışı API'leri korunurken Meson/Ninja derlemesi ve Python 3 bağlayıcıları sağlanıyor.
+  result: Derleme, test ve kurulum adımları depodaki README'de belgeleniyor.
+  repo: https://github.com/Zaryob/iksemel
+  link_text: Kaynak kodu
+
+- name: ZFS Kitabı
+  type: Teknik belgeleme · OpenZFS
+  summary: ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitap.
+  problem: Depolama ve dosya sistemi konularında başvurulabilir Türkçe bir kaynak oluşturmak.
+  contribution: Kitabı yazıp farklı kaynakları bir araya getirerek bölümler halinde yayımladım.
+  approach: Giriş, havuzlar, özellikler ve gerçek kullanım örnekleri için sıralı bir içerik yapısı.
+  result: Kaynak metin GitHub'da, okunabilir kitap GitBook'ta yayımlanıyor.
+  repo: https://github.com/Zaryob/zfs_kitabi
+  docs: https://zaryob-dev.gitbook.io/zfs-kitabi/
+  link_text: Kitabı oku
