@@ -8,13 +8,13 @@ image_hash: "74f8e1440b314fd0f262152b07e31a72"
 ---
 
 
-### Ben Kimim?
+## Ben Kimim?
 
 Şimdi bunu düşünmeden önce insanlar arasındaki bir iletişime bakalım. Dialog dediğimiz olgu, iki ya da daha çok kişinin karşılıklı konuşmasına denir. Örneğin birisi ile konuşmak istiyorsunuz. Başlangıçta kim olduğuna bakmaksızın söyleceğini ilk gördüğün kişiye söylemek dialog değildir. Aynı olgu internette de var. Siz bir iletişimi yapacakken o cihazın kim olduğuna bakmaksızın veri yollamaya başlarsanız karşınızdaki cihaz çoğunlukla gönderdiğiniz bilgileri umursamayacaktır, aynı sizi tanımayan insanların sizi dinlemeyeceği gibi.
 
 İnternetin her düğümünde bir cihazın belirli bir ismi vardır. Bu isme biz IP adresi demekteyiz. Şimdi örneğimize dönelim. Bir şeyi birisine söylemek için ne yaparız örneğin evine gideriz. Evde kapıyı açan o değilse annesi, abisi veya babası ise o kişilere de biz yine söyleyeceğimizi söylemeyiz. O kişilere sadece iletişim yapacağımız kişinin kim olduğunu söyleriz, onlar da arkadaşımızı çağırır. Ve iletişim başlar. Temelde internette iletişim de böyledir.
 
-#### IP Bazlı İletişim ve Domain Name Services
+### IP Bazlı İletişim ve Domain Name Services
 
 Hatırlarsanız biz iletişim yaparken IP adreslerini kullanmaktayız. Ve veriler paketler halinde ağa verilerek doğru kişiler arasında doğru iletişimin kurulması gerekmekte. Bir paket yönlendiriciye ulaştığında, yönlendirici, kaynak bilgisayardaki IP protokol katmanı tarafından oraya konulan IP adresini inceler. Yönlendirici, yönlendirme tablosunu kontrol eder. IP adresini içeren ağ/cihaz, yerel ağ içerisinde bulunursa, paket o ağa/cihaza gönderilir. IP adresini içeren ağ bulunamazsa, yönlendirici paketi varsayılan bir rotada, genellikle omurga hiyerarşisinde bir sonraki yönlendiriciye gönderir. Bu yönlendirici bir sonraki yönlendirici paketi nereye göndereceğini bilirse oraya yönlendirir, ancak bilmezse paket yine bir NSP omurgasına ulaşana kadar yukarı doğru yönlendirilir. NSP omurgalarına bağlı yönlendiriciler, en büyük yönlendirme tablolarını tutar ve burada paket, hedefini bulana kadar daha küçük ve daha küçük ağlar üzerinden ‘aşağıya doğru’ yolculuğuna başlayacağı doğru omurgaya yönlendirilir. Ne zaman ki bu paket karşısında hedefini bulur, o zaman iletişim tamamlanmış olur. Ancak hedef bulunamazsa gönderdiğimiz paket uzayda rastgele yollanmış “Heyyooo, Dünyadan selamlar, yaşam var mı orada?” mesajı gibi sonsuzluğa gider.
 
@@ -26,7 +26,7 @@ Bir İnternet bağlantısı kurulduğunda (örneğin, Windows’ta bir LAN veya 
 
 Gelişmiş işletim sistemlerinde ve tarayıcılarda, kendi ufak çaplı DNS servisleri bulunmakta. Bu temel olarak sorgulanan alan adını kısa süreli olarak belirtilen IP ile eşleştirildiği bir sözlük gibidir. Eğer ki bu sözlük içerisinden uyuşma bulunur ancak erişim sağlanamazsa, yine yukarıdaki protokol izlenerek farklı DNS’ler üzerinden bağlanarak alan adı aranırken, erişim sağlanması halinde direk bu adresler kullanılır.
 
-### Peki İnternette Bu Paket İletişimi Nasıl Çalışır?
+## Peki İnternette Bu Paket İletişimi Nasıl Çalışır?
 
 İnternette iletişim İnternet Protokolü (IP) ve Aktarım Kontrol Protokolü’nü (TCP) takip eden bir paket yönlendirme ağı kullanarak çalışır. Bunlara aslında ileride daha detaylı bakacağım. Çünkü TCP/IP modeli ve protokol yapısını öğrenmeden ne anlatsam havada kalacak gibi hissediyorum.
 
@@ -46,10 +46,10 @@ Ardından tarayıcınız, DNS aracılığıyla arama motorunuza yazdığınız a
 **Adım 5:** Sunucu isteği onaylar ve bilgisayarınıza “200 OK” mesajı gönderir. Ardından sunucu, web sitesi dosyalarını tarayıcıya veri paketleri şeklinde gönderir.  
 **Adım 6:** Tarayıcınız veri paketlerini yeniden birleştirirken, web sitesi yüklenir.
 
-### Sonuç:
+## Sonuç:
 
 Biraz böyle araya kaynamış bir yazı gibi oldu ancak bu yapı internetin yapısını öğrenmemiz için önemli. İletişimin nasıl yapıldığını bildiğimize göre artık ağ modelini öğrenebiliriz.
 
-### Kaynakça:
+## Kaynakça:
 
 * [**How Does the Internet Work (Infographic)**](https://www.hp.com/us-en/shop/tech-takes/how-does-the-internet-work)

@@ -72,4 +72,3 @@ medium_url: "https://medium.com/@zaryob/m%C3%BCkemmelin-en-b%C3%BCy%C3%BCk-d%C3%
 <blockquote><em>“Herkesin filtrelenmiş bir hayat yaşadığı yerde, gerçeklik cesurun işidir.”</em></blockquote>
 
 <p>Yeni yazılarda okumak, yazışmak ve görüşmek üzere…</p>
-

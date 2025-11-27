@@ -25,7 +25,7 @@ SpaceX, Dragon ismini verdiği modülü ile çalışırken, Boeing adını lanet
 
 Ancak fırlatmadan kısa bir süre sonra çoklu helyum sızıntıları ve reaksiyon kontrol sistemi iticilerinde arızalar meydana geldi​ ki bu sadece yaşanacak olayların işaret fişeğiydi desem yeridir. Sonrasında UUI’ye bağlanan kapsülün itki ve manevra sistemlerinde birden fazla noktada gaz kaçağı yaşandı ve bu sorunlar nedeniyle Starliner, UUI’den güvenli bir şekilde Dünya’ya dönebilecek durumda değildi​. NASA ve Boeing Mühendisleri ilk andan itibaren sorunları anlayabilmek için canla başla çalıştılar, bunlardan en önemlisi ki helyum kaçaklarını araştırmak için gerekli olduğu üzere Starliner’ın iticilerinden biri, gaz kaçağı durumunda yaşanacak potansiyel arızaların olası nedenlerini anlamak için Dünya’da ateşleme testine tabi tutuldu​. Bu sırada uzay aracındaki helyum sızıntıları da yavaş yavaş stabil hale gelmeye başladı, fakat tüm bu çabalara rağmen kesin bir çözüm bulunamadı; kapsülün hangi parçasının arızaya yol açtığı netleşmedi​. İşini şansa bırakmak istemeyen NASA çok zor bir karar vererek, Starliner kapsülünü mürettebatsız (boş) halde Dünya’ya geri indirdi ve astronotları bir süre daha UUI’de tutarak bir sonraki insanlı görevde ve hatta SpaceX’in modülü ile döndürdüme kararı verdi. Starliner kapsülü Kasım 2024’te insansız şekilde Dünya’ya döndürüldü ve astronotların dönüşü için 2025 Mart-Nisan döneminde fırlatılacak Crew-Dragon görevine kadar beklenmesine karar verildi​. Yani, yaklaşık 1 hafta sürmesi planlanan test uçuşu, astronotlar için neredeyse 10 aya uzayan bir göreve dönüştü​.
 
-### Starliner’da Ne Ters Gitti?
+## Starliner’da Ne Ters Gitti?
 
 
 ![STARTLINER CFT Peçi](/assets/img/posts/0*muYE8rQLq01CFWerj.jpg)
@@ -43,7 +43,7 @@ Ancak daha ilk andan itibaren yaşanan sorunlar, Boeing’in uzay misyonları ko
 Starliner krizinin teknik boyutu kadar operasyonel boyutu da dikkat çekici sorunlara sahip. Örneğin, fırlatmadan önce araçta küçük bir helyum sızıntısı olduğu bilinmesine rağmen Boeing ve NASA görevi daha fazla ertelememek için bu sızıntıyı onarmadan uçma kararı aldılar​. İticilerden birine gaz sağlayan bu conta sızıntısının “yönetilebilir” olduğu, sızıntı hızının 100 kat artsa bile tolere edilebileceği düşünülüyordu​
 
 Boeing’in ticari mürettebat programı yöneticisi Mark Nappi, sorunu gidermek için Starliner’ı fabrikada komple söküp yeniden toplamaları gerektiğini, bunun da çok zahmetli olacağını belirtti​. Sonuçta kalkış öncesi sızıntının durumunu izleyip göreve devam ettiler​. Yani mürettebatın hayatı ile kumar oynayarak başladılar. Bu karar belki uçuş takvimini korudu ancak risklerin tam anlaşılamadığı sonradan ortaya çıktı. Nitekim araç uzaydayken tespit edilen sızıntı noktalarının sayısı arttı; itki sistemiyle bağlantılı 5 farklı noktada helyum kaçağı olduğu belirlendi​. NASA, uçuş öncesi küçük görünen bir sorunun görev sırasında büyümesiyle zor bir ikilemde kaldı: Astronotları arızalı bir araçla mı geri göndermeli, yoksa aylarca uzayda bekletmeli miydi? Sonunda ikinci seçenek, yani beklemek ve başka bir güvenli araçla dönüş, hayati riskleri önlemek için tercih edildi. Daha fazla tehlikeye sebebiyet vermemek adına Starliner modülü UUI’den ayrıldı ve dünyaya başarılı bir dönüş yaptı.
-### Yönetilemeyenler
+## Yönetilemeyenler
 
 
 ![Boeing’in 737 Max kazası sonrasında görevden alınan CEO’su](/assets/img/posts/0*tfs7Htir6ywRu4BU.jpg)
@@ -75,7 +75,7 @@ Söylediğin gibi yönetimin “yönetilebilir” bulduğu bu teknik hata, sırf
 
 Peki, astronotları uzayda mahsur bırakan bu teknik ve operasyonel sorunların, Boeing’in yönetimsel hatalarıyla nasıl bir bağlantısı vardı? Bu soruların yanıtları, Boeing’in geçmişte yaşadığı krizlere bakarak daha iyi anlaşılabilir.
 
-### 737 Max Krizinin Röntgeni
+## 737 Max Krizinin Röntgeni
 
 737 Max uçakları, Airbus’un A320Neo isimli dar gövdeli uçakları olan A320'nin geliştirme paketi olan NEO’ya (next engine option) cevaben ürettiği, 737 tipi uçakların 4. nesli olarak hizmete aldığı uçaktır.
 
@@ -104,7 +104,7 @@ Nitekim Boeing yönetiminin, uçağı rakip Airbus A320neo’ya hızlı bir ceva
 
 
 Peki bir şirket nasıl böyle büyük bir mühendislik kararını yönetimsel kararların gölgesinde bıraktı. İşte o noktada dikkat çekici bir rapor var, ibreler 1996'da gerçekleşen McDonnell-Douglas birleşmesine dönüyor.
-### Bir Şirketin Birleşmesi Kaderini Değiştirir
+## Bir Şirketin Birleşmesi Kaderini Değiştirir
 
 Boeing Amerika’nın en köklü havacılık şirketlerinden birisi. Bunda hiçbir beis yok. 1. Dünya Savaşı’nın sonlarına doğru 1917'de kurulan şirket, 2. Dünya Savaşında Amerika’nın kaderini belirleyecek **B-17 Flying Fortress** ve **B-50 Superfortress** projelerine imza attı. Boeing askeri ve sivil havacılık için pek çok başarılı projeye imza atmış bir şirket. Hala aktif görevde kullanılan **B-52 Stratofortress** ’lardan, heliçak veya uçkopter olarak adlandırabileceğimiz (tamamen dalga geçiyorum) **V-22 Osprey** ’lere; satış rekorları kıran **737** 'lerden, Atlantik Donanma Filolarını süsleyen **F18 Hornet** ve geliştirme paketi olan **F18E SuperHornet** uçaklarına; gıdığı ile meşhur savaş uçağı konsepti **X-32,** hatta ismini çok az duyduğunuz kuyruksuz delta kanatlı **X-36** savaş uçağı konsepti ve **X-45** insansız muharip hava aracı konseptlerine kadar pek çok başarılı projeye imza atmıştır Boeing. Hala onlarca ülkede hem askeri ve hem sivil otoritelere hizmet veren yüz yıllık bir şirket nasıl olur da yönetim sorunları ile anılır.
 
@@ -121,7 +121,7 @@ Bu duruma en somut kanıtlar 737 MAX geliştirilirken Airbus ile rekabet uğruna
 Boeing’in son yıllarda mühendislik odaklı kültüründen uzaklaşıp finansal odaklı bir yönetime kaydığını ve bunun sonuçlarının zincirleme hatalar olarak ortaya çıktığı kanısı hakim. Şirketin hem Startliner hem de 737 MAX kazalarında, başlangıçta sorunları önemsiz gösterme eğilimi, Boeing’e karşı güven kaybına yol açtı.
 
 Şirketin birleşme sonrasında geliştirdiği yönetim kültürü, rekabet ve kar hırsının mühendislikteki **gü** venlik kültürünün önüne geçmesine yol açtı. Boeing 737 MAX geliştirilirken “rekabet ve para hırsı, havacılığın bir numaralı önceliği olan emniyet faktörünün önüne geçti” ve şirket bunun sonuçlarına ağır şekilde katlanmak zorunda kaldı​.737 MAX krizi Boeing’e hem finansal olarak on milyarlarca dolar zarar verdi hem de asırlık itibarını sarstı​. Bu olay Starliner ayağında ise NASA’nın daha temkinli davranarak, insanlı uçuşta ciddi bir aksaklık çıkınca aracı hemen görevden çekmesine ve durumu Boeing’in insiyatifi altına bırakmamasına neden oldu. Boeing kaynaklı sorunların potansiyel olarak astronot hayatını da riske atabileceği düşünüldü hatta Starliner’ın oluşturduğu bu ikinci itibar kaybı, Boeing’i NASA nezdinde ikinci planda bir ortak konumuna düşürdü.
-### Güvenli Gelecek İçin Değişim Şart
+## Güvenli Gelecek İçin Değişim Şart
 
 
 ![](/assets/img/posts/0*xFDRzMYE3G4fFKfP.jpg)
@@ -137,11 +137,11 @@ Bu olay da, sadece Boeing için değil tüm endüstri için, yönetim ve mühend
 
 Bir sonraki yazıya kadar, esen kalın…
 
-### Dip Not
+## Dip Not
 
 Bir dip not olarak belirteceğim bir husus var, ekip ne olacak konusu… 2 kişilik Starliner ekibi 10 aydır uzayda olmanın cerimesini uzun sürecek bir rehabilitasyon süreci ile çekecek… NASA Astronotlar için düşük yerçekiminde yaşamalarından kaynaklı olarak kas kaybı yaşadıklarını, Dünya’ya indiklerinde kendi başlarına yürümekte zorlanacaklarını açıklandı, altı haftaya kadar rehabilitasyona ihtiyaç duyabilecekleri düşünülüyor.
 
-### Kaynaklar
+## Kaynaklar
 
 [https://tr.euronews.com/2024/06/16/boeingin-starliner-mekiginde-mahsur-kalan-iki-nasa-astronotu-dunyaya-donemiyor](https://tr.euronews.com/2024/06/16/boeingin-starliner-mekiginde-mahsur-kalan-iki-nasa-astronotu-dunyaya-donemiyor)
 
@@ -152,17 +152,17 @@ Bir dip not olarak belirteceğim bir husus var, ekip ne olacak konusu… 2 kişi
 [_Boeing is set to launch its first crewed space mission in June without fixing a small helium gas leak on its troubled…_ phys.org](https://phys.org/news/2024-05-boeing-wont-leaky-starliner-flying.html)
 
 
-[![](https://cdn.businessinsider.nl/wp-content/uploads/2020/02/1c991e34f50eb635c5e5aab27c92d55ddd6ad5b6-800x600.jpg)](https://www.businessinsider.com/nasa-investigating-potentially-catastrophic-boeing-spaceship-error-2020-2)
+[Business Insider: Starliner arızası](https://www.businessinsider.com/nasa-investigating-potentially-catastrophic-boeing-spaceship-error-2020-2)
 
 
 [**Boeing'in stratejik yönetim hataları**](https://www.uted.org/boeing%E2%80%99in-stratejik-y%C3%B6netim-hatalar%C4%B1) 
 [_1967 yılında dernek çalışmalarına başlamış ve 5 Aralık 1968 yılında resmi olarak kurulmuştur._ www.uted.org](https://www.uted.org/boeing%E2%80%99in-stratejik-y%C3%B6netim-hatalar%C4%B1)
 
 
-[![](https://i.guim.co.uk/img/media/5f844d3aa9f7229a650afbeffc10b50fade15667/0_114_4200_2521/master/4200.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctYWdlLTIwMjQucG5n&enable=upscale&s=c54d6b3cdc57a63b8945a7c569f140eb)](https://www.theguardian.com/business/2024/feb/21/boeing-737-max-ed-clark-exit-renton)
+[The Guardian: Boeing 737 Max](https://www.theguardian.com/business/2024/feb/21/boeing-737-max-ed-clark-exit-renton)
 
 
 
-[![](https://cdn.finshots.app/images/2024/01/boeing.jpg)](https://finshots.in/archive/did-a-1997-merger-ruin-boeing/)
+[Finshots: Boeing birleşmesi](https://finshots.in/archive/did-a-1997-merger-ruin-boeing/)
 
 

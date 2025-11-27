@@ -96,4 +96,3 @@ medium_url: "https://medium.com/@zaryob/third-wave-in-artificial-intelligence-ai
 <p>But artificial intelligence agents are even bringing beyond bringing and bringing in a corporate software revolution where many tasks are automated to an unimaginable extent.</p>
 
 <p><em>Ready or not, we are on the third wave. Now it’s time to sink or surf by holding our hand fast.</em></p>
-

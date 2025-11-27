@@ -17,12 +17,12 @@ Bu modeller protokollerin temellerini, paketlerin yapısını ve iletişimin han
 
 Bu kısımda protokollerin temel aldığı ağ yapısından bahsedeceğim. Bir sonraki yazıda da sıklıkla kullandığımız protokollerden ve bu protokollerde nasıl iletişim yapıldığından bahsedeceğim.
 
-### TCP/IP
+## TCP/IP
 
 ![TCP/IP Model](/assets/img/posts/0*xsemEx5b7DPJ0mFG.png)
 
 
-#### TCP/IP Nedir?
+### TCP/IP Nedir?
 
 Genel olarak **TCP/IP** olarak bilinen **İnternet Protokol Paketi,** internet ve benzeri ağlarda kullanılan iletişim protokollerini belirleyen bir standartlar kümesidir. **TCP** ilk olarak 1974 yılında **A Protokol for Packet Network Intercommunication** başlıklı bir makalede duyurulmuştur. Verilerin bölünerek paketler halinde karşı tarafa iletilmesini esas alan anahtarlamalı paket modeli olarak nitelendirilmektedir.
 
@@ -32,7 +32,7 @@ Genel olarak **TCP/IP** olarak bilinen **İnternet Protokol Paketi,** internet v
 
 Paketteki mevcut temel protokoller, **İletim Kontrol Protokolü** (Transmission Control Protocol - TCP) ve **İnternet Protokolüdür** (IP) olarak iki temel grupta incelenir. İlki eşler arası iletişimi açıklarken ikincisi de internet bağlantısı standartlarını ifade etmektedir.
 
-#### TCP/IP Standartları
+### TCP/IP Standartları
 
 Bu kısımda bazı soyut bilgiler vereceğim. Çünkü buradaki bilgilerin tamamı dokumantasyonlardan yararlanarak ortaya konulan teknik bilgilerdir. **RFC** olarak adlandırılan TCP/IP’nin tanımlanmasında kullanılan standart numaralara sahip dokümanlardan basitçe bu standartları size aktaracağım.
 
@@ -64,7 +64,7 @@ Bu protokollerin ne olduğunu ve nasıl çalıştığını ileride başka bir po
 
 * * *
 
-### OSI Modeli
+## OSI Modeli
 
 OSI Modeli (Açık Sistem Bağlantı Modeli — Open Systems Interconnection ) modeli 984’te Uluslararası Standartlaştırma Örgütü (ISO) tarafından geliştirilmiş ağ içerisinde farkındalığına sahip cihazlarda çalışan uygulamaların birbirleriyle nasıl iletişim kuracakları tanımlayan bir ağ modelidir. TCP/IP’den farklı olarak önce katman yapısı olarak ortaya konulmuş model olarak ortaya çıkmıştır. Ardından bu modele uygun protokoller yazılmıştır.
 
@@ -103,19 +103,19 @@ Farkettiğiniz gibi OSI modeli protokollerle harmanlanmış bir model olmaktan �
 * * *
 
 
-### OSI ve TCP/IP Modellerinin Karşılaştırması:
+## OSI ve TCP/IP Modellerinin Karşılaştırması:
 
 ![TCP/IP ve OSI modellerinin katman karşılaştırması şekildeki gibidir.](/assets/img/posts/0*QJh-OT-cnZ9N7uqd.png)
 
 
-#### OSI ve TCP/IP Modelleri Arasındaki Benzerlikler
+### OSI ve TCP/IP Modelleri Arasındaki Benzerlikler
 
 *   Her iki referans modeli de katmanlı mimariye dayanmaktadır. Hatta bu sebeple modellerdeki katmanlar birbirleriyle karşılaştırılır. Ancak OSI modelinin fiziksel katmanı ve veri bağlantı katmanı, TCP/IP modelinin bağlantı katmanına karşılık gelir.
 *   Her iki modelde de ağ katmanları ve taşıma katmanları aynıdır. OSI modelinin oturum katmanı, sunum katmanı ve uygulama katmanı birlikte TCP/IP modelinin uygulama katmanını oluşturur.
 *   Her iki modelde de protokoller katman bazında tanımlanmıştır.
 *   Her iki modelde de veriler paketlere bölünür ve her paket kaynaktan hedefe giden bireysel rotayı alabilir.
 
-#### OSI ve TCP/IP Modelleri Arasındaki Farklar
+### OSI ve TCP/IP Modelleri Arasındaki Farklar
 
 *   OSI modeli, her katmanın işlevlerine dayanan genel bir modeldir. TCP/IP modeli, protokol odaklı bir standarttır.
 *   OSI modeli, hizmetler, arayüzler ve protokoller olmak üzere üç kavramı birbirinden ayırır. TCP/IP’nin bu üçü arasında net bir ayrımı yoktur.
@@ -123,7 +123,7 @@ Farkettiğiniz gibi OSI modeli protokollerle harmanlanmış bir model olmaktan �
 *   OSI’de önce model geliştirildi, ardından her katmandaki protokoller geliştirildi. TCP/IP paketinde önce protokoller geliştirildi, ardından model geliştirildi.
 *   OSI yedi katmana sahipken, TCP/IP dört katmana sahiptir.
 
-### Kaynakça:
+## Kaynakça:
 
 * [**Internet protocol suite - Wikipedia**](https://en.wikipedia.org/wiki/Internet_protocol_suite)
 * [**OSI & TCP/IP models**](https://study-ccna.com/osi-tcp-ip-models/)

@@ -27,12 +27,12 @@ Bu yazıda, genellikle göz ardı edilen ancak mühim gördüğüm programlama g
 araçlarını inceleyeceğiz.
 
 ---
-### **1. Modern Özelliklere Sahip Klasik Konteynerler**
+## **1. Modern Özelliklere Sahip Klasik Konteynerler**
 
 `std::vector`, `std::list` ve `std::map` gibi geleneksel konteynerler, on yıllardır C++'ın yükünü taşımaktadır. Modern C++ 
 bu konteynerlere, daha güçlü ve verimli olmalarını sağlayan yeni özellikler kazandırmıştır.
 
-#### **1.1 Mevcut Konteynerlerdeki İyileştirmeler**
+### **1.1 Mevcut Konteynerlerdeki İyileştirmeler**
 - **`emplace` Metotları**: C++11 ile tanıtılan `emplace`, elemanların yerinde oluşturulmasına olanak tanır ve gereksiz 
 kopyalamaları önler.
 
@@ -52,7 +52,7 @@ azalır.
 
 
 
-#### **1.2 Yeni Üye Fonksiyonları**
+### **1.2 Yeni Üye Fonksiyonları**
 - **`try_emplace`**: C++17 ile tanıtılan bu özellik, var olan bir elemanı güncellemeden yeni bir eleman ekleme işlemini 
 birleştirir.
 
@@ -70,11 +70,11 @@ int main() {
 
 ---
 
-### **2. Modern C++'ta Yeni Konteynerler**
+## **2. Modern C++'ta Yeni Konteynerler**
 
 Modern C++'ta, belirli ihtiyaçlara yönelik yeni konteynerler tanıtılmıştır.
 
-#### **2.1 `std::array`**
+### **2.1 `std::array`**
 
 - STL konteyner benzeri davranış sergileyen sabit boyutlu bir dizi oluşturmaya yarar.
 
@@ -91,7 +91,7 @@ int main() {
 }
 ```
 
-#### **2.2 `std::forward_list`**
+### **2.2 `std::forward_list`**
 
 Hafıza verimliliği ve ileri yönlü iterasyon için optimize edilmiş tek yönlü bağlı listedir.
 
@@ -123,7 +123,7 @@ int main() {
 }
 ```
 
-#### **2.3 `std::unordered_map` ve `std::unordered_set`**
+### **2.3 `std::unordered_map` ve `std::unordered_set`**
 - C++11 ile tanıtılan bu hash tabanlı konteynerler, `std::map` ve `std::set`'e kıyasla daha hızlı ortalama zaman 
 karmaşıklığı sunar. Geleneksel map ve set yapılarında belirli bir ordering algoritması olması, ordering'e ihtiyaç duyan
 işler için önem arz ederken ordering'e ihtiyaç duymayan veriler için gereksiz kaynak israfına neden olur.
@@ -157,7 +157,7 @@ int main() {
 }
 ```
 
-#### **2.4 `std::deque`**
+### **2.4 `std::deque`**
 
 - Her iki uçtan verimli ekleme ve silme işlemlerini destekleyen çift uçlu bir kuyruk.
 
@@ -201,7 +201,7 @@ int main() {
 ```
 
 
-### **3. Polimorfik Bellek Kaynakları (`std::pmr`)**
+## **3. Polimorfik Bellek Kaynakları (`std::pmr`)**
 
 C++17, standart konteynerler için özelleştirilebilir bellek tahsis stratejileri sağlayan **Polimorfik Bellek Kaynağı (PMR)** kütüphanesini tanıttı. Bu, performans açısından kritik uygulamalarda faydalıdır.
 
@@ -229,7 +229,7 @@ int main() {
 ---
 
 
-### **4. `std::filesystem`: Dosya ve Dizin Yönetimini Basitleştirme**
+## **4. `std::filesystem`: Dosya ve Dizin Yönetimini Basitleştirme**
 
 C++'da dosya işlemlerine dair C'ye göre daha kapsamlı araçlar bulunmaktadır. Stream yapıları, `<<` ve `>>` ile dosya yazdırma, dosya işlemlerinde kolaylık sağlayan başka yapılar halihazırda C++'ın ilk dönemlerinden beri varolan özellikler. Ancak altta hala platform bağımlı büyük bir kısım var ki bu da dizin sistemleri. 
 
@@ -270,7 +270,7 @@ int main() {
 
 ---
 
-### **5. `std::chrono`: Hassas Zaman Ölçümü**
+## **5. `std::chrono`: Hassas Zaman Ölçümü**
 
 Zaman işlemleri C++'da geleneksel C yöntemleri ile ve işletim sistemi tanımlı olarak yapılan işlemlerdi.
 
@@ -304,7 +304,7 @@ int main() {
 ---
 
 
-### **6. Ranges ile Veri İşleme**
+## **6. Ranges ile Veri İşleme**
 
 C++20’nin **Ranges kütüphanesi**, fonksiyonel tarzda dönüşümler ve filtreler için boru hattı (pipeline) tarzı sözdizimi sunar. Görünümlerle birleştirildiğinde veri manipülasyonunu basitleştirir.
 

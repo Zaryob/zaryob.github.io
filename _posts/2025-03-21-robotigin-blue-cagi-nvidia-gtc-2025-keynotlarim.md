@@ -13,7 +13,7 @@ Robotik ve Yapay Zekanın bulûğ çağına girdiğimizin ilk işaretini GTC 202
 
 Bu yazımda bunu irdelemek için GTC’ye değinerek başlayacağım, ardından Asimov’dan bu yana robotiği anlatarak geçmişten geleceğe bir köprü kuracağım.
 
-### Etkinliğin “Blue” Kısmına Bakış
+## Etkinliğin “Blue” Kısmına Bakış
 
 GTC 2025 etkinliğine şüphesiz ki damga vuran, Tarkan gibi sahneye yerin altından çıkan Blue ismindeki robot oldu. Hareketlerindeki çizgifilm tadındaki halleri, sesli komutlara cevap vermesi ve gerçek zamanlı olarak bunu yapması ile robot çağına girdiğimizin işaret fişeği oldu diyebilirim. Aslında bu gelişmenin ayak izlerini görmedik de sayılmaz: GTC 2024 açılış konuşmasında yine Jensen Huang, **Gr00t** isimli modelini Omniverse tabanlı bir dijital ikiz ortamında göstererek robotların bir işi yapmayı tıpkı bir dojo’da eğitim alır gibi sanal olarak öğrenebildiğini sergilemişti.
 
@@ -37,7 +37,7 @@ Sonuçta bu GTC’nin bize verdiği mesaj gayet net: Artık robotlar, yalnızca 
 
 GTC’yi yeterince anlattığımı düşünerek yazımı biraz farklı bir yöne doğru çevirmek istiyorum Peki Asimovdan bu yana ne değişti?
 
-### Düşünsel Robotikten Asimov Çağına
+## Düşünsel Robotikten Asimov Çağına
 
 Asimov denilince akla robotlar ve yapay zeka geliyor, öyle ki yapay zekanın ve robotiğin en meşhur hocaları bile onun kadar atıf almamıştır. Bir bilim kurgu yazarı olarak kendisini bu denli meşhur yapan, kurgusal robotlarının davranışını kısıtlayan meşhur Üç Robot Yasası’nı ortaya koyarak geleceğin robotları için etik bir çerçeve koymasıydı. ​Ve yine kendisi, taa 1960’larda, 2000'li yıllara geldiğimizde robotların ne yaygın ne de çok yetenekli olacağını ve hayatımızda varlık göstereceğini de öngörmüştü. Peki, günümüzde yapay zeka ve robotik alanında geldiğimiz noktada, Asimov’un tahayyül ettiği insansı robotlar gerçek olmaya ne kadar yaklaştık?
 
@@ -103,7 +103,7 @@ Muhtemelen şimdiden sokaklarımızda, işyerlerimizde ve evlerimizde bizlerle b
 
 Peki önümüzde neler var?
 
-### Önümüzdeki Gelecek: 2042 Hedefleri
+## Önümüzdeki Gelecek: 2042 Hedefleri
 
 Bu tarihi benim uydurduğumu belirtiyorum. Aman sonra kimsen aldın bunu referans göster demeyin.
 
@@ -119,46 +119,46 @@ Sonuç olarak, robotik ve yapay zeka arasındaki sınırlar bulanıklaşırken, 
 
 Şimdiden geleceğe, her daim esen kalın...
 
-### İleri Okumalar
+## İleri Okumalar
 
 Tavsiye edeceğim bir de okuma var. Deepmind bu robotu geliştirirken rol aldı demiştik, geçenlerde açık kaynak kodlu olarak Gemini için Robotik modülü yayınladı:
 
 
-[![](https://lh3.googleusercontent.com/J74rVi68EPPNMBLxhxI76Bli7QggLtYRYfp5Pk2HVPtSt2NIIk2VmLktQbwDZeIlZiW3AHwlpLNcswHuz_ecR-oj4kI-mtF53yYsGJKfvPugAw5ulQ=w1200-h630-n-nu)](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/)
+[Google DeepMind: Gemini Robotics](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/)
 
-### Kaynaklar
-#### Asimov’un Üç Kuralı:
+## Kaynaklar
+### Asimov’un Üç Kuralı:
 - Asimov, Isaac (1950) . “Runaround”. _I, Robot_ (The Isaac Asimov Collection ed. ) . New York City: Doubleday. p. 40. ISBN 978–0–385–42304–5.
 
-#### Bahsi Geçen Blue tanıtımı:
+### Bahsi Geçen Blue tanıtımı:
 
 
-[![](https://static.euronews.com/articles/stories/09/12/46/52/1200x675_cmsv2_96e42f89-f855-5b9d-aa6f-6618886b7e44-9124652.jpg)](https://www.euronews.com/video/2025/03/19/nvidias-ai-robot-blue-stuns-with-live-interaction)
+[Euronews: Blue robot tanıtımı](https://www.euronews.com/video/2025/03/19/nvidias-ai-robot-blue-stuns-with-live-interaction)
 
-#### Diğer Kaynaklar:
-
-
-[![](https://cms.tinyml.org/wp-content/uploads/summit2024/Copy-of-The-Robots-Are-Coming-%E2%80%93-Physical-AI-and-the-Edge-Opportunity-Video.jpg)](https://www.edgeaifoundation.org/edgeai-content/the-robots-are-coming-physical-ai-and-the-edge-opportunity)
+### Diğer Kaynaklar:
 
 
-
-[![](https://bostondynamics.com/wp-content/uploads/2024/04/atlas-blue-mobile-copy.jpg)](https://bostondynamics.com/atlas/)
+[Edge AI Foundation: Fiziksel yapay zeka](https://www.edgeaifoundation.org/edgeai-content/the-robots-are-coming-physical-ai-and-the-edge-opportunity)
 
 
 
-[![](https://developer-blogs.nvidia.com/wp-content/uploads/2025/03/gtc25-newton-500x282.gif)](https://developer.nvidia.com/blog/announcing-newton-an-open-source-physics-engine-for-robotics-simulation/)
+[Boston Dynamics: Atlas robotu](https://bostondynamics.com/atlas/)
 
 
 
-[![](https://developer.download.nvidia.com/images/isaac/gtc24-issac-robotics-social-3167701-1200x628.png)](https://developer.nvidia.com/isaac)
+[NVIDIA: Newton fizik motoru](https://developer.nvidia.com/blog/announcing-newton-an-open-source-physics-engine-for-robotics-simulation/)
 
 
 
-[![](https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2021/06/european_robotic_arm_installation_on_nauka/23367771-1-eng-GB/European_Robotic_Arm_installation_on_Nauka_pillars.jpg)](https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/International_Space_Station/European_Robotic_Arm)
+[NVIDIA Isaac robotik platformu](https://developer.nvidia.com/isaac)
 
 
 
-[![](https://www.invent.org/sites/default/files/styles/og_image/public/article-image/2019-06/Inductee-Devol.jpg)](https://www.invent.org/blog/inventors/George-Devol-Industrial-Robot)
+[ESA: Avrupa robot kolu](https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/International_Space_Station/European_Robotic_Arm)
+
+
+
+[National Inventors Hall of Fame: George Devol](https://www.invent.org/blog/inventors/George-Devol-Industrial-Robot)
 
 
 [https://www.automate.org/robotics/engelberger/joseph-engelberger-unimate](https://www.automate.org/robotics/engelberger/joseph-engelberger-unimate)

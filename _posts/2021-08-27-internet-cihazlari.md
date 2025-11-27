@@ -14,13 +14,13 @@ image_hash: "9bb80a06ec17f09dccda16adbc5625fb"
 
 Biz interneti kendi sistemlerimizde kullanırken bazı internet cihazlarından yararlanırız. Bunlar **networking devices** olarak adlandırılan ağ donanımı cihazlardır. Spesifik olarak, bir bilgisayar ağında veri aktarımına aracılık ederler. Bir nevi ağ için bu cihazlar, yol niteliğindedir. Basitçe bu cihazlardan bahsedelim ve bu cihazların kullanım amaçlarına göz atalım.
 
-### Ağ Donanımları
+## Ağ Donanımları
 
 Günümüzde en yaygın ağ donanımı türü , çoğu modern bilgisayar sisteminde standart olarak bulunan bakır kablodan iletimi esas alan bir Ethernet adaptörleridir. Bu adaptörlerin tek amacı bağlantıyı bir kablo vasıtası ile bilgisayara taşımaktır. Bir diğer yaygın donanım ise kablosuz dağıtıcılardır. Bu dağıtıcılar kablonun işini radyo sinyalleri kullanarak halletmektedir.
 
 Ancak bu cihazlar biz son kullanıcılara interneti ileten cihazlardır. Ağ oluşturmak için kullandığımız cihazlar ise daha karmaşıktır. Bu cihazlar Çekirdek Ağ Bileşenleri, Hibrit Ağ Bileşenleri, Sınır Cihazlar ve Bitiş İstasyonları olarak 4 grupta incelenir.
 
-#### Çekirdek Ağ Bileşenleri:
+### Çekirdek Ağ Bileşenleri:
 
 Çekirdek ağ bileşenleri diğer cihazları ve bileşenleri birbirine bağlarken kullandığımız cihazlardır. Bunları şu şekilde yazabiliriz.
 
@@ -61,7 +61,7 @@ Daha az gelişmiş ağ hub’larından farklı olarak , bir ağ anahtarı, her b
 
 **Repeaters — Tekrarlayıcı:** Bir sinyali alan ve sinyali daha uzun mesafeleri kapsayabilmesi için daha yüksek bir seviyede veya daha yüksek bir güçte veya bir engelin diğer tarafına yeniden ileten elektronik bir cihazdır. Hub tarzı tekrarlayıcılar ise birden fazla ağın tek bir ağ segmenti gibi davranmasını sağlamak için kullanılır. Uzak mesafeler arasında kurulan ağlarda temel olarak ağı güçlendirmek ve cihazları eşgüdümlü çalıştırabilmek için kullanılmaktadır. Ancak hub’lar artık yerini büyük ölçüde akıllı ağ anahtarlarına bıraktı ve çok eski kurulumlar veya özel uygulamalar haricinde tekrarlayıcılar kullanılmamaktadır.
 
-#### Hibrit Ağ Bileşenleri:
+### Hibrit Ağ Bileşenleri:
 
 İletimde dönüştürme, yönlendirme ve protokol güvenliğini destekleme amacıyla kullanılan; sınır bileşenlere veya çekirdek bileşenlere destek veren cihazlardır.
 
@@ -93,7 +93,7 @@ Bir protokol dönüştürücünün genel olarak, harici bağımlı cihazlarla il
 
 **Brouter (Bridge Router — Köprü Yönlendirici):** Köprü yönlendirici, köprü ve yönlendirici olarak çalışan bir ağ aygıtıdır. Brouter paketleri bilinen protokoller için yönlendirir ve diğer tüm paketleri bir köprünün yapacağı gibi iletir. Standart yönlendiriciler, karmaşık ağ yapılarında yönlendirilebilir protokoller için hem ağ katmanında hem de yönlendirilemez protokoller için veri bağlantı katmanında çalışır. Bu sayede hem yönlendirme yaparak bir router gibi çalışan hem de yönlendirme yapmadan ağlar arası bağlantı sağlayan bridge gibi çalışan cihaz ihtiyacını gidermiş ve karmaşık ağlarda birden fazla router ve bridge kullanarak ağları düzenleme zorunluluğunu ortadan kaldırmıştır.
 
-#### Sınır Cihazlar:
+### Sınır Cihazlar:
 
 Bir ağ için sınır, bir ağın özel ve yerel olarak yönetilen tarafı, genellikle bir şirketin intraneti ile bir ağın halka açık tarafı, genellikle İnternet arasındaki güvenli sınır olarak adlandırılır.
 
@@ -121,7 +121,7 @@ Tipik olarak sınır cihazlar farklı ağların (örneğin, bir dahili ağ ve bi
 
 **Residential gateway — Konut geçidi:** Gatewaylerden bahsederken bazı gatewaylerin bizim ağımızı internete bağlamak için kullanıldığından bahsetmiştim. Bu amaçla yapılandırılmış gatewaylere residential gateway demekteyiz. Ancak bazı özel durumlarda (örneğin ISS tarafından getirilen fiber optik kabloların ağ içerisine bakır kablolara dönüştürülerek dağıtılması) özel konut geçidi cihazları gerektirebilir.
 
-#### Bitiş İstasyonları:
+### Bitiş İstasyonları:
 
 Bu cihazlar genel olarak günlük yaşamımızda kullandığımız cihazlara ağ ve çevirmeli ağ (telefon hattı) sağlayan cihazlardır.
 
@@ -144,11 +144,11 @@ Bu cihazlar genel olarak günlük yaşamımızda kullandığımız cihazlara ağ
 
 **Line Driver — Ağ Sürücüsü:** Ağ üzerindeki sinyali güçlendirerek iletim mesafesini artıran alettir.
 
-### Sonuç:
+## Sonuç:
 
 Ağ oluşturmak için kullanılan genel cihazları öğrenmemizin ardından, temel internet konseptlerini ve ağ türlerini öğrenerek ilk ağ simulasyonumuzu yapabiliriz.
 
-### Kaynakça:
+## Kaynakça:
 
 * [**Networking hardware - Wikipedia**](https://en.wikipedia.org/wiki/Networking_hardware)
 * [**Network Devices Explained**](https://blog.netwrix.com/2019/01/08/network-devices-explained/)

@@ -28,7 +28,7 @@ TCP iletişiminde bu faz komutlar ve iletişim verisi paketler haline getirilir.
 
 * * *
 
-### TCP Segmentleri
+## TCP Segmentleri
 
 ![](/assets/img/posts/0*_lNdd13RRLgL4NSt.jpg)
 
@@ -79,7 +79,7 @@ Bu şekilde segmentlere ayrılmış veri, veri katarları halinde iletişim içi
 
 * * *
 
-### TCP İletişimi
+## TCP İletişimi
 
 Daha öncesinde bahsettiğim bir cümle vardı ki ayni ile buraya yazıyorum:
 
@@ -101,7 +101,7 @@ Burada faz komutlar TCP iletişimine yön veren ve TCP trafiğini ağ içerisind
 
 Bu durumlar yardımı ile iletişim durumu gözlemlendirilir. Sunucu bu durumlara bakarak iletişime yön verir.
 
-#### TCP Bağlantı Sağlama ve Bağlantı Sonlandırma
+### TCP Bağlantı Sağlama ve Bağlantı Sonlandırma
 
 TCP bağlantısının sağlanması ise bazı bayraklara sahip paketlerin aktarımı ile mümkündür. TCP üzerinden iletişim yapılırken bir yol kullanılması gerekmektedir. Bu yol iki tarafın açık olduğu bir oturumdur. Bir istemci bir sunucuya bağlanmaya çalışmadan önce, sunucunun bağlantılara açılması için önce bir bağlantı noktasına bağlanması ve onu dinlemesi gerekir: buna pasif açık denir. Pasif açık bir kez kurulduğunda, bir müşteri üç yollu (veya 3 adımlı) el sıkışmayı kullanarak aktif bir açık başlatarak bir bağlantı kurabilir:
 
@@ -123,7 +123,7 @@ Burada temel sorun ise iletişim devam ederken verici bilgisayar ile alıcı bil
 
 * * *
 
-### UDP nedir ve TCP ile farkları nelerdir?
+## UDP nedir ve TCP ile farkları nelerdir?
 
 **UDP (User Datagram Protocol - Kullanıcı Veribloğu İletişim Kuralları)**, TCP/IP protokol takımında TCP’ye alternatif olarak oluşturulmuş aktarım katmanı protokolüdür. Aktarım katmanındaki iki aktarım katmanı protokolünden birisidir ve OSI Modeldeki ulaşım katmanındaki 4 protokolden birisidir. UDP’de veriler bağlantı kurulmadan yollanır. UDP ile bilgisayar uygulamaları, bir IP paketi ile internetteki diğer bir cihaza karşılıklı el sıkışma olmaksızın paket gönderebilir.
 
@@ -141,11 +141,11 @@ Bir diğer konu ise bu oturum mantığı ile ilişkilidir. TCP’de, bir oturumu
 
 Akış konusundaki temel fark ise UDP’nin bir avantajı olarak karşımıza çıkmaktadır. TCP’de veri bir bayt akışı olarak okunur, sinyal mesajı (segment) sınırlarına hiçbir ayırt edici gösterge iletilmez. Ayrıca oturum bazlı sistem sebebi ile her bir uçbirim için ayrı ayrı iletişim açma zorunluluğu doğmaktadır. Ancak UDP’de multicast yayın yapabilirsiniz. Bu şu demektir, UDP’de tek bir datagram paketinin bir grup aboneye tekrarlanmadan otomatik olarak yönlendirilebildiği çok noktaya yayın çalışma modu desteği vardır.
 
-### Sonuç
+## Sonuç
 
 Bu yazımda TCP ve UDP iletişimin nasıl yapıldığını ve veri protokolündeki paket yapısını göstermiş oldum.
 
-### Kaynakça:
+## Kaynakça:
 * [**rfc675**](https://datatracker.ietf.org/doc/html/rfc675)
 * [**rfc793**](https://datatracker.ietf.org/doc/html/rfc793)
 * [**RFC - STD7**](https://tools.ietf.org/html/std7)

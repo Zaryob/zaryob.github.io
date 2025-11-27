@@ -62,4 +62,3 @@ medium_url: "https://medium.com/@zaryob/apollo-modern-i%CC%87novasyonun-yolunu-n
 <figure><img loading="lazy" decoding="async" width="1024" height="681" alt="" src="/assets/img/posts/medium-fd69dffa8a14be.webp" /></figure>
 
 <p>Apollo, sadece bir dizi görevden ibaret değildi; basitliğin amansız testlerle buluştuğu ve mühendislerin her ihtimal için plan yaptıkları zaman nelerin başarılabileceğinin bir göstergesiydi. Apollo’nun mirası, bugün inşa ettiğimiz her güvenilir sistemde yaşamaya devam ediyor — ister bir akıllı telefon, ister otonom bir araç veya uçak kontrol sistemi olsun. Geleceğe bakarken, Apollo’nun ruhu modern inovasyonu yönlendirmeye devam ediyor ve bize, en karmaşık zorlukların bile net bir vizyon, titiz testler ve basitliğe bağlılık ile aşılabileceğini hatırlatıyor.</p>
-

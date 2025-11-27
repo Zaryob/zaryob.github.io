@@ -1,20 +1,56 @@
-# Welcome to My Blog
+# Süleyman Poyraz'ın sitesi
 
-Welcome to my personal blog! Here, I share my thoughts, experiences, and knowledge on various topics that interest me. Whether you're here to learn something new, get inspired, or just enjoy some good reads, I hope you find something valuable.
+[zaryob.github.io](https://zaryob.github.io/) üzerinde yayımlanan kişisel site, proje vitrini ve yazı arşivi. Kaynak dosyalar Jekyll ile statik HTML'ye dönüştürülür. Medium'daki yazılar için kalıcı kopya oluştururken içerik ve görseller bu depoda tutulur.
 
-## About Me
+## Yerelde çalıştırma
 
-I'm a passionate developer and writer who loves to explore new technologies and share insights with the community. This blog is a space where I document my journey, projects, and the lessons I learn along the way.
+Ruby 3.3 ve Bundler kurulu olmalı. `Gemfile`, GitHub Pages'in kullandığı Jekyll sürümünü `github-pages` gem'i üzerinden sabitler.
 
-## Topics Covered
+```sh
+bundle config set --local path vendor/bundle
+bundle install
+bundle exec jekyll serve --livereload
+```
 
-- **Programming**: Tips, tutorials, and best practices for various programming languages and frameworks.
-- **Tech Reviews**: My take on the latest gadgets, software, and tools.
-- **Personal Development**: Thoughts on productivity, learning, and growth.
-- **Project Updates**: Updates and insights on my personal and professional projects.
+Site `http://127.0.0.1:4000` adresinde açılır. Yayına çıkacak HTML'yi ve yerel bağlantıları denetlemek için:
 
-## Stay Connected
+```sh
+bundle exec jekyll build --trace
+python3 scripts/check_site.py _site
+```
 
-Feel free to reach out to me on [Twitter](https://twitter.com/pyrz_suleyman) or [LinkedIn](https://linkedin.com/in/suleyman_poyraz). You can also follow my work on [GitHub](https://github.com/Zaryob).
+GitHub Actions aynı build ve bağlantı denetimini her push ve pull request için çalıştırır. Denetim, oluşturulan sayfalardaki yerel `href`, `src`, `srcset` ve `poster` hedeflerinin yanı sıra `feed.xml` ve `sitemap.xml` dosyalarının varlığını kontrol eder. Harici sitelerin erişilebilirliğini test etmez.
 
-Thank you for visiting, and happy reading!
+## Yazı ekleme ve Medium arşivi
+
+Yazıların kaynağı `_posts/YYYY-MM-DD-kisa-baslik.md` dosyalarıdır. Yeni yazının ön bilgileri için örnek:
+
+```yaml
+---
+layout: post
+title: "Yazının başlığı"
+date: 2025-04-26 20:00:00 +0300
+categories: [programlama]
+image: "kapak.webp"
+---
+```
+
+`image` alanı kullanılıyorsa dosyayı `assets/img/pages/` içine koyun. Yazı içindeki görselleri `assets/img/posts/` altında saklayın ve Markdown içinde yerel `/assets/img/posts/dosya.webp` yoluna bağlayın. Kod örneklerini mümkün olduğunca Markdown kod blokları olarak ekleyin; Gist veya Medium gömüsü tek kopya olmasın.
+
+Kapak başka bir klasördeyse `cover_image: "/assets/img/posts/dosya.webp"` kullanın. Yeni bir kapak ekledikten sonra kartlar için küçük kopyalarını üretin:
+
+```sh
+python3 -m pip install Pillow
+python3 scripts/make_thumbnails.py
+```
+
+Üretilen `assets/img/thumbs/` dosyalarını da commit'e ekleyin. Sitede kullanılan Bootstrap kuralları `assets/bootstrap/css/bootstrap-site.css` içinde küçültülmüş bir alt kümedir; yeni Bootstrap bileşeni eklenirse bu dosya da güncellenmelidir.
+
+Medium'da yayımlanmış bir yazıyı arşive eklerken:
+
+1. Başlığı, özgün yayımlanma tarihini, metni, kod bloklarını ve görselleri karşılaştırın.
+2. Yerel Markdown dosyasını ve gereken görselleri depoya ekleyin. Dış bağlantıları kaynak oldukları yerde koruyun, fakat sitenin kendi yazılarına giden bağlantıları yerel adreslere çevirin.
+3. `bundle exec jekyll build --trace` ve `python3 scripts/check_site.py _site` komutlarını çalıştırın; telefonda da yazının okunabilirliğini kontrol edin.
+4. Medium'daki özgün bağlantıyı yazının ön bilgilerine `medium_url` olarak kaydedin. Böylece iki sürüm arasında iz sürülebilir.
+
+Bu işlem otomatik eşitleme değildir; yeni Medium yazıları ayrıca depoya aktarılmalıdır.

@@ -27,7 +27,7 @@ Bu konuda bilmemiz gerek bir konu da IP adresleme. IP adresleme, IP adreslerinin
 
 Son olarak paketlerin yönlendirilmesine değineyim. IP yönlendirme, ana işlevi paketleri ağ sınırları boyunca taşımak olan yönlendiricilerin yanı sıra tüm ana bilgisayarlar tarafından gerçekleştirilir. Yönlendiriciler, ağın topolojisi için gerektiği gibi, iç ağ geçidi protokolleri veya dış ağ geçidi protokolleri gibi özel olarak tasarlanmış yönlendirme protokolleri aracılığıyla birbirleriyle iletişim kurarlar. Yani posta sistemine benzer bir yapı bulunmaktadır.
 
-### IP Paket Formu
+## IP Paket Formu
 
 İnternette, cihazlar arası iletişimde, iki cihaz arasında her türlü mesajı gönderilir. Bir mesaj, başka bir cihazın çevrimiçi olup olmadığını kontrol etmek için küçük bir ping paketi olabileceği gibi bir mesaj tüm bir web sayfasını içerebilir.
 Ancak bir mesajın büyüklüğünün bir sınırı vardır, çünkü cihazlar arasındaki fiziksel ağ bağlantıları tarafından bir kerede ne kadar verinin makul bir şekilde iletilebileceğinin bir sınırı vardır.
@@ -36,7 +36,7 @@ Her IP paketi hem bir başlık (20 veya 24 bayt uzunluğunda) hem de veri (deği
 
 IP paketinin başlık kısmı bir postanın arkasında yazan adres gibi düşünürsek, paketin diğer kısmı ise mektubu ifade etmektedir.
 
-#### IP Paket Başlığı
+### IP Paket Başlığı
 
 IP paketi başlığını iki başlık altında inceleyebiliriz.
 
@@ -72,7 +72,7 @@ IP paketi başlığını iki başlık altında inceleyebiliriz.
 
 IP paketi başlığı bu şekilde incelenebilmektedir.
 
-### IP Adres Sistemi
+## IP Adres Sistemi
 
 İnternet Protokolü adresi (IP adresi), iletişim için İnternet Protokolünü kullanan bir bilgisayar ağına bağlı olan bilgisayarın kendine özgü adresidir. Bir IP adresi iki ana işlevi yerine getirir: ana bilgisayar veya ağ arabirimi tanımlama ve konum adresleme.
 
@@ -96,7 +96,7 @@ Burada her bir 8 bitlik kısım bir parçayı ifade eder. genellikle bugünkü k
 IP adres alanı, küresel olarak İnternet Tahsisli Numaralar Kurumu (IANA) ve kendi belirlenmiş bölgelerinde İnternet servis sağlayıcıları (ISP’ler) ve diğer uç noktalar gibi yerel İnternet sicillerine atamadan sorumlu beş bölgesel İnternet sicili (RIR) tarafından yönetilir.
 IPv4 adresleri, IANA tarafından RIR’lere her biri yaklaşık 16,8 milyon adresten oluşan bloklar halinde dağıtıldı, ancak 2011'den beri IANA düzeyinde tükendi. RIR’lerden yalnızca birinin Afrika’da yerel atamalar için hala bir miktar IPv4 kaynağı var. Ancak bazı IPv4 adresleri özel ağlar için ayrılmıştır ve genel olarak benzersiz değildir.
 
-### IP Yönlendirme Sistemi
+## IP Yönlendirme Sistemi
 
 İnternet Protokolünde (IP), bilgisayarlar mesajları paketlere böler ve bu paketler hedeflerine giderken yönlendiriciden yönlendiriciye atlar:
 
@@ -116,11 +116,11 @@ IP adresleri hiyerarşiktir. İki IP adresi aynı önekle başladığında, bu g
 Yönlendirici, hedef IP adresi için tabloda en spesifik satırı bulduğunda, paketi bu yol boyunca gönderir. Her şey yolunda giderse, paket sonunda onu tam olarak nereye göndereceğini bilen bir yönlendiriciye ulaşacaktır.
 Yönlendirici artık mesajı kişisel bir bilgisayar veya sunucu olabilecek hedef IP adresine gönderebilir.
 
-### **Sonuç:**
+## **Sonuç:**
 
 Bu yazıda IP paket sistemi, adresleme ve paket yönlendirmesi nasıl yapılır ondan bahsettim. Internet iletişim yapısının temeli olan IP sistemi bu şekilde açıklanabilir. Bir sonraki kısımda paketlerde iletişim nasıl sağlanır onu göstereceğim.
 
-### Kaynakça:
+## Kaynakça:
 
 * [**IP Address Definition**](https://www.investopedia.com/terms/i/ip-address.asp)
 * [https://www.cloudflare.com/learning/network-layer/internet-protocol/](https://www.cloudflare.com/learning/network-layer/internet-protocol/)

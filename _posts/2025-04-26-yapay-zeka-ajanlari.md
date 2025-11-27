@@ -96,4 +96,3 @@ medium_url: "https://medium.com/@zaryob/yapay-zekada-%C3%BC%C3%A7%C3%BCnc%C3%BC-
 <p>Ama yapay zeka ajanları, birçok görevin daha önce hayal bile edilemeyecek ölçüde otomatikleşeceği bir kurumsal yazılım devrimi getirecek ve getirecekten de öte getiriyor bile.</p>
 
 <p><em>Hazır olun ya da olmayın, üçüncü dalganın üzerindeyiz. Şimdi batma veya elimizi hızlı tutarak sörf yapma zamanı.</em></p>
-

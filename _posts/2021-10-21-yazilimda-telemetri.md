@@ -79,7 +79,7 @@ Daha öncesinde bahsetmiştim. WhatsApp’ta her mesajımız okunuyor ve bunu ya
 Uçtan Uca Okunuyoruz
 --------------------
 
-### WhatsApp uçtan uca şifreleme skandalına bakış
+## WhatsApp uçtan uca şifreleme skandalına bakış
 
 zaryob.medium.com
 

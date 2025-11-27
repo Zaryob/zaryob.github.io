@@ -12,7 +12,7 @@ Bilimin tanımını yaparak elbette bu yazıma başlamayacağım. Ben bilimin in
 
 Başta biraz kendi hayatımda açık kaynak ne yaptı ondan bahsedeceğim. Bu kısmı atlamak için bir sonraki başlığa (**Bilimde Açık Kaynak**) direk kaydırın efendim. Yok dinlerim derseniz iyi okumalar. Ben devam ediyorum.
 
-#### Özbakış
+## Özbakış
 
 Hayatıma yönelik belki de en büyük dönüm noktalarımdan birisi bilime olan merakıma su dökebilecek yazılımları keşfetmem ile olmuştur. 2008'den 2011'e kadar Bilim Çocuk, 2011'den 2017'ye kadar her ay başucumda bir Bilim Teknik dergisi bulunurdu. Okurdum, okurdum, yeniden okurdum. Bilime olan ilgim her ne kadar bilişime yönelse de zamanında, benim için bilimsel çalışmalar, evrene dair makaleler, yaşama dair neredeyse her şey bu dönemlerde ilgi verici olmuştu. Astronomi de öyle. Henüz ışık kirliliği bu denli yükselmeden önce her gece gökyüzünde yıldızları gözlemler ve milyarlarca yıl öteden gelen ışıkların şu an nasıl olduklarını tahayyül etmeye çalışırdım. Benim yaşımdaki birisi için oldukça şanslıyım da. 2112'de bir sonrakisi gerçekleşecek olan Venüs geçişini dahi gözlemleyebildim (Bilim Tekniğin verdiği kıytırık kağıt gözlem gözlüğü ile). İşte bu dönemde benim için bilime dair en ufak kırıntı bile o kadar etkilemeye yetiyordu.
 
@@ -29,7 +29,7 @@ En az dili ana dili kadar iyi bilmek (translate kullanmayı öğrenmekten bahset
 
 * * *
 
-### Bilim ve Açık Kaynak
+## Bilim ve Açık Kaynak
 
 Açık kaynak veya özgür kaynak temelde kaynak kodları tamamiyle kamuya açık olan, herkes tarafından özgürce düzenlenebilen, okunabilen ve kullanılabilen yazılımlara denilir. Açık kaynak içeresinde ise şu felsefede insanlar var: tamamiyle kamuya mal olan ve insanlığın gelişmesi için yazılım yapma amacını gaye edinmek. Peki bilim ne için yapılmakta: evreni daha iyi anlayarak evrene, insanı geliştirmek ve medeniyeti ihya etmek.
 
@@ -42,11 +42,11 @@ Bu açıdan baktığımızda bilimsel araştırmalar ve açık kaynak projeler a
 
 İşim kendimce felsefik olan kısmını anlattığıma göre bir sonraki anlatacağım noktaya geçebilirim.
 
-### Bilim Meraklıları için Açık Kaynak Yazılımlar
+## Bilim Meraklıları için Açık Kaynak Yazılımlar
 
 Bu aşamada direk bilimsel yazılımları listelemek mantıksız geliyor. Kim ne yapsın NASA’nın orbit simulasyonunu veya açık kaynak gökada kataloglarını. Ancak meraklıları için şöyle basit bir bilimsel yazılım kataloğu vereceğim. Tamamiyle şahsi olarak beğendiğim 3–5 yazılım içeren bir liste.
 
-#### Stellarium
+### Stellarium
 
 Benim için hep ilklerin programıdır kendisi. Gökyüzü gözlemi için bundan daha iyisini bulamazsınız. Gökyüzündeki yıldızları gökadaları, bulunduğunuz konuma göre ve zamana göre görebilir, resmen bir dijital teleskop gibi kullanabilirsiniz. Dahası hem bilgisayar için hem mobil için dağıtılan bir yazılım. Ayrıca web sürümü de olmalı.
 
@@ -54,19 +54,19 @@ Benim için hep ilklerin programıdır kendisi. Gökyüzü gözlemi için bundan
 
 [**Stellarium Astronomy Software** Stellarium is a free open source planetarium for your computer. It shows a realistic sky in 3D, just like what you see…_stellarium.org](https://stellarium.org/)
 
-#### Celestia
+### Celestia
 
 Yine gökyüzünden gidiyorum. Pardus 2011 dönemlerinde aşık olduğum bir yazılımdır kendisi. Gerçek zamanlı bir uzak simulasyonudur Celestia. Gerek ışık hızı ile hareket ederek ışık hızının uzayın devasa boşluğunda hareket etmek için ne kadar da yavaş olduğunu kendiniz gözlemleyebilir, gerekse pek çok gözlem sonucunda elde edilmiş gezegen ve gökadalarını hatta bazı çok ufak gökcisimlerini 3 boyutlu olarak inceleyebilirsiniz. Ve hatta zamanda hareket edip eski orbitlerini dahi gözlemlenize imkan sağlayan muhteşem bir gerçek zamanlı gökyüzü simulasyonudur Celestia.
 
 [**Celestia** The free space simulation that lets you explore our universe in three dimensions. Celestia runs on Windows, Linux…_celestia.space](https://celestia.space/)
 
-#### Avogadro
+### Avogadro
 
 Vahap hoca tarafından öldürülmeden önce kimyaya ilgi duymama sebep olan yazılımdır kendisi. Sürükle bırak yaparak kimyasal moleküller oluşturabildiğimiz bir molekül editörü. Ancak bir çocuğun elinde saçma sapan şekiller üretebileceği ve ulan bütün tanecikler yuvarlaksa kare nasıl var oluyor sorusuna cevap aramaya başlayacağı (evet gerçekten ben bunu demiştim) güzel bir program. Tam böyle düğmelere dokunarak saçma sapan şeyler yaptığım sonra da vooooaaaa diye sesler çıkarttığım bir yazılımdı.
 
 [**Avogadro - Free cross-platform molecular editor** Avogadro is an advanced molecule editor and visualizer designed for cross-platform use in computational chemistry…_avogadro.cc](https://avogadro.cc/)
 
-#### Marble
+### Marble
 
 Açık kaynak demiştik. Marble’den daha çok kullandığım yazılım tabi ki Google Earth. Ancak Google Earth’i tanımadan önce Pardus ile tanıdığım ilk yazılım da Marble. Tabi benim dönemlerimde daha çok bir küreden ibaret yazılımdı. Çoğunlukla uydu görüntülerine sahip değildi. Sadece her haritada bulunan yer şekilleri ve bunlara ait bazen detaylar yer alan güzel bir yazılımdı. Bugün araştırırken şöyle ana sayfasına bakınca, vay be iyi gelişmiş dedirtti kendine.
 
