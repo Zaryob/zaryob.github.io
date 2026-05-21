@@ -52,6 +52,19 @@ a:focus-visible, button:focus-visible {
   letter-spacing: -.04em;
 }
 .brand-dot { color: #df8a55; }
+.site-icon {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  flex-shrink: 0;
+  vertical-align: -.15em;
+}
+.site-nav .site-icon { margin-right: .35rem; }
+.site-nav .dropdown-item .site-icon {
+  width: 1.25em;
+  margin-right: .6rem;
+  color: var(--accent);
+}
 .site-nav .nav-link {
   color: #e8edf0;
   font-size: .94rem;

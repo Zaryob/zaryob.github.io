@@ -26,22 +26,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="{{ '/projeler/' | relative_url }}">Projeler</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/projeler/' | relative_url }}">{% include icon.html name="projects" %} Projeler</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{{ '/posts/' | relative_url }}" id="writingMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Yazılar</a>
+            <a class="nav-link dropdown-toggle" href="{{ '/posts/' | relative_url }}" id="writingMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% include icon.html name="writing" %} Yazılar</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="writingMenu">
-              <li><a class="dropdown-item" href="{{ '/posts/' | relative_url }}">Tüm yazılar</a></li>
-              <li><a class="dropdown-item" href="{{ '/programlama/' | relative_url }}">Programlama</a></li>
-              <li><a class="dropdown-item" href="{{ '/linux/' | relative_url }}">Linux</a></li>
-              <li><a class="dropdown-item" href="{{ '/internet/' | relative_url }}">İnternet</a></li>
-              <li><a class="dropdown-item" href="{{ '/elektronik/' | relative_url }}">Elektronik</a></li>
-              <li><a class="dropdown-item" href="{{ '/pi/' | relative_url }}">Raspberry Pi</a></li>
-              <li><a class="dropdown-item" href="{{ '/arsiv/' | relative_url }}">Tarih arşivi</a></li>
+              <li><a class="dropdown-item" href="{{ '/posts/' | relative_url }}">{% include icon.html name="writing" %} Tüm yazılar</a></li>
+              <li><a class="dropdown-item" href="{{ '/programlama/' | relative_url }}">{% include icon.html name="code" %} Programlama</a></li>
+              <li><a class="dropdown-item" href="{{ '/linux/' | relative_url }}">{% include icon.html name="linux" %} Linux</a></li>
+              <li><a class="dropdown-item" href="{{ '/internet/' | relative_url }}">{% include icon.html name="globe" %} İnternet</a></li>
+              <li><a class="dropdown-item" href="{{ '/elektronik/' | relative_url }}">{% include icon.html name="chip" %} Elektronik</a></li>
+              <li><a class="dropdown-item" href="{{ '/pi/' | relative_url }}">{% include icon.html name="raspberry-pi" %} Raspberry Pi</a></li>
+              <li><a class="dropdown-item" href="{{ '/arsiv/' | relative_url }}">{% include icon.html name="archive" %} Tarih arşivi</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="{{ '/kitapligim/' | relative_url }}">Kitaplığım</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://zaryob.github.io/kilavuzlar/">Kılavuzlar <span class="nav-external" aria-hidden="true">↗</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ '/hakkinda/' | relative_url }}">Hakkımda</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/kitapligim/' | relative_url }}">{% include icon.html name="books" %} Kitaplığım</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://zaryob.github.io/kilavuzlar/">{% include icon.html name="guides" %} Kılavuzlar <span class="nav-external" aria-hidden="true">↗</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ '/hakkinda/' | relative_url }}">{% include icon.html name="user" %} Hakkımda</a></li>
         </ul>
       </div>
     </div>
@@ -74,7 +74,7 @@
       {% elsif page.title and page.title != 'empty' %}
       <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_image %} hero--image{% endif %}"{% if hero_image %} style="background-image: linear-gradient(95deg, rgba(17, 25, 34, .91), rgba(17, 25, 34, .77)), url('{{ hero_image | relative_url }}');"{% endif %}>
         <div class="container hero__inner">
-          {% if page.layout == 'post' %}<p class="hero__eyebrow"><a href="{{ '/posts/' | relative_url }}">Yazılar</a></p>{% endif %}
+          {% if page.layout == 'post' %}<p class="hero__eyebrow"><a href="{{ '/posts/' | relative_url }}">{% include icon.html name="writing" %} Yazılar</a></p>{% endif %}
           <h1>{{ page.title }}</h1>
           {% if page.subtitle %}<p class="hero__lead">{{ page.subtitle }}</p>{% endif %}
           {% if page.layout == 'post' %}<time class="hero__date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time>{% endif %}
@@ -95,10 +95,10 @@
         <p class="footer-note">Kod, sistemler ve öğrenme notları.</p>
       </div>
       <nav class="footer-links" aria-label="Sosyal bağlantılar">
-        <a href="https://github.com/Zaryob">GitHub</a>
-        <a href="https://linkedin.com/in/suleyman_poyraz">LinkedIn</a>
-        <a href="https://medium.com/@zaryob">Medium</a>
-        <a href="mailto:{{ site.email }}">E-posta</a>
+        <a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub</a>
+        <a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn</a>
+        <a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium</a>
+        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} E-posta</a>
       </nav>
     </div>
     <div class="container footer-legal">
