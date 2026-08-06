@@ -17,6 +17,8 @@ Asus 2020 yılının Kasım ayında bir duyuruda bulundu. Bu duyuru yeni Asus Ti
 
 Öncelikle dikkatimi çeken detay ethernet girisi Raspberry Pi’deki konumun tam tersinde. Yani eski Raspberry Pi soğutma kasalarını buna uydurmak için bayaa bir uğraşmamız gerekecek. Bir diğer yandan Raspberry Pi 4 gibi micro HDMI kullanmak yerine tam boy 4K destekli bir HDMI çıkışı bulunuyor. Bununla beraber 4 tane USB 3.1 portundan type C formunda olan ayrıca display output için de kullanılabilmekte. Yani kartta hala 4K olan 2 tane ekran desteği var.
 
+<figure><img src="/assets/img/medium/be5039c7485a1a7c2d.jpg" alt="Asus Tinkerboard devre kartı" width="700" height="830" loading="lazy" decoding="async"></figure>
+
 Asus Tinkerboard’dan ve diğer tek kart bilgisayarlardan alışık olduğumuz USB Type B güç beslemesi yerini 5.5/2.5 generic bir power adaptör almış. Bu tinkerboard ailesi için yeni bir gelişme değil. Bunun birinci sebebi bu kartın performans modunda 65 Watt güç tüketmesi benzer şekilde Tinkerboard Edge ailesi de 50 Watt’a yakın güç tüketiyordu. Bunda da benzeri bir durum var. Ancak yine de GPIO portları üzerinden 5V 3A ile besleme mümkün. Her ne kadar düşük voltaj uyarıları alsak da.
 
 Raspberry Pi gibi bu kart da ARM işlemci üzerine kurulmuş yerel aygıtlardan oluşan bir kart. Rockpi’den alışık olduğumuz 6 çekirdekli RK3399 işlemci bu kartın kalbinde yer almakta. Bu 6 çekirdekten 4'ü Cortex-A53 mimaride 1.5 GHz hızına sahipken, 2'si ise Cortex-A72 mimaride 2.0 Ghz hızına sahip. Ve bu işlemcide ileride vereceğim benchmark’lardan anlayacağınız kadarı ile delicesine bir hız var. Bu işlemciye ek olarak 1 GB Mali T860 grafik işlemci bulunmakta. Bu grafik işlemcinin OpenGL ES 3.0/3.1, OpenVG 1.1, OpenCL desteği bulunmakta.

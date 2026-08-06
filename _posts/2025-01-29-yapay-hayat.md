@@ -28,6 +28,8 @@ zeka zanneden insanlarla bol bol yapay zekanın aslında düşündükleri gibi b
 anlattım ama işte sektör böyle, insanlar parayı opencv'yi güzel bir şekilde paketleyerek ürününü ise yapay zeka diye 
 süsleyerek buluyorsa, kendi ürününün "öz hakiki yapay zeka" olduğunu iddia etmekte özgür. 
 
+<figure><img src="/assets/img/medium/08f22d4005138f7133.jpg" alt="Meyvelerle dolu bir natürmort" width="700" height="496" loading="lazy" decoding="async"></figure>
+
 Yani çoğu için yapay zeka şu anda bir chat botundan ibaret hatta bu chat botunu kendi uygulamaları içerisine başarıyla 
 entegre eden insanlar da var ve onlar için bile bundan ibaret. Ama benim için yapay zeka geçmişten beri biraz General 
 Dynamic’in şu videolarda Jackie Chan vari hareketler yapmasını için uğraştığı insansı robotlara benziyor, kendisinden pek 
@@ -48,6 +50,8 @@ ve Google'nin büyük bir reklam balonu olan ve o dönemlerde benim için 2-3 g�
 kullanmıştım. Bir yandan da kelimelerimi dikkatli seçiyorum çünkü mu modeller için hayat döngüleri o kadar değişken ki, 
 haziranda benim beklentilerime göre hüsran ile sonuçlanan Gemini, belki de 1 seneye ChatGPT'yi yiyip yok edecek kadar büyük 
 bir model olacak.
+
+<figure><img src="/assets/img/medium/e138573b96debafff6.jpg" alt="Judith ve Holofernes konulu resim" width="700" height="368" loading="lazy" decoding="async"></figure>
 
 Konuma geri dönecek olursak, bu modelleri kullanmış, midjourney, ve stable diffusion modellerini bile denemiş birisi olarak 
 biraz da "boomer"vari bir zihinle küçümseyici ve aradağımı pek bulamamış gibi hissediyordum. Neden diyecek olursan yapay 
@@ -89,6 +93,8 @@ işlerini dakikalar içerisinde tamamlayabilmemi sağladı. Lakin  bir anda Chat
 çok kendisini kullandığımı düşünmeye başladım. 2025 Ocak itibari ile gün içerisinde yaptığı pek çok işte bunları kullanan 
 birisi olarak ChatGPT'ye yedinci kez para ödedim diyebilirim :D
 
+<figure><img src="/assets/img/medium/8727b6acc739616465.jpg" alt="Raffaello’nun Atina Okulu tablosu" width="700" height="494" loading="lazy" decoding="async"></figure>
+
 Şu o kadar ilginç ki anne babalarımız için fatura dediğimiz şey elektrik, su ve telefondan ibaretken hatta dedelerimiz için 
 belki sadece elektrik ve su iken; bizler için bu listeye internet de dahil oldu. Ve yine kendi dönemdaşılarımız ve gelecek 
 nesiller için bu liste içerisine bir anda chatgpt veya bir yapay zeka aracının dahil olması o kadar içten ki.  
@@ -107,7 +113,7 @@ yazdığınızda google pek çok bot cevabı ile size dönüyor. İşte tam o an
 cevapların içi boşluğu bir kenara bana bazı faydalar sağladığını farkettim. 
 
 Örneğin birebir bu soruyu sorduğumda:
-[](/assets/img/posts/sWDjs72nsWoqSs7w.png)
+<figure><img src="/assets/img/posts/sWDjs72nsWoqSs7w.png" alt="ChatGPT’nin Ankara otobüs hatları hakkında verdiği yanıt" width="2336" height="1226" loading="lazy" decoding="async"></figure>
 ilgili siteleri gezip doğru ve yanlış verileri ayıklayıp önüme en azından mantıklı bazı bilgiler çıkartıyor. Direk kullanıp kullanmamak tamamen bana kalmış ama filtreleme yeteneğinin kuvveti yadsınamaz.
 
 Sadece basit soruların cevaplanması da değil aslında beni bu nereye gidiyoruz diye sorgulatan. Bir ara o kadar kaptırdım ki bu sesli sohbet konusunu, elalemin yapay zekasıyla gecenin bir yarısı Aristo'nun 4 elementi ve idea'ları üzerine uzun uzun bir şeyler anlatırken buldum ChatGPT'yi. Esasında bu yazının taa başından beri ChatGPT övdüm gibi oldu ama bunu başarabileceğiniz farklı modeller de yok değil. OpenWebUI sayesinde llama-3'ünden mistral'ine pek çok modeli de eşzamanlı olarak denedim. hatta bu yazıyı yazmaya başladığımda çıkan deepseek-r1 modelini de bu satırları yazarken çoktan kullanmıştım. Ancak yapay zekanın ChatGPT tarzında hazır bir ürün olarak sunulduğu, içerisinde sesli sohbetinden, görüntü oluşturmaya pek çok özelliği barındıran bir uygulama formu ile karşıma çıkması kendimi yapay bir dünyanın ortasında bulmuş gibi hissetmeme neden oldu. Şunu buradan nereye geleceğim diye ben de düşünüyorum bu noktada nasıl anne babalarımız kendilerini bir anda internet alemi içerisinde bulduysa biz de kendimizi yapay bir dünyanın ortasında bulmuş gibiyiz.
@@ -116,6 +122,8 @@ Sadece basit soruların cevaplanması da değil aslında beni bu nereye gidiyoru
 # Sonuçma
 
 Bilgi verme amacından uzak bir yazı oldu ancak sadece deneyim ve hislerimi bir noktada böyle bir yazıya dökmek istedim. Muhtemelen bir yazının, defalarca kere yapay zeka botları tarafından okunacağı bir dünyaya gidiyoruz. 
+
+<figure><img src="/assets/img/medium/f69c72cdfae3a96f95.jpg" alt="Uyuyan bir çocuk ve yanında büyük bir kedi bulunan resim" width="431" height="300" loading="lazy" decoding="async"></figure>
 
 O gelecek gerçek olana kadar...
 

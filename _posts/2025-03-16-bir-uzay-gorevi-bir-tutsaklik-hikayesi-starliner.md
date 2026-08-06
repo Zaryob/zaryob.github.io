@@ -152,6 +152,8 @@ Bir dip not olarak belirteceğim bir husus var, ekip ne olacak konusu… 2 kişi
 [_Boeing is set to launch its first crewed space mission in June without fixing a small helium gas leak on its troubled…_ phys.org](https://phys.org/news/2024-05-boeing-wont-leaky-starliner-flying.html)
 
 
+<figure><img src="/assets/img/medium/a3799fdf768407915d.jpg" alt="Business Insider: Starliner arızası" width="1200" height="600" loading="lazy" decoding="async"></figure>
+
 [Business Insider: Starliner arızası](https://www.businessinsider.com/nasa-investigating-potentially-catastrophic-boeing-spaceship-error-2020-2)
 
 
@@ -159,9 +161,11 @@ Bir dip not olarak belirteceğim bir husus var, ekip ne olacak konusu… 2 kişi
 [_1967 yılında dernek çalışmalarına başlamış ve 5 Aralık 1968 yılında resmi olarak kurulmuştur._ www.uted.org](https://www.uted.org/boeing%E2%80%99in-stratejik-y%C3%B6netim-hatalar%C4%B1)
 
 
+<figure><img src="/assets/img/medium/be5220c4102d65865b.jpg" alt="The Guardian: Boeing 737 Max" width="1200" height="630" loading="lazy" decoding="async"></figure>
+
 [The Guardian: Boeing 737 Max](https://www.theguardian.com/business/2024/feb/21/boeing-737-max-ed-clark-exit-renton)
 
-
+<figure><img src="/assets/img/medium/16f45b99abfda63642.jpg" alt="Finshots: Boeing birleşmesi" width="1200" height="675" loading="lazy" decoding="async"></figure>
 
 [Finshots: Boeing birleşmesi](https://finshots.in/archive/did-a-1997-merger-ruin-boeing/)
 

@@ -2,6 +2,9 @@
 """Check that generated pages and their local links exist in a Jekyll build."""
 
 import argparse
+import hashlib
+import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -9,6 +12,28 @@ from urllib.parse import unquote, urlsplit
 
 REQUIRED_FILES = ("index.html", "feed.xml", "sitemap.xml", "robots.txt")
 LINK_ATTRIBUTES = {"href", "src", "poster"}
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def check_medium_media(site_dir, rendered_images):
+    """Check the archived image files and their recorded content hashes."""
+    errors = []
+    records = json.loads((ROOT / "_data/medium_media.json").read_text())
+    checked = {}
+    for record in records:
+        path = record["local"].lstrip("/")
+        target = site_dir / path
+        if path not in checked:
+            checked[path] = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
+        if checked[path] != record["sha256"]:
+            errors.append(f"Archived Medium image missing or changed: {path}")
+        if target.resolve() not in rendered_images:
+            errors.append(f"Archived Medium image is not displayed on any page: {path}")
+        source_post = ROOT / record["post"]
+        if not source_post.is_file():
+            errors.append(f"Medium image references missing post: {record['post']}")
+    print(f"Checked {len(records)} Medium image records and {len(checked)} local files")
+    return sorted(set(errors))
 
 
 class LinkParser(HTMLParser):
@@ -27,6 +52,9 @@ class LinkParser(HTMLParser):
                     parts = candidate.strip().split()
                     if parts:
                         self.links.append((self.getpos()[0], tag, name, parts[0]))
+            elif name == "style":
+                for match in re.finditer(r"url\(['\"]?([^)'\"]+)['\"]?\)", value):
+                    self.links.append((self.getpos()[0], tag, name, match.group(1)))
 
 
 def local_target(site_dir, page, url):
@@ -49,6 +77,7 @@ def local_target(site_dir, page, url):
 
 def check_site(site_dir):
     errors = []
+    rendered_images = set()
     broken_links = {}
     checked_links = 0
     pages = sorted(site_dir.rglob("*.html"))
@@ -64,9 +93,14 @@ def check_site(site_dir):
         parser = LinkParser()
         parser.feed(page.read_text(encoding="utf-8", errors="replace"))
         for line, tag, attribute, url in parser.links:
+            is_image = (tag == "img" and attribute in {"src", "srcset"}) or attribute == "style"
+            if is_image and urlsplit(url).netloc:
+                errors.append(f"{page.relative_to(site_dir)}:{line}: external image must be archived locally: {url}")
             target = local_target(site_dir, page, url)
             if target is None:
                 continue
+            if is_image:
+                rendered_images.add(target)
             checked_links += 1
             try:
                 target.relative_to(site_dir)
@@ -83,6 +117,7 @@ def check_site(site_dir):
             f"{locations[0]}: <{tag}> {attribute}={url!r} has no local target{more}"
         )
 
+    errors.extend(check_medium_media(site_dir, rendered_images))
     return pages, checked_links, errors
 
 

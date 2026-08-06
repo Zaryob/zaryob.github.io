@@ -278,7 +278,7 @@ int main() {
 }
 ```
 
-[](/assets/img/posts/1*lVeFcVcq5DbPArtRZARTfQ.png)
+<figure><img src="/assets/img/posts/1*lVeFcVcq5DbPArtRZARTfQ.png" alt="C++ shared_ptr ve weak_ptr sahiplik ilişkileri" width="1018" height="516" loading="lazy" decoding="async"></figure>
 ---
 
 ## Lambda Fonksiyonlar

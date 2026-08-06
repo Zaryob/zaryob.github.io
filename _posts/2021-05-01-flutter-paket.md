@@ -7,7 +7,9 @@ image: "2021-05-01-flutter-paket.jpeg"
 image_hash: "00b9dcc6362a4b02b5674158dd557a8f"
 ---
 
-AppImage, Flatpak ve Snap Linuxta en çok generic paket tipleridirFlutter'in masaüstü uygulama desteğinin gelmesi ile beraber artık Linux için de kolaylıkla uygulamalar oluşturmamız mümkün. Ancak Windows ve MacOS X'ten farklı olarak Linux'ta paket yönetimi için ortaya çıkmış ve her birisi farklı amaçlar için hizmet eden farklı farklı paket yöneticileri var. Bu hemen bir eleştiri olarak algılanmasın. Olayın özü Linux'ta herkes tarafından tam manası ile benimsenmiş bir paket yönetim sistemi olmayışı oluşturduğumuz paketleri dağıtırken bazen bizlere çeşitli zorluklar çıkartmakta.
+AppImage, Flatpak ve Snap Linuxta en çok generic paket tipleridir.
+
+Flutter'in masaüstü uygulama desteğinin gelmesi ile beraber artık Linux için de kolaylıkla uygulamalar oluşturmamız mümkün. Ancak Windows ve MacOS X'ten farklı olarak Linux'ta paket yönetimi için ortaya çıkmış ve her birisi farklı amaçlar için hizmet eden farklı farklı paket yöneticileri var. Bu hemen bir eleştiri olarak algılanmasın. Olayın özü Linux'ta herkes tarafından tam manası ile benimsenmiş bir paket yönetim sistemi olmayışı oluşturduğumuz paketleri dağıtırken bazen bizlere çeşitli zorluklar çıkartmakta.
 İşte bu zorluklarla uğraşmamak adına bazı developerler yeni paket yönetim sistemleri ve formatları geliştirmiş. (Şaka gibi ama gerçek.) Bunların avantajı distro bağımsız olarak bütün bağımlılıkları içerisinde getirerek sadece libc 'yi çalışılan bilgisayardan sürdürerek programları çalıştırmaya olanak sağlamakta.
 Bu yazımızda son dönemlerde sıkça kullanılan generic paket yönetim sistemleri için uygulama paketleri çıkartmayı göstereceğim.
 
@@ -18,7 +20,9 @@ AppImage, uygulamayı yüklemek için süper kullanıcı izinlerine ihtiyaç duy
 ### Ön Hazırlık
 
 İlk olarak AppImage paketlerken kullanacağımız appimagetool'u şuradan indirelim.
-Github appimagetool sayfasıVe tabi ki çalıştırabilmek için çalıştırılabilir yetkisi verelim:
+<figure><img src="/assets/img/medium/11b56636c5503e523c.png" alt="AppImage araçlarının GitHub sürüm sayfası" width="700" height="317" loading="lazy" decoding="async"><figcaption>GitHub appimagetool sayfası</figcaption></figure>
+
+Ve tabi ki çalıştırabilmek için çalıştırılabilir yetkisi verelim:
 
 ```bash
 $ chmod +x appimagetool-x86_64.AppImage

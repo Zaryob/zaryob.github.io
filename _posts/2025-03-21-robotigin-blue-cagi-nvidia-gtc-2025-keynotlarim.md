@@ -124,6 +124,8 @@ Sonuç olarak, robotik ve yapay zeka arasındaki sınırlar bulanıklaşırken, 
 Tavsiye edeceğim bir de okuma var. Deepmind bu robotu geliştirirken rol aldı demiştik, geçenlerde açık kaynak kodlu olarak Gemini için Robotik modülü yayınladı:
 
 
+<figure><img src="/assets/img/medium/abcd4a638b9cbb64d3.png" alt="Google DeepMind: Gemini Robotics" width="1200" height="630" loading="lazy" decoding="async"></figure>
+
 [Google DeepMind: Gemini Robotics](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/)
 
 ## Kaynaklar
@@ -133,30 +135,34 @@ Tavsiye edeceğim bir de okuma var. Deepmind bu robotu geliştirirken rol aldı 
 ### Bahsi Geçen Blue tanıtımı:
 
 
+<figure><img src="/assets/img/pages/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.jpeg" alt="Euronews: Blue robot tanıtımı" width="1200" height="675" loading="lazy" decoding="async"></figure>
+
 [Euronews: Blue robot tanıtımı](https://www.euronews.com/video/2025/03/19/nvidias-ai-robot-blue-stuns-with-live-interaction)
 
 ### Diğer Kaynaklar:
 
 
+<figure><img src="/assets/img/medium/d0c01019accd3650aa.jpg" alt="Edge AI Foundation: Fiziksel yapay zeka" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+
 [Edge AI Foundation: Fiziksel yapay zeka](https://www.edgeaifoundation.org/edgeai-content/the-robots-are-coming-physical-ai-and-the-edge-opportunity)
 
-
+<figure><img src="/assets/img/medium/097cee07af9e1a0521.jpg" alt="Boston Dynamics: Atlas robotu" width="932" height="658" loading="lazy" decoding="async"></figure>
 
 [Boston Dynamics: Atlas robotu](https://bostondynamics.com/atlas/)
 
-
+<figure><img src="/assets/img/medium/09e4c5cdfc6064ab81.gif" alt="NVIDIA: Newton fizik motoru" width="500" height="282" loading="lazy" decoding="async"></figure>
 
 [NVIDIA: Newton fizik motoru](https://developer.nvidia.com/blog/announcing-newton-an-open-source-physics-engine-for-robotics-simulation/)
 
-
+<figure><img src="/assets/img/medium/fd22b65e8662763552.png" alt="NVIDIA Isaac robotik platformu" width="1200" height="628" loading="lazy" decoding="async"></figure>
 
 [NVIDIA Isaac robotik platformu](https://developer.nvidia.com/isaac)
 
-
+<figure><img src="/assets/img/medium/59cc0da1cd7179ea03.jpg" alt="ESA: Avrupa robot kolu" width="1920" height="1281" loading="lazy" decoding="async"></figure>
 
 [ESA: Avrupa robot kolu](https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/International_Space_Station/European_Robotic_Arm)
 
-
+<figure><img src="/assets/img/medium/c0d10bf06c1f6c6bac.jpg" alt="National Inventors Hall of Fame: George Devol" width="1200" height="630" loading="lazy" decoding="async"></figure>
 
 [National Inventors Hall of Fame: George Devol](https://www.invent.org/blog/inventors/George-Devol-Industrial-Robot)
 

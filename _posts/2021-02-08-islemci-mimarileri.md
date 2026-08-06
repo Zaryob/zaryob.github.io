@@ -22,6 +22,7 @@ Yakın zamanda ise 2010 yılında yine Berkeley Üniversitesinde ortaya atılan 
 
 Günümüzde AMD ve Intel gibi üreticiler CISC mimari işlemciler üretirken; ARM Holding, STMicrocontrollers, Broadcom Microcontrollers ve Kendrayte gibi üreticiler de RISC mimarisi işlemciler üretmekte. Her ne kadar günümüzdeki Intel ve AMD işlemciler de aslında CISC işlemcilerdir desek de, işlemcinin altyapısında karışık komutları daha basit RISC mimarisi komutlarına benzeri sayılabilecek parçalara dönüştürülerek işlenirler.
 
+<figure><img src="/assets/img/medium/86fe7c7e5f2d111aff.jpg" alt="AMD EPYC işlemcisi" width="266" height="189" loading="lazy" decoding="async"></figure>
 
 # İki Mimarinin Detayları
 Gelgelelim iki mimarinin detaylarına.
@@ -35,6 +36,8 @@ Bir diğer yandan CISC farklı komut setlerine sahiptir. CISC mimarilerinin örn
 
 ## RISC (Reduced Instruction Set Computing) Mimarisi
 RISC, küçültülmüş komut seti bilgisayarı, CISC'e kıyasla daha kısa komut setine sahiptir. Bilgisayar teknolojileri ilk dönemde küçük ve basit komut kümeleri üzerine tasarlanıyordu. Bunun birincil sebebi daha ucuz ve daha küçük bilgisayarlar üretmekti. Sayısal donanımlar ucuzlamaya başlayınca bu yapı hantal kalmaya başlandı. Bazı bilgisayarlarda 100 ve hatta 200'ün üzerinde komut kümesi kullanılmaya başlandı. Bu da bilgisayarlarda daha yoğun ve daha fazla veri tipi kullanılabilmesine imkan sağlıyordu. Ve bilgisayara çok fazla optimize kip üretilmesine imkan sağlıyordu. RISC işlemcileri komut setinin çok sayıda komut ve  düzenli bir komut ardışık düzeni ile optimize edilmiş olması sayesinde komut başına düşük sayıda saat döngüsüne (CPI) izin verir. 
+
+<figure><img src="/assets/img/medium/1ac8a4d7c0984ac0aa.jpg" alt="Bir işlemci çipinin yakın planı" width="266" height="190" loading="lazy" decoding="async"></figure>
 
 # Assembly Bazında İki Mimarinin Karşılaştırılması
 Yüksek düzeyli dillerde yazılmış olan yazılımların CISC makinelerde derlenmesi ile elde edilen kodlar incelendiğinde:

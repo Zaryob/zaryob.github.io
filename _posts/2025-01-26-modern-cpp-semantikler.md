@@ -90,7 +90,7 @@ Modern C++’ta referanslar daha ince ayrımlarla tanıtılmıştır:
 
 ---
 
-[](/assets/img/posts/GNhBF.png)
+<figure><img src="/assets/img/posts/GNhBF.png" alt="C++ ifade kategorileri: glvalue, rvalue, lvalue, xvalue ve prvalue" width="361" height="251" loading="lazy" decoding="async"></figure>
 
 #### **2. Sahiplik ve Yaşam Zamanı Kavramları**
 
