@@ -1,6 +1,56 @@
+- name: imshark
+  type: Ağ analizi · C++
+  summary: Dear ImGui arayüzüyle yakalama dosyalarını ve protokol alanlarını inceleyen paket analizörü.
+  problem: Ağ trafiğini masaüstünde filtrelemek, çözümlemek ve akışlar üzerinden incelemek.
+  contribution: Uygulama ve protokol ayrıştırma altyapısını geliştiriyorum.
+  approach: C++20 çekirdeği, yakalama corpus'u ve sanitizer seçenekleri; kapsam destek matrisinde açıklanıyor.
+  result: Kaynak kodu ve yerel doğrulama kayıtları açık. 9 Ekim 2026 denetiminde public binary release yoktu.
+  repo: https://github.com/Zaryob/imshark
+  link_text: Kaynak ve doğrulama
+
+- name: Performer
+  type: Linux performans araçları · eBPF / Python
+  summary: Süreç profillerini taşınabilir paketlerde saklayan ve çevrimdışı görüntüleyen araç.
+  problem: CPU, bekleme ve kilit çekişmesini karşılaştırılabilir ölçümlerle incelemek.
+  contribution: Collector, ölçüm paketi ve tarayıcı görüntüleyicisi üzerinde çalışıyorum.
+  approach: Linux eBPF probları ve yerel web görüntüleyicisi; sentetik demo gerçek ölçümden ayrı sunuluyor.
+  result: Kaynak, demo üretme komutları ve ölçüm sınırları depoda incelenebilir.
+  repo: https://github.com/Zaryob/Performer
+  link_text: Kaynak ve demo
+
+- name: Sift
+  type: Yerel RSS uygulaması · macOS / iOS
+  summary: RSS okumayı, yerel veri saklamayı ve isteğe bağlı cihaz üzerinde özetlemeyi birleştiren uygulama.
+  problem: Çok sayıda abonelikten okunacak haberleri seçmek ve düzenlemek.
+  contribution: SwiftUI uygulamasını ve besleme işleme katmanlarını geliştiriyorum.
+  approach: SwiftData, RSS/Atom ayrıştırma ve Apple Intelligence yokken extractive özetleme yolu.
+  result: Kaynak ve ekran görüntüleri açık; imzalı dağıtım ve cihaz doğrulaması ayrıca izleniyor.
+  repo: https://github.com/Zaryob/Sift
+  link_text: Kaynak ve gereksinimler
+
+- name: iksemel-rs
+  type: XML / XMPP · Rust
+  summary: Gürer Özen'in iksemel çalışmasından esinlenen ayrı Rust uygulaması.
+  problem: XML ayrıştırma ve XMPP yardımcılarını Rust API'leriyle sunmak.
+  contribution: Bu Rust uygulamasını geliştiriyorum; özgün iksemel atfı depoda korunuyor.
+  approach: SAX/DOM API'leri, kaynak sınırları, yerel benchmark ve fuzz araçları.
+  result: Test ve performans sonuçları kendi ortam ve kapsamlarıyla değerlendirilir; tam protokol uyumluluğu iddiası yoktur.
+  repo: https://github.com/Zaryob/iksemel-rs
+  link_text: Kaynak ve test kanıtları
+
+- name: Pena
+  type: Gitar akort ve pratik · iOS
+  summary: Akort algılama, metronom, akor kütüphanesi ve günlük çalışma programları.
+  problem: Gitar akort ve pratik araçlarını tek yerel uygulamada birleştirmek.
+  contribution: Uygulama ve ses analizi katmanı üzerinde çalışıyorum.
+  approach: SwiftUI, AVAudioEngine ve deterministik sentetik pitch testleri.
+  result: Simülatör testleri ve kaynak açık; gerçek mikrofon doğruluğu ile beta dağıtımı ayrı kabul kapılarıdır.
+  repo: https://github.com/Zaryob/Pena
+  link_text: Kaynak ve doğrulama
+
 - name: Inary
   type: Linux paket yönetimi · Python 3
-  summary: PiSi kökenli açık kaynak paket yöneticisinin Python 3 ile geliştirilen çatalı.
+  summary: PiSi kökenli açık kaynak paket yöneticisinin Python 3 ile geliştirilen, artık arşivlenmiş çatalı.
   problem: Mevcut PiSi tabanındaki eksikleri giderirken paket ve kurulu dosya bilgilerini daha iyi izlemek.
   contribution: Çatalın geliştirilmesinde çalıştım; depo bu emeği diğer katkıcılarla birlikte belgeliyor.
   approach: Python 3 uygulaması, XML paket tanımları ve dosya değişikliklerini takip eden dinamik veritabanı.
