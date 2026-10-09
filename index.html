@@ -10,7 +10,8 @@ description: "Süleyman Poyraz'ın açık kaynak projeleri ve Linux, sistem yaz�
     <a href="{{ '/projeler/' | relative_url }}">Tüm projeler <span aria-hidden="true">→</span></a>
   </div>
   <div class="project-grid">
-    {% for project in site.data.projects %}
+    {% assign featured_projects = site.data.projects | where: "featured", true %}
+    {% for project in featured_projects %}
     <article class="project-card">
       <p class="project-card__eyebrow">{{ project.type }}</p>
       <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.name }}</a></h3>

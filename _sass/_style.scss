@@ -215,8 +215,12 @@ a:focus-visible, button:focus-visible {
 .project-card h3 a:hover { color: var(--accent-dark); text-decoration: underline; }
 .project-card p { margin: 0 0 1rem; color: var(--muted); }
 .project-card__link { margin-top: auto; font-weight: 600; }
-.project-detail { padding: 1.7rem 0; border-top: 1px solid var(--line); }
-.project-detail h2 { font-size: 1.65rem; font-weight: 700; }
+.project-group { margin-top: 3rem; scroll-margin-top: 5rem; }
+.project-group > h2 { font-size: 1.85rem; font-weight: 700; }
+.project-navigation { margin: 1.5rem 0 2rem; }
+.project-navigation ul { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; padding-left: 1.2rem; }
+.project-detail { scroll-margin-top: 5rem; padding: 1.7rem 0; border-top: 1px solid var(--line); }
+.project-detail h2, .project-detail h3 { font-size: 1.65rem; font-weight: 700; }
 .project-detail__meta {
   color: var(--accent-dark);
   font-family: "IBM Plex Mono", monospace;

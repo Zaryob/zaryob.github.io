@@ -1,0 +1,12 @@
+- id: tools
+  title: Uygulamalar ve geliştirici araçları
+  intro: Ağ analizi, performans inceleme ve günlük kullanıma yönelik uygulamalarım.
+- id: systems
+  title: Sistem yazılımı ve teknik belgeler
+  intro: XML/XMPP, çalışma ortamları ve Türkçe teknik kaynaklar üzerine çalışmalarım.
+- id: history
+  title: Geçmiş çalışmalar ve öğrenme projeleri
+  intro: Paket yönetiminden araştırma ve mobil geliştirmeye uzanan geçmişim. Bir kısmı ana hesabımda, bir kısmı 9base’de arşivde; her biri kendi katkı ve dönem bağlamıyla anlatılıyor.
+- id: downstream
+  title: Upstream projelere yaptığım katkılar
+  intro: Başka ekiplerin yazılımlarında uyumluluk, kurulum ve yerel kullanım için yaptığım değişiklikler. Özgün proje sahipleri ve yerel katkım ayrı belirtiliyor.
