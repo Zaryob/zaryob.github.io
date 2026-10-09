@@ -1,0 +1,12 @@
+<article class="project-detail" id="{{ project.name | slugify }}" aria-labelledby="project-{{ project.name | slugify }}">
+  <p class="project-detail__meta">{{ project.type }}{% if project.lifecycle %} · {{ project.lifecycle }}{% endif %}</p>
+  <h3 id="project-{{ project.name | slugify }}">{{ project.name }}</h3>
+  <p>{{ project.summary }}</p>
+  <dl>
+    <dt>İhtiyaç</dt><dd>{{ project.problem }}</dd>
+    <dt>Katkım</dt><dd>{{ project.contribution }}</dd>
+    <dt>Yaklaşım</dt><dd>{{ project.approach }}</dd>
+    <dt>Görülebilir çıktı</dt><dd>{{ project.result }}</dd>
+  </dl>
+  <p><a href="{% if project.docs %}{{ project.docs }}{% else %}{{ project.repo }}{% endif %}">{{ project.link_text }} <span aria-hidden="true">↗</span></a>{% if project.docs %} · <a href="{{ project.repo }}">GitHub deposu <span aria-hidden="true">↗</span></a>{% endif %}{% for link in project.links %} · <a href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</p>
+</article>

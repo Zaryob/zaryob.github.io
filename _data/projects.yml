@@ -1,30 +1,367 @@
-- name: Inary
-  type: Linux paket yönetimi · Python 3
-  summary: PiSi kökenli açık kaynak paket yöneticisinin Python 3 ile geliştirilen çatalı.
-  problem: Mevcut PiSi tabanındaki eksikleri giderirken paket ve kurulu dosya bilgilerini daha iyi izlemek.
-  contribution: Çatalın geliştirilmesinde çalıştım; depo bu emeği diğer katkıcılarla birlikte belgeliyor.
-  approach: Python 3 uygulaması, XML paket tanımları ve dosya değişikliklerini takip eden dinamik veritabanı.
-  result: Komut satırı aracı, kurulum yönergeleri ve testler açık depoda incelenebilir.
-  repo: https://github.com/Zaryob/inary
-  link_text: Kaynak kodu
+- name: "imshark"
+  type: "Ağ analizi · C++"
+  summary: "Dear ImGui arayüzüyle yakalama dosyalarını ve protokol alanlarını inceleyen paket analizörü."
+  problem: "Ağ trafiğini masaüstünde filtrelemek, çözümlemek ve akışlar üzerinden incelemek."
+  contribution: "Uygulama ve protokol ayrıştırma altyapısını geliştiriyorum."
+  approach: "C++20 çekirdeği, yakalama corpus'u ve sanitizer seçenekleri; kapsam destek matrisinde açıklanıyor."
+  result: "Kaynak kodu, desteklenen protokol matrisi, örnek yakalamalar ve kaynak derleme rehberi."
+  repo: "https://github.com/Zaryob/imshark"
+  link_text: "Kaynak ve doğrulama"
+  group: "tools"
+  featured: true
 
-- name: iksemel
-  type: XML / XMPP · C
-  summary: Jabber uygulamalarının kullandığı C tabanlı XML ayrıştırıcısının bakım çatalı.
-  problem: Eski projeyi güncel derleme araçları ve Python bağlayıcılarıyla kullanılabilir tutmak.
-  contribution: Çatalın bakım ve değişiklikleri depoda adıma atfediliyor.
-  approach: Mevcut SAX, DOM ve Jabber akışı API'leri korunurken Meson/Ninja derlemesi ve Python 3 bağlayıcıları sağlanıyor.
-  result: Derleme, test ve kurulum adımları depodaki README'de belgeleniyor.
-  repo: https://github.com/Zaryob/iksemel
-  link_text: Kaynak kodu
+- name: "Performer"
+  type: "Linux performans araçları · eBPF / Python"
+  summary: "Süreç profillerini taşınabilir paketlerde saklayan ve çevrimdışı görüntüleyen araç."
+  problem: "CPU, bekleme ve kilit çekişmesini karşılaştırılabilir ölçümlerle incelemek."
+  contribution: "Collector, ölçüm paketi ve tarayıcı görüntüleyicisi üzerinde çalışıyorum."
+  approach: "Linux eBPF probları ve yerel web görüntüleyicisi; sentetik demo gerçek ölçümden ayrı sunuluyor."
+  result: "Kaynak, demo üretme komutları ve ölçüm sınırları depoda incelenebilir."
+  repo: "https://github.com/Zaryob/Performer"
+  link_text: "Kaynak ve demo"
+  group: "tools"
+  featured: true
 
-- name: ZFS Kitabı
-  type: Teknik belgeleme · OpenZFS
-  summary: ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitap.
-  problem: Depolama ve dosya sistemi konularında başvurulabilir Türkçe bir kaynak oluşturmak.
-  contribution: Kitabı yazıp farklı kaynakları bir araya getirerek bölümler halinde yayımladım.
-  approach: Giriş, havuzlar, özellikler ve gerçek kullanım örnekleri için sıralı bir içerik yapısı.
-  result: Kaynak metin GitHub'da, okunabilir kitap GitBook'ta yayımlanıyor.
-  repo: https://github.com/Zaryob/zfs_kitabi
-  docs: https://zaryob-dev.gitbook.io/zfs-kitabi/
-  link_text: Kitabı oku
+- name: "Sift"
+  type: "Yerel RSS uygulaması · macOS / iOS"
+  summary: "RSS okumayı, yerel veri saklamayı ve isteğe bağlı cihaz üzerinde özetlemeyi birleştiren uygulama."
+  problem: "Çok sayıda abonelikten okunacak haberleri seçmek ve düzenlemek."
+  contribution: "SwiftUI uygulamasını ve besleme işleme katmanlarını geliştiriyorum."
+  approach: "SwiftData, RSS/Atom ayrıştırma ve Apple Intelligence yokken extractive özetleme yolu."
+  result: "Uygulama kaynakları, arayüz ekran görüntüleri ve kurulum gereksinimleri."
+  repo: "https://github.com/Zaryob/Sift"
+  link_text: "Kaynak ve gereksinimler"
+  group: "tools"
+  featured: true
+
+- name: "iksemel-rs"
+  type: "XML / XMPP · Rust"
+  summary: "Gürer Özen'in iksemel çalışmasından esinlenen ayrı Rust uygulaması."
+  problem: "XML ayrıştırma ve XMPP yardımcılarını Rust API'leriyle sunmak."
+  contribution: "Bu Rust uygulamasını geliştiriyorum; özgün iksemel atfı depoda korunuyor."
+  approach: "SAX/DOM API'leri, kaynak sınırları, yerel benchmark ve fuzz araçları."
+  result: "Kütüphane API’leri, kullanım örnekleri ve kapsamları açıklanmış test/ölçüm kayıtları."
+  repo: "https://github.com/Zaryob/iksemel-rs"
+  link_text: "Kaynak ve test kanıtları"
+  group: "systems"
+  featured: true
+
+- name: "Pena"
+  type: "Gitar akort ve pratik · iOS"
+  summary: "Akort algılama, metronom, akor kütüphanesi ve günlük çalışma programları."
+  problem: "Gitar akort ve pratik araçlarını tek yerel uygulamada birleştirmek."
+  contribution: "Uygulama ve ses analizi katmanı üzerinde çalışıyorum."
+  approach: "SwiftUI, AVAudioEngine ve deterministik sentetik pitch testleri."
+  result: "Akort, metronom ve pratik akışlarının kaynakları; ses analizi için sentetik testler."
+  repo: "https://github.com/Zaryob/Pena"
+  link_text: "Kaynak ve doğrulama"
+  group: "tools"
+  featured: true
+
+- name: "Inary"
+  type: "Linux paket yönetimi · Python 3"
+  summary: "PiSi kökenli açık kaynak paket yöneticisinin Python 3 ile geliştirilen, artık arşivlenmiş çatalı."
+  problem: "Mevcut PiSi tabanındaki eksikleri giderirken paket ve kurulu dosya bilgilerini daha iyi izlemek."
+  contribution: "Çatalın geliştirilmesinde çalıştım; depo bu emeği diğer katkıcılarla birlikte belgeliyor."
+  approach: "Python 3 uygulaması, XML paket tanımları ve dosya değişikliklerini takip eden dinamik veritabanı."
+  result: "Python 3 kaynakları, komut satırı aracı ve paket yönetimi geçmişi; depo artık arşivde."
+  repo: "https://github.com/Zaryob/inary"
+  link_text: "Kaynak kodu"
+  group: "history"
+  featured: false
+  lifecycle: "Arşivlenmiş çalışma"
+
+- name: "iksemel"
+  type: "XML / XMPP · C"
+  summary: "Jabber uygulamalarının kullandığı C tabanlı XML ayrıştırıcısının bakım çatalı."
+  problem: "Eski projeyi güncel derleme araçları ve Python bağlayıcılarıyla kullanılabilir tutmak."
+  contribution: "Gürer Özen’in iksemel projesinin bu çatalında derleme, uyumluluk ve bakım değişiklikleri üzerinde çalışıyorum."
+  approach: "Mevcut SAX, DOM ve Jabber akışı API'leri korunurken Meson/Ninja derlemesi ve Python 3 bağlayıcıları sağlanıyor."
+  result: "Meson derleme adımları, downstream commit geçmişi ve güvenlik sınırları."
+  repo: "https://github.com/Zaryob/iksemel"
+  link_text: "Kaynak kodu"
+  group: "systems"
+  featured: false
+
+- name: "ZFS Kitabı"
+  type: "Teknik belgeleme · OpenZFS"
+  summary: "ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitap."
+  problem: "Depolama ve dosya sistemi konularında başvurulabilir Türkçe bir kaynak oluşturmak."
+  contribution: "Kitabı yazıp farklı kaynakları bir araya getirerek bölümler halinde yayımladım."
+  approach: "Giriş, havuzlar, özellikler ve gerçek kullanım örnekleri için sıralı bir içerik yapısı."
+  result: "Kaynak metin GitHub'da, okunabilir kitap GitBook'ta yayımlanıyor."
+  repo: "https://github.com/Zaryob/zfs_kitabi"
+  docs: "https://zaryob-dev.gitbook.io/zfs-kitabi/"
+  link_text: "Kitabı oku"
+  group: "systems"
+  featured: true
+
+- name: "CaffeVigil"
+  group: "tools"
+  type: "Masaüstü yardımcı aracı · Windows / C++"
+  summary: "Bilgisayarı seçilen süre boyunca uyanık tutmak için geliştirdiğim küçük bir tray uygulaması."
+  problem: "Uzun süren işler sırasında sistemin ve ekranın uykuya geçmesini kontrol etmek."
+  contribution: "Süre seçimi, geri sayım ve tray etkileşimini uyguladım."
+  approach: "Windows execution-state API’si, tray menüsü ve zamanlayıcılar."
+  result: "Windows uygulamasının kaynakları ve derleme girdileri; süre davranışındaki açık işler README’de."
+  repo: "https://github.com/Zaryob/CaffeVigil"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+
+- name: "Kılavuzlar"
+  group: "systems"
+  type: "Teknik notlar · Linux / sistem yönetimi"
+  summary: "Kullandığım araçlar ve sistemler için tuttuğum, açık depoda biriken başvuru notları."
+  problem: "Tekrar karşılaştığım kurulum ve kullanım adımlarını hatırlanabilir bir yerde toplamak."
+  contribution: "Kendi kullanım notlarımı ve kılavuzlarımı düzenledim."
+  approach: "Araç ve konu bazında metinler; ilgili yazılar ve belgelerle beraber okunabilecek bir koleksiyon."
+  result: "Kılavuz dosyaları ve değişiklik geçmişi."
+  repo: "https://github.com/Zaryob/kilavuzlar"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+
+- name: "dotfiles"
+  group: "systems"
+  type: "Kişisel çalışma ortamı · Shell / Git / Emacs"
+  summary: "UNIX ve Linux çalışma ortamlarım için biriktirdiğim kişisel yapılandırmalar."
+  problem: "Shell, editör ve geliştirme araçlarında kullandığım ayarları bir arada tutmak."
+  contribution: "Kişisel ayarları, yardımcı komutları ve kurulum akışını düzenledim; kullanılan upstream dosyaların atıfları korunuyor."
+  approach: "Yerel checkout üzerinden seçilen bileşenleri bağlayan, önce dry run sunan ve çakışmaları yedekleyen kurulum."
+  result: "İncelenebilir konfigürasyonlar ve izole kurulum kontrolleri; genel amaçlı bir dağıtım değil."
+  repo: "https://github.com/Zaryob/dotfiles"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+
+- name: "Rayban / FrictionAndWearTest"
+  group: "history"
+  type: "Staj projesi · C# / Windows Forms"
+  summary: "2021 staj döneminde TÜRASAŞ tekerlek test ünitesi bağlamında geliştirdiğim Windows uygulamasının arşivi."
+  problem: "Test oturumu bilgilerini, seri bağlantıyı ve zamana bağlı kayıtları tek arayüzden yönetmek."
+  contribution: "Form akışını, seri-port seçimini, periyodik veri okumayı ve Excel çalışma kitabına aktarımı geliştirdim."
+  approach: "Windows Forms, System.IO.Ports, zamanlayıcılar ve Excel COM otomasyonu."
+  result: "Formlar, oturum kayıt mantığı ve teknik commit geçmişi; donanım tasarımı veya ölçüm kalibrasyonu bu yazılımın katkı kapsamı değil."
+  repo: "https://github.com/9base/Rayban"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Arşivlenmiş çalışma"
+
+- name: "ConVarT veri hazırlama araçları"
+  group: "history"
+  type: "Biyoinformatik yardımcı araçları · R"
+  summary: "ConVarT bağlamında FASTA metadata’sı hazırlamak ve SQL çıktısı üretmek için 2022’de yazdığım R araçları."
+  problem: "NCBI ve Ensembl kaynaklı metadata’yı ortak bir yapıya getirip veri tabanına hazırlanabilir hale getirmek."
+  contribution: "Metadata okuma/standartlaştırma, FASTA oluşturma ve SQL üretme betiklerini hazırladım."
+  approach: "R betikleri, CSV ara çıktıları ve korunmuş R Markdown anlatımı."
+  result: "Yerel araçların kodu ve Nisan 2022 geliştirme geçmişi. ConVarT bilimsel kaynağının ve upstream pipeline’ın yazarlığı Kaplan Lab’a ait."
+  repo: "https://github.com/9base/ConvartDataGenerate"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Arşivlenmiş çalışma"
+  links:
+    - label: "Kaplan Lab ConVarT pipeline"
+      url: "https://github.com/thekaplanlab/ConVarT_pipeline"
+
+- name: "ConVarT Web katkıları"
+  group: "history"
+  type: "Araştırma yazılımına katkı · PHP / SQL"
+  summary: "Kaplan Lab’ın ConVarT web projesinde yaptığım tarihsel geliştirmeleri koruyan downstream."
+  problem: "Araştırma verisini sunan web uygulamasının yapılandırma, arama ve geliştirme akışları."
+  contribution: "Yapılandırma, arama/şema, geliştirme ortamı ve arayüz değişiklikleri üzerinde çalıştım."
+  approach: "Upstream proje geçmişi korunurken yerel değişiklikler ayrı provenance notlarında açıklanıyor."
+  result: "Yerel geliştirme geçmişi ve patch notları; bilimsel kaynak ve analiz pipeline’ı Kaplan Lab çalışmasıdır."
+  repo: "https://github.com/9base/ConVarT_Web"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+  links:
+    - label: "Özgün Kaplan Lab projesi"
+      url: "https://github.com/thekaplanlab/ConVarT_Web"
+    - label: "9base katkı notları"
+      url: "https://github.com/9base/ConVarT_Web/blob/master/9BASE.md"
+
+- name: "LinkLayerModel"
+  group: "history"
+  type: "Kablosuz ağ modeli · Rust"
+  summary: "Marco Zuniga ve Bhaskar Krishnamachari’nin kablosuz sensör ağı modelini Rust ile yeniden uygulama çalışmam."
+  problem: "Bağlantı katmanı modelinin yapılandırmasını ve hesaplama adımlarını Rust üzerinden incelemek."
+  contribution: "Araştırmacıların modelinden türeyen Rust uygulamasını yazdım; modelin bilimsel atfı korunuyor."
+  approach: "Topoloji dosyası, radyo/kanal parametreleri ve matris çıktıları."
+  result: "Kaynak ve örnek yapılandırma. Tarihsel araştırma deneyi; fiziksel model doğruluğu ayrıca doğrulama gerektiriyor."
+  repo: "https://github.com/Zaryob/LinkLayerModel"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel araştırma çalışması"
+
+- name: "NVIDIA / Jetson çalışma notları"
+  group: "history"
+  type: "Platform araçları · Shell / Docker"
+  summary: "Jetson Nano ve NVIDIA araçlarıyla çalışırken 2022’de biriktirdiğim kurulum notları ve container başlatıcıları."
+  problem: "GPU araçlarını ve farklı çalışma ortamlarının başlatma seçeneklerini kayıt altında tutmak."
+  contribution: "Başlatma komutlarını ve yerel kurulum notlarını topladım."
+  approach: "Shell betikleri, container runtime seçenekleri ve çalışma ortamına özgü mount ayarları."
+  result: "Komut ve not arşivi. NVIDIA ve diğer üreticilerin image/framework’leri kendi çalışmalarına aittir."
+  repo: "https://github.com/9base/nvidia_stuff"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Arşivlenmiş çalışma"
+
+- name: "moviepad"
+  group: "history"
+  type: "Ders projesi · Flutter / Dart"
+  summary: "2020–2021 döneminden, TMDB verileriyle film gezintisi ve kişisel listeler sunan COMP205 final projem."
+  problem: "Mobil bir uygulamada veri çekme, oturum ekranları, yerel saklama ve bildirim akışlarını birlikte denemek."
+  contribution: "Uygulama ekranları, film listeleri, notlar ve arka plan işlemleri üzerinde çalıştım."
+  approach: "Flutter, HTTP, SQLite ve Firebase/notification bileşenleri."
+  result: "Uygulama kaynakları ve proje dönemi bağımlılıkları; güncel bir film servisi olarak işletilmiyor."
+  repo: "https://github.com/9base/moviepad"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Eğitim arşivi"
+
+- name: "Android ve Flutter deneyleri"
+  group: "history"
+  type: "Öğrenme koleksiyonları · Java / Dart"
+  summary: "AndroGarbage ve FlutterGarbage, mobil geliştirmeyi öğrenirken tuttuğum küçük uygulama ve ders deneylerini bir araya getiriyor."
+  problem: "Arayüz, sensör, depolama, bildirim ve arka plan çalışma davranışlarını küçük örneklerde öğrenmek."
+  contribution: "Android/Java ve Flutter/Dart örnekleri geliştirdim; mevcut örnek ve katkıcı atıfları korunuyor."
+  approach: "2020–2021 COMP205 bağlamından örnekler, sonraki deneyler ve Flutter için Linux paketleme denemeleri."
+  result: "İki koleksiyonun kaynakları ve dönemsel notları; bazı örnekler yalnızca bir uygulamaya eklenecek tek dosyadan oluşuyor."
+  repo: "https://github.com/9base/AndroGarbage"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Eğitim arşivi"
+  links:
+    - label: "FlutterGarbage"
+      url: "https://github.com/9base/FlutterGarbage"
+
+- name: "mysqlogin"
+  group: "history"
+  type: "Web geliştirme deneyi · PHP / MySQL"
+  summary: "2021’de kayıt, giriş ve hesap ayarlarını öğrenmek için geliştirdiğim küçük web uygulaması."
+  problem: "Veri tabanı ile web arayüzü arasındaki akışı uygulamalı olarak öğrenmek."
+  contribution: "Flutter/veri tabanı denemesinin ardından PHP/MySQL uygulamasını oluşturdum."
+  approach: "PHP sayfaları, SQL şeması ve proje dönemi ekran görüntüleri."
+  result: "Kaynak ve öğrenme notları; güncel bir kimlik doğrulama ürünü olarak sunulmuyor."
+  repo: "https://github.com/9base/mysqlogin"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Eğitim arşivi"
+
+- name: "rolling_cat"
+  group: "history"
+  type: "Masaüstü grafik deneyi · Windows / Linux"
+  summary: "Windows ve Linux’ta görüntü gösterimini öğrenmek için 2020’de yaptığım küçük kedi uygulaması."
+  problem: "Farklı masaüstü grafik API’leriyle görüntü penceresi oluşturmak."
+  contribution: "Windows GDI+ ve Linux C/GTK3 sürümlerini denedim."
+  approach: "İki ayrı uygulama yapısı; Linux tarafında kullanılan şablonun atfı korunuyor."
+  result: "Kaynaklar ve dönemsel deney notları."
+  repo: "https://github.com/9base/rolling_cat"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Eğitim arşivi"
+
+- name: "donut"
+  group: "history"
+  type: "Terminal grafiği deneyi · Rust"
+  summary: "Andy Sloane’un dönen ASCII donut algoritmasını anlamak için Rust ile yaptığım yeniden uygulama."
+  problem: "3B dönüşüm ve terminal üzerinde çizim adımlarını küçük bir örnekte öğrenmek."
+  contribution: "Algoritmayı Rust tarafında yeniden uyguladım; özgün çalışma Andy Sloane’a atfediliyor."
+  approach: "Terminalde ASCII görüntü üretimi ve korunmuş örnek animasyon."
+  result: "Rust kaynakları ve deneyin commit geçmişi."
+  repo: "https://github.com/Zaryob/donut"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Arşivlenmiş öğrenme çalışması"
+
+- name: "RasPipBoy Python 3 uyarlaması"
+  group: "history"
+  type: "Raspberry Pi arayüzü · Python"
+  summary: "Neal D. Corbett’in Fallout Pip-Boy arayüzü çalışmasının Python 3 uyarlaması için tuttuğum çatal."
+  problem: "Eski Python kodunu Python 3 ortamına taşımayı denemek."
+  contribution: "Python 3 portu üzerinde çalıştım; özgün uygulama ve tasarım upstream yazarına ait."
+  approach: "Raspberry Pi arayüzü ve dönemsel uyumluluk denemeleri."
+  result: "Port geçmişi ve kaynaklar; artık arşivlenmiş bir çalışma."
+  repo: "https://github.com/Zaryob/raspipboy"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+
+- name: "qFlipper uyumluluk katkısı"
+  group: "downstream"
+  type: "Cihaz araçlarına katkı · C++ / Qt"
+  summary: "Flipper Devices’ın qFlipper uygulamasında cihaz bilgisi uyumluluğu için tuttuğum downstream."
+  problem: "Yerel cihaz-bilgisi kullanımını upstream uygulamayla uyumlu tutmak."
+  contribution: "Cihaz bilgisi uyumluluk patch’i ve upstream senkronizasyonu üzerinde çalıştım."
+  approach: "Küçük yerel patch, korunmuş upstream geçmişi ve katkı notları."
+  result: "Yerel değişiklik ve senkronizasyon geçmişi; qFlipper’ın özgün yazarlığı Flipper Devices’a ait."
+  repo: "https://github.com/9base/qFlipper"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Bakımı süren downstream"
+  links:
+    - label: "Flipper Devices upstream"
+      url: "https://github.com/flipperdevices/qFlipper"
+
+- name: "chm2pdf Python 3 uyarlaması"
+  group: "downstream"
+  type: "Belge dönüştürme araçlarına katkı · Python"
+  summary: "Massimo Sandal ve Chris Karakas’ın CHM–PDF dönüştürücüsüne yaptığım tarihsel Python 3 uyarlaması."
+  problem: "Eski dönüştürme kodunu Python 3 ortamında kullanılabilir hale getirmek."
+  contribution: "2020’de Python 3 uyumluluk değişiklikleri yaptım."
+  approach: "Upstream kaynak, telif ve kullanım açıklamaları korunuyor; yerel değişiklikler ayrı belgeleniyor."
+  result: "Patch geçmişi ve kaynak; bu downstream artık arşivde."
+  repo: "https://github.com/9base/chm2pdf"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+  links:
+    - label: "Upstream proje"
+      url: "https://github.com/Arnoques/chm2pdf"
+
+- name: "FlowGen uyarlamaları"
+  group: "downstream"
+  type: "Akış diyagramı araçlarına katkı · Python / Graphviz"
+  summary: "Adam Dobrawy’nin FlowGen aracında yaptığım uyumluluk ve Graphviz çağrısı uyarlamaları."
+  problem: "Küçük bir pseudocode dilinden akış diyagramı üretimini incelemek ve uyarlamak."
+  contribution: "Python uyumluluk import’ları ve Graphviz edge argümanlarına ilişkin değişiklikler yaptım."
+  approach: "Küçük pseudocode dilini ayrıştıran pyPEG2 grameri ve Graphviz çıktısı."
+  result: "Yerel patch’ler, örnekler ve upstream atıfları."
+  repo: "https://github.com/9base/flowgen"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+  links:
+    - label: "Adam Dobrawy / FlowGen"
+      url: "https://github.com/ad-m/flowgen"
+
+- name: "Veil için Pardus kurulum katkısı"
+  group: "downstream"
+  type: "Platform uyumluluğu · Python / Linux"
+  summary: "Veil Framework’ün Pardus üzerinde kurulumu için yaptığım 2021 uyarlamalarının arşivi."
+  problem: "Upstream kurulum akışının farklı bir Linux dağıtımındaki ihtiyaçlarını ele almak."
+  contribution: "Pardus kurulum desteği değişikliklerini pardus-patch branch’inde geliştirdim."
+  approach: "Upstream framework korunuyor; yerel katkı kurulum uyumluluğuyla sınırlı olarak anlatılıyor."
+  result: "Tarihsel patch ve attribution notları; framework’ün yazarlığı upstream katkıcılarına ait."
+  repo: "https://github.com/9base/Veil"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+  links:
+    - label: "Veil Framework upstream"
+      url: "https://github.com/Veil-Framework/Veil"
+
+- name: "Tor’s Hammer Python 3 uyarlaması"
+  group: "downstream"
+  type: "Tarihsel araç uyarlaması · Python"
+  summary: "Tor’s Hammer’ın upstream kaynaklarına yaptığım 2021 Python 3 ve bağlantı yönetimi uyarlamaları."
+  problem: "Eski Python uygulamasının sürüm ve bağlantı davranışlarını incelemek."
+  contribution: "Python 3 geçişi, string/indentation ve bağlantı işleme değişiklikleri yaptım."
+  approach: "Özgün SourceForge geçmişi ve bileşen bazındaki telif notları korunuyor."
+  result: "Yerel değişikliklerin commit geçmişi; arşivlenmiş downstream çalışması."
+  repo: "https://github.com/9base/torshammer"
+  link_text: "Kaynak ve proje geçmişi"
+  featured: false
+  lifecycle: "Tarihsel downstream"
+  links:
+    - label: "Özgün SourceForge projesi"
+      url: "https://sourceforge.net/projects/torshammer/"
