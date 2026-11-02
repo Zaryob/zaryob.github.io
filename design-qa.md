@@ -4,6 +4,18 @@ Date: 2026-11-02
 
 final result: passed
 
+## Browser-language default
+
+With no explicit URL or stored language preference, the primary browser language
+(`navigator.languages[0]`, with navigator.language fallback) selects TR only for
+Turkish language tags and EN for all others. Valid explicit/stored choices retain
+precedence. Invalid/cleared storage returns to the browser-derived default.
+Six runtime tests cover Turkish regional tags, non-Turkish and missing languages,
+primary-language ordering, overrides, blocked/cleared storage and URL preservation.
+All three builds, output checks, vocabulary validation and shared parity pass.
+The visible selector and existing layout are unchanged from the screenshots below.
+
+
 ## Latest TR/EN interface and translation infrastructure
 
 The shared header now includes a TR/EN selector, inside the expanded mobile menu.

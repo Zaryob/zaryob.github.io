@@ -68,8 +68,10 @@ yerel adrese çevirir; kaynak veya derlenmiş dosyaları değiştirmez. Syscall
 
 ## Dil ve içerik çevirileri
 
-Ortak menüdeki TR/EN seçimi arayüz dilidir. Varsayılan Türkçedir; geçerli
-`?lang=tr` / `?lang=en` parametresi kayıtlı tercihten önce gelir. Seçim
+Ortak menüdeki TR/EN seçimi arayüz dilidir. İlk ziyarette tarayıcının birincil
+dili Türkçe (`tr`, `tr-TR` vb.) ise Türkçe, diğer dillerde İngilizce seçilir.
+Geçerli `?lang=tr` / `?lang=en` parametresi kayıtlı tercihten, kayıtlı tercih de
+tarayıcı dilinden önce gelir. Geçersiz veya temizlenen kayıt tarayıcı diline döner. Seçim
 `zaryob-language` anahtarında saklanır ve aynı origin altındaki üç bölümde
 paylaşılır. Depolama engelliyse mevcut sayfada ve açık dil URL’lerinde çalışır.
 Tema ve dil birbirinden bağımsızdır. Syscall filtreleri ve ayrıntı bağlantısı

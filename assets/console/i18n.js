@@ -263,10 +263,11 @@
   const supported = ['tr', 'en'];
   const root = document.documentElement;
   const query = new URLSearchParams(location.search).get('lang');
-  let language = 'tr';
+  const browserLanguage = () => /^tr(?:-|$)/i.test(navigator.languages?.[0] || navigator.language || '') ? 'tr' : 'en';
+  let language = browserLanguage();
   try { language = localStorage.getItem('zaryob-language') || language; } catch { /* Optional persistence. */ }
   if (supported.includes(query)) language = query;
-  if (!supported.includes(language)) language = 'tr';
+  if (!supported.includes(language)) language = browserLanguage();
   root.lang = language;
   root.dataset.uiLanguage = language;
   const t = (source, values = {}) => (language === 'tr' ? translations[source] || source : source)
@@ -322,6 +323,6 @@
   });
   window.addEventListener('storage', event => {
     if (event.key !== 'zaryob-language' && event.key !== null) return;
-    setLanguage(supported.includes(event.newValue) ? event.newValue : 'tr', { persist: false, navigate: false });
+    setLanguage(supported.includes(event.newValue) ? event.newValue : browserLanguage(), { persist: false, navigate: false });
   });
 })();
