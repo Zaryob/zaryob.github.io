@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: spain-electricity-crisis
 title: "İspanya’daki Elektrik Krizi Bize Neleri Aydınlatıyor"
 date: 2025-04-29 18:01:18 +0300
 categories: [genel]

@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: technology-tulip-crazes
 title: "Teknolojik Lale Çılgınlıkları: Son Yüzyılın En Büyük Teknoloji Balonları"
 date: 2025-05-04 14:33:43 +0300
 categories: [genel]

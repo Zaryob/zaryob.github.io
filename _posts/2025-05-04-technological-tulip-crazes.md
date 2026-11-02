@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: technology-tulip-crazes
 title: "Technological Tulip Crazes: The Biggest Technology Bubble of the Last Century"
 date: 2025-05-04 14:33:52 +0300
 categories: [genel]

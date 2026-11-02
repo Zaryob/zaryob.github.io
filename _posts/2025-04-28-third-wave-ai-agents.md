@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: ai-agents-third-wave
 title: "Third Wave in Artificial Intelligence: AI Agents"
 date: 2025-04-28 19:00:21 +0300
 categories: [genel]

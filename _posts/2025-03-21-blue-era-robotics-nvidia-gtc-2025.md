@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: robotics-blue-2025
 title: "The “Blue” Era of Robotics: My NVIDIA GTC 2025 Notes"
 date: 2025-03-21 10:02:34 +0300
 categories: [genel]

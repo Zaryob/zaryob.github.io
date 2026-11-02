@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: ai-agents-third-wave
 title: "Yapay Zeka’da Üçüncü Dalga: Yapay Zeka Ajanları"
 date: 2025-04-26 21:44:10 +0300
 categories: [genel]

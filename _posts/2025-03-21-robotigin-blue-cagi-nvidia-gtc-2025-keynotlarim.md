@@ -1,5 +1,7 @@
 ---
 layout: post
+lang: tr
+translation_key: robotics-blue-2025
 title: "Robotiğin “Blue” Çağı: Nvidia GTC 2025 Keynotlarım"
 date: 2025-03-21 07:02:34 +0300
 categories: [genel]
