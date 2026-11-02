@@ -1,0 +1,40 @@
+- key: genel
+  title: Genel
+  title_en: General
+  path: /genel/
+  icon: writing
+- key: programlama
+  title: Programlama
+  title_en: Programming
+  path: /programlama/
+  icon: code
+- key: linux
+  title: Linux
+  title_en: Linux
+  path: /linux/
+  icon: linux
+- key: internet
+  title: İnternet
+  title_en: Internet
+  path: /internet/
+  icon: globe
+- key: elektronik
+  title: Elektronik
+  title_en: Electronics
+  path: /elektronik/
+  icon: chip
+- key: pi
+  title: Raspberry Pi
+  title_en: Raspberry Pi
+  path: /pi/
+  icon: raspberry-pi
+- key: pixelart
+  title: Pixel Art
+  title_en: Pixel Art
+  path: /pixelart/
+  icon: writing
+- key: arsiv
+  title: Tarih arşivi
+  title_en: Date archive
+  path: /arsiv/
+  icon: archive

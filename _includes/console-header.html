@@ -1,0 +1,32 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-or-later{% endcomment %}
+{% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+{% assign writing_current = false %}
+{% if site.suite_section == 'home' %}{% if page.layout == 'post' or page.layout == 'blog' or page.url contains '/posts/' or page.url == '/arsiv/' %}{% assign writing_current = true %}{% endif %}{% endif %}
+<header class="console-header">
+  <div class="console-header__inner">
+    <a class="console-brand" href="{{ suite_root }}/" aria-label="Zaryob ana sayfa" data-i18n-aria-label="Zaryob home">zaryob:<span>~$</span></a>
+    <button class="console-menu" type="button" data-console-menu aria-label="Menüyü aç" data-i18n-aria-label="Open menu" aria-expanded="false" aria-controls="console-navigation">{% include console-icon.html name='menu' %}</button>
+    <nav class="console-nav" id="console-navigation" aria-label="Zaryob gezinme" data-i18n-aria-label="Zaryob navigation">
+      <div class="console-writing{% if writing_current %} is-current{% endif %}">
+        <details class="console-categories" data-console-categories>
+          <summary role="button" aria-label="Yazı kategorileri" data-i18n-aria-label="Post categories" aria-controls="console-topic-menu">{% include console-icon.html name='writing' %}<span><span data-i18n="Posts">Yazılar</span></span>{% include console-icon.html name='chevron-down' %}</summary>
+          <nav class="console-category-menu" id="console-topic-menu" aria-label="Yazı kategorileri" data-i18n-aria-label="Post categories">
+            <a href="{{ suite_root }}/posts/">{% include console-icon.html name='writing' %}<span data-i18n="All posts">Tüm yazılar</span></a>
+            {% for topic in site.data.writing_topics %}
+              <a href="{{ suite_root }}{{ topic.path }}"{% if site.suite_section == 'home' and page.url == topic.path %} aria-current="page"{% endif %}>{% include console-icon.html name=topic.icon %}<span data-i18n="{{ topic.title_en | default: topic.title | escape }}">{{ topic.title }}</span></a>
+            {% endfor %}
+          </nav>
+        </details>
+      </div>
+      <a href="{{ suite_root }}/kilavuzlar/"{% if site.suite_section == 'kilavuzlar' %} aria-current="page"{% endif %}>{% include console-icon.html name='guides' %}<span data-i18n="Guides">Kılavuzlar</span></a>
+      <a href="{{ suite_root }}/syscall/"{% if site.suite_section == 'syscall' %} aria-current="page"{% endif %}>{% include console-icon.html name='code' %}Syscall</a>
+      <a href="{{ suite_root }}/projeler/"{% if site.suite_section == 'home' and page.url == '/projeler/' %} aria-current="page"{% endif %}>{% include console-icon.html name='projects' %}<span data-i18n="Projects">Projeler</span></a>
+      <a href="{{ suite_root }}/hakkinda/"{% if site.suite_section == 'home' and page.url == '/hakkinda/' %} aria-current="page"{% endif %}>{% include console-icon.html name='user' %}<span data-i18n="About">Hakkımda</span></a>
+      <div class="console-tools">
+        <button class="console-search-open" type="button" data-console-search data-suite-root="{{ suite_root }}/" aria-haspopup="dialog" aria-label="Zaryob içeriklerinde ara" data-i18n-aria-label="Search Zaryob content">{% include console-icon.html name='search' %}<span><span data-i18n="Search">Ara</span></span><kbd>/</kbd></button>
+        <label class="console-theme"><span><span data-i18n="Theme">Tema</span></span><select data-console-theme aria-label="Renk teması" data-i18n-aria-label="Color theme"><option value="system" data-i18n="System">Sistem</option><option value="dark" data-i18n="Dark">Koyu</option><option value="light" data-i18n="Light">Açık</option></select></label>
+        <label class="console-language"><span data-i18n="Language">Dil</span><select data-console-language aria-label="Language / Dil"><option value="tr" lang="tr">TR</option><option value="en" lang="en">EN</option></select></label>
+      </div>
+    </nav>
+  </div>
+</header>
