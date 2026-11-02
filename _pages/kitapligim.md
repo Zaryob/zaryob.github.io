@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Kitaplığım
+title_i18n: My bookshelf
 permalink: /kitapligim/
 description: "Süleyman Poyraz'ın Türkçe OpenZFS kitabı ve kaynak kodu."
 ---

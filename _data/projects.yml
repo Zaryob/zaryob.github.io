@@ -1,6 +1,8 @@
 - name: "imshark"
   type: "Ağ analizi · C++"
+  type_en: "Network analysis · C++"
   summary: "Dear ImGui arayüzüyle yakalama dosyalarını ve protokol alanlarını inceleyen paket analizörü."
+  summary_en: "A packet analyzer for inspecting capture files and protocol fields with Dear ImGui."
   problem: "Ağ trafiğini masaüstünde filtrelemek, çözümlemek ve akışlar üzerinden incelemek."
   contribution: "Uygulama ve protokol ayrıştırma altyapısını geliştiriyorum."
   approach: "C++20 çekirdeği, yakalama corpus'u ve sanitizer seçenekleri; kapsam destek matrisinde açıklanıyor."
@@ -12,7 +14,9 @@
 
 - name: "Performer"
   type: "Linux performans araçları · eBPF / Python"
+  type_en: "Linux performance tools · eBPF / Python"
   summary: "Süreç profillerini taşınabilir paketlerde saklayan ve çevrimdışı görüntüleyen araç."
+  summary_en: "A tool for storing process profiles in portable bundles and viewing them offline."
   problem: "CPU, bekleme ve kilit çekişmesini karşılaştırılabilir ölçümlerle incelemek."
   contribution: "Collector, ölçüm paketi ve tarayıcı görüntüleyicisi üzerinde çalışıyorum."
   approach: "Linux eBPF probları ve yerel web görüntüleyicisi; sentetik demo gerçek ölçümden ayrı sunuluyor."
@@ -24,7 +28,9 @@
 
 - name: "Sift"
   type: "Yerel RSS uygulaması · macOS / iOS"
+  type_en: "Native RSS app · macOS / iOS"
   summary: "RSS okumayı, yerel veri saklamayı ve isteğe bağlı cihaz üzerinde özetlemeyi birleştiren uygulama."
+  summary_en: "An app combining RSS reading, local storage and optional on-device summaries."
   problem: "Çok sayıda abonelikten okunacak haberleri seçmek ve düzenlemek."
   contribution: "SwiftUI uygulamasını ve besleme işleme katmanlarını geliştiriyorum."
   approach: "SwiftData, RSS/Atom ayrıştırma ve Apple Intelligence yokken extractive özetleme yolu."
@@ -36,7 +42,9 @@
 
 - name: "iksemel-rs"
   type: "XML / XMPP · Rust"
+  type_en: "XML / XMPP · Rust"
   summary: "Gürer Özen'in iksemel çalışmasından esinlenen ayrı Rust uygulaması."
+  summary_en: "A separate Rust implementation inspired by Gürer Özen’s iksemel."
   problem: "XML ayrıştırma ve XMPP yardımcılarını Rust API'leriyle sunmak."
   contribution: "Bu Rust uygulamasını geliştiriyorum; özgün iksemel atfı depoda korunuyor."
   approach: "SAX/DOM API'leri, kaynak sınırları, yerel benchmark ve fuzz araçları."
@@ -48,7 +56,9 @@
 
 - name: "Pena"
   type: "Gitar akort ve pratik · iOS"
+  type_en: "Guitar tuning and practice · iOS"
   summary: "Akort algılama, metronom, akor kütüphanesi ve günlük çalışma programları."
+  summary_en: "Pitch detection, a metronome, a chord library and daily practice routines."
   problem: "Gitar akort ve pratik araçlarını tek yerel uygulamada birleştirmek."
   contribution: "Uygulama ve ses analizi katmanı üzerinde çalışıyorum."
   approach: "SwiftUI, AVAudioEngine ve deterministik sentetik pitch testleri."
@@ -85,7 +95,9 @@
 
 - name: "ZFS Kitabı"
   type: "Teknik belgeleme · OpenZFS"
+  type_en: "Technical documentation · OpenZFS"
   summary: "ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitap."
+  summary_en: "An open source book explaining ZFS and OpenZFS concepts in Turkish."
   problem: "Depolama ve dosya sistemi konularında başvurulabilir Türkçe bir kaynak oluşturmak."
   contribution: "Kitabı yazıp farklı kaynakları bir araya getirerek bölümler halinde yayımladım."
   approach: "Giriş, havuzlar, özellikler ve gerçek kullanım örnekleri için sıralı bir içerik yapısı."

@@ -20,6 +20,8 @@ include:
   - _pages
 
 exclude:
+  - CONSOLE_THEME.md
+  - design-qa.md
   - README.md
   - Gemfile
   - Gemfile.lock
@@ -36,3 +38,7 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
+
+# Common Zaryob navigation; override suite_url for a combined local preview.
+suite_url: "https://zaryob.github.io"
+suite_section: home

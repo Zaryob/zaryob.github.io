@@ -1,0 +1,6 @@
+<nav aria-label="Yazı konuları" data-i18n-aria-label="Post topics"><ul class="topic-nav">
+  <li><a href="{{ '/posts/' | relative_url }}"{% if page.url contains '/posts/' %} aria-current="page"{% endif %}>{% include console-icon.html name='writing' %}<span data-i18n="All posts">Tüm yazılar</span></a></li>
+  {% for topic in site.data.writing_topics %}
+  <li><a href="{{ topic.path | relative_url }}"{% if page.url == topic.path %} aria-current="page"{% endif %}>{% include console-icon.html name=topic.icon %}<span data-i18n="{{ topic.title_en | default: topic.title | escape }}">{{ topic.title }}</span></a></li>
+  {% endfor %}
+</ul></nav>

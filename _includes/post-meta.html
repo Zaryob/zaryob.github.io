@@ -1,0 +1,15 @@
+{% assign meta_post = include.post %}
+<div class="post-meta" aria-label="Yazı bilgileri" data-i18n-aria-label="Post information">
+  {% if meta_post.categories.size > 0 %}
+  <span class="post-meta__categories">
+    {% include console-icon.html name='folder' %}
+    {% for meta_category in meta_post.categories %}
+      {% assign meta_topic = site.data.writing_topics | where: 'key', meta_category | first %}
+      {% if meta_topic %}<a href="{{ meta_topic.path | relative_url }}"><span data-i18n="{{ meta_topic.title_en | default: meta_topic.title | escape }}">{{ meta_topic.title }}</span></a>{% else %}<span>{{ meta_category | replace: 'genel', 'Genel' | replace: 'metineditoru', 'Metin editörleri' | replace: 'python', 'Python' }}</span>{% endif %}{% unless forloop.last %}<span class="post-meta__separator" aria-hidden="true">/</span>{% endunless %}
+    {% endfor %}
+  </span>
+  {% endif %}
+  <time datetime="{{ meta_post.date | date_to_xmlschema }}">{% include console-icon.html name='calendar' %}<span data-i18n-date="{{ meta_post.date | date_to_xmlschema }}">{{ meta_post.date | date: '%d.%m.%Y' }}</span></time>
+  <span class="post-meta__duration">{% include console-icon.html name='clock' %}{% include read_time.html content=meta_post.content %}</span>
+  {% if meta_post.lang == 'en' %}<span lang="en">English</span>{% endif %}
+</div>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'tr-TR' }}">
 <head>
+  {% include console-alternates.html %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="{{ '/assets/console/i18n.js' | relative_url }}"></script>
+  <script src="{{ '/assets/console/theme.js' | relative_url }}"></script>
   {% seo %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/bootstrap/css/bootstrap-site.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/fonts/IBM_Plex/css/site-fonts.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
@@ -14,76 +16,48 @@
   {% elsif page.layout == 'blog' or page.path == 'posts/index.html' or page.path == 'index.html' %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/console/theme.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/console/site.css' | relative_url }}">
 </head>
-<body class="d-flex flex-column min-vh-100">
-  <a class="skip-link" href="#main-content">İçeriğe geç</a>
+<body class="console-site console-home d-flex flex-column min-vh-100">
+  <a class="skip-link" href="#main-content"><span data-i18n="Skip to content">İçeriğe geç</span></a>
 
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Ana gezinme">
-    <div class="container">
-      <a class="navbar-brand" href="{{ '/' | relative_url }}">Zaryob<span class="brand-dot">.</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü aç veya kapat">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="{{ '/projeler/' | relative_url }}">{% include icon.html name="projects" %} Projeler</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{{ '/posts/' | relative_url }}" id="writingMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% include icon.html name="writing" %} Yazılar</a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="writingMenu">
-              <li><a class="dropdown-item" href="{{ '/posts/' | relative_url }}">{% include icon.html name="writing" %} Tüm yazılar</a></li>
-              <li><a class="dropdown-item" href="{{ '/programlama/' | relative_url }}">{% include icon.html name="code" %} Programlama</a></li>
-              <li><a class="dropdown-item" href="{{ '/linux/' | relative_url }}">{% include icon.html name="linux" %} Linux</a></li>
-              <li><a class="dropdown-item" href="{{ '/internet/' | relative_url }}">{% include icon.html name="globe" %} İnternet</a></li>
-              <li><a class="dropdown-item" href="{{ '/elektronik/' | relative_url }}">{% include icon.html name="chip" %} Elektronik</a></li>
-              <li><a class="dropdown-item" href="{{ '/pi/' | relative_url }}">{% include icon.html name="raspberry-pi" %} Raspberry Pi</a></li>
-              <li><a class="dropdown-item" href="{{ '/arsiv/' | relative_url }}">{% include icon.html name="archive" %} Tarih arşivi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="{{ '/kitapligim/' | relative_url }}">{% include icon.html name="books" %} Kitaplığım</a></li>
-          <li class="nav-item"><a class="nav-link" href="https://zaryob.github.io/kilavuzlar/">{% include icon.html name="guides" %} Kılavuzlar <span class="nav-external" aria-hidden="true">↗</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ '/hakkinda/' | relative_url }}">{% include icon.html name="user" %} Hakkımda</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  {% include console-header.html %}
 
   <main id="main-content" class="flex-grow-1">
-    {% assign hero_image = page.cover_image %}
-    {% unless hero_image %}
-      {% if page.image %}
-        {% if page.image contains '/' %}
-          {% assign hero_image = page.image %}
-        {% else %}
-          {% assign hero_image = '/assets/img/pages/' | append: page.image %}
-        {% endif %}
-      {% endif %}
+    {% assign hero_file = page.cover_image %}
+    {% unless hero_file %}
+      {% if page.image contains '/' %}{% assign hero_file = page.image %}
+      {% elsif page.image %}{% assign hero_file = '/assets/img/pages/' | append: page.image %}{% endif %}
     {% endunless %}
     {% if page.type != 'noimage' %}
       {% if page.path == 'index.html' %}
-      <header class="hero hero--home{% if hero_image %} hero--image{% endif %}"{% if hero_image %} style="background-image: linear-gradient(95deg, rgba(17, 25, 34, .93), rgba(17, 25, 34, .72)), url('{{ hero_image | relative_url }}');"{% endif %}>
+      <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
+        {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
         <div class="container hero__inner">
-          <p class="hero__eyebrow">Yazılım mühendisi · Açık kaynak · Teknik yazılar</p>
+          <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">yazılım mühendisi</span></p>
           <h1>Süleyman Poyraz</h1>
-          <p class="hero__lead">Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.</p>
+          <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.</span></p>
           <div class="hero__actions">
-            <a class="btn btn-accent" href="{{ '/projeler/' | relative_url }}">Projelerimi gör <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline-light" href="{{ '/posts/' | relative_url }}">Yazıları oku <span aria-hidden="true">→</span></a>
+            <a class="btn btn-accent" href="{{ '/projeler/' | relative_url }}"><span data-i18n="See my projects">Projelerimi gör</span> <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline-light" href="{{ '/posts/' | relative_url }}"><span data-i18n="Read the posts">Yazıları oku</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </header>
       {% elsif page.title and page.title != 'empty' %}
-      <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_image %} hero--image{% endif %}"{% if hero_image %} style="background-image: linear-gradient(95deg, rgba(17, 25, 34, .91), rgba(17, 25, 34, .77)), url('{{ hero_image | relative_url }}');"{% endif %}>
+      <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_file %} hero--photo{% endif %}">
+        {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
         <div class="container hero__inner">
-          {% if page.layout == 'post' %}<p class="hero__eyebrow"><a href="{{ '/posts/' | relative_url }}">{% include icon.html name="writing" %} Yazılar</a></p>{% endif %}
-          <h1>{{ page.title }}</h1>
+          <h1{% if page.title_i18n %} data-i18n="{{ page.title_i18n | escape }}"{% endif %}{% if page.layout == 'post' %} lang="{{ page.lang | default: 'tr' }}"{% endif %}>{{ page.title }}</h1>
           {% if page.subtitle %}<p class="hero__lead">{{ page.subtitle }}</p>{% endif %}
-          {% if page.layout == 'post' %}<time class="hero__date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time>{% endif %}
+          {% if page.layout == 'post' %}{% include post-meta.html post=page %}{% endif %}
         </div>
       </header>
       {% endif %}
     {% endif %}
 
-    <div id="page_content" class="page-content container">
+    <div id="page_content" class="page-content container" lang="{{ page.lang | default: 'tr' }}">
+      {% if page.path contains '_pages/' and page.layout != 'blog' %}{% include console-content-language.html %}{% endif %}
       {{ content }}
     </div>
   </main>
@@ -92,18 +66,19 @@
     <div class="container footer-inner">
       <div>
         <p class="footer-name">Süleyman Poyraz</p>
-        <p class="footer-note">Kod, sistemler ve öğrenme notları.</p>
+        <p class="footer-note"><span data-i18n="Code, systems and learning notes.">Kod, sistemler ve öğrenme notları.</span></p>
       </div>
-      <nav class="footer-links" aria-label="Sosyal bağlantılar">
+      <nav class="footer-links" aria-label="Sosyal bağlantılar" data-i18n-aria-label="Social links">
+        <a href="{{ '/kitapligim/' | relative_url }}"><span data-i18n="My bookshelf">Kitaplığım</span></a>
         <a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub</a>
         <a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn</a>
         <a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium</a>
-        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} E-posta</a>
+        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">E-posta</span></a>
       </nav>
     </div>
     <div class="container footer-legal">
       <span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz</span>
-      <span><a href="https://github.com/Zaryob/zaryob.github.io">Site kaynak kodu</a> · GPLv3</span>
+      <span><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">Site kaynak kodu</span></a> · GPLv3</span>
     </div>
   </footer>
 

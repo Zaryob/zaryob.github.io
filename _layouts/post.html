@@ -2,12 +2,13 @@
 layout: default
 ---
 
-<article class="post-layout">
+{% include console-content-language.html %}
+<article class="post-layout" lang="{{ page.lang | default: 'tr' }}">
   <div class="post-content">
     {{ content }}
   </div>
-  <nav class="post-end-nav" aria-label="Yazı gezinmesi">
-    {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate">Medium'daki özgün yazı</a><span aria-hidden="true"> · </span>{% endif %}
-    <a href="{{ '/posts/' | relative_url }}">← Tüm yazılar</a>
+  <nav class="post-end-nav" aria-label="Yazı gezinmesi" data-i18n-aria-label="Post navigation">
+    {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">Medium'daki özgün yazı</span></a><span aria-hidden="true"> · </span>{% endif %}
+    <a href="{{ '/posts/' | relative_url }}"><span data-i18n="← All posts">← Tüm yazılar</span></a>
   </nav>
 </article>

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Projeler
+title_i18n: Projects
 permalink: /projeler/
 description: "Süleyman Poyraz'ın uygulamaları, sistem yazılımı, teknik belgeleri ve 9base'de korunan tarihsel açık kaynak çalışmaları."
 ---
