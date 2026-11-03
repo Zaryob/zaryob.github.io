@@ -99,17 +99,21 @@ translation_key: ai-agents-third-wave
 title: "Third Wave in Artificial Intelligence: AI Agents"
 ```
 
-Mevcut dört TR/EN yazı çifti bu şekilde bağlandı. Gerçek çevirisi olan yazıda
-dil seçimi karşılık sayfayı açar; içerik notunda doğrudan dil bağlantısı da
+Mevcut dört TR/EN yazı çifti, sabit sayfalar ve kılavuz sürümleri bu şekilde bağlandı. Gerçek çevirisi olan içerikte
+dil seçimi karşılık sayfayı açar; ilk yüklemede kayıtlı/tarayıcı tercihi de uygulanır.
+Açık dil bağlantıları `?lang=` taşır ve tercih geri yönlendirme döngüsü oluşturmaz; içerik notunda doğrudan dil bağlantısı da
 vardır. Karşılık yoksa arayüz çevrilir, özgün başlık/gövde korunur ve çevirinin
 henüz bulunmadığı belirtilir. İçerik kendi `lang` niteliğini taşır. Çeviri
 sayfaları statik `hreflang` bağlantılarıyla eşleşir; arayüzün `?lang=` seçeneği
 kendiliğinden yeni bir içerik çevirisi veya ayrı indekslenebilir sayfa üretmez.
 JavaScript kapalıysa HTML’deki özgün dil ve mevcut çeviri bağlantıları kullanılır.
 
-Uzun yazılar, proje ayrıntıları ve kılavuz gövdeleri bu aşamada topluca
-çevrilmedi. Ana sayfanın kısa proje tanıtımları ve Syscall’ın statik/dinamik
-arayüzü çevrildi. Ana sayfa tanıtımlarının İngilizce metinleri projects.yml
+Sabit sayfalar `/en/` altında İngilizce sürümlerine sahiptir. Hakkında, kitaplık,
+27 projenin ayrıntıları ve konu dizinleri çevrilmiştir. Kılavuzlar’da 40 Markdown
+belgesi ve hata sayfasının İngilizce karşılığı `/kilavuzlar/en/` altındadır.
+288 kod bloğu kaynaklarıyla birebir korunur; kapsam ve arşiv uyarıları çevrilir.
+Blog arşivinin yeni gövde çevirileri ayrı bir aşamadır; mevcut İngilizce
+yazılar `/en/posts/` altında listelenir. Syscall’ın statik/dinamik arayüzü de çevrilidir. Ana sayfa tanıtımlarının İngilizce metinleri projects.yml
 `type_en` ve `summary_en` alanlarında tutulur. Dil eklerken bu alanları ve
 ortak sözlüğü birlikte güncelleyin.
 
@@ -123,3 +127,6 @@ python3 scripts/sync_console_theme.py --check
 
 İkinci komut üç site derlendikten sonra çalışır; kullanılan anahtarları,
 değişken JSON’unu, yer tutucuları ve mevcut çeviri bağlantılarını doğrular.
+
+Kılavuzların kaynak/çeviri eşleşmesini ve kod bloklarının korunmasını denetlemek için
+`python3 scripts/check_content_translations.py` çalıştırın.

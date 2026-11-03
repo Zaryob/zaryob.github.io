@@ -4,6 +4,51 @@ Date: 2026-11-02
 
 final result: passed
 
+## 2026-11-03 — English fixed pages and guides
+
+Current scope follows the user's choice: fixed pages and guides first; new blog
+body translations are deferred. Added 13 English fixed/index editions, complete
+English detail data for all 27 projects, and 40 English guide/index/maintenance
+Markdown documents plus the 404 page. All 288 fenced samples match their Turkish
+sources exactly. Reviewed/status metadata is preserved; scopes and archive warnings
+are translated. Historical source inaccuracies are identified as historical rather
+than silently presented as verified current instructions. No guide commands were
+executed during translation.
+
+Existing-language metadata was corrected for the already-English 2021 GitHub post;
+its body was not rewritten. The English posts index lists existing English editions.
+English categories without translated articles offer an explicit Turkish link.
+
+The shared runtime now follows a real content counterpart on initial load as well
+as on selector changes. Explicit language links retain ?lang= to avoid bouncing
+back to a stored preference. Project fragments survive language navigation.
+Paginated post indexes no longer generate duplicate hreflang entries. The guide
+tree contains the current document language only. The old archive's /linux/ aliases
+were removed because the new maintained Linux index owns those routes.
+
+All three builds/output checks pass: main 110 HTML pages; guides 113 pages,
+4436 local links and 31 redirects; syscall output/source-archive check passes.
+Shared vocabulary/alternate checks pass across 224 HTML pages, with 121 pages
+carrying language alternates. Seven runtime tests pass. Content coverage checks
+pass for 41 guide/error-page pairs and all 13 fixed-page counterparts.
+
+Browser checks confirm translated About/Projects/Bookshelf pages, all 27 project
+entries, guide index/tree navigation, CMake TR→EN→TR switching, direct English
+links under a Turkish preference, archive warnings, missing-English-category copy,
+and project-anchor preservation. The 390px English guide has no horizontal overflow.
+No browser console errors were observed. No actionable P0/P1/P2 findings remain.
+
+Evidence (desktop 1440 × 1024, mobile 390 × 844):
+- English guide index: /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-guides-en.png
+- English CMake guide: /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-cmake-en.png
+- Mobile English guide: /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-cmake-mobile-en.png
+- Archive warning: /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-archive-en.png
+- Fixed pages: /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-about-en.png, /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-projects-en.png,
+  /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-bookshelf-en.png, /Users/zaryob/.codex/visualizations/2026/11/02/01a19d61-046d-77a0-a6c2-9a31119d9d67/content-home-en.png
+
+Older sections below record previous revisions.
+
+
 ## Browser-language default
 
 With no explicit URL or stored language preference, the primary browser language
