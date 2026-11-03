@@ -1,6 +1,6 @@
 {% if page.translation_key %}
 {% assign alternates = site.posts | concat: site.pages %}
-{% for alternate in alternates %}{% if alternate.translation_key == page.translation_key %}
+{% for alternate in alternates %}{% if alternate.translation_key == page.translation_key %}{% unless alternate.url contains '/posts/page' %}
 <link rel="alternate" hreflang="{{ alternate.lang | default: 'tr' | split: '-' | first }}" href="{{ alternate.url | absolute_url }}">
-{% endif %}{% endfor %}
+{% endunless %}{% endif %}{% endfor %}
 {% endif %}

@@ -9,16 +9,17 @@ function boot({ stored, query = '', blocked = false, browser = 'en-US', language
   const root = { lang: '', dataset: {} };
   const selectors = new Map();
   const listeners = new Map();
-  const document = { documentElement: root, addEventListener() {}, querySelectorAll: () => [], querySelector: key => selectors.get(key) };
+  const documentListeners = new Map();
+  const document = { documentElement: root, addEventListener(type, callback) { documentListeners.set(type, callback); }, querySelectorAll: () => [], querySelector: key => selectors.get(key) };
   const context = {
     document, URL, URLSearchParams, Intl, navigator: { language: browser, languages }, CustomEvent: class {},
-    location: { get search() { return current.search; }, get href() { return current.href; }, assign(url) { current = new URL(url); } },
+    location: { get search() { return current.search; }, get href() { return current.href; }, assign(url) { current = new URL(url); }, replace(url) { current = new URL(url); } },
     history: { replaceState(_state, _title, url) { current = new URL(url); } },
     localStorage: { getItem() { if (blocked) throw Error('disabled'); return stored; }, setItem(_key, value) { if (blocked) throw Error('disabled'); stored = value; } },
     window: { addEventListener(type, callback) { listeners.set(type, callback); }, dispatchEvent() {} },
   };
   vm.runInNewContext(script, context);
-  return { api: context.window.ZaryobI18n, root, selectors, storage: value => listeners.get('storage')({ key: 'zaryob-language', newValue: value }), url: () => current };
+  return { api: context.window.ZaryobI18n, root, selectors, ready: () => documentListeners.get('DOMContentLoaded')(), storage: value => listeners.get('storage')({ key: 'zaryob-language', newValue: value }), url: () => current };
 }
 test('the primary browser language selects Turkish only for Turkish locales', () => {
   for (const browser of ['tr', 'tr-TR', 'tr-CY', 'TR-tr']) assert.equal(boot({ browser }).api.language, 'tr');
@@ -66,4 +67,15 @@ test('only a real registered counterpart can be used for article language naviga
   assert.equal(page.url().pathname, '/genel/third-wave-ai-agents/');
   assert.equal(page.url().searchParams.get('lang'), 'en');
   assert.equal(page.api.t('Unknown technical identifier'), 'Unknown technical identifier');
+});
+
+test('initial navigation follows an existing content edition without a redirect loop', () => {
+  const page = boot({ stored: 'en' });
+  page.selectors.set('link[rel="alternate"][hreflang="en"]', { href: 'https://zaryob.github.io/en/about/' });
+  page.ready();
+  assert.equal(page.url().pathname, '/en/about/');
+  assert.equal(page.url().hash, '#sys-write');
+  assert.equal(page.url().searchParams.get('lang'), 'en');
+  page.ready();
+  assert.equal(page.url().pathname, '/en/about/');
 });

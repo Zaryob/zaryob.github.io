@@ -297,6 +297,16 @@
       note.querySelector('[data-translation-missing]').hidden = note.dataset.contentLanguage === language || matching;
     });
   };
+  const translationTarget = () => {
+    const link = document.querySelector(`[data-translation-lang="${language}"]`)
+      || document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
+    if (!link) return null;
+    const destination = new URL(link.href, location.href);
+    if (destination.pathname === new URL(location.href).pathname) return null;
+    destination.searchParams.set('lang', language);
+    if (!destination.hash) destination.hash = new URL(location.href).hash;
+    return destination;
+  };
   const setLanguage = (next, { persist = true, navigate = true } = {}) => {
     if (!supported.includes(next)) return;
     language = next;
@@ -308,18 +318,16 @@
     history.replaceState(null, '', url);
     apply();
     window.dispatchEvent(new CustomEvent('zaryob:language', { detail: { language } }));
-    const translation = document.querySelector(`[data-translation-lang="${language}"]`);
-    if (navigate && translation) {
-      const destination = new URL(translation.href);
-      destination.searchParams.set('lang', language);
-      location.assign(destination);
-    }
+    const destination = translationTarget();
+    if (navigate && destination) location.assign(destination);
   };
   window.ZaryobI18n = { t, apply, setLanguage, get language() { return language; } };
   document.addEventListener('DOMContentLoaded', () => {
     apply();
     if (supported.includes(query)) try { localStorage.setItem('zaryob-language', language); } catch { /* Optional. */ }
     document.querySelectorAll('[data-console-language]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
+    const destination = translationTarget();
+    if (destination) location.replace(destination);
   });
   window.addEventListener('storage', event => {
     if (event.key !== 'zaryob-language' && event.key !== null) return;

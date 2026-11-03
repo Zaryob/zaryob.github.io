@@ -3,8 +3,8 @@
 <aside class="console-language-note" data-content-language="{{ content_language }}"{% unless page.translation_key %} hidden{% endunless %} aria-label="Çeviriler" data-i18n-aria-label="Translations">
   <span><span data-i18n="Content language:">İçerik dili:</span> <span lang="{{ content_language }}">{% if content_language == 'en' %}English{% else %}Türkçe{% endif %}</span>.</span>
   <span data-translation-missing hidden data-i18n="A translation in the selected language is not available yet.">Seçilen dilde çeviri henüz yok.</span>
-  {% if page.translation_key %}{% for translated in translation_candidates %}{% if translated.translation_key == page.translation_key and translated.url != page.url %}
+  {% if page.translation_key %}{% for translated in translation_candidates %}{% if translated.translation_key == page.translation_key and translated.url != page.url %}{% unless translated.url contains '/posts/page' %}
     {% assign translated_language = translated.lang | default: 'tr' | split: '-' | first %}
-    <a href="{{ translated.url | relative_url }}" data-translation-lang="{{ translated_language }}" hreflang="{{ translated_language }}" lang="{{ translated_language }}">{% if translated_language == 'en' %}English{% else %}Türkçe{% endif %} →</a>
-  {% endif %}{% endfor %}{% endif %}
+    <a href="{{ translated.url | relative_url }}?lang={{ translated_language }}" data-translation-lang="{{ translated_language }}" hreflang="{{ translated_language }}" lang="{{ translated_language }}">{% if translated_language == 'en' %}English{% else %}Türkçe{% endif %} →</a>
+  {% endunless %}{% endif %}{% endfor %}{% endif %}
 </aside>

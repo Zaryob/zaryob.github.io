@@ -53,9 +53,11 @@ for site in [ROOT / '_site', ROOT.parent / 'kilavuzlar/_site', ROOT.parent / 'sy
                 errors.append(f'{path}: translation group needs one TR and one EN alternate')
             for address in parser.alternates.values():
                 relative = unquote(urlsplit(address).path).removeprefix('/kilavuzlar') if site.parent.name == 'kilavuzlar' else unquote(urlsplit(address).path)
-                target = site / relative.lstrip('/') / 'index.html'
+                target = site / relative.lstrip('/')
+                if not target.suffix:
+                    target /= 'index.html'
                 if not target.is_file():
                     errors.append(f'{path}: missing alternate {address}')
 if errors:
     raise SystemExit('\n'.join(sorted(set(errors))))
-print(f'Validated {len(vocabulary)} UI strings, {pages} HTML pages and {translated_pages} translated article pages.')
+print(f'Validated {len(vocabulary)} UI strings, {pages} HTML pages and {translated_pages} HTML pages with language alternates.')
