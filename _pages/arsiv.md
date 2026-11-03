@@ -1,4 +1,6 @@
 ---
+translation_key: page-arsiv
+lang: tr
 layout: page
 title: Arşiv
 subtitle: Geçmişe doğru neler yazdığım...

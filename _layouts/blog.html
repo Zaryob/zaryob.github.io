@@ -3,14 +3,17 @@ layout: default
 ---
 
 {% assign category = page.permalink | split: '/' | last %}
+{% assign category = page.category | default: category %}
 {% include writing-topics.html %}
 <section class="content-section" aria-labelledby="category-heading">
   <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{{ page.title }} yazıları</span></h2></div>
   <div class="blog-list">
-    {% for post in site.categories[category] %}
+    {% assign category_posts = site.categories[category] %}
+    {% if page.lang == 'en' %}{% assign category_posts = category_posts | where: 'lang', 'en' %}{% endif %}
+    {% for post in category_posts %}
       {% include post-card.html post=post %}
     {% else %}
-      <p><span data-i18n="No posts in this category yet.">Bu kategoride henüz yazı yok.</span></p>
+      {% if page.lang == 'en' %}<p>No English editions are available in this category yet. <a href="{{ page.translation_of | relative_url }}?lang=tr">Browse the Turkish articles</a>.</p>{% else %}<p><span data-i18n="No posts in this category yet.">Bu kategoride henüz yazı yok.</span></p>{% endif %}
     {% endfor %}
   </div>
 </section>

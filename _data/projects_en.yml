@@ -1,0 +1,378 @@
+- name: imshark
+  type: Network analysis · C++
+  summary: A packet analyzer for inspecting capture files and protocol fields with Dear ImGui.
+  problem: Filter and analyse network traffic on the desktop and inspect its flows.
+  contribution: I develop the application and protocol-parsing infrastructure.
+  approach: A C++20 core, capture corpus and sanitizer options; scope is documented in the support matrix.
+  result: Source code, supported-protocol matrix, sample captures and a source-build guide.
+  repo: https://github.com/Zaryob/imshark
+  link_text: Source and verification
+  group: tools
+  featured: true
+- name: Performer
+  type: Linux performance tools · eBPF / Python
+  summary: A tool for storing process profiles in portable bundles and viewing them offline.
+  problem: Investigate CPU use, waits and lock contention through comparable measurements.
+  contribution: I work on the collector, measurement bundles and browser viewer.
+  approach: Linux eBPF probes and a local web viewer; the synthetic demo is presented separately from
+    real measurements.
+  result: The repository provides source, demo-generation commands and measurement limitations.
+  repo: https://github.com/Zaryob/Performer
+  link_text: Source and demo
+  group: tools
+  featured: true
+- name: Sift
+  type: Native RSS app · macOS / iOS
+  summary: An app combining RSS reading, local storage and optional on-device summaries.
+  problem: Select and organise reading material from many subscriptions.
+  contribution: I develop the SwiftUI application and feed-processing layers.
+  approach: SwiftData, RSS/Atom parsing and an extractive summarisation path when Apple Intelligence is
+    unavailable.
+  result: Application sources, interface screenshots and installation requirements.
+  repo: https://github.com/Zaryob/Sift
+  link_text: Source and requirements
+  group: tools
+  featured: true
+- name: iksemel-rs
+  type: XML / XMPP · Rust
+  summary: A separate Rust implementation inspired by Gürer Özen’s iksemel.
+  problem: Provide XML parsing and XMPP helpers through Rust APIs.
+  contribution: I develop this Rust implementation; the original iksemel attribution is retained in the
+    repository.
+  approach: SAX/DOM APIs, resource limits, local benchmarks and fuzzing tools.
+  result: Library APIs, usage examples and test/measurement records with their scope explained.
+  repo: https://github.com/Zaryob/iksemel-rs
+  link_text: Source and test evidence
+  group: systems
+  featured: true
+- name: Pena
+  type: Guitar tuning and practice · iOS
+  summary: Pitch detection, a metronome, a chord library and daily practice routines.
+  problem: Combine guitar-tuning and practice tools in one native application.
+  contribution: I work on the application and audio-analysis layer.
+  approach: SwiftUI, AVAudioEngine and deterministic synthetic pitch tests.
+  result: Sources for tuning, metronome and practice flows, with synthetic audio-analysis tests.
+  repo: https://github.com/Zaryob/Pena
+  link_text: Source and verification
+  group: tools
+  featured: true
+- name: Inary
+  type: Linux package management · Python 3
+  summary: An archived Python 3 fork of an open source package manager descended from PiSi.
+  problem: Address gaps in the PiSi base while improving tracking of packages and installed files.
+  contribution: I worked on developing the fork; the repository documents this work alongside other contributors.
+  approach: Python 3, XML package definitions and a dynamic database tracking file changes.
+  result: Python 3 sources, a command-line tool and package-management history; the repository is now
+    archived.
+  repo: https://github.com/Zaryob/inary
+  link_text: Source code
+  group: history
+  featured: false
+  lifecycle: Archived work
+- name: iksemel
+  type: XML / XMPP · C
+  summary: A maintenance fork of the C XML parser used by Jabber applications.
+  problem: Keep the older project usable with current build tools and Python bindings.
+  contribution: In this fork of Gürer Özen’s iksemel, I work on build, compatibility and maintenance changes.
+  approach: Meson/Ninja builds and Python 3 bindings while retaining the existing SAX, DOM and Jabber-stream
+    APIs.
+  result: Meson build steps, downstream commit history and security boundaries.
+  repo: https://github.com/Zaryob/iksemel
+  link_text: Source code
+  group: systems
+  featured: false
+- name: ZFS Kitabı
+  type: Technical documentation · OpenZFS
+  summary: An open source book explaining ZFS and OpenZFS concepts in Turkish.
+  problem: Create a Turkish reference for storage and filesystem topics.
+  contribution: I wrote the book, bringing together different sources and publishing it in chapters.
+  approach: An ordered structure covering the introduction, pools, features and practical examples.
+  result: Source text on GitHub and a readable edition on GitBook.
+  repo: https://github.com/Zaryob/zfs_kitabi
+  docs: https://zaryob-dev.gitbook.io/zfs-kitabi/
+  link_text: Read the book in Turkish
+  group: systems
+  featured: true
+  display_name: The ZFS Book
+- name: CaffeVigil
+  group: tools
+  type: Desktop utility · Windows / C++
+  summary: A small tray application I developed to keep a computer awake for a selected period.
+  problem: Control system and display sleep during long-running work.
+  contribution: I implemented duration selection, countdown and tray interactions.
+  approach: Windows execution-state APIs, a tray menu and timers.
+  result: Windows application sources and build inputs; open timing-related work is described in the README.
+  repo: https://github.com/Zaryob/CaffeVigil
+  link_text: Source and project history
+  featured: false
+- name: Kılavuzlar
+  group: systems
+  type: Technical notes · Linux / system administration
+  summary: Reference notes on tools and systems I use, collected in an open repository.
+  problem: Keep recurring setup and usage steps in a place I can return to.
+  contribution: I organised my own working notes and guides.
+  approach: Texts organised by tool and topic, intended to be read alongside related articles and documentation.
+  result: Guide files and their change history.
+  repo: https://github.com/Zaryob/kilavuzlar
+  link_text: Source and project history
+  featured: false
+  display_name: Guides
+- name: dotfiles
+  group: systems
+  type: Personal environment · Shell / Git / Emacs
+  summary: Personal configurations accumulated for my UNIX and Linux working environments.
+  problem: Collect the settings I use for shells, editors and development tools.
+  contribution: I organised personal settings, helper commands and installation flows; upstream-file attribution
+    is preserved.
+  approach: Installation from a local checkout that links selected components, offers a dry run first
+    and backs up conflicts.
+  result: Inspectable configurations and isolated installation checks; not a general-purpose distribution.
+  repo: https://github.com/Zaryob/dotfiles
+  link_text: Source and project history
+  featured: false
+- name: Rayban / FrictionAndWearTest
+  group: history
+  type: Internship project · C# / Windows Forms
+  summary: An archive of the Windows application I developed for a TÜRASAŞ wheel-test unit during my 2021
+    internship.
+  problem: Manage test-session information, serial connections and time-based recording in one interface.
+  contribution: I developed form flows, serial-port selection, periodic data reading and Excel workbook
+    export.
+  approach: Windows Forms, System.IO.Ports, timers and Excel COM automation.
+  result: Forms, session-recording logic and technical commit history; hardware design and measurement
+    calibration are outside this software contribution.
+  repo: https://github.com/9base/Rayban
+  link_text: Source and project history
+  featured: false
+  lifecycle: Archived work
+- name: ConVarT veri hazırlama araçları
+  group: history
+  type: Bioinformatics utilities · R
+  summary: R tools I wrote in 2022 to prepare FASTA metadata and generate SQL for the ConVarT context.
+  problem: Standardise metadata from NCBI and Ensembl and prepare it for database ingestion.
+  contribution: I prepared metadata-reading/standardisation, FASTA-generation and SQL-generation scripts.
+  approach: R scripts, CSV intermediate outputs and a preserved R Markdown explanation.
+  result: Local tool code and April 2022 development history. The ConVarT scientific resource and upstream
+    pipeline are authored by Kaplan Lab.
+  repo: https://github.com/9base/ConvartDataGenerate
+  link_text: Source and project history
+  featured: false
+  lifecycle: Archived work
+  links:
+  - label: Kaplan Lab ConVarT pipeline
+    url: https://github.com/thekaplanlab/ConVarT_pipeline
+  display_name: ConVarT data-preparation tools
+- name: ConVarT Web katkıları
+  group: history
+  type: Research-software contribution · PHP / SQL
+  summary: A downstream preserving my historical development contributions to Kaplan Lab’s ConVarT web
+    project.
+  problem: Configuration, search and development flows for a research-data web application.
+  contribution: I worked on configuration, search/schema, development-environment and interface changes.
+  approach: Upstream history is preserved, with local changes explained in separate provenance notes.
+  result: Local development history and patch notes; the scientific resource and analysis pipeline are
+    Kaplan Lab’s work.
+  repo: https://github.com/9base/ConVarT_Web
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  links:
+  - label: Original Kaplan Lab project
+    url: https://github.com/thekaplanlab/ConVarT_Web
+  - label: 9base contribution notes
+    url: https://github.com/9base/ConVarT_Web/blob/master/9BASE.md
+  display_name: ConVarT Web contributions
+- name: LinkLayerModel
+  group: history
+  type: Wireless-network model · Rust
+  summary: My Rust reimplementation of Marco Zuniga and Bhaskar Krishnamachari’s wireless-sensor-network
+    model.
+  problem: Examine link-layer model configuration and calculation steps through Rust.
+  contribution: I wrote a Rust implementation derived from the researchers’ model; its scientific attribution
+    is retained.
+  approach: Topology files, radio/channel parameters and matrix outputs.
+  result: Source and example configuration. A historical research experiment; physical-model accuracy
+    requires separate validation.
+  repo: https://github.com/Zaryob/LinkLayerModel
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical research work
+- name: NVIDIA / Jetson çalışma notları
+  group: history
+  type: Platform tools · Shell / Docker
+  summary: Installation notes and container launchers I collected in 2022 while working with Jetson Nano
+    and NVIDIA tools.
+  problem: Record GPU-tool setup and startup options across different working environments.
+  contribution: I collected launcher commands and local installation notes.
+  approach: Shell scripts, container-runtime options and environment-specific mount settings.
+  result: A command/note archive. NVIDIA and other vendors retain authorship of their images and frameworks.
+  repo: https://github.com/9base/nvidia_stuff
+  link_text: Source and project history
+  featured: false
+  lifecycle: Archived work
+  display_name: NVIDIA / Jetson working notes
+- name: moviepad
+  group: history
+  type: Course project · Flutter / Dart
+  summary: 'My 2020–2021 COMP205 final project: browsing TMDB movies and maintaining personal lists.'
+  problem: Try data fetching, login screens, local storage and notifications in a mobile application.
+  contribution: I worked on application screens, movie lists, notes and background tasks.
+  approach: Flutter, HTTP, SQLite and Firebase/notification components.
+  result: Application sources and period-specific dependencies; it is not operated as a current movie
+    service.
+  repo: https://github.com/9base/moviepad
+  link_text: Source and project history
+  featured: false
+  lifecycle: Learning archive
+- name: Android ve Flutter deneyleri
+  group: history
+  type: Learning collections · Java / Dart
+  summary: AndroGarbage and FlutterGarbage collect small applications and coursework experiments from
+    learning mobile development.
+  problem: Learn interfaces, sensors, storage, notifications and background execution through small examples.
+  contribution: I developed Android/Java and Flutter/Dart examples; existing sample and contributor attributions
+    are preserved.
+  approach: Examples from the 2020–2021 COMP205 context, later experiments and Flutter Linux-packaging
+    trials.
+  result: Sources and historical notes for both collections; some examples are single files intended to
+    be added to another application.
+  repo: https://github.com/9base/AndroGarbage
+  link_text: Source and project history
+  featured: false
+  lifecycle: Learning archive
+  links:
+  - label: FlutterGarbage
+    url: https://github.com/9base/FlutterGarbage
+  display_name: Android and Flutter experiments
+- name: mysqlogin
+  group: history
+  type: Web-development experiment · PHP / MySQL
+  summary: A small 2021 web application for learning registration, login and account settings.
+  problem: Learn the flow between a database and a web interface through practice.
+  contribution: I built the PHP/MySQL application after a Flutter/database experiment.
+  approach: PHP pages, an SQL schema and period-specific screenshots.
+  result: Source and learning notes; not presented as a current authentication product.
+  repo: https://github.com/9base/mysqlogin
+  link_text: Source and project history
+  featured: false
+  lifecycle: Learning archive
+- name: rolling_cat
+  group: history
+  type: Desktop-graphics experiment · Windows / Linux
+  summary: A small cat application I made in 2020 to learn image display on Windows and Linux.
+  problem: Create image windows with different desktop graphics APIs.
+  contribution: I tried Windows GDI+ and Linux C/GTK3 implementations.
+  approach: Two separate application structures; the Linux template’s attribution is preserved.
+  result: Sources and notes from the experiment.
+  repo: https://github.com/9base/rolling_cat
+  link_text: Source and project history
+  featured: false
+  lifecycle: Learning archive
+- name: donut
+  group: history
+  type: Terminal-graphics experiment · Rust
+  summary: My Rust reimplementation of Andy Sloane’s rotating ASCII donut algorithm as a learning exercise.
+  problem: Learn 3D transformations and terminal rendering in a small example.
+  contribution: I reimplemented the algorithm in Rust; the original work is attributed to Andy Sloane.
+  approach: ASCII terminal rendering and a preserved example animation.
+  result: Rust sources and the experiment’s commit history.
+  repo: https://github.com/Zaryob/donut
+  link_text: Source and project history
+  featured: false
+  lifecycle: Archived learning exercise
+- name: RasPipBoy Python 3 uyarlaması
+  group: history
+  type: Raspberry Pi interface · Python
+  summary: A fork for my Python 3 adaptation of Neal D. Corbett’s Fallout Pip-Boy interface.
+  problem: Try porting older Python code to Python 3.
+  contribution: I worked on the Python 3 port; the original application and design belong to the upstream
+    author.
+  approach: A Raspberry Pi interface and historical compatibility experiments.
+  result: Port history and sources; this work is now archived.
+  repo: https://github.com/Zaryob/raspipboy
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  display_name: RasPipBoy Python 3 adaptation
+- name: qFlipper uyumluluk katkısı
+  group: downstream
+  type: Device-tool contribution · C++ / Qt
+  summary: A downstream of Flipper Devices’ qFlipper application for device-information compatibility.
+  problem: Keep local device-information use compatible with the upstream application.
+  contribution: I worked on a device-information compatibility patch and upstream synchronisation.
+  approach: A small local patch, preserved upstream history and contribution notes.
+  result: Local change and synchronisation history; qFlipper’s original authorship belongs to Flipper
+    Devices.
+  repo: https://github.com/9base/qFlipper
+  link_text: Source and project history
+  featured: false
+  lifecycle: Maintained downstream
+  links:
+  - label: Flipper Devices upstream
+    url: https://github.com/flipperdevices/qFlipper
+  display_name: qFlipper compatibility contribution
+- name: chm2pdf Python 3 uyarlaması
+  group: downstream
+  type: Document-conversion contribution · Python
+  summary: My historical Python 3 adaptation of Massimo Sandal and Chris Karakas’s CHM-to-PDF converter.
+  problem: Make older conversion code usable in a Python 3 environment.
+  contribution: I made Python 3 compatibility changes in 2020.
+  approach: Upstream source, copyright and usage explanations are preserved; local changes are documented
+    separately.
+  result: Patch history and source; this downstream is now archived.
+  repo: https://github.com/9base/chm2pdf
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  links:
+  - label: Upstream project
+    url: https://github.com/Arnoques/chm2pdf
+  display_name: chm2pdf Python 3 adaptation
+- name: FlowGen uyarlamaları
+  group: downstream
+  type: Flowchart-tool contribution · Python / Graphviz
+  summary: My compatibility and Graphviz-call adaptations to Adam Dobrawy’s FlowGen.
+  problem: Study and adapt flowchart generation from a small pseudocode language.
+  contribution: I changed Python compatibility imports and Graphviz edge arguments.
+  approach: A pyPEG2 grammar for the small pseudocode language and Graphviz output.
+  result: Local patches, examples and upstream attributions.
+  repo: https://github.com/9base/flowgen
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  links:
+  - label: Adam Dobrawy / FlowGen
+    url: https://github.com/ad-m/flowgen
+  display_name: FlowGen adaptations
+- name: Veil için Pardus kurulum katkısı
+  group: downstream
+  type: Platform compatibility · Python / Linux
+  summary: An archive of my 2021 adaptations for installing Veil Framework on Pardus.
+  problem: Address installation-flow requirements on another Linux distribution.
+  contribution: I developed Pardus installation-support changes on the pardus-patch branch.
+  approach: The upstream framework is preserved; my contribution is described as installation compatibility.
+  result: Historical patches and attribution notes; the framework is authored by upstream contributors.
+  repo: https://github.com/9base/Veil
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  links:
+  - label: Veil Framework upstream
+    url: https://github.com/Veil-Framework/Veil
+  display_name: Pardus installation support for Veil
+- name: Tor’s Hammer Python 3 uyarlaması
+  group: downstream
+  type: Historical tool adaptation · Python
+  summary: My 2021 Python 3 and connection-handling adaptations to Tor’s Hammer upstream sources.
+  problem: Study an older Python application’s version and connection behaviour.
+  contribution: I made Python 3, string/indentation and connection-handling changes.
+  approach: Original SourceForge history and component copyright notices are preserved.
+  result: Commit history of local changes; an archived downstream.
+  repo: https://github.com/9base/torshammer
+  link_text: Source and project history
+  featured: false
+  lifecycle: Historical downstream
+  links:
+  - label: Original SourceForge project
+    url: https://sourceforge.net/projects/torshammer/
+  display_name: Tor’s Hammer Python 3 adaptation

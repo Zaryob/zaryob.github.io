@@ -1,0 +1,16 @@
+- id: tools
+  title: Applications and developer tools
+  intro: My applications for network analysis, performance investigation and everyday
+    use.
+- id: systems
+  title: System software and technical documentation
+  intro: My work on XML/XMPP, working environments and Turkish technical resources.
+- id: history
+  title: Past work and learning projects
+  intro: My background spans package management, research and mobile development.
+    Some projects are in my main account and others are archived in 9base; each is
+    described in the context of its period and my own contribution.
+- id: downstream
+  title: Contributions to upstream projects
+  intro: Changes I made to other teams’ software for compatibility, installation and
+    local use. Original ownership and my local contribution are identified separately.

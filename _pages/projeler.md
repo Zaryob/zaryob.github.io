@@ -1,4 +1,6 @@
 ---
+translation_key: page-projeler
+lang: tr
 layout: default
 title: Projeler
 title_i18n: Projects

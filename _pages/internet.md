@@ -1,4 +1,6 @@
 ---
+translation_key: category-internet
+lang: tr
 layout: blog
 title: İnternet
 title_i18n: Internet

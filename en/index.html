@@ -1,0 +1,69 @@
+---
+layout: default
+home: true
+image: home-bg.webp
+description: Süleyman Poyraz’s open source projects and articles on Linux, system
+  software and C++.
+lang: en
+translation_key: home
+translation_of: /
+permalink: /en/
+title: Süleyman Poyraz
+translated: '2026-11-03'
+---
+
+{% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+<nav class="suite-paths" aria-label="Bilgi kitaplığı" data-i18n-aria-label="Knowledge library">
+  <a href="{{ '/posts/' | relative_url }}"><span data-i18n="posts/">Yazılar/</span><span><span data-i18n="Ideas and technical articles">Fikirler ve teknik yazılar</span></span></a>
+  <a href="{{ suite_root }}/kilavuzlar/"><span data-i18n="guides/">Kılavuzlar/</span><span><span data-i18n="Step-by-step practical notes">Adım adım uygulama notları</span></span></a>
+  <a href="{{ suite_root }}/syscall/">Syscall/<span><span data-i18n="Linux system calls">Linux sistem çağrıları</span></span></a>
+</nav>
+
+<section class="content-section" aria-labelledby="projects-heading">
+  <div class="section-heading">
+    <h2 id="projects-heading"><span data-i18n="What I am working on">Üzerinde çalıştıklarım</span></h2>
+    <a href="{{ '/projeler/' | relative_url }}"><span data-i18n="All projects">Tüm projeler</span> <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="project-grid">
+    {% assign featured_projects = site.data.projects_en | where: "featured", true %}
+    {% for project in featured_projects %}
+    <article class="project-card">
+      <p class="project-card__eyebrow"><span data-i18n="{{ project.type_en | default: project.type | escape }}">{{ project.type }}</span></p>
+      <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.display_name | default: project.name }}</a></h3>
+      <p><span data-i18n="{{ project.summary_en | default: project.summary | escape }}">{{ project.summary }}</span></p>
+      <a class="project-card__link" href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}"><span data-i18n="Explore project">Projeyi incele</span> <span aria-hidden="true">→</span></a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section" aria-labelledby="writing-heading">
+  <div class="section-heading">
+    <h2 id="writing-heading"><span data-i18n="Latest posts">Son yazılar</span></h2>
+    <a href="{{ '/posts/' | relative_url }}"><span data-i18n="All articles">Bütün yazılar</span> <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="blog-list">
+    {% assign featured_count = 0 %}
+    {% for post in site.posts %}
+      {% if post.lang == 'en' %}
+        {% include post-card.html post=post %}
+        {% assign featured_count = featured_count | plus: 1 %}
+        {% if featured_count == 4 %}{% break %}{% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="content-section" aria-labelledby="paths-heading">
+  <div class="section-heading"><h2 id="paths-heading"><span data-i18n="Start with a topic">Bir konudan başla</span></h2></div>
+  <div class="reading-paths">
+    <div class="reading-path">
+      <h3><a href="{{ '/programlama/' | relative_url }}"><span data-i18n="Modern C++ and programming">Modern C++ ve programlama</span> <span aria-hidden="true">→</span></a></h3>
+      <p><span data-i18n="Compile time, semantics, debugging and practical software notes.">Derleme zamanı, semantik, hata ayıklama ve pratik yazılım notları.</span></p>
+    </div>
+    <div class="reading-path">
+      <h3><a href="{{ '/internet/' | relative_url }}"><span data-i18n="Internet 101">İnternet 101</span> <span aria-hidden="true">→</span></a></h3>
+      <p><span data-i18n="Foundations from network hardware to TCP/IP and protocols.">Ağ donanımından TCP/IP ve protokollere uzanan temel yazılar.</span></p>
+    </div>
+  </div>
+</section>

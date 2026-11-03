@@ -1,4 +1,6 @@
 ---
+translation_key: page-hakkinda
+lang: tr
 layout: default
 title: Süleyman Poyraz
 permalink: /hakkinda/

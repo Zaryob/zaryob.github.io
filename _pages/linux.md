@@ -1,4 +1,6 @@
 ---
+translation_key: category-linux
+lang: tr
 layout: blog
 title: Linux
 permalink: /linux/

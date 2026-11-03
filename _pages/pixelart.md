@@ -1,4 +1,6 @@
 ---
+translation_key: category-pixelart
+lang: tr
 layout: blog
 title: Pixel Art
 permalink: /pixelart/

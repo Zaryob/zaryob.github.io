@@ -1,4 +1,6 @@
 ---
+translation_key: category-elektronik
+lang: tr
 layout: blog
 title: Elektronik
 title_i18n: Electronics

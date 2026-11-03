@@ -1,0 +1,20 @@
+---
+layout: default
+title: Posts
+description: English-language articles by Süleyman Poyraz on software and technology.
+image: home-bg.webp
+lang: en
+translation_key: posts
+translation_of: /posts/
+permalink: /en/posts/
+translated: '2026-11-03'
+---
+
+{% include writing-topics.html %}
+<section class="content-section" aria-labelledby="posts-heading">
+<div class="section-heading"><h2 id="posts-heading">English articles</h2></div>
+<div class="blog-list">
+{% for post in site.posts %}{% if post.lang == 'en' %}{% include post-card.html post=post %}{% endif %}{% endfor %}
+</div>
+<p>Further articles are available in the <a href="{{ '/posts/' | relative_url }}?lang=tr" lang="tr">Turkish archive</a>.</p>
+</section>

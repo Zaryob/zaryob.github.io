@@ -1,4 +1,6 @@
 ---
+translation_key: page-kitapligim
+lang: tr
 layout: page
 title: Kitaplığım
 title_i18n: My bookshelf

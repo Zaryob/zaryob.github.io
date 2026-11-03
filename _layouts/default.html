@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="{{ '/assets/console/i18n.js' | relative_url }}"></script>
   <script src="{{ '/assets/console/theme.js' | relative_url }}"></script>
-  {% seo %}
+  {% if page.lang == 'en' %}
+  <title>{% if page.title == site.title %}{{ site.title | escape }} · Software engineer{% else %}{{ page.title | escape }} · {{ site.title | escape }}{% endif %}</title>
+  {% seo title=false %}
+  {% else %}{% seo %}{% endif %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/bootstrap/css/bootstrap-site.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/syntax-highlighter.css' | relative_url }}">
-  {% elsif page.layout == 'blog' or page.path == 'posts/index.html' or page.path == 'index.html' %}
+  {% elsif page.layout == 'blog' or page.path == 'posts/index.html' or page.path == 'index.html' or page.home or page.translation_key == 'posts' %}
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/console/theme.css' | relative_url }}">
@@ -31,7 +34,7 @@
       {% elsif page.image %}{% assign hero_file = '/assets/img/pages/' | append: page.image %}{% endif %}
     {% endunless %}
     {% if page.type != 'noimage' %}
-      {% if page.path == 'index.html' %}
+      {% if page.path == 'index.html' or page.home %}
       <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
         {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
         <div class="container hero__inner">
@@ -57,7 +60,7 @@
     {% endif %}
 
     <div id="page_content" class="page-content container" lang="{{ page.lang | default: 'tr' }}">
-      {% if page.path contains '_pages/' and page.layout != 'blog' %}{% include console-content-language.html %}{% endif %}
+      {% if page.translation_key and page.layout != 'blog' and page.layout != 'post' %}{% include console-content-language.html %}{% endif %}
       {{ content }}
     </div>
   </main>

@@ -1,4 +1,6 @@
 ---
+translation_key: category-programlama
+lang: tr
 layout: blog
 title: Programlama
 title_i18n: Programming

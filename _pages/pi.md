@@ -1,4 +1,6 @@
 ---
+translation_key: category-pi
+lang: tr
 layout: blog
 title: Raspberry Pi
 permalink: /pi/
