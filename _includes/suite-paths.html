@@ -1,0 +1,31 @@
+{% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+<nav class="suite-paths" aria-label="{% if page.lang == 'en' %}Knowledge library{% else %}Bilgi kitaplığı{% endif %}">
+  {% if page.lang == 'en' %}
+  <a href="{{ '/en/posts/' | relative_url }}">
+    posts/
+    <span class="suite-paths__description">Ideas and technical articles</span>
+  </a>
+  {% else %}
+  <a href="{{ '/posts/' | relative_url }}">
+    yazılar/
+    <span class="suite-paths__description">Fikirler ve teknik yazılar</span>
+  </a>
+  {% endif %}
+
+  {% assign suite_projects = site.data.console_projects | where_exp: 'project', "project.key != 'home'" %}
+  {% for project in suite_projects %}
+  {% assign project_title = project.title %}
+  {% if page.lang == 'en' %}{% assign project_title = project.title_en | default: project.title %}{% endif %}
+  <a href="{{ suite_root }}{{ project.path }}">
+    {{ project_title | escape }}/
+    {% case project.key %}
+      {% when 'kilavuzlar' %}
+        <span class="suite-paths__description">{% if page.lang == 'en' %}Step-by-step practical notes{% else %}Adım adım uygulama notları{% endif %}</span>
+      {% when 'syscall' %}
+        <span class="suite-paths__description">{% if page.lang == 'en' %}Linux system calls{% else %}Linux sistem çağrıları{% endif %}</span>
+      {% when 'pin-atlas' %}
+        <span class="suite-paths__description">{% if page.lang == 'en' %}Pin maps and wiring plans{% else %}Pin haritaları ve bağlantı planları{% endif %}</span>
+    {% endcase %}
+  </a>
+  {% endfor %}
+</nav>

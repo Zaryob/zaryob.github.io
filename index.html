@@ -6,12 +6,7 @@ image: "home-bg.webp"
 description: "Süleyman Poyraz'ın açık kaynak projeleri ve Linux, sistem yazılımı, C++ üzerine Türkçe teknik yazıları."
 ---
 
-{% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
-<nav class="suite-paths" aria-label="Bilgi kitaplığı" data-i18n-aria-label="Knowledge library">
-  <a href="{{ '/posts/' | relative_url }}"><span data-i18n="posts/">Yazılar/</span><span><span data-i18n="Ideas and technical articles">Fikirler ve teknik yazılar</span></span></a>
-  <a href="{{ suite_root }}/kilavuzlar/"><span data-i18n="guides/">Kılavuzlar/</span><span><span data-i18n="Step-by-step practical notes">Adım adım uygulama notları</span></span></a>
-  <a href="{{ suite_root }}/syscall/">Syscall/<span><span data-i18n="Linux system calls">Linux sistem çağrıları</span></span></a>
-</nav>
+{% include suite-paths.html %}
 
 <section class="content-section" aria-labelledby="projects-heading">
   <div class="section-heading">

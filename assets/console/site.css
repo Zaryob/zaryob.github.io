@@ -103,14 +103,14 @@
 .console-home .topic-nav a[aria-current] { color: var(--accent); font-weight: 500; text-decoration-thickness: 2px; background: var(--surface); outline: 1px solid var(--control-border); outline-offset: 5px; }
 .console-home .btn-outline-dark { color: var(--accent); border-color: var(--control-border); background: var(--paper); border-radius: 0; font-size: 13px; padding: 8px 12px; }
 .console-home .btn-outline-dark:hover { color: var(--accent); background: var(--surface); }
-.console-home .suite-paths { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 36px; }
+.console-home .suite-paths { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 36px; }
 .console-home .suite-paths a { padding: 20px 24px; text-decoration: none; border-left: 1px solid var(--line); }
 .console-home .suite-paths a:first-child { padding-left: 0; border-left: 0; }
-.console-home .suite-paths span { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
+.console-home .suite-paths__description { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
 @media (max-width: 760px) {
   .console-home .container { padding-inline: 20px; }
   .console-home .project-grid, .console-home .reading-paths { grid-template-columns: 1fr; }
-  .console-home .suite-paths { grid-template-columns: 1fr; }
+  .console-home .suite-paths { grid-auto-flow: row; }
   .console-home .suite-paths a { border-left: 0; border-top: 1px solid var(--line); padding: 16px 0; }
   .console-home .suite-paths a:first-child { border-top: 0; }
   .console-home .hero--home .hero__inner { padding-block: 32px; }
