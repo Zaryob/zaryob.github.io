@@ -13,10 +13,25 @@ ROOT = Path(__file__).resolve().parents[1]
 class SuiteHandler(SimpleHTTPRequestHandler):
     def translate_path(self, path):
         pathname = urlsplit(path).path
-        for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'p/pin-atlas/dist')]:
+        for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
             if pathname == prefix or pathname.startswith(prefix + '/'):
                 self.directory = str(directory)
                 return super().translate_path(pathname[len(prefix):] or '/')
+
+        # Fallback to sub-site directory using Referer if asset is not in main site
+        local_target = (ROOT / '_site' / pathname.lstrip('/')).resolve()
+        if not local_target.exists():
+            referer = getattr(self, 'headers', None)
+            ref_val = referer.get('Referer') if referer else None
+            if ref_val:
+                ref_path = urlsplit(ref_val).path
+                for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
+                    if ref_path == prefix or ref_path.startswith(prefix + '/'):
+                        sub_target = (directory / pathname.lstrip('/')).resolve()
+                        if sub_target.exists():
+                            self.directory = str(directory)
+                            return super().translate_path(pathname)
+
         self.directory = str(ROOT / '_site')
         return super().translate_path(path)
 
@@ -42,11 +57,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=4180)
     args = parser.parse_args()
-    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall']:
+    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall', 'pin-atlas']:
         if not (ROOT.parent / name / '_site/index.html').is_file():
             raise SystemExit(f'Build {name} before starting this preview.')
-    if not (ROOT.parent / 'p/pin-atlas/dist/index.html').is_file():
-        raise SystemExit('Pin Atlas dist/index.html is missing.')
     server = ThreadingHTTPServer(('127.0.0.1', args.port), partial(SuiteHandler, directory=str(ROOT / '_site')))
     print(f'Zaryob preview: http://127.0.0.1:{args.port}', flush=True)
     try:

@@ -11,7 +11,7 @@ kopyasını yayımlar; diğer sitelerin CSS dosyalarına çalışma anında bağ
 Asıl kaynak bu depodaki `assets/console/theme.css`, `assets/console/theme.js` ve
 `_includes/console-header.html` dosyalarıdır. `site.css` kişisel siteye özgüdür;
 Kılavuzlar `assets/style.css`, Syscall `public/assets/console/syscall.css` kullanır.
-Pin Atlas kendi `dist/style.css` dosyasını ve statik HTML başlığını kullanır;
+Pin Atlas kendi `public/style.css` dosyasını ve ortak Jekyll başlığını kullanır;
 ortak CSS/JavaScript dosyaları diğer sitelerle birebir aynıdır. Pin Atlas Türkçe
 arayüzünü korur ve ortak arama/dil denetimlerini yüklemez.
 
@@ -56,7 +56,7 @@ python3 scripts/sync_console_theme.py --check
 ```
 
 Depolar başka konumdaysa `--guides /yol/kilavuzlar --syscall /yol/syscall --pin-atlas /yol/pin-atlas` verilebilir. Pin Atlas varsayılan olarak kardeş
-`p/pin-atlas` dizininde aranır; mevcut değilse atlanır.
+`pin-atlas` dizininde aranır; mevcut değilse atlanır.
 Eşitleme betiği depoya özgü stilleri ve içerikleri değiştirmez.
 
 Koyu tema antrasit, açık tema kırık beyaz taban kullanır. Her iki paletin
@@ -79,7 +79,7 @@ açıldığında kişisel sitenin ve Kılavuzlar'ın `search.json` dizinlerini i
 Syscall sorgularını mevcut `?q=` aramasına gönderir. Sunucu veya API anahtarı
 gerektirmez. Dizinlerden biri erişilemiyorsa sonuçlar bu durum belirtilerek sunulur.
 
-Üç Jekyll sitesini derledikten sonra Pin Atlas `dist/` diziniyle birlikte ortak önizleme:
+Dört Jekyll sitesini derledikten sonra ortak önizleme:
 
 ```sh
 python3 scripts/preview_suite.py --port 4180

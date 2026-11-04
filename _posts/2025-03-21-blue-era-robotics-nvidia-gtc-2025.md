@@ -6,11 +6,12 @@ date: 2025-03-21 10:02:34 +0300
 categories: [genel]
 tags: ["nvidia-newton", "robotics", "gtc-2025", "nvidia"]
 lang: en
-description: "I want to start by emphasizing this… At NVIDIA GTC 2025, NVIDIA CEO Jensen Huang’s keynote marked a significant milestone, indicating that we’ve entered th"
+description: "At NVIDIA GTC 2025, Jensen Huang's keynote marked a milestone in robotics and AI, introducing the robot 'Blue' and the Newton physics engine."
+subtitle: "Keynotes from NVIDIA GTC 2025: Jensen Huang's presentation of the AI-powered research robot Blue and the Newton physics engine."
 cover_image: "/assets/img/posts/medium-f97cf193efa199.webp"
 medium_url: "https://medium.com/@zaryob/the-blue-era-of-robotics-my-nvidia-gtc-2025-notes-a59c80d4e84f"
 ---
-<figure><img loading="lazy" decoding="async" width="1024" height="576" alt="" src="/assets/img/posts/medium-f97cf193efa199.webp" /><figcaption>şundanım olsun istiyorum…</figcaption></figure>
+<figure><img loading="lazy" decoding="async" width="1024" height="576" alt="" src="/assets/img/posts/medium-f97cf193efa199.webp" /><figcaption>I want to have one of these…</figcaption></figure>
 
 <p>I want to start by emphasizing this… At NVIDIA GTC 2025, NVIDIA CEO Jensen Huang’s keynote marked a significant milestone, indicating that we’ve entered the adolescence of robotics and artificial intelligence. They introduced an AI-powered research robot named “Blue,” inspired by Star Wars (though personally, it reminds me of WALL-E). This robot operates using “Newton,” a new physics engine collaboratively developed by NVIDIA, Google DeepMind, and Disney Research. But what do these developments truly signify?</p>
 

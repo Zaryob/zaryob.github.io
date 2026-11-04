@@ -260,9 +260,12 @@
       if (dialog.open) render();
     });
     document.addEventListener('keydown', event => {
+      if (event.defaultPrevented) return;
       const target = event.target;
       const editing = target instanceof HTMLElement && (target.matches('input,textarea,select') || target.isContentEditable);
-      const isSearchShortcut = (event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey) ||
+      const isSlash = event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey;
+      if (isSlash && document.querySelector('#pin-search')) return;
+      const isSearchShortcut = isSlash ||
         ((event.key === 'k' || event.key === 'K') && (event.ctrlKey || event.metaKey));
       if (isSearchShortcut) { event.preventDefault(); showSearch(); }
     });
