@@ -13,9 +13,6 @@ github_username: Zaryob
 sass:
   style: compressed
 
-# Tracker
-google_analytics: "G-M6NQ8DV1XP"
-
 include:
   - _pages
 
