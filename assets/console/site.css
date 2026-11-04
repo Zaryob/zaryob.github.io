@@ -1,7 +1,7 @@
 /* Personal site adapters. Palette, fonts and navigation live in theme.css. */
 .console-home .hero { position: relative; isolation: isolate; overflow: hidden; }
 .console-home .hero__photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.console-home .hero--photo::before { content: ""; position: absolute; z-index: -1; inset: 0; background: rgb(10 14 20 / .76); }
+.console-home .hero--photo::before { content: ""; position: absolute; z-index: -1; inset: 0; background: rgba(10, 14, 20, .76); }
 .console-home .hero .hero__inner { align-items: center; text-align: center; }
 .console-home .hero .hero__lead { margin-inline: auto; }
 .console-home .hero .hero__actions { justify-content: center; }

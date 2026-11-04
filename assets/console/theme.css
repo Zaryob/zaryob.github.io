@@ -131,7 +131,7 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 .console-hints { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .console-hints kbd:not(:first-child) { margin-left: 12px; }
 .console-search { width: min(720px, calc(100% - 32px)); max-height: calc(100dvh - 48px); margin: 8vh auto auto; padding: 24px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); }
-.console-search::backdrop { background: rgb(0 0 0 / .65); }
+.console-search::backdrop { background: rgba(0, 0, 0, .65); }
 .console-search__heading { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 20px; }
 .console-search__heading h2 { margin: 0; font-size: 18px; }
 .console-search label { display: block; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
