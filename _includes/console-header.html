@@ -15,7 +15,10 @@
         </nav>
       </details>
     </div>
-    <button class="console-menu" type="button" data-console-menu aria-label="Menüyü aç" data-i18n-aria-label="Open menu" aria-expanded="false" aria-controls="console-navigation">{% include console-icon.html name='menu' %}</button>
+    <div class="console-header-actions">
+      <button class="console-search-compact" type="button" data-console-search-compact aria-haspopup="dialog" aria-label="Zaryob içeriklerinde ara" data-i18n-aria-label="Search Zaryob content">{% include console-icon.html name='search' %}</button>
+      <button class="console-menu" type="button" data-console-menu aria-label="Menüyü aç" data-i18n-aria-label="Open menu" aria-expanded="false" aria-controls="console-navigation">{% include console-icon.html name='menu' %}</button>
+    </div>
     <nav class="console-nav" id="console-navigation" aria-label="Zaryob gezinme" data-i18n-aria-label="Zaryob navigation">
       {% if site.suite_section == 'home' %}
       <div class="console-writing{% if writing_current %} is-current{% endif %}">

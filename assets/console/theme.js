@@ -131,7 +131,7 @@
     let request = 0;
     let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const addResult = (title, url, type, language, excerpt) => {
+    const addResult = (title, url, type,  excerpt) => {
       const item = document.createElement('li');
       const link = document.createElement('a');
       const address = new URL(url, suite);
@@ -140,7 +140,7 @@
       if (language) link.lang = language;
       const label = document.createElement('small');
       label.textContent = t(({ 'yazılar/': 'posts/', 'sayfalar/': 'pages/', 'kılavuzlar/': 'guides/', 'kılavuzlar/arşiv/': 'guides/archive/' })[type] || type);
-      link.append(label, document.createTextNode(title));
+      link.append(label, document.createTextNode(' ' + title));
       if (excerpt) {
         const snippet = document.createElement('small');
         snippet.textContent = excerpt;
@@ -159,9 +159,9 @@
       if (!indexes.has(language)) {
         const index = createInstance({ baseUrl: suite.href });
         const guides = new URL('kilavuzlar/', suite);
-        indexes.set(language, index.mergeIndex(new URL('pagefind/', guides).href, {
+        indexes.set( index.mergeIndex(new URL('pagefind/', guides).href, {
           baseUrl: guides.href,
-          language,
+          
         }).then(() => index).catch(error => {
           index.destroy();
           throw error;
