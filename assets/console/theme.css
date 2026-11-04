@@ -32,7 +32,7 @@
 }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 6rem; }
-body.console-site { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.8 var(--font-mono); font-synthesis: none; }
+body.console-site { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.8 var(--font-mono); font-synthesis: none; transition: background-color 0.15s ease, color 0.15s ease; }
 .console-site :is(h1,h2,h3,h4,h5,h6,button,input,select,textarea,code,pre,kbd,summary) { font-family: var(--font-mono); letter-spacing: 0; }
 .console-site :is(h1,h2,h3,h4) { color: var(--ink); font-weight: 500; line-height: 1.45; overflow-wrap: anywhere; }
 .console-site h1 { font-size: clamp(24px, 2.5vw, 32px); }
@@ -60,7 +60,7 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 .console-site blockquote { margin: 1.5rem 0; padding: .25rem 1.25rem; border-left: 2px solid var(--accent); color: var(--muted); }
 .console-site hr { border: 0; border-top: 1px solid var(--line); opacity: 1; }
 .console-site kbd { background: var(--surface); border: 1px solid var(--line); border-radius: 2px; color: var(--muted); padding: 2px 6px; font-size: 12px; }
-.console-header { position: sticky; z-index: 20; top: 0; background: var(--paper); border-bottom: 1px solid var(--line); }
+.console-header { position: sticky; z-index: 20; top: 0; background: var(--paper); border-bottom: 1px solid var(--line); transition: background-color 0.15s ease, border-color 0.15s ease; }
 .console-header__inner { max-width: var(--shell-width); min-height: 74px; margin: auto; padding: 0 36px; display: flex; align-items: center; gap: 36px; }
 .console-identity { position: relative; display: flex; align-items: center; min-width: 0; flex-shrink: 0; font-size: 21px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
 .console-brand, .console-brand:visited { flex-shrink: 0; font: inherit; text-decoration: none; color: var(--accent) !important; white-space: nowrap; }
@@ -209,7 +209,10 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
   .console-identity { font-size: 15px; }
   .console-projects > summary > .console-icon { margin-left: 6px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  body.console-site, .console-header { transition: none !important; }
+}
 
 /* Language controls share the theme palette and Safari select reset. */
 .console-language select { width: 66px; max-width: 66px; }
