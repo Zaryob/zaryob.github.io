@@ -84,9 +84,31 @@
 .console-home .reading-path h3 a { color: var(--ink); text-decoration: none; }
 .console-home .reading-path h3 a:hover { color: var(--accent); }
 .console-home .reading-path p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
-.console-home .project-group > h2, .console-home .project-detail h2, .console-home .project-detail h3 { font-size: 20px; font-weight: 500; }
-.console-home .project-detail__meta { font-size: 12px; font-weight: 400; }
-.console-home .project-detail dd { color: var(--muted); }
+.console-home .project-navigation { margin: 24px 0 36px; }
+.console-home .project-navigation ul { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; list-style: none; margin: 0; }
+.console-home .project-navigation li a { display: inline-flex; align-items: center; padding: 6px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--ink); font-size: 13px; text-decoration: none; transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease; }
+.console-home .project-navigation li a:hover { border-color: var(--accent); background: var(--wash); color: var(--accent); }
+.console-home .project-group { margin-top: 56px; scroll-margin-top: 5rem; }
+.console-home .project-group > h2 { font-size: 22px; font-weight: 600; color: var(--ink); margin: 0 0 8px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.console-home .project-group > p { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+.console-home .project-detail { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 28px 32px; margin-bottom: 28px; scroll-margin-top: 5rem; transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+.console-home .project-detail:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04); }
+.console-home .project-detail__header { margin-bottom: 20px; }
+.console-home .project-detail__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.console-home .project-detail__badge { display: inline-flex; align-items: center; color: var(--accent); background: var(--paper); border: 1px solid var(--control-border); border-radius: 2px; font-size: 11px; font-weight: 500; padding: 2px 8px; line-height: 1.5; }
+.console-home .project-detail__badge--lifecycle { color: var(--muted); border-color: var(--line); background: var(--wash); }
+.console-home .project-detail h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; line-height: 1.35; }
+.console-home .project-detail h3 a { color: var(--ink); text-decoration: none; }
+.console-home .project-detail h3 a:hover { color: var(--accent); }
+.console-home .project-detail__arrow { font-size: 0.9em; margin-left: 4px; color: var(--accent); transition: transform 0.15s ease; }
+.console-home .project-detail:hover .project-detail__arrow { transform: translate(2px, -2px); }
+.console-home .project-detail__summary { font-size: 14.5px; line-height: 1.7; color: var(--ink); margin: 0; }
+.console-home .project-detail__specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 18px 22px; margin: 0 0 20px; }
+.console-home .project-detail__spec { display: flex; flex-direction: column; min-width: 0; }
+.console-home .project-detail__spec dt { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin: 0 0 4px; }
+.console-home .project-detail__spec dd { font-size: 13px; line-height: 1.6; color: var(--muted); margin: 0; overflow-wrap: break-word; }
+.console-home .project-detail__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: auto; }
+.console-home .project-detail__actions .site-button { border-radius: 4px; font-size: 12.5px; padding: 8px 16px; }
 .console-home .post-layout { max-width: 78ch; padding-inline: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; }
 .console-home .post-content { font-size: 16px; line-height: 1.9; }
 .console-home .post-content :is(strong,b) { font-weight: 600; }
@@ -130,6 +152,8 @@
   .console-home .blog-post__image-link { flex: 0 0 100px; width: 100px; margin: 0; }
   .console-home .blog-post img { width: 100px; height: 80px; }
   .console-home .section-heading { flex-wrap: wrap; gap: 6px 18px; }
+  .console-home .project-detail { padding: 20px 20px; }
+  .console-home .project-detail__specs { grid-template-columns: 1fr; gap: 14px; padding: 14px 16px; }
 }
 @media (max-width: 560px) {
   .console-home .site-container { padding-inline: 16px; }

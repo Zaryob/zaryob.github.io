@@ -1,12 +1,41 @@
 <article class="project-detail" id="{{ project.name | slugify }}" aria-labelledby="project-{{ project.name | slugify }}">
-  <p class="project-detail__meta">{{ project.type }}{% if project.lifecycle %} · {{ project.lifecycle }}{% endif %}</p>
-  <h3 id="project-{{ project.name | slugify }}">{{ project.display_name | default: project.name }}</h3>
-  <p>{{ project.summary }}</p>
-  <dl>
-    <dt>{% if page.lang == 'en' %}Need{% else %}İhtiyaç{% endif %}</dt><dd>{{ project.problem }}</dd>
-    <dt>{% if page.lang == 'en' %}My contribution{% else %}Katkım{% endif %}</dt><dd>{{ project.contribution }}</dd>
-    <dt>{% if page.lang == 'en' %}Approach{% else %}Yaklaşım{% endif %}</dt><dd>{{ project.approach }}</dd>
-    <dt>{% if page.lang == 'en' %}Visible result{% else %}Görülebilir çıktı{% endif %}</dt><dd>{{ project.result }}</dd>
+  <div class="project-detail__header">
+    <div class="project-detail__badges">
+      <span class="project-detail__badge">{{ project.type }}</span>
+      {% if project.lifecycle %}<span class="project-detail__badge project-detail__badge--lifecycle">{{ project.lifecycle }}</span>{% endif %}
+    </div>
+    <h3 id="project-{{ project.name | slugify }}">
+      <a href="{% if project.docs %}{{ project.docs }}{% else %}{{ project.repo }}{% endif %}">{{ project.display_name | default: project.name }} <span class="project-detail__arrow" aria-hidden="true">↗</span></a>
+    </h3>
+    <p class="project-detail__summary">{{ project.summary }}</p>
+  </div>
+
+  <dl class="project-detail__specs">
+    <div class="project-detail__spec">
+      <dt>{% if page.lang == 'en' %}Need{% else %}İhtiyaç{% endif %}</dt>
+      <dd>{{ project.problem }}</dd>
+    </div>
+    <div class="project-detail__spec">
+      <dt>{% if page.lang == 'en' %}My contribution{% else %}Katkım{% endif %}</dt>
+      <dd>{{ project.contribution }}</dd>
+    </div>
+    <div class="project-detail__spec">
+      <dt>{% if page.lang == 'en' %}Approach{% else %}Yaklaşım{% endif %}</dt>
+      <dd>{{ project.approach }}</dd>
+    </div>
+    <div class="project-detail__spec">
+      <dt>{% if page.lang == 'en' %}Visible result{% else %}Görülebilir çıktı{% endif %}</dt>
+      <dd>{{ project.result }}</dd>
+    </div>
   </dl>
-  <p><a href="{% if project.docs %}{{ project.docs }}{% else %}{{ project.repo }}{% endif %}">{{ project.link_text }} <span aria-hidden="true">↗</span></a>{% if project.docs %} · <a href="{{ project.repo }}">{% if page.lang == 'en' %}GitHub repository{% else %}GitHub deposu{% endif %} <span aria-hidden="true">↗</span></a>{% endif %}{% for link in project.links %} · <a href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</p>
+
+  <div class="project-detail__actions">
+    <a class="site-button site-button--accent" href="{% if project.docs %}{{ project.docs }}{% else %}{{ project.repo }}{% endif %}">{{ project.link_text | default: 'İncele' }} <span aria-hidden="true">↗</span></a>
+    {% if project.docs %}
+      <a class="site-button" href="{{ project.repo }}">{% if page.lang == 'en' %}GitHub repository{% else %}GitHub deposu{% endif %} <span aria-hidden="true">↗</span></a>
+    {% endif %}
+    {% for link in project.links %}
+      <a class="site-button" href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>
+    {% endfor %}
+  </div>
 </article>
