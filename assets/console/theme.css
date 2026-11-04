@@ -140,7 +140,9 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 .console-search input { width: 100%; min-height: 46px; }
 .console-search__results { padding: 0; margin: 16px 0 0; list-style: none; max-height: 50vh; overflow-y: auto; }
 .console-search__results li { border-top: 1px solid var(--line); }
-.console-search__results a { display: block; padding: 12px 4px; text-decoration: none; }
+.console-search__results a { display: block; padding: 12px 8px; text-decoration: none; border-radius: 2px; }
+.console-search__results a:hover,
+.console-search__results a:focus-visible { background: var(--surface); color: var(--accent); outline: none; }
 .console-search__results small { display: block; color: var(--muted); font-size: 11px; margin-bottom: 3px; }
 .console-search__status { font-size: 12px; color: var(--muted); margin: 12px 0 0; }
 .console-code { position: relative; margin: 1.4rem 0; }

@@ -229,6 +229,27 @@
       else openSearch.focus();
     });
     dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); } });
+    dialog.addEventListener('keydown', event => {
+      const links = Array.from(results.querySelectorAll('a'));
+      if (!links.length) return;
+      const activeIndex = links.indexOf(document.activeElement);
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        const next = activeIndex < links.length - 1 ? activeIndex + 1 : 0;
+        links[next]?.focus();
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (activeIndex > 0) {
+          links[activeIndex - 1]?.focus();
+        } else {
+          input.focus();
+        }
+      } else if (event.key === 'Enter' && event.target === input) {
+        event.preventDefault();
+        links[0].click();
+      }
+    });
     input.addEventListener('input', () => {
       request++;
       clearTimeout(debounce);
