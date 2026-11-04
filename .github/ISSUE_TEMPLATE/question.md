@@ -10,10 +10,8 @@ labels: question
 
 <!-- Please complete the following list of tasks, and then check it by change the "[ ]" to "[x]" -->
 
-- [ ] I have read the [tutorials](https://chirpy.cotes.info/categories/tutorial/) and know the correct effect of the functional design.
-- [ ] There are no similar question on existing issues (including closed ones).
+- [ ] I searched for similar questions in open and closed issues.
 - [ ] I searched the Internet for related problems, but still couldn't solve it.
-- [ ] My question is based on the latest code of `master` branch.
 
 
 ## Description

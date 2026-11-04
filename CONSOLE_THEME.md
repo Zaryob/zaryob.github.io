@@ -8,8 +8,8 @@ proje seçiciyi açar. Başlıkta proje bağlantıları yan yana birikmez. Ana s
 Yazılar, Projeler ve Hakkımda gezinmesi yalnızca ana sitede bulunur. Her site yerel font ve tema
 kopyasını yayımlar; diğer sitelerin CSS dosyalarına çalışma anında bağımlı değildir.
 
-Asıl kaynak bu depodaki `assets/console/theme.css`, `assets/console/theme.js` ve
-`_includes/console-header.html` dosyalarıdır. `site.css` kişisel siteye özgüdür;
+Bu depoda ortak görünüm `assets/console/theme.css`, `assets/console/theme.js` ve
+`_includes/console-header.html` dosyalarını kullanır. `site.css` kişisel siteye özgüdür;
 Kılavuzlar `assets/style.css`, Syscall `public/assets/console/syscall.css` kullanır.
 Pin Atlas kendi `public/style.css` dosyasını ve ortak Jekyll başlığını kullanır;
 ortak CSS/JavaScript dosyaları diğer sitelerle birebir aynıdır. Pin Atlas Türkçe
@@ -27,12 +27,11 @@ tıklama veya odağın dışarı taşınmasıyla kapanır.
 yerel bir `details/summary` açılır listesi kullanır; Escape ve dışarı tıklama ile
 kapanır. Kategori etiketleri ve bağlantıları konu listesinden üretilir.
 
-1180 piksel ve altında üst satır yalnızca marka ve erişilebilir adı olan menü
-simgesini gösterir. Gezinme, kategoriler, arama ve tema seçimi aynı açılır
-paneldedir. Uzun menü panelin içinde kayar; Escape menüyü kapatıp odağı
-simgeye taşır. Daha geniş ekranda yatay gezinme kendiliğinden geri gelir.
-Arama penceresi kapanınca odak görünür arama düğmesine veya kapalı mobil
-menünün simgesine döner. JavaScript kapalıysa bağlantılar görünür kalır.
+1180 piksel ve altında üst satırda marka, menü düğmesi ve arama bulunan sitelerde
+bir arama düğmesi yer alır. Diğer gezinme ve seçim denetimleri açılır paneldedir.
+Uzun menü panel içinde kayar. Escape menüyü kapatıp odağı menü düğmesine taşır.
+Daha geniş ekranlarda yatay gezinme kullanılır. JavaScript kapalıysa bağlantılar
+görünür kalır.
 
 Kişisel sitede `_includes/post-meta.html`, hem yazı listelerinde hem yazı
 üstbilgisinde aynı kategori, tarih ve okuma süresini gösterir. Fotoğraflı
@@ -74,10 +73,12 @@ gezinme ve belge içeriği kullanılabilir kalır.
 
 Jekyll üst menü bağlantıları `_config.yml` içindeki `suite_url` değerinden oluşur.
 Pin Atlas proje bağlantıları yayımlanan ana site adresini kullanır.
-Kılavuzlar ve Syscall var olan `baseurl` yollarını korur. Arama penceresi ilk
-açıldığında kişisel sitenin ve Kılavuzlar'ın `search.json` dizinlerini indirir;
+Kılavuzlar ve Syscall var olan `baseurl` yollarını korur. Arama, kişisel sitenin
+ve Kılavuzlar'ın Pagefind dizinlerini birleştirir. Tam metin dizinleri
+yüklenemezse `search.json` dosyalarından başlık ve açıklama eşleşmelerini gösterir.
 Syscall sorgularını mevcut `?q=` aramasına gönderir. Sunucu veya API anahtarı
-gerektirmez. Dizinlerden biri erişilemiyorsa sonuçlar bu durum belirtilerek sunulur.
+gerektirmez. Aramayı `/`, `Ctrl+K` veya `⌘K` ile açıp sonuçlar arasında ok
+tuşlarıyla gezinebilirsiniz.
 
 Dört Jekyll sitesini derledikten sonra ortak önizleme:
 

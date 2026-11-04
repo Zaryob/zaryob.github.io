@@ -4,18 +4,17 @@
 
 ## Yerelde çalıştırma
 
-Ruby 3.3 ve Bundler kurulu olmalı. `Gemfile`, GitHub Pages'in kullandığı Jekyll sürümünü `github-pages` gem'i üzerinden sabitler.
+Python 3, Ruby 3.3 veya daha yeni bir sürüm ve Bundler kurulu olmalı. `scripts/jekyll.py` uygun Ruby sürümünü seçer. `Gemfile`, Jekyll ve ilgili eklentileri `github-pages` gem'i üzerinden yükler.
 
 ```sh
-bundle config set --local path vendor/bundle
-bundle install
-bundle exec jekyll serve --livereload
+python3 scripts/jekyll.py install
+python3 scripts/jekyll.py serve --livereload
 ```
 
 Site `http://127.0.0.1:4000` adresinde açılır. Yayına çıkacak HTML'yi ve yerel bağlantıları denetlemek için:
 
 ```sh
-bundle exec jekyll build --trace
+python3 scripts/jekyll.py build --trace
 python3 scripts/check_site.py _site
 ```
 
@@ -52,7 +51,7 @@ Medium'da yayımlanmış bir yazıyı arşive eklerken:
 
 1. Başlığı, özgün yayımlanma tarihini, metni, kod bloklarını ve görselleri karşılaştırın.
 2. Yerel Markdown dosyasını ve gereken görselleri depoya ekleyin. Dış bağlantıları kaynak oldukları yerde koruyun, fakat sitenin kendi yazılarına giden bağlantıları yerel adreslere çevirin.
-3. `bundle exec jekyll build --trace` ve `python3 scripts/check_site.py _site` komutlarını çalıştırın; telefonda da yazının okunabilirliğini kontrol edin.
+3. `python3 scripts/jekyll.py build --trace` ve `python3 scripts/check_site.py _site` komutlarını çalıştırın. Telefonda da yazının okunabilirliğini kontrol edin.
 4. Medium'daki özgün bağlantıyı yazının ön bilgilerine `medium_url` olarak kaydedin. Böylece iki sürüm arasında iz sürülebilir.
 
 Bu işlem otomatik eşitleme değildir; yeni Medium yazıları ayrıca depoya aktarılmalıdır.
@@ -61,4 +60,4 @@ Görsel kaynakları ve yerel karşılıkları `_data/medium_media.json` içinde 
 
 `scripts/check_site.py`, bu envanterdeki dosyaları ve içerik özetlerini doğrular; görsellerin sayfalarda gerçekten kullanıldığını da denetler. Harici sunucudan yüklenen fotoğrafları hata olarak bildirir. Yeni bir Medium görseli eklediğinizde envantere kaydını da ekleyin.
 
-Menü ve sosyal bağlantı ikonları `assets/icons/site.svg` içindeki seçili Font Awesome SVG’lerinden gelir. Yeni bir ikon eklerken `_includes/icon.html` kullanın ve `assets/fontawesome/LICENSE.txt` atfını koruyun.
+Sosyal bağlantı ikonları `_includes/icon.html` aracılığıyla `assets/icons/site.svg` dosyasından yüklenir. Font Awesome atfı `assets/fontawesome/LICENSE.txt` dosyasındadır. Menü ikonları ve ortak tema için [ortak görünüm belgesine](CONSOLE_THEME.md) bakın.

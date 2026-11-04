@@ -18,7 +18,6 @@ include:
 
 exclude:
   - CONSOLE_THEME.md
-  - design-qa.md
   - README.md
   - Gemfile
   - Gemfile.lock

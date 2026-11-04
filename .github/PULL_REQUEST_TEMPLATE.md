@@ -22,12 +22,12 @@ Please select the desired item checkbox and change it to "[x]", then delete opti
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 -->
 
-- [ ] I have run `bash ./tools/build.sh && bash ./tools/test.sh` (at the root of the project) locally and passed
+- [ ] I ran `python3 scripts/jekyll.py build --trace` and `python3 scripts/check_site.py _site` locally for site changes.
 - [ ] I have tested this feature in the browser
 
 ### Test Configuration
 
-- Browerser type & version:
+- Browser and version:
 - Operating system:
 - Bundler version:
 - Ruby version:
