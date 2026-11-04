@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
-/* Shared by zaryob.github.io, kilavuzlar and syscall. Sync with scripts/sync_console_theme.py. */
+/* Shared by zaryob.github.io, kilavuzlar, syscall and pin-atlas. Sync with scripts/sync_console_theme.py. */
 @font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-style: normal; font-weight: 500 700; font-display: swap; }
 :root {
@@ -62,8 +62,22 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 .console-site kbd { background: var(--surface); border: 1px solid var(--line); border-radius: 2px; color: var(--muted); padding: 2px 6px; font-size: 12px; }
 .console-header { position: sticky; z-index: 20; top: 0; background: var(--paper); border-bottom: 1px solid var(--line); }
 .console-header__inner { max-width: var(--shell-width); min-height: 74px; margin: auto; padding: 0 36px; display: flex; align-items: center; gap: 36px; }
-.console-brand, .console-brand:visited { flex-shrink: 0; font-size: 21px; font-weight: 500; text-decoration: none; color: var(--ink) !important; white-space: nowrap; }
-.console-brand span { color: var(--accent); }
+.console-identity { position: relative; display: flex; align-items: center; min-width: 0; flex-shrink: 0; font-size: 21px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+.console-brand, .console-brand:visited { flex-shrink: 0; font: inherit; text-decoration: none; color: var(--accent) !important; white-space: nowrap; }
+.console-prompt-separator { color: var(--muted); }
+.console-projects { margin: 0; font: inherit; }
+.console-projects > summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; list-style: none; font: inherit; color: var(--ink); text-decoration: none; }
+.console-projects[open] > summary { margin-bottom: 0; }
+.console-projects > summary::-webkit-details-marker { display: none; }
+.console-prompt-dollar { color: var(--accent); margin-left: .45em; }
+.console-projects > summary > .console-icon { width: 10px; height: 10px; flex-basis: 10px; margin-left: 10px; color: var(--muted); }
+.console-projects > summary:hover .console-project-path, .console-projects[open] .console-project-path { color: var(--accent); }
+.console-projects[open] > summary > .console-icon { transform: rotate(180deg); }
+.console-project-menu { position: absolute; z-index: 35; top: calc(100% + 10px); left: 0; width: 300px; max-width: calc(100vw - 32px); max-height: calc(100dvh - 96px); overflow-y: auto; overscroll-behavior: contain; padding: 6px; border: 1px solid var(--control-border); background: var(--paper); }
+.console-project-menu a, .console-project-menu a:visited { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 10px; gap: 16px; color: var(--ink); font-size: 13px; font-weight: 400; text-decoration: none; }
+.console-project-menu a:hover, .console-project-menu a[aria-current] { background: var(--surface); color: var(--accent); }
+.console-project-menu a:focus-visible { outline-offset: -2px; }
+.console-project-menu small { color: var(--muted); font-size: 11px; }
 .console-nav { display: flex; flex: 1; min-width: 0; align-self: stretch; align-items: stretch; gap: 24px; margin: 0; }
 .console-nav a, .console-nav a:visited { display: flex; align-items: center; border-bottom: 2px solid transparent; padding: 18px 0 16px; font-size: 16px; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .console-nav a:hover, .console-nav a[aria-current] { color: var(--accent); border-bottom-color: var(--accent); }
@@ -173,7 +187,8 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 @media (max-width: 560px) {
   body.console-site { font-size: 14px; }
   .console-header__inner { padding: 12px 16px; gap: 12px; }
-  .console-brand { font-size: 18px; margin: 0; }
+  .console-identity { font-size: 18px; }
+  .console-brand { margin: 0; }
   .console-tools { gap: 12px; }
   .console-search-open { padding-inline: 10px; }
   :is(.console-theme,.console-language) select { width: 83px; padding-inline: 8px 26px; }
@@ -184,7 +199,8 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 }
 @media (max-width: 380px) {
   .console-header__inner { gap: 10px 8px; }
-  .console-brand { font-size: 17px; }
+  .console-identity { font-size: 15px; }
+  .console-projects > summary > .console-icon { margin-left: 6px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
 

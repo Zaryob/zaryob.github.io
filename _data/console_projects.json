@@ -1,0 +1,28 @@
+[
+  {
+    "key": "home",
+    "title": "Ana sayfa",
+    "title_en": "Home",
+    "path": "/",
+    "prompt": "~"
+  },
+  {
+    "key": "kilavuzlar",
+    "title": "Kılavuzlar",
+    "title_en": "Guides",
+    "path": "/kilavuzlar/",
+    "prompt": "~/kilavuzlar"
+  },
+  {
+    "key": "syscall",
+    "title": "Syscall",
+    "path": "/syscall/",
+    "prompt": "~/syscall"
+  },
+  {
+    "key": "pin-atlas",
+    "title": "Pin Atlas",
+    "path": "/pin-atlas/",
+    "prompt": "~/pin-atlas"
+  }
+]

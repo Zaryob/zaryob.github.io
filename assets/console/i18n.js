@@ -3,6 +3,9 @@
 (() => {
   'use strict';
   const translations = {
+  "Home": "Ana sayfa",
+  "Switch project": "Proje değiştir",
+  "Zaryob projects": "Zaryob projeleri",
   "Posts": "Yazılar",
   "Guides": "Kılavuzlar",
   "Projects": "Projeler",

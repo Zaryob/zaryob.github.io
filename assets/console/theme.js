@@ -9,7 +9,10 @@
   let preference = 'system';
   try { preference = localStorage.getItem(key) || 'system'; } catch { /* Storage may be disabled. */ }
   if (!['system', 'light', 'dark'].includes(preference)) preference = 'system';
-  const apply = () => { root.dataset.theme = preference === 'system' ? (system.matches ? 'dark' : 'light') : preference; };
+  const apply = () => {
+    root.dataset.theme = preference === 'system' ? (system.matches ? 'dark' : 'light') : preference;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#171a1f' : '#f5f3ed');
+  };
   apply();
   system.addEventListener('change', apply);
   window.addEventListener('storage', event => {
@@ -20,7 +23,10 @@
   });
 
   document.addEventListener('DOMContentLoaded', () => {
-    const { t, apply: applyLanguage } = window.ZaryobI18n;
+    const { t, apply: applyLanguage } = window.ZaryobI18n || {
+      t: text => ({ 'Open menu': 'Menüyü aç', 'Close menu': 'Menüyü kapat' })[text] || text,
+      apply: () => {},
+    };
     document.querySelectorAll('[data-console-theme]').forEach(select => {
       select.value = preference;
       select.addEventListener('change', () => {
@@ -42,26 +48,41 @@
     menu?.addEventListener('click', () => {
       setMenuOpen(menu.getAttribute('aria-expanded') !== 'true');
     });
-    const categories = document.querySelector('[data-console-categories]');
-    if (categories) {
-      const updateCategories = () => categories.querySelector('summary').setAttribute('aria-expanded', String(categories.open));
-      updateCategories();
-      categories.addEventListener('toggle', updateCategories);
-    }
+    const dropdowns = [...document.querySelectorAll('[data-console-categories], [data-console-projects]')];
+    const closeDropdown = (dropdown, restoreFocus = false) => {
+      dropdown.open = false;
+      dropdown.querySelector('summary').setAttribute('aria-expanded', 'false');
+      if (restoreFocus) dropdown.querySelector('summary').focus();
+    };
+    dropdowns.forEach(dropdown => {
+      const updateDropdown = () => {
+        dropdown.querySelector('summary').setAttribute('aria-expanded', String(dropdown.open));
+        if (dropdown.open) dropdowns.forEach(other => { if (other !== dropdown && other.open) closeDropdown(other); });
+      };
+      updateDropdown();
+      dropdown.addEventListener('toggle', updateDropdown);
+      dropdown.addEventListener('focusout', event => {
+        if (!dropdown.contains(event.relatedTarget)) closeDropdown(dropdown);
+      });
+    });
     compactNavigation.addEventListener('change', () => {
       const restoreFocus = compactNavigation.matches && navigation?.contains(document.activeElement);
       setMenuOpen(false);
-      if (categories) categories.open = false;
+      dropdowns.forEach(dropdown => closeDropdown(dropdown));
       if (restoreFocus) menu?.focus();
     });
     document.addEventListener('click', event => {
-      if (categories?.open && !categories.contains(event.target)) categories.open = false;
+      dropdowns.forEach(dropdown => {
+        if (dropdown.open && !dropdown.contains(event.target)) closeDropdown(dropdown);
+      });
+      if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && !event.target.closest('.console-header')) setMenuOpen(false);
     });
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && categories?.open) {
-        categories.open = false;
-        categories.querySelector('summary').focus();
-      } else if (event.key === 'Escape' && compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && !document.querySelector('dialog[open]')) {
+      if (event.key !== 'Escape' || document.querySelector('dialog[open]')) return;
+      const dropdown = dropdowns.find(item => item.open);
+      if (dropdown) {
+        closeDropdown(dropdown, true);
+      } else if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true') {
         setMenuOpen(false);
         menu.focus();
       }

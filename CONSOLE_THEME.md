@@ -1,12 +1,27 @@
 # Ortak Zaryob görünümü
 
-Kişisel site, Kılavuzlar ve Syscall; `zaryob:~$` başlığını, IBM Plex Mono'yu,
-gezinmeyi ve açık/koyu renk değişkenlerini paylaşır. Her site yerel font ve tema
+Kişisel site, Kılavuzlar, Syscall ve Pin Atlas; terminal yolu biçimindeki kimliği,
+IBM Plex Mono'yu, proje seçiciyi ve açık/koyu renk değişkenlerini paylaşır.
+Ana site `zaryob:~ $`, araçlar `zaryob:~/kilavuzlar $`, `zaryob:~/syscall $` ve
+`zaryob:~/pin-atlas $` olarak görünür. `zaryob` ana siteye döner; yol ve `$`
+proje seçiciyi açar. Başlıkta proje bağlantıları yan yana birikmez. Ana sitenin
+Yazılar, Projeler ve Hakkımda gezinmesi yalnızca ana sitede bulunur. Her site yerel font ve tema
 kopyasını yayımlar; diğer sitelerin CSS dosyalarına çalışma anında bağımlı değildir.
 
 Asıl kaynak bu depodaki `assets/console/theme.css`, `assets/console/theme.js` ve
 `_includes/console-header.html` dosyalarıdır. `site.css` kişisel siteye özgüdür;
 Kılavuzlar `assets/style.css`, Syscall `public/assets/console/syscall.css` kullanır.
+Pin Atlas kendi `dist/style.css` dosyasını ve statik HTML başlığını kullanır;
+ortak CSS/JavaScript dosyaları diğer sitelerle birebir aynıdır. Pin Atlas Türkçe
+arayüzünü korur ve ortak arama/dil denetimlerini yüklemez.
+
+Proje listesi `_data/console_projects.json` içindedir. Yeni bir site için bu
+listeye `key`, `title`, isteğe bağlı `title_en`, `path` ve `prompt` alanlarını
+ekleyin; sitenin `suite_section` değerini `key` ile eşleştirin. Eşitleme betiği
+listeyi Jekyll depolarına kopyalar, Pin Atlas'ın statik proje bağlantılarını da
+aynı listeden üretir. Seçici JavaScript kapalıyken de açılır; Escape, dışarı
+tıklama veya odağın dışarı taşınmasıyla kapanır.
+
 İkon yardımcı dosyası `console-icon.html`, yerel `site.svg` simge derlemesi ve
 `_data/writing_topics.yml` konu listesi de aynı betikle eşitlenir. Yazılar menüsü
 yerel bir `details/summary` açılır listesi kullanır; Escape ve dışarı tıklama ile
@@ -32,7 +47,8 @@ python3 scripts/sync_console_theme.py
 python3 scripts/sync_console_theme.py --check
 ```
 
-Depolar başka konumdaysa `--guides /yol/kilavuzlar --syscall /yol/syscall` verilebilir.
+Depolar başka konumdaysa `--guides /yol/kilavuzlar --syscall /yol/syscall --pin-atlas /yol/pin-atlas` verilebilir. Pin Atlas varsayılan olarak kardeş
+`p/pin-atlas` dizininde aranır; mevcut değilse atlanır.
 Eşitleme betiği depoya özgü stilleri ve içerikleri değiştirmez.
 
 Koyu tema antrasit, açık tema kırık beyaz taban kullanır. Her iki paletin
@@ -43,18 +59,19 @@ Yeni yazılan ortak tema kodu GPL-2.0-or-later lisanslıdır; sitelerin mevcut
 lisansları değişmez.
 
 Tema seçicisi `Sistem`, `Koyu`, `Açık` seçeneklerini sunar. İlk açılış sistem
-tercihini izler; açık seçim `zaryob-theme` anahtarında saklanır. Üç site aynı
+tercihini izler; açık seçim `zaryob-theme` anahtarında saklanır. Dört site aynı
 origin altında yayımlandığından seçim aralarında paylaşılır. Depolama kapalıysa
 seçim mevcut sayfada çalışır. JavaScript kapalıysa CSS sistem temasını izler;
 gezinme ve belge içeriği kullanılabilir kalır.
 
-Üst menü bağlantıları `_config.yml` içindeki `suite_url` değerinden oluşur.
+Jekyll üst menü bağlantıları `_config.yml` içindeki `suite_url` değerinden oluşur.
+Pin Atlas proje bağlantıları yayımlanan ana site adresini kullanır.
 Kılavuzlar ve Syscall var olan `baseurl` yollarını korur. Arama penceresi ilk
 açıldığında kişisel sitenin ve Kılavuzlar'ın `search.json` dizinlerini indirir;
 Syscall sorgularını mevcut `?q=` aramasına gönderir. Sunucu veya API anahtarı
 gerektirmez. Dizinlerden biri erişilemiyorsa sonuçlar bu durum belirtilerek sunulur.
 
-Üç siteyi kendi Jekyll yapılandırmalarıyla derledikten sonra ortak önizleme:
+Üç Jekyll sitesini derledikten sonra Pin Atlas `dist/` diziniyle birlikte ortak önizleme:
 
 ```sh
 python3 scripts/preview_suite.py --port 4180

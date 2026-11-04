@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preview the three already-built Jekyll sites together on a loopback address."""
+"""Preview the four built Zaryob sites together on a loopback address."""
 import argparse
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 class SuiteHandler(SimpleHTTPRequestHandler):
     def translate_path(self, path):
         pathname = urlsplit(path).path
-        for prefix, repository in [('/kilavuzlar', 'kilavuzlar'), ('/syscall', 'syscall')]:
+        for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'p/pin-atlas/dist')]:
             if pathname == prefix or pathname.startswith(prefix + '/'):
-                self.directory = str(ROOT.parent / repository / '_site')
+                self.directory = str(directory)
                 return super().translate_path(pathname[len(prefix):] or '/')
         self.directory = str(ROOT / '_site')
         return super().translate_path(path)
@@ -45,6 +45,8 @@ def main():
     for name in ['zaryob.github.io', 'kilavuzlar', 'syscall']:
         if not (ROOT.parent / name / '_site/index.html').is_file():
             raise SystemExit(f'Build {name} before starting this preview.')
+    if not (ROOT.parent / 'p/pin-atlas/dist/index.html').is_file():
+        raise SystemExit('Pin Atlas dist/index.html is missing.')
     server = ThreadingHTTPServer(('127.0.0.1', args.port), partial(SuiteHandler, directory=str(ROOT / '_site')))
     print(f'Zaryob preview: http://127.0.0.1:{args.port}', flush=True)
     try:
