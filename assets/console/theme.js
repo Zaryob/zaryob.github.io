@@ -241,7 +241,9 @@
     document.addEventListener('keydown', event => {
       const target = event.target;
       const editing = target instanceof HTMLElement && (target.matches('input,textarea,select') || target.isContentEditable);
-      if (event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey) { event.preventDefault(); showSearch(); }
+      const isSearchShortcut = (event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey) ||
+        ((event.key === 'k' || event.key === 'K') && (event.ctrlKey || event.metaKey));
+      if (isSearchShortcut) { event.preventDefault(); showSearch(); }
     });
   });
 })();
