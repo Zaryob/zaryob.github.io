@@ -126,11 +126,12 @@
     const input = dialog.querySelector('input');
     const results = dialog.querySelector('ul');
     const status = dialog.querySelector('[role="status"]');
-    let records = [];
-    let indexPromise;
-    let partial = false;
+    const indexes = new Map();
+    let fallbackIndex;
+    let request = 0;
+    let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const addResult = (title, url, type, language) => {
+    const addResult = (title, url, type, language, excerpt) => {
       const item = document.createElement('li');
       const link = document.createElement('a');
       const address = new URL(url, suite);
@@ -140,46 +141,99 @@
       const label = document.createElement('small');
       label.textContent = t(({ 'yazılar/': 'posts/', 'sayfalar/': 'pages/', 'kılavuzlar/': 'guides/', 'kılavuzlar/arşiv/': 'guides/archive/' })[type] || type);
       link.append(label, document.createTextNode(title));
+      if (excerpt) {
+        const snippet = document.createElement('small');
+        snippet.textContent = excerpt;
+        link.append(snippet);
+      }
       item.append(link);
       results.append(item);
     };
-    const render = () => {
-      results.replaceChildren();
-      const query = input.value.trim();
-      const terms = normalize(query).split(/\s+/).filter(Boolean);
-      const matches = records.filter(record => terms.every(term => record.text.includes(term))).slice(0, 12);
-      for (const record of matches) addResult(record.title, record.url, record.type, record.lang);
-      if (query) {
-        const url = new URL('syscall/', suite);
-        url.searchParams.set('q', query);
-        addResult(t('Search the syscall table: {query}', { query }), url.href, 'syscall/');
-      }
-      status.textContent = partial ? t('Some indexes could not be loaded. Available results are shown.') : (query ? t('{count} content results', { count: matches.length }) : t('Search by title or topic.'));
-    };
-    const load = () => indexPromise ||= Promise.allSettled(['search.json', 'kilavuzlar/search.json'].map(async path => {
+    const loadFallback = () => fallbackIndex ||= Promise.allSettled(['search.json', 'kilavuzlar/search.json'].map(async path => {
       const response = await fetch(new URL(path, suite));
       if (!response.ok) throw new Error('Search index unavailable');
       return response.json();
-    })).then(items => {
-      partial = items.some(item => item.status === 'rejected');
-      records = items.flatMap(item => item.status === 'fulfilled' && Array.isArray(item.value) ? item.value : []).map(record => ({ ...record, text: normalize(`${record.title} ${record.description || ''}`) }));
-      render();
-    });
+    }));
+    const loadIndex = async createInstance => {
+      const language = root.lang;
+      if (!indexes.has(language)) {
+        const index = createInstance({ baseUrl: suite.href });
+        const guides = new URL('kilavuzlar/', suite);
+        indexes.set(language, index.mergeIndex(new URL('pagefind/', guides).href, {
+          baseUrl: guides.href,
+          language,
+        }).then(() => index).catch(error => {
+          index.destroy();
+          throw error;
+        }));
+      }
+      return indexes.get(language);
+    };
+    const render = async () => {
+      const current = ++request;
+      const query = input.value.trim();
+      results.replaceChildren();
+      if (!query) {
+        status.textContent = t('Search by title or full text.');
+        return;
+      }
+      const syscall = new URL('syscall/', suite);
+      syscall.searchParams.set('q', query);
+      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/');
+      status.textContent = t('Searching…');
+      let matches;
+      let message = '{count} content results';
+      try {
+        const { createInstance } = await import(new URL('pagefind/pagefind.js', suite).href);
+        if (current !== request) return;
+        const index = await loadIndex(createInstance);
+        if (current !== request) return;
+        const search = await index.search(query);
+        if (current !== request) return;
+        const fragments = await Promise.all(search.results.slice(0, 12).map(result => result.data()));
+        matches = fragments.map(result => ({
+          title: result.meta.title || result.url,
+          type: result.meta.type || 'sayfalar/',
+          url: result.url,
+          excerpt: result.plain_excerpt,
+          lang: root.lang,
+        }));
+      } catch {
+        const items = await loadFallback();
+        const terms = normalize(query).split(/\s+/).filter(Boolean);
+        matches = items.flatMap(item => item.status === 'fulfilled' && Array.isArray(item.value) ? item.value : [])
+          .filter(record => terms.every(term => normalize(`${record.title} ${record.description || ''}`).includes(term)))
+          .slice(0, 12);
+        message = items.some(item => item.status === 'rejected')
+          ? 'Some indexes could not be loaded. Available results are shown.'
+          : 'Full-text search unavailable. Showing title and topic matches.';
+      }
+      if (current !== request) return;
+      results.replaceChildren();
+      for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt);
+      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/');
+      status.textContent = t(message, { count: matches.length });
+    };
     const showSearch = () => {
       if (dialog.open) return;
       dialog.showModal();
       input.focus();
-      status.textContent = t('Loading indexes…');
-      load().then(render);
+      render();
     };
     openSearch.addEventListener('click', showSearch);
     dialog.querySelector('[data-search-close]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('close', () => {
+      clearTimeout(debounce);
+      request++;
       if (compactNavigation.matches && menu?.getAttribute('aria-expanded') !== 'true') menu.focus();
       else openSearch.focus();
     });
     dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); } });
-    input.addEventListener('input', render);
+    input.addEventListener('input', () => {
+      request++;
+      clearTimeout(debounce);
+      debounce = setTimeout(render, 140);
+    });
     window.addEventListener('zaryob:language', () => {
       setMenuOpen(menu?.getAttribute('aria-expanded') === 'true');
       if (dialog.open) render();

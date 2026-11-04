@@ -7,7 +7,7 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  <nav class="post-end-nav" aria-label="Yazı gezinmesi" data-i18n-aria-label="Post navigation">
+  <nav class="post-end-nav" aria-label="Yazı gezinmesi" data-i18n-aria-label="Post navigation" data-pagefind-ignore>
     {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">Medium'daki özgün yazı</span></a><span aria-hidden="true"> · </span>{% endif %}
     <a href="{{ '/posts/' | relative_url }}"><span data-i18n="← All posts">← Tüm yazılar</span></a>
   </nav>

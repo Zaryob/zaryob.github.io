@@ -4,6 +4,10 @@
   {% include console-alternates.html %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.title and page.title != 'empty' %}
+  <meta data-pagefind-meta="title[content]" content="{{ page.title | escape }}">
+  {% endif %}
+  <meta data-pagefind-meta="type[content]" content="{% if page.layout == 'post' %}yazılar/{% else %}sayfalar/{% endif %}">
   <script defer src="https://cloud.umami.is/script.js" data-website-id="2ddfb587-71f9-4068-a66b-1f92ad4bf209"></script>
   <script src="{{ '/assets/console/i18n.js' | relative_url }}"></script>
   <script src="{{ '/assets/console/theme.js' | relative_url }}"></script>
@@ -29,7 +33,7 @@
 
   {% include console-header.html %}
 
-  <main id="main-content" class="flex-grow-1">
+  <main id="main-content" class="flex-grow-1"{% if page.title and page.layout != 'blog' and page.path != '404.html' and page.path != 'posts/index.html' %} data-pagefind-body{% endif %}>
     {% assign hero_file = page.cover_image %}
     {% unless hero_file %}
       {% if page.image contains '/' %}{% assign hero_file = page.image %}

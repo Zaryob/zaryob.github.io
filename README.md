@@ -19,7 +19,9 @@ bundle exec jekyll build --trace
 python3 scripts/check_site.py _site
 ```
 
-GitHub Actions aynı build ve bağlantı denetimini her push ve pull request için çalıştırır. Denetim, oluşturulan sayfalardaki yerel `href`, `src`, `srcset` ve `poster` hedeflerinin yanı sıra `feed.xml` ve `sitemap.xml` dosyalarının varlığını kontrol eder. Harici sitelerin erişilebilirliğini test etmez.
+GitHub Actions aynı derlemeyi ve bağlantı denetimini her push ve pull request için çalıştırır. Ardından Pagefind tam metin indeksini üretir ve `main` derlemelerini GitHub Pages'e yayımlar. Denetim, oluşturulan sayfalardaki yerel `href`, `src`, `srcset` ve `poster` hedeflerinin yanı sıra `feed.xml` ve `sitemap.xml` dosyalarının varlığını kontrol eder.
+
+Tam metin aramasını yerelde denemek için blog ve kılavuz depolarında Jekyll derlemesinden sonra `npx --yes pagefind@1.6.0 --site _site` komutunu çalıştırın. Ardından bu depodan `python3 scripts/preview_suite.py` ile ortak önizlemeyi açın.
 
 ## Yazı ekleme ve Medium arşivi
 

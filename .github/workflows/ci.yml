@@ -1,4 +1,4 @@
-name: Build and check site
+name: Build and deploy Pages
 
 on:
   push:
@@ -7,6 +7,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   site:
@@ -18,7 +22,37 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Build Jekyll site
+        env:
+          JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ github.token }}
         run: bundle exec jekyll build --trace
       - name: Check generated pages and local assets
         run: python3 scripts/check_site.py _site
+      - name: Index the generated HTML
+        run: |
+          npx --yes pagefind@1.6.0 --site _site
+          test -s _site/pagefind/pagefind.tr*.pf_meta
+          test -s _site/pagefind/pagefind.en*.pf_meta
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: site
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
