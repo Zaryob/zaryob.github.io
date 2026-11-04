@@ -106,6 +106,7 @@
 .console-home .suite-paths { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 0 36px; }
 .console-home .suite-paths a { padding: 20px 24px; text-decoration: none; border-left: 1px solid var(--line); }
 .console-home .suite-paths a:first-child { padding-left: 0; border-left: 0; }
+.console-home .suite-paths a:hover { color: var(--link); background: var(--surface); }
 .console-home .suite-paths__description { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
 @media (max-width: 760px) {
   .console-home .container { padding-inline: 20px; }

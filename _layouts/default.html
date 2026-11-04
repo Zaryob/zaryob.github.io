@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/console/theme.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/console/site.css' | relative_url }}">
+  {% assign console_site_css = site.static_files | where: 'path', '/assets/console/site.css' | first %}
+  <link rel="stylesheet" href="{{ console_site_css.path | relative_url }}?v={{ console_site_css.modified_time | date: '%s' }}">
 </head>
 <body class="console-site console-home d-flex flex-column min-vh-100">
   <a class="skip-link" href="#main-content"><span data-i18n="Skip to content">İçeriğe geç</span></a>
