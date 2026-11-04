@@ -23,7 +23,8 @@
 
   {% include console-header.html %}
 
-  <main id="main-content"{% if page.title and page.layout != 'blog' and page.path != '404.html' and page.path != 'posts/index.html' %} data-pagefind-body{% endif %}>
+  {% assign list_pages = 'home,posts,page-arsiv' | split: ',' %}
+  <main id="main-content"{% if page.title %}{% unless paginator or page.layout == 'blog' or page.path == '404.html' or list_pages contains page.translation_key %} data-pagefind-body{% endunless %}{% endif %}>
     {% assign hero_file = page.cover_image %}
     {% unless hero_file %}
       {% if page.image contains '/' %}{% assign hero_file = page.image %}
