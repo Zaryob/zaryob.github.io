@@ -53,7 +53,7 @@ def main():
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, target)
     if args.pin_atlas.is_dir():
-        public = args.pin_atlas / 'dist'
+        public = args.pin_atlas / 'public'
         for name in SHARED:
             source = ROOT / 'assets/console' / name
             target = public / 'assets/console' / name
