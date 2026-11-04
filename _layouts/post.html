@@ -9,6 +9,10 @@ layout: default
   </div>
   <nav class="post-end-nav" aria-label="Yazı gezinmesi" data-i18n-aria-label="Post navigation" data-pagefind-ignore>
     {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">Medium'daki özgün yazı</span></a><span aria-hidden="true"> · </span>{% endif %}
-    <a href="{{ '/posts/' | relative_url }}"><span data-i18n="← All posts">← Tüm yazılar</span></a>
+    {% if page.lang == 'en' %}
+      <a href="{{ '/en/posts/' | relative_url }}"><span data-i18n="← All posts">← All posts</span></a>
+    {% else %}
+      <a href="{{ '/posts/' | relative_url }}"><span data-i18n="← All posts">← Tüm yazılar</span></a>
+    {% endif %}
   </nav>
 </article>

@@ -9,7 +9,11 @@ layout: default
   <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{{ page.title }} yazıları</span></h2></div>
   <div class="blog-list">
     {% assign category_posts = site.categories[category] %}
-    {% if page.lang == 'en' %}{% assign category_posts = category_posts | where: 'lang', 'en' %}{% endif %}
+    {% if page.lang == 'en' %}
+      {% assign category_posts = category_posts | where: 'lang', 'en' %}
+    {% else %}
+      {% assign category_posts = category_posts | where_exp: 'post', 'post.lang != "en"' %}
+    {% endif %}
     {% for post in category_posts %}
       {% include post-card.html post=post %}
     {% else %}

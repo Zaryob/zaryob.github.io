@@ -12,7 +12,8 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
 <div class="reading-column">
 <section id="archive">
 {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
-{% assign grouped_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign turkish_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
+{% assign grouped_by_year = turkish_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in grouped_by_year %}
   <h1>{{ year.name }}</h1>
   
