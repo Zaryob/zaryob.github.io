@@ -40,7 +40,15 @@ Kişisel sitede `_includes/post-meta.html`, hem yazı listelerinde hem yazı
 Makale içindeki görseller doğal oranlarını korur; liste küçük resimleri aynı
 boyutta kırpılır. Butonlar bağımsız yazılmış, ince amber çerçeveli düz kontrollerdir.
 
-Ortak dosyalar değişince kardeş depolara aktarın:
+Ortak dosyalar [Zaryob/console-theme](https://github.com/Zaryob/console-theme) deposunda
+tutulur ve Git Subtree ile kardeş depolara bağlanır:
+
+```sh
+# Güncellemeleri çekmek için:
+git subtree pull --prefix assets/console console-theme assets --squash
+```
+
+Yerel kopyalar arası hızlı eşitleme ve denetim için betik de kullanılabilir:
 
 ```sh
 python3 scripts/sync_console_theme.py
