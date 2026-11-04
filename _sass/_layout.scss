@@ -1,0 +1,25 @@
+body.console-home { display: flex; flex-direction: column; min-height: 100vh; }
+.console-home > main { flex: 1 0 auto; }
+.site-container { width: 100%; margin-inline: auto; }
+.reading-column { margin-inline: auto; }
+.not-found { display: grid; align-items: center; gap: 24px; }
+.not-found svg { display: block; width: 100%; height: auto; }
+
+@media (min-width: 768px) {
+  .reading-column { width: 83.3333%; }
+  .not-found { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  .reading-column { width: 66.6667%; }
+}
+
+:where(.console-home) :is(h1,h2,h3,h4,h5,h6) { margin: 0 0 .5rem; }
+:where(.console-home) :is(p,ul,ol,dl,pre,figure,blockquote) { margin: 0 0 1rem; }
+:where(.console-home) :is(ol,ul) { padding-inline-start: 2rem; }
+:where(.console-home) :is(ol,ul) :is(ol,ul) { margin-bottom: 0; }
+:where(.console-home) dd { margin: 0 0 .5rem; }
+:where(.console-home) hr { margin-block: 1rem; border: 0; border-top: 1px solid var(--line); }
+:where(.console-home) :is(img,svg) { vertical-align: middle; }
+:where(.console-home) table { border-collapse: collapse; }
+:where(.console-home) th { text-align: start; }
+.console-home [hidden] { display: none !important; }

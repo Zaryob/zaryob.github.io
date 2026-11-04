@@ -46,7 +46,7 @@ python3 -m pip install Pillow
 python3 scripts/make_thumbnails.py
 ```
 
-Üretilen `assets/img/thumbs/` dosyalarını da commit'e ekleyin. Sitede kullanılan Bootstrap kuralları `assets/bootstrap/css/bootstrap-site.css` içinde küçültülmüş bir alt kümedir; yeni Bootstrap bileşeni eklenirse bu dosya da güncellenmelidir.
+Üretilen `assets/img/thumbs/` dosyalarını da commit'e ekleyin.
 
 Medium'da yayımlanmış bir yazıyı arşive eklerken:
 

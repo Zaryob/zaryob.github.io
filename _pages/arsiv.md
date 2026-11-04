@@ -9,7 +9,7 @@ image: "archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
 ---
   
-<div class="col-lg-8 col-md-10 mx-auto">
+<div class="reading-column">
 <section id="archive">
 {% assign months = "Ocak|Şubat|Mart|Nisan|Mayıs|Haziran|Temmuz|Ağustos|Eylül|Ekim|Kasım|Aralık" | split: "|" %}
 {% assign grouped_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}

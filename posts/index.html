@@ -21,11 +21,11 @@ image: "home-bg.webp"
   {% if paginator.total_pages > 1 %}
   <nav class="post-pagination" aria-label="Yazı sayfaları" data-i18n-aria-label="Post pages">
     {% if paginator.previous_page %}
-    <a class="btn btn-outline-dark" href="{{ paginator.previous_page_path | relative_url }}"><span data-i18n="← Newer posts">← Yeni yazılar</span></a>
+    <a class="site-button" href="{{ paginator.previous_page_path | relative_url }}"><span data-i18n="← Newer posts">← Yeni yazılar</span></a>
     {% endif %}
     <span><span data-i18n="Page {page} / {total}" data-i18n-vars='{"page":{{ paginator.page }},"total":{{ paginator.total_pages }}}'>Sayfa {{ paginator.page }} / {{ paginator.total_pages }}</span></span>
     {% if paginator.next_page %}
-    <a class="btn btn-outline-dark" href="{{ paginator.next_page_path | relative_url }}"><span data-i18n="Older posts →">Eski yazılar →</span></a>
+    <a class="site-button" href="{{ paginator.next_page_path | relative_url }}"><span data-i18n="Older posts →">Eski yazılar →</span></a>
     {% endif %}
   </nav>
   {% endif %}

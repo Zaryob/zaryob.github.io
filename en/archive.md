@@ -12,7 +12,7 @@ translation_of: /arsiv/
 translated: '2026-11-03'
 ---
 
-<div class="col-lg-8 col-md-10 mx-auto"><section id="archive">
+<div class="reading-column"><section id="archive">
 {% assign months = "January|February|March|April|May|June|July|August|September|October|November|December" | split: "|" %}
 {% assign grouped_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in grouped_by_year %}<h2>{{ year.name }}</h2>

@@ -11,10 +11,8 @@ redirect_from:
 dynamic_title: true
 ---
 
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 align-self-center">
+<section class="not-found">
+      <div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 800 600">
           <g>
@@ -269,16 +267,13 @@ dynamic_title: true
           </g>
         </svg>
       </div>
-      <div class="col-md-6 align-self-center">
+      <div>
         <h2>OLAMAZ! Kayboldun.</h2>
         <p>Aradığınız sayfa mevcut değil. Buraya nasıl geldiğin bir muamma. Gerçi benim kocaman sitemde kaybolmaman şaşırtırdı. Ancak ana sayfaya geri dönmek için aşağıdaki düğmeyi tıklayabilirsiniz.
         </p>
-        <button class="btn btn-secondary"><a href="{{ '/' | relative_url }}">Ana Sayfaya Geri Dön</a></button>
+        <a class="site-button" href="{{ '/' | relative_url }}">Ana Sayfaya Geri Dön</a>
       </div>
-    </div>
-  </div>
- <script src="{{site.baseurl}}/assets/bootstrap/js/404.js"></script>
-</main>
+</section>
 
 <!--div class="lead">
   <p>Üzgünüz. Aradığınız sayfa bulunamadı </p>

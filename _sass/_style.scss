@@ -40,18 +40,6 @@ a:focus-visible, button:focus-visible {
 }
 .skip-link:focus { transform: translateY(0); }
 
-.site-nav {
-  background: var(--dark);
-  box-shadow: 0 1px 0 rgba(255,255,255,.09);
-}
-.site-nav .navbar-brand {
-  color: white;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: -.04em;
-}
-.brand-dot { color: #df8a55; }
 .site-icon {
   width: 1.1em;
   height: 1.1em;
@@ -59,33 +47,6 @@ a:focus-visible, button:focus-visible {
   flex-shrink: 0;
   vertical-align: -.15em;
 }
-.site-nav .site-icon { margin-right: .35rem; }
-.site-nav .dropdown-item .site-icon {
-  width: 1.25em;
-  margin-right: .6rem;
-  color: var(--accent);
-}
-.site-nav .nav-link {
-  color: #e8edf0;
-  font-size: .94rem;
-  padding: .8rem .7rem !important;
-}
-.site-nav .nav-link:hover, .site-nav .nav-link:focus { color: white; }
-.site-nav .dropdown-menu {
-  border: 1px solid var(--line);
-  border-radius: .75rem;
-  box-shadow: 0 12px 32px rgba(0,0,0,.14);
-  padding: .5rem;
-}
-.site-nav .dropdown-item {
-  border-radius: .4rem;
-  padding: .45rem .8rem;
-}
-.site-nav .dropdown-item:hover, .site-nav .dropdown-item:focus {
-  color: var(--dark);
-  background: #f7eee8;
-}
-.nav-external { font-size: .67rem; margin-left: .2rem; }
 
 .hero {
   background-color: var(--dark);
@@ -147,18 +108,6 @@ a:focus-visible, button:focus-visible {
   gap: .75rem;
   margin-top: 1.7rem;
 }
-.hero__actions .btn { padding: .68rem 1.1rem; font-weight: 600; }
-.btn-accent {
-  color: white;
-  background: var(--accent);
-  border: 1px solid var(--accent);
-}
-.btn-accent:hover, .btn-accent:focus {
-  color: white;
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
-}
-
 .page-content {
   padding-top: clamp(2rem, 5vw, 4rem);
   padding-bottom: clamp(2.5rem, 6vw, 5rem);
@@ -283,8 +232,6 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 991px) {
-  .site-nav .nav-link { padding: .5rem 0 !important; }
-  .site-nav .dropdown-menu { box-shadow: none; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
@@ -293,7 +240,6 @@ a:focus-visible, button:focus-visible {
   .hero--page, .hero--post { min-height: 215px; }
   .hero__inner { padding-top: 2.4rem; padding-bottom: 2.4rem; }
   .hero__actions { width: 100%; }
-  .hero__actions .btn { flex: 1 1 140px; }
   .project-grid, .reading-paths { grid-template-columns: 1fr; }
   .project-detail dl { grid-template-columns: 1fr; gap: .1rem; }
   .project-detail dd { margin-bottom: .7rem; }

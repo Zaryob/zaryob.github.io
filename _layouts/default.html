@@ -16,7 +16,6 @@
   {% seo title=false %}
   {% else %}{% seo %}{% endif %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/bootstrap/css/bootstrap-site.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% if page.layout == 'post' %}
   <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
@@ -28,12 +27,12 @@
   {% assign console_site_css = site.static_files | where: 'path', '/assets/console/site.css' | first %}
   <link rel="stylesheet" href="{{ console_site_css.path | relative_url }}?v={{ console_site_css.modified_time | date: '%s' }}">
 </head>
-<body class="console-site console-home d-flex flex-column min-vh-100">
+<body class="console-site console-home">
   <a class="skip-link" href="#main-content"><span data-i18n="Skip to content">İçeriğe geç</span></a>
 
   {% include console-header.html %}
 
-  <main id="main-content" class="flex-grow-1"{% if page.title and page.layout != 'blog' and page.path != '404.html' and page.path != 'posts/index.html' %} data-pagefind-body{% endif %}>
+  <main id="main-content"{% if page.title and page.layout != 'blog' and page.path != '404.html' and page.path != 'posts/index.html' %} data-pagefind-body{% endif %}>
     {% assign hero_file = page.cover_image %}
     {% unless hero_file %}
       {% if page.image contains '/' %}{% assign hero_file = page.image %}
@@ -43,20 +42,20 @@
       {% if page.path == 'index.html' or page.home %}
       <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
         {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
-        <div class="container hero__inner">
+        <div class="site-container hero__inner">
           <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">yazılım mühendisi</span></p>
           <h1>Süleyman Poyraz</h1>
           <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.</span></p>
           <div class="hero__actions">
-            <a class="btn btn-accent" href="{{ '/projeler/' | relative_url }}"><span data-i18n="See my projects">Projelerimi gör</span> <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline-light" href="{{ '/posts/' | relative_url }}"><span data-i18n="Read the posts">Yazıları oku</span> <span aria-hidden="true">→</span></a>
+            <a class="site-button site-button--accent" href="{{ '/projeler/' | relative_url }}"><span data-i18n="See my projects">Projelerimi gör</span> <span aria-hidden="true">↗</span></a>
+            <a class="site-button" href="{{ '/posts/' | relative_url }}"><span data-i18n="Read the posts">Yazıları oku</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </header>
       {% elsif page.title and page.title != 'empty' %}
       <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_file %} hero--photo{% endif %}">
         {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
-        <div class="container hero__inner">
+        <div class="site-container hero__inner">
           <h1{% if page.title_i18n %} data-i18n="{{ page.title_i18n | escape }}"{% endif %}{% if page.layout == 'post' %} lang="{{ page.lang | default: 'tr' }}"{% endif %}>{{ page.title }}</h1>
           {% if page.subtitle %}<p class="hero__lead">{{ page.subtitle }}</p>{% endif %}
           {% if page.layout == 'post' %}{% include post-meta.html post=page %}{% endif %}
@@ -65,14 +64,14 @@
       {% endif %}
     {% endif %}
 
-    <div id="page_content" class="page-content container" lang="{{ page.lang | default: 'tr' }}">
+    <div id="page_content" class="page-content site-container" lang="{{ page.lang | default: 'tr' }}">
       {% if page.translation_key and page.layout != 'blog' and page.layout != 'post' %}{% include console-content-language.html %}{% endif %}
       {{ content }}
     </div>
   </main>
 
-  <footer class="site-footer mt-auto">
-    <div class="container footer-inner">
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
       <div>
         <p class="footer-name">Süleyman Poyraz</p>
         <p class="footer-note"><span data-i18n="Code, systems and learning notes.">Kod, sistemler ve öğrenme notları.</span></p>
@@ -85,13 +84,12 @@
         <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">E-posta</span></a>
       </nav>
     </div>
-    <div class="container footer-legal">
+    <div class="site-container footer-legal">
       <span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz</span>
       <span><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">Site kaynak kodu</span></a> · GPLv3</span>
     </div>
   </footer>
 
-  <script src="{{ '/assets/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}" defer></script>
   {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>{% endif %}
 </body>
 </html>
