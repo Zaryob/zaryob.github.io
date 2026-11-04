@@ -7,7 +7,7 @@ layout: default
 {% include writing-topics.html %}
 <section class="content-section" aria-labelledby="category-heading">
   <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{{ page.title }} yazıları</span></h2></div>
-  <div class="blog-list">
+  <div class="blog-list" data-paginated-list data-page-size="15">
     {% assign category_posts = site.categories[category] %}
     {% if page.lang == 'en' %}
       {% assign category_posts = category_posts | where: 'lang', 'en' %}
@@ -20,4 +20,112 @@ layout: default
       {% if page.lang == 'en' %}<p>No English editions are available in this category yet. <a href="{{ page.translation_of | relative_url }}?lang=tr">Browse the Turkish articles</a>.</p>{% else %}<p><span data-i18n="No posts in this category yet.">Bu kategoride henüz yazı yok.</span></p>{% endif %}
     {% endfor %}
   </div>
+
+  <nav class="post-pagination" data-category-pagination aria-label="Yazı sayfaları" data-i18n-aria-label="Post pages" hidden>
+    <a class="site-button" data-prev-page href="#"><span data-i18n="← Newer posts">← Yeni yazılar</span></a>
+    <span><span data-page-indicator data-i18n="Page {page} / {total}">Sayfa 1 / 1</span></span>
+    <a class="site-button" data-next-page href="#"><span data-i18n="Older posts →">Eski yazılar →</span></a>
+  </nav>
 </section>
+
+<script>
+(function() {
+  const list = document.querySelector('[data-paginated-list]');
+  const nav = document.querySelector('[data-category-pagination]');
+  if (!list || !nav) return;
+
+  const items = Array.from(list.querySelectorAll('.blog-post'));
+  const pageSize = parseInt(list.dataset.pageSize, 10) || 15;
+  const totalPages = Math.ceil(items.length / pageSize);
+  if (totalPages <= 1) return;
+
+  const prevBtn = nav.querySelector('[data-prev-page]');
+  const nextBtn = nav.querySelector('[data-next-page]');
+  const indicator = nav.querySelector('[data-page-indicator]');
+
+  function getPageFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const p = parseInt(params.get('page'), 10);
+    return (p && p >= 1 && p <= totalPages) ? p : 1;
+  }
+
+  function setPage(page, updateHistory) {
+    items.forEach((item, index) => {
+      const isVisible = index >= (page - 1) * pageSize && index < page * pageSize;
+      item.style.display = isVisible ? '' : 'none';
+    });
+
+    const isEn = (document.documentElement.lang || '').startsWith('en');
+
+    if (page > 1) {
+      prevBtn.style.display = '';
+      const prevParams = new URLSearchParams(window.location.search);
+      if (page === 2) {
+        prevParams.delete('page');
+      } else {
+        prevParams.set('page', page - 1);
+      }
+      const prevQuery = prevParams.toString();
+      prevBtn.href = window.location.pathname + (prevQuery ? '?' + prevQuery : '') + window.location.hash;
+    } else {
+      prevBtn.style.display = 'none';
+    }
+
+    if (page < totalPages) {
+      nextBtn.style.display = '';
+      const nextParams = new URLSearchParams(window.location.search);
+      nextParams.set('page', page + 1);
+      nextBtn.href = window.location.pathname + '?' + nextParams.toString() + window.location.hash;
+    } else {
+      nextBtn.style.display = 'none';
+    }
+
+    if (indicator) {
+      indicator.dataset.i18nVars = JSON.stringify({ page: page, total: totalPages });
+      if (window.ZaryobI18n && typeof window.ZaryobI18n.apply === 'function') {
+        window.ZaryobI18n.apply(nav);
+      } else {
+        indicator.textContent = isEn ? ('Page ' + page + ' / ' + totalPages) : ('Sayfa ' + page + ' / ' + totalPages);
+      }
+    }
+
+    nav.hidden = false;
+
+    if (updateHistory) {
+      const url = new URL(window.location.href);
+      if (page === 1) {
+        url.searchParams.delete('page');
+      } else {
+        url.searchParams.set('page', page);
+      }
+      window.history.pushState({ page: page }, '', url);
+    }
+  }
+
+  prevBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const currentPage = getPageFromUrl();
+    if (currentPage > 1) {
+      setPage(currentPage - 1, true);
+      const heading = document.getElementById('category-heading');
+      if (heading) heading.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  nextBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const currentPage = getPageFromUrl();
+    if (currentPage < totalPages) {
+      setPage(currentPage + 1, true);
+      const heading = document.getElementById('category-heading');
+      if (heading) heading.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  window.addEventListener('popstate', function() {
+    setPage(getPageFromUrl(), false);
+  });
+
+  setPage(getPageFromUrl(), false);
+})();
+</script>

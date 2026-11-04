@@ -387,6 +387,8 @@
     });
   };
   const translationTarget = () => {
+    const pathname = new URL(location.href).pathname;
+    if (pathname.startsWith('/en/') ? language === 'en' : language === 'tr') return null;
     const link = document.querySelector(`[data-translation-lang="${language}"]`)
       || document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
     if (!link) return null;

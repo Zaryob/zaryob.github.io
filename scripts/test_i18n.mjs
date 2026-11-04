@@ -79,3 +79,10 @@ test('initial navigation follows an existing content edition without a redirect 
   page.ready();
   assert.equal(page.url().pathname, '/en/about/');
 });
+
+test('pagination does not redirect back to first page when language matches', () => {
+  const page = boot({ stored: 'tr' });
+  page.selectors.set('link[rel="alternate"][hreflang="tr"]', { href: 'https://zaryob.github.io/posts/' });
+  page.ready();
+  assert.equal(page.url().pathname, '/syscall/');
+});
