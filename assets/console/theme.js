@@ -117,7 +117,11 @@
     const searchTriggers = document.querySelectorAll('[data-console-search], [data-console-search-compact]');
     if (!searchTriggers.length) return;
     const openSearch = searchTriggers[0];
-    const suite = new URL(openSearch.dataset.suiteRoot || '/', location.href);
+    const searchConfig = document.querySelector('[data-console-search]') || openSearch;
+    const suite = new URL(searchConfig.dataset.suiteRoot || '/', location.href);
+    const syscallRoot = searchConfig.dataset.syscallRoot
+      ? new URL(searchConfig.dataset.syscallRoot, location.href)
+      : new URL('syscall/', suite);
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
     dialog.setAttribute('aria-labelledby', 'console-search-title');
@@ -132,11 +136,11 @@
     let request = 0;
     let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const addResult = (title, url, type, language, excerpt) => {
+    const addResult = (title, url, type, language, excerpt, origin = suite.origin) => {
       const item = document.createElement('li');
       const link = document.createElement('a');
       const address = new URL(url, suite);
-      if (!['http:', 'https:'].includes(address.protocol) || address.origin !== suite.origin) return;
+      if (!['http:', 'https:'].includes(address.protocol) || address.origin !== origin) return;
       link.href = address.href;
       if (language) link.lang = language;
       const label = document.createElement('small');
@@ -169,18 +173,25 @@
       }
       return indexes.get(language);
     };
-    const render = async () => {
-      const current = ++request;
-      const query = input.value.trim();
+    const addSyscallResult = query => {
+      const syscall = new URL(syscallRoot);
+      syscall.searchParams.set('q', query);
+      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/', undefined, undefined, syscallRoot.origin);
+    };
+    const showQuery = query => {
       results.replaceChildren();
       if (!query) {
         status.textContent = t('Search by title or full text.');
         return;
       }
-      const syscall = new URL('syscall/', suite);
-      syscall.searchParams.set('q', query);
-      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/');
+      addSyscallResult(query);
       status.textContent = t('Searching…');
+    };
+    const render = async () => {
+      const current = ++request;
+      const query = input.value.trim();
+      showQuery(query);
+      if (!query) return;
       let matches;
       let message = '{count} content results';
       try {
@@ -211,7 +222,7 @@
       if (current !== request) return;
       results.replaceChildren();
       for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt);
-      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/');
+      addSyscallResult(query);
       status.textContent = t(message, { count: matches.length });
     };
     const showSearch = () => {
@@ -253,7 +264,9 @@
     input.addEventListener('input', () => {
       request++;
       clearTimeout(debounce);
-      debounce = setTimeout(render, 140);
+      const query = input.value.trim();
+      showQuery(query);
+      if (query) debounce = setTimeout(render, 140);
     });
     window.addEventListener('zaryob:language', () => {
       setMenuOpen(menu?.getAttribute('aria-expanded') === 'true');

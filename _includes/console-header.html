@@ -48,7 +48,7 @@
       <a href="{{ suite_root }}{{ about_path }}"{% if site.suite_section == 'home' and page.url == about_path or page.translation_key == 'page-hakkinda' %} aria-current="page"{% endif %}>{% include console-icon.html name='user' %}<span data-i18n="About">Hakkımda</span></a>
       {% endif %}
       <div class="console-tools">
-        <button class="console-search-open" type="button" data-console-search data-suite-root="{{ suite_root }}/" aria-haspopup="dialog" aria-label="Zaryob içeriklerinde ara" data-i18n-aria-label="Search Zaryob content">{% include console-icon.html name='search' %}<span><span data-i18n="Search">Ara</span></span><kbd>/</kbd></button>
+        <button class="console-search-open" type="button" data-console-search data-suite-root="{{ suite_root }}/"{% if site.suite_section == 'syscall' %} data-syscall-root="{{ '/' | relative_url }}"{% endif %} aria-haspopup="dialog" aria-label="Zaryob içeriklerinde ara" data-i18n-aria-label="Search Zaryob content">{% include console-icon.html name='search' %}<span><span data-i18n="Search">Ara</span></span><kbd>/</kbd></button>
         <label class="console-theme"><span><span data-i18n="Theme">Tema</span></span><select id="console-theme-select" name="theme" data-console-theme aria-label="Renk teması" data-i18n-aria-label="Color theme"><option value="system" data-i18n="System">Sistem</option><option value="dark" data-i18n="Dark">Koyu</option><option value="light" data-i18n="Light">Açık</option></select></label>
         <label class="console-language"><span data-i18n="Language">Dil</span><select id="console-language-select" name="language" data-console-language aria-label="Language / Dil"><option value="tr" lang="tr">TR</option><option value="en" lang="en">EN</option></select></label>
       </div>

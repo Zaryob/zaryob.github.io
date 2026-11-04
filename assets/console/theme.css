@@ -146,8 +146,8 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
 .console-search__results small { display: block; color: var(--muted); font-size: 11px; margin-bottom: 3px; }
 .console-search__status { font-size: 12px; color: var(--muted); margin: 12px 0 0; }
 .console-code { position: relative; margin: 1.4rem 0; }
-.console-code pre { margin: 0; padding-top: 52px; }
-.console-copy { position: absolute; top: 8px; right: 8px; min-height: 30px !important; padding: 4px 9px !important; font-size: 12px !important; }
+.console-code pre { margin: 0; padding: 14px 18px; padding-inline-end: 84px; }
+.console-copy { position: absolute; top: 10px; right: 10px; z-index: 1; min-height: 30px !important; padding: 4px 9px !important; font-size: 12px !important; }
 .console-site .highlight { background: transparent; color: var(--ink); }
 .console-site .highlight * { color: var(--ink); background: transparent; font-style: normal; font-weight: 400; }
 .console-site pre.highlight { background: var(--surface); }
@@ -202,7 +202,8 @@ body.console-site { margin: 0; background: var(--paper); color: var(--ink); font
   .console-footer { padding: 20px 16px; font-size: 11px; }
   .console-search { padding: 16px; }
   .console-site pre { font-size: 12px; padding: 16px; }
-  .console-code pre { padding-top: 48px; }
+  .console-code pre { padding: 12px 14px; padding-inline-end: 72px; }
+  .console-copy { top: 8px; right: 8px; }
 }
 @media (max-width: 380px) {
   .console-header__inner { gap: 10px 8px; }
