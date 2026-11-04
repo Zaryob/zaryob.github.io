@@ -114,8 +114,9 @@
       wrapper.append(button);
     });
 
-    const openSearch = document.querySelector('[data-console-search]');
-    if (!openSearch) return;
+    const searchTriggers = document.querySelectorAll('[data-console-search], [data-console-search-compact]');
+    if (!searchTriggers.length) return;
+    const openSearch = searchTriggers[0];
     const suite = new URL(openSearch.dataset.suiteRoot || '/', location.href);
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
@@ -131,7 +132,7 @@
     let request = 0;
     let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const addResult = (title, url, type,  excerpt) => {
+    const addResult = (title, url, type, language, excerpt) => {
       const item = document.createElement('li');
       const link = document.createElement('a');
       const address = new URL(url, suite);
@@ -159,9 +160,8 @@
       if (!indexes.has(language)) {
         const index = createInstance({ baseUrl: suite.href });
         const guides = new URL('kilavuzlar/', suite);
-        indexes.set( index.mergeIndex(new URL('pagefind/', guides).href, {
+        indexes.set(language, index.mergeIndex(new URL('pagefind/', guides).href, {
           baseUrl: guides.href,
-          
         }).then(() => index).catch(error => {
           index.destroy();
           throw error;
@@ -220,7 +220,7 @@
       input.focus();
       render();
     };
-    openSearch.addEventListener('click', showSearch);
+    searchTriggers.forEach(btn => btn.addEventListener('click', showSearch));
     dialog.querySelector('[data-search-close]').addEventListener('click', () => dialog.close());
     dialog.addEventListener('close', () => {
       clearTimeout(debounce);
