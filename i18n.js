@@ -1,0 +1,342 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/* Canonical English UI strings -> Turkish. Article bodies and code are never translated here. */
+(() => {
+  'use strict';
+  const translations = {
+  "Home": "Ana sayfa",
+  "Switch project": "Proje değiştir",
+  "Zaryob projects": "Zaryob projeleri",
+  "Posts": "Yazılar",
+  "Guides": "Kılavuzlar",
+  "Projects": "Projeler",
+  "About": "Hakkımda",
+  "All posts": "Tüm yazılar",
+  "Search": "Ara",
+  "Theme": "Tema",
+  "System": "Sistem",
+  "Dark": "Koyu",
+  "Light": "Açık",
+  "Language": "Dil",
+  "Open menu": "Menüyü aç",
+  "Close menu": "Menüyü kapat",
+  "Zaryob home": "Zaryob ana sayfa",
+  "Zaryob navigation": "Zaryob gezinme",
+  "Post categories": "Yazı kategorileri",
+  "Search Zaryob content": "Zaryob içeriklerinde ara",
+  "Color theme": "Renk teması",
+  "Skip to content": "İçeriğe geç",
+  "General": "Genel",
+  "Programming": "Programlama",
+  "Internet": "İnternet",
+  "Electronics": "Elektronik",
+  "Date archive": "Tarih arşivi",
+  "Text editors": "Metin editörleri",
+  "Post topics": "Yazı konuları",
+  "Post information": "Yazı bilgileri",
+  "Estimated read time": "Tahmini okuma süresi",
+  "{minutes} min read": "{minutes} dakika okuma süresi",
+  "Copy": "Kopyala",
+  "Copy code": "Kodu kopyala",
+  "Copied": "Kopyalandı",
+  "Select code to copy": "Kodu seçerek kopyala",
+  "Zaryob / Search": "Zaryob / Ara",
+  "Esc / Close": "Esc / Kapat",
+  "Close search": "Aramayı kapat",
+  "Full-text search unavailable. Showing title and topic matches.": "Tam metin araması kullanılamıyor. Başlık ve konu eşleşmeleri gösteriliyor.",
+  "Search by title or full text.": "Başlıkta veya tam metinde ara.",
+  "Searching…": "Aranıyor…",
+  "Posts, guides and system calls": "Yazılar, kılavuzlar ve sistem çağrıları",
+  "Docker, C++, write…": "Docker, C++, write…",
+  "Loading indexes…": "Dizinler yükleniyor…",
+  "Some indexes could not be loaded. Available results are shown.": "Bazı dizinler yüklenemedi. Erişilebilen sonuçlar gösteriliyor.",
+  "{count} content results": "{count} içerik sonucu",
+  "Search by title or topic.": "Başlık veya konu yazarak ara.",
+  "Search the syscall table: {query}": "Syscall tablosunda ara: {query}",
+  "posts/": "yazılar/",
+  "pages/": "sayfalar/",
+  "guides/": "kılavuzlar/",
+  "Content language:": "İçerik dili:",
+  "A translation in the selected language is not available yet.": "Seçilen dilde çeviri henüz yok.",
+  "Translations": "Çeviriler",
+  "software engineer": "yazılım mühendisi",
+  "I build system software and share what I learn.": "Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.",
+  "See my projects": "Projelerimi gör",
+  "Read the posts": "Yazıları oku",
+  "Code, systems and learning notes.": "Kod, sistemler ve öğrenme notları.",
+  "Social links": "Sosyal bağlantılar",
+  "My bookshelf": "Kitaplığım",
+  "Email": "E-posta",
+  "Site source code": "Site kaynak kodu",
+  "Post navigation": "Yazı gezinmesi",
+  "Original post on Medium": "Medium'daki özgün yazı",
+  "← All posts": "← Tüm yazılar",
+  "No posts in this category yet.": "Bu kategoride henüz yazı yok.",
+  "Knowledge library": "Bilgi kitaplığı",
+  "Ideas and technical articles": "Fikirler ve teknik yazılar",
+  "Step-by-step practical notes": "Adım adım uygulama notları",
+  "Linux system calls": "Linux sistem çağrıları",
+  "What I am working on": "Üzerinde çalıştıklarım",
+  "All projects": "Tüm projeler",
+  "Explore project": "Projeyi incele",
+  "Latest posts": "Son yazılar",
+  "Start with a topic": "Bir konudan başla",
+  "Modern C++ and programming": "Modern C++ ve programlama",
+  "Compile time, semantics, debugging and practical software notes.": "Derleme zamanı, semantik, hata ayıklama ve pratik yazılım notları.",
+  "Internet 101": "İnternet 101",
+  "Foundations from network hardware to TCP/IP and protocols.": "Ağ donanımından TCP/IP ve protokollere uzanan temel yazılar.",
+  "Post pages": "Yazı sayfaları",
+  "← Newer posts": "← Yeni yazılar",
+  "Older posts →": "Eski yazılar →",
+  "Page {page} / {total}": "Sayfa {page} / {total}",
+  "Read {title}": "{title} yazısını oku",
+  "Guide directory": "Kılavuz dizini",
+  "Topic tree": "Konu ağacı",
+  "about": "hakkında",
+  "contribution guide": "katkı rehberi",
+  "Archive note": "Arşiv notu",
+  "Archive · Revalidation required": "Arşiv · Yeniden doğrulama gerekiyor",
+  "These commands have not been verified for current systems.": "Bu komutlar güncel sistemler için doğrulanmadı.",
+  "Archive directory": "Arşiv dizini",
+  "Edited · Scope:": "Düzenlendi · Kapsam:",
+  "Last content review:": "Son içerik incelemesi:",
+  "Related resources": "İlgili kaynaklar",
+  "Linux system call reference": "Linux sistem çağrıları referansı",
+  "technical posts": "teknik yazılar",
+  "About the guides": "Kılavuzlar hakkında",
+  "search": "ara",
+  "navigate": "gezin",
+  "open": "aç",
+  "Tables": "Tablolar",
+  "Calling conventions": "Çağrı kuralları",
+  "About & sources": "Hakkında ve kaynaklar",
+  "~/syscall · the GNU/Linux programmer’s bookshelf": "~/syscall · GNU/Linux programcısının kitaplığı",
+  "Linux System Call Reference": "Linux Sistem Çağrıları Referansı",
+  "The small interface between your program and the kernel.": "Programınız ile çekirdek arasındaki küçük arayüz.",
+  "System call numbers, C signatures, and calling conventions, collected directly from Linux source.": "Linux kaynaklarından doğrudan derlenen sistem çağrısı numaraları, C bildirimleri ve çağrı kuralları.",
+  "Choose an architecture, look up a call, and follow it back to the kernel.": "Bir mimari seçin, çağrıyı bulun ve çekirdekteki kaynağına ulaşın.",
+  "Browse the tables ↓": "Tabloları incele ↓",
+  "How this reference is made": "Bu referans nasıl hazırlanıyor",
+  "The syscall tables": "Sistem çağrısı tabloları",
+  "Reading kernel snapshots…": "Çekirdek veri kümeleri okunuyor…",
+  "Kernel release": "Çekirdek sürümü",
+  "Compare with": "Karşılaştır",
+  "No comparison": "Karşılaştırma yok",
+  "Download JSON ↓": "JSON indir ↓",
+  "Find a system call": "Sistem çağrısı bul",
+  "Clear": "Temizle",
+  "Search updates as you type. Select a syscall name for its signature and source.": "Siz yazdıkça sonuçlar güncellenir. Bildirimini ve kaynağını görmek için çağrı adına tıklayın.",
+  "Loading…": "Yükleniyor…",
+  "Include unimplemented": "Gerçeklenmemiş girdileri göster",
+  "Hex numbers": "Onaltılık numaralar",
+  "Arguments below are C prototype parameters, not a register-by-register assembly recipe. On 32-bit ABIs, 64-bit values may occupy multiple registers and require alignment; assembly wrappers may reorder them. See": "Aşağıdakiler C prototipinin parametreleridir; assembly için yazmaç sırasını göstermez. 32 bit ABI’lerde 64 bit değerler birden fazla yazmaç ve hizalama gerektirebilir; assembly sarmalayıcıları sırayı değiştirebilir. Ayrıntılar:",
+  "System calls for the selected architecture and kernel release": "Seçilen mimari ve çekirdek sürümünün sistem çağrıları",
+  "No.": "No.",
+  "System call": "Sistem çağrısı",
+  "Reference": "Referans",
+  "No system calls match this search.": "Aramayla eşleşen sistem çağrısı yok.",
+  "Clear filters": "Filtreleri temizle",
+  "ARG1–ARG6 contain kernel C parameters in order. Register headings apply to 64-bit ABIs. A dash means no argument; “not resolved” means the declaration is unavailable in the parsed headers. “Defined” indicates a table entry, not availability in every kernel configuration.": "ARG1–ARG6, çekirdekteki C parametrelerini sırasıyla gösterir. Yazmaç başlıkları 64 bit ABI’ler içindir. Tire, parametre olmadığını; “çözümlenemedi”, ayrıştırılan başlıklarda bildirimin bulunamadığını gösterir. “Tanımlı”, bir tablo girdisidir; her çekirdek yapılandırmasında kullanılabileceği anlamına gelmez.",
+  "This browser needs JavaScript to search the tables. You can still": "Tablolarda arama yapmak için JavaScript gerekir. Yine de",
+  "download the dataset manifest": "veri kümesi bildirimini indirebilir",
+  "and read": "ve",
+  "the x86-64 table as JSON": "x86-64 tablosunu JSON olarak okuyabilirsiniz",
+  "Put the syscall number in": "Sistem çağrısı numarasını şu yazmaca yerleştirin: ",
+  ", the arguments in the listed registers, then execute the entry instruction. The return value is delivered in": "Parametreleri listelenen yazmaçlara koyup giriş komutunu çalıştırın. Dönüş değeri şu yazmaçtadır: ",
+  ". These are the raw kernel conventions; the C library provides its own wrappers.": "Bunlar doğrudan çekirdeğin çağrı kurallarıdır; C kütüphanesi kendi sarmalayıcılarını sağlar.",
+  "Linux calling conventions for the six supported architectures": "Desteklenen altı mimarinin Linux çağrı kuralları",
+  "Architecture": "Mimari",
+  "Instruction": "Komut",
+  "Argument registers": "Parametre yazmaçları",
+  "On ARM EABI, some 64-bit arguments require an aligned register pair. See the": "ARM EABI’de bazı 64 bit parametreler hizalı bir yazmaç çifti gerektirir. Assembly yazmadan önce",
+  "architecture notes in syscall(2)": "syscall(2) mimari notlarını",
+  "before writing assembly.": "inceleyin.",
+  "A reference for programs, too": "Programlar için de bir referans",
+  "The same data is published as static JSON files. No account, key, or running API server is needed.": "Aynı veriler statik JSON dosyaları olarak yayımlanır. Hesap, anahtar veya çalışan bir API sunucusu gerekmez.",
+  "API index, license information, and relative paths to each snapshot.": "API dizini, lisans bilgileri ve her sürüme giden göreli yollar.",
+  "Supported architectures and their calling conventions.": "Desteklenen mimariler ve çağrı kuralları.",
+  "Available kernel snapshots, newest first.": "Mevcut çekirdek veri kümeleri; en yenisi önce.",
+  "A complete table with C declarations, licensing, source locations, and file hashes.": "C bildirimleri, lisanslar, kaynak konumları ve dosya özetleriyle tam tablo.",
+  "Input source files, original licenses, and checksums.": "Girdi kaynak dosyaları, özgün lisanslar ve sağlama toplamları.",
+  "Search and release comparison run in your browser. For a single entry, open its details and choose “Download entry JSON”. Programs can filter the table locally, for example:": "Arama ve sürüm karşılaştırması tarayıcınızda çalışır. Tek bir girdi için ayrıntıları açıp “Girdiyi JSON indir” seçeneğini kullanın. Programlar tabloyu yerel olarak da filtreleyebilir:",
+  "Download": "İndir:",
+  "the manifest": "veri kümesi bildirimi",
+  "and": "ve",
+  "the selected table": "seçili tablo",
+  "for bulk use. Query parameters do not filter the static JSON files.": "toplu kullanım içindir. Sorgu parametreleri statik JSON dosyalarını filtrelemez.",
+  "About this little reference": "Bu küçük referans hakkında",
+  "Inspired by": "Esin kaynakları:",
+  "and the plain, useful pages of the free software web. This is an independent project, with no affiliation to GNU or the Free Software Foundation.": "ve özgür yazılım dünyasının sade, kullanışlı web sayfaları. Bu bağımsız projenin GNU veya Özgür Yazılım Vakfı ile kurumsal bağı yoktur.",
+  "The tables are generated from": "Tablolar şu kaynaktan üretilir:",
+  "the Linux kernel source": "Linux çekirdek kaynak kodu",
+  ". Architecture-specific": "Mimariye özgü",
+  "files supply numbers and entry points.": "dosyaları numaraları ve giriş noktalarını sağlar.",
+  ", and architecture headers supply C declarations. ABI selection follows the kernel’s": "ve mimari başlıkları C bildirimlerini sağlar. ABI seçimi çekirdeğin şu dosyasını izler:",
+  ". Register conventions are documented in": "Yazmaç kuralları şu kaynakta belgelenmiştir:",
+  "The details panel shows arguments as a table and offers a downloadable C template. Call numbers and declarations come from the selected kernel snapshot; valid pointers, flags and object lifetimes cannot be inferred from prototypes alone. Templates for write and getpid provide hand-written usage examples; other supported 64-bit calls get a TODO skeleton. Unresolved signatures, unimplemented slots and 32-bit ABIs do not get speculative code.": "Ayrıntı paneli parametreleri tablo olarak gösterir ve indirilebilir C şablonu sunar. Çağrı numaraları ve bildirimler seçilen çekirdek sürümünden gelir; geçerli işaretçiler, bayraklar ve nesne ömürleri yalnızca prototipten çıkarılamaz. write ve getpid şablonları elle yazılmış örneklerdir; desteklenen diğer 64 bit çağrılarda TODO iskeleti sunulur. Çözümlenemeyen bildirimler, gerçeklenmemiş girdiler ve 32 bit ABI’ler için tahmine dayalı kod üretilmez.",
+  "Each release is a separate snapshot. Comparison marks differences between those snapshots; it does not claim the exact release in which a call first appeared. Configuration-dependent calls and assembly-only signatures require consulting the linked source. Manual links use syscall names; not every entry has a separate manual page.": "Her sürüm ayrı bir veri kümesidir. Karşılaştırma bu kümeler arasındaki farkları işaretler; çağrının ilk kez hangi sürümde eklendiğini iddia etmez. Yapılandırmaya bağlı çağrılar ve yalnızca assembly bildirimleri için bağlantılı kaynak incelenmelidir. Kılavuz bağlantıları çağrı adlarını kullanır; her girdinin ayrı bir kılavuz sayfası bulunmaz.",
+  "Updating from the kernel source": "Çekirdek kaynağından güncelleme",
+  "From this repository, run the importer with Python 3.9 or newer:": "Bu depoda Python 3.9 veya üstüyle içe aktarıcıyı çalıştırın:",
+  "No kernel build is required. The repository includes ready-to-use snapshots, so ordinary browsing works offline.": "Çekirdeği derlemek gerekmez. Depo hazır veri kümelerini içerir; normal gezinme çevrimdışı da çalışır.",
+  "Skip to the syscall table": "Sistem çağrısı tablosuna geç",
+  "Free software. Plain HTML. Useful data.": "Özgür yazılım. Sade HTML. Kullanışlı veri.",
+  "License & source notices": "Lisans ve kaynak bildirimleri",
+  "GPL version 2": "GPL sürüm 2",
+  "Download source": "Kaynak kodunu indir",
+  "Linux syscall exception": "Linux sistem çağrısı istisnası",
+  "Linux source:": "Linux kaynak kodu:",
+  "Manual pages:": "Kılavuz sayfaları:",
+  "Back to top ↑": "Başa dön ↑",
+  "Latest snapshot": "En yeni veri kümesi",
+  "System Call Reference": "Sistem Çağrıları Referansı",
+  "ENTRY": "GİRİŞ",
+  "RETURN": "DÖNÜŞ",
+  "ARGUMENT REGISTERS": "PARAMETRE YAZMAÇLARI",
+  "Current dataset: Linux {version}, {origin}. {count} source files recorded with SHA-256 hashes. No data is fetched from syscall.sh.": "Geçerli veri kümesi: Linux {version}, {origin}. {count} kaynak dosyası SHA-256 özetleriyle kaydedildi. syscall.sh üzerinden veri alınmaz.",
+  "imported from a local source tree": "yerel kaynak ağacından içe aktarıldı",
+  "imported from torvalds/linux": "torvalds/linux deposundan içe aktarıldı",
+  "C declaration not resolved in the imported headers.": "İçe aktarılan başlıklarda C bildirimi çözümlenemedi.",
+  "Argument details are not resolved in the imported headers.": "İçe aktarılan başlıklarda parametre ayrıntıları çözümlenemedi.",
+  "Position": "Sıra",
+  "Kernel C declaration": "Çekirdekteki C bildirimi",
+  "Register": "Yazmaç",
+  "ABI-dependent": "ABI’ye bağlı",
+  "These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.": "Bunlar mantıksal C parametreleridir. Bu 32 bit ABI’de yazmaçlara yerleştirme ayrıca incelenmelidir.",
+  "This syscall has no C arguments.": "Bu sistem çağrısının C parametresi yok.",
+  "C usage example": "C kullanım örneği",
+  "Generate a C skeleton": "C iskeleti oluştur",
+  "example": "örneği",
+  "skeleton": "iskeleti",
+  "Download C {kind}": "C {kind} indir",
+  "About the libc syscall() interface": "libc syscall() arayüzü hakkında",
+  "C example:": "C örneği:",
+  "Declaration:": "Bildirim:",
+  "Entry point:": "Giriş noktası:",
+  "none": "yok",
+  "Number:": "Numara:",
+  "This table slot has no implementation. It must not be treated as an available syscall.": "Bu tablo girdisi gerçeklenmemiştir. Kullanılabilir bir sistem çağrısı olarak değerlendirilmemelidir.",
+  "In Linux {version}:": "Linux {version} sürümünde:",
+  "signature unresolved": "bildirim çözümlenemedi",
+  "Kernel table:": "Çekirdek tablosu:",
+  "Look up {name}(2)": "{name}(2) kılavuzuna bak",
+  "Download entry JSON": "Girdiyi JSON indir",
+  "Table JSON": "Tablo JSON",
+  "Permanent link": "Kalıcı bağlantı",
+  "Arguments to {name}": "{name} parametreleri",
+  "Compared with Linux {version}: {added} added, {removed} removed, {changed} changed entries. Changes include reserved or unimplemented slots. Unchanged entries remain visible for context.": "Linux {version} ile karşılaştırma: {added} eklenen, {removed} kaldırılan, {changed} değişen girdi. Değişikliklere ayrılmış veya gerçeklenmemiş girdiler de dahildir. Bağlam için değişmeyen girdiler görünür kalır.",
+  "not resolved": "çözümlenemedi",
+  "no argument": "parametre yok",
+  "added": "eklendi",
+  "removed": "kaldırıldı",
+  "changed": "değişti",
+  "unimplemented": "gerçeklenmemiş",
+  "Look up {name} in Linux man-pages": "Linux man-pages içinde {name} ara",
+  "{count} of {total} entries · {arch} / Linux {version}": "{total} girdiden {count} tanesi · {arch} / Linux {version}",
+  "Loading kernel table…": "Çekirdek tablosu yükleniyor…",
+  "Table unavailable": "Tablo kullanılamıyor",
+  "Dataset unavailable": "Veri kümesi kullanılamıyor",
+  "Check that the dataset exists, then reload to retry.": "Veri kümesinin varlığını kontrol edip yeniden yükleyin.",
+  "Check the site deployment and data/manifest.json, then reload to retry.": "Site kurulumunu ve data/manifest.json dosyasını kontrol edip yeniden yükleyin.",
+  "Could not read {url} (HTTP {status}).": "{url} okunamadı (HTTP {status}).",
+  "This table slot is unimplemented; no example is generated.": "Bu tablo girdisi gerçeklenmemiş; örnek üretilmiyor.",
+  "The kernel signature is unresolved. An example would require guessing the arguments.": "Çekirdek bildirimi çözümlenemedi. Örnek üretmek parametreleri tahmin etmeyi gerektirirdi.",
+  "Automatic C templates currently support the four 64-bit ABIs. On 32-bit ABIs, wide arguments may require manual splitting and alignment.": "Otomatik C şablonları şu anda dört 64 bit ABI’yi destekler. 32 bit ABI’lerde geniş parametreleri elle bölmek ve hizalamak gerekebilir.",
+  "Generated C skeleton. Replace every TODO with valid userspace values and consult the manual for flags, buffer sizes, ownership and error handling. The compile-time error is intentional until you review it.": "Üretilmiş C iskeleti. Her TODO’yu geçerli kullanıcı alanı değerleriyle değiştirin; bayraklar, tampon boyutları, sahiplik ve hata yönetimi için kılavuzu inceleyin. İnceleme yapılana kadar derleme hatası bilerek bırakılmıştır.",
+  "A hand-written getpid template with the number and ABI filled from this kernel snapshot. Build and run it on the selected Linux architecture; this website does not run it.": "Numarası ve ABI’si bu çekirdek sürümünden alınan, elle yazılmış getpid şablonu. Seçilen Linux mimarisinde derleyip çalıştırın; bu site kodu çalıştırmaz.",
+  "A hand-written stdout example with the number and ABI filled from this snapshot. It handles interrupted and partial writes. Build and run it on the selected Linux architecture; this website does not run it.": "Numarası ve ABI’si bu sürümden alınan, elle yazılmış standart çıktı örneği. Kesintileri ve kısmi yazmaları ele alır. Seçilen Linux mimarisinde derleyip çalıştırın; bu site kodu çalıştırmaz.",
+  "Name, number, hex, or C argument — e.g. read, 0x3b, filename": "Ad, numara, onaltılık değer veya C parametresi — ör. read, 0x3b, filename",
+  "Reference sections": "Referans bölümleri",
+  "System call table; scroll horizontally on narrow screens": "Sistem çağrısı tablosu; dar ekranda yatay kaydırın",
+  "guides/archive/": "kılavuzlar/arşiv/",
+  "Posts in {category}": "{category} yazıları",
+  "Linux": "Linux",
+  "Raspberry Pi": "Raspberry Pi",
+  "Pixel Art": "Pixel Art",
+  "All articles": "Bütün yazılar",
+  "Multiple configuration-dependent declarations exist; consult the kernel source for this ABI.": "Yapılandırmaya bağlı birden fazla bildirim var; bu ABI için çekirdek kaynağını inceleyin.",
+  "Network analysis · C++": "Ağ analizi · C++",
+  "A packet analyzer for inspecting capture files and protocol fields with Dear ImGui.": "Dear ImGui arayüzüyle yakalama dosyalarını ve protokol alanlarını inceleyen paket analizörü.",
+  "Linux performance tools · eBPF / Python": "Linux performans araçları · eBPF / Python",
+  "A tool for storing process profiles in portable bundles and viewing them offline.": "Süreç profillerini taşınabilir paketlerde saklayan ve çevrimdışı görüntüleyen araç.",
+  "Native RSS app · macOS / iOS": "Yerel RSS uygulaması · macOS / iOS",
+  "An app combining RSS reading, local storage and optional on-device summaries.": "RSS okumayı, yerel veri saklamayı ve isteğe bağlı cihaz üzerinde özetlemeyi birleştiren uygulama.",
+  "XML / XMPP · Rust": "XML / XMPP · Rust",
+  "A separate Rust implementation inspired by Gürer Özen’s iksemel.": "Gürer Özen'in iksemel çalışmasından esinlenen ayrı Rust uygulaması.",
+  "Guitar tuning and practice · iOS": "Gitar akort ve pratik · iOS",
+  "Pitch detection, a metronome, a chord library and daily practice routines.": "Akort algılama, metronom, akor kütüphanesi ve günlük çalışma programları.",
+  "Technical documentation · OpenZFS": "Teknik belgeleme · OpenZFS",
+  "An open source book explaining ZFS and OpenZFS concepts in Turkish.": "ZFS ve OpenZFS kavramlarını Türkçe anlatan açık kaynak kitap."
+};
+  const supported = ['tr', 'en'];
+  const root = document.documentElement;
+  const query = new URLSearchParams(location.search).get('lang');
+  const browserLanguage = () => /^tr(?:-|$)/i.test(navigator.languages?.[0] || navigator.language || '') ? 'tr' : 'en';
+  let language = browserLanguage();
+  try { language = localStorage.getItem('zaryob-language') || language; } catch { /* Optional persistence. */ }
+  if (supported.includes(query)) language = query;
+  if (!supported.includes(language)) language = browserLanguage();
+  root.lang = language;
+  root.dataset.uiLanguage = language;
+  const t = (source, values = {}) => (language === 'tr' ? translations[source] || source : source)
+    .replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match);
+  const apply = (scope = document) => {
+    scope.querySelectorAll('[data-i18n], [data-i18n-aria-label], [data-i18n-title], [data-i18n-placeholder]').forEach(node => {
+      let values = {};
+      try { values = JSON.parse(node.dataset.i18nVars || '{}'); } catch { /* Keep fallback text. */ }
+      if (values.category) values.category = t(values.category);
+      if (node.dataset.i18n) node.textContent = t(node.dataset.i18n, values);
+      for (const attr of ['aria-label', 'title', 'placeholder']) {
+        const key = node.getAttribute(`data-i18n-${attr}`);
+        if (key) node.setAttribute(attr, t(key, values));
+      }
+      node.lang = language;
+    });
+    scope.querySelectorAll('[data-i18n-date]').forEach(node => {
+      const date = new Date(node.dataset.i18nDate);
+      if (!Number.isNaN(date.getTime())) node.textContent = new Intl.DateTimeFormat(language === 'tr' ? 'tr-TR' : 'en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' }).format(date);
+      node.lang = language;
+    });
+    scope.querySelectorAll('[data-console-language]').forEach(select => { select.value = language; });
+    scope.querySelectorAll('[data-content-language]').forEach(note => {
+      const links = [...note.querySelectorAll('[data-translation-lang]')];
+      const matching = links.some(link => link.dataset.translationLang === language);
+      note.hidden = note.dataset.contentLanguage === language && !links.length;
+      note.querySelector('[data-translation-missing]').hidden = note.dataset.contentLanguage === language || matching;
+    });
+  };
+  const translationTarget = () => {
+    const link = document.querySelector(`[data-translation-lang="${language}"]`)
+      || document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
+    if (!link) return null;
+    const destination = new URL(link.href, location.href);
+    if (destination.pathname === new URL(location.href).pathname) return null;
+    destination.searchParams.set('lang', language);
+    if (!destination.hash) destination.hash = new URL(location.href).hash;
+    return destination;
+  };
+  const setLanguage = (next, { persist = true, navigate = true } = {}) => {
+    if (!supported.includes(next)) return;
+    language = next;
+    if (persist) try { localStorage.setItem('zaryob-language', language); } catch { /* Page-local fallback. */ }
+    root.lang = language;
+    root.dataset.uiLanguage = language;
+    const url = new URL(location.href);
+    url.searchParams.set('lang', language);
+    history.replaceState(null, '', url);
+    apply();
+    window.dispatchEvent(new CustomEvent('zaryob:language', { detail: { language } }));
+    const destination = translationTarget();
+    if (navigate && destination) location.assign(destination);
+  };
+  window.ZaryobI18n = { t, apply, setLanguage, get language() { return language; } };
+  document.addEventListener('DOMContentLoaded', () => {
+    apply();
+    if (supported.includes(query)) try { localStorage.setItem('zaryob-language', language); } catch { /* Optional. */ }
+    document.querySelectorAll('[data-console-language]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
+    const destination = translationTarget();
+    if (destination) location.replace(destination);
+  });
+  window.addEventListener('storage', event => {
+    if (event.key !== 'zaryob-language' && event.key !== null) return;
+    setLanguage(supported.includes(event.newValue) ? event.newValue : browserLanguage(), { persist: false, navigate: false });
+  });
+})();
