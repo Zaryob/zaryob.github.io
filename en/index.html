@@ -12,8 +12,6 @@ title: Süleyman Poyraz
 translated: '2026-11-03'
 ---
 
-{% include suite-paths.html %}
-
 <section class="content-section" aria-labelledby="projects-heading">
   <div class="section-heading">
     <h2 id="projects-heading"><span data-i18n="What I am working on">Üzerinde çalıştıklarım</span></h2>
@@ -21,7 +19,7 @@ translated: '2026-11-03'
   </div>
   <div class="project-grid">
     {% assign featured_projects = site.data.projects_en | where: "featured", true %}
-    {% for project in featured_projects %}
+    {% for project in featured_projects limit: 4 %}
     <article class="project-card">
       <p class="project-card__eyebrow"><span data-i18n="{{ project.type_en | default: project.type | escape }}">{{ project.type }}</span></p>
       <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.display_name | default: project.name }}</a></h3>
@@ -51,6 +49,7 @@ translated: '2026-11-03'
 
 <section class="content-section" aria-labelledby="paths-heading">
   <div class="section-heading"><h2 id="paths-heading"><span data-i18n="Start with a topic">Bir konudan başla</span></h2></div>
+  {% include suite-paths.html %}
   <div class="reading-paths">
     <div class="reading-path">
       <h3><a href="{{ '/programlama/' | relative_url }}"><span data-i18n="Modern C++ and programming">Modern C++ ve programlama</span> <span aria-hidden="true">→</span></a></h3>

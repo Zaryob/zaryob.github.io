@@ -57,7 +57,7 @@
     {% endif %}
 
     <div id="page_content" class="page-content site-container" lang="{{ page.lang | default: 'tr' }}">
-      {% if page.translation_key and page.layout != 'blog' and page.layout != 'post' %}{% include console-content-language.html %}{% endif %}
+      {% if page.translation_key and page.translation_key != 'home' and page.layout != 'blog' and page.layout != 'post' %}{% include console-content-language.html %}{% endif %}
       {{ content }}
     </div>
   </main>
