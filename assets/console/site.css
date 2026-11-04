@@ -77,8 +77,10 @@
 .console-home .project-group > h2, .console-home .project-detail h2, .console-home .project-detail h3 { font-size: 20px; font-weight: 500; }
 .console-home .project-detail__meta { font-size: 12px; font-weight: 400; }
 .console-home .project-detail dd { color: var(--muted); }
-.console-home .post-layout { max-width: 80ch; padding-inline: 0; }
+.console-home .post-layout { max-width: 78ch; padding-inline: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; }
 .console-home .post-content { font-size: 16px; line-height: 1.9; }
+.console-home .post-content :is(strong,b) { font-weight: 600; }
+.console-home .post-layout :is(figcaption,.post-end-nav,.btn) { font-family: var(--font-mono); }
 .console-home .post-content h2 { font-size: 21px; font-weight: 500; }
 .console-home .post-content h3 { font-size: 18px; font-weight: 500; }
 .console-home .post-content h4 { font-size: 16px; font-weight: 500; }
