@@ -62,7 +62,9 @@
       updateDropdown();
       dropdown.addEventListener('toggle', updateDropdown);
       dropdown.addEventListener('focusout', event => {
-        if (!dropdown.contains(event.relatedTarget)) closeDropdown(dropdown);
+        // Safari can omit the next focus target during a tap. Let the
+        // outside-click handler close the menu after the link activates.
+        if (event.relatedTarget && !dropdown.contains(event.relatedTarget)) closeDropdown(dropdown);
       });
     });
     compactNavigation.addEventListener('change', () => {
