@@ -32,6 +32,16 @@ class SuiteHandler(SimpleHTTPRequestHandler):
                             self.directory = str(directory)
                             return super().translate_path(pathname)
 
+            # Safety fallback: if asset uniquely exists in one sub-site, serve from there
+            candidates = []
+            for prefix, directory in [('/pin-atlas', ROOT.parent / 'pin-atlas/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site')]:
+                sub_target = (directory / pathname.lstrip('/')).resolve()
+                if sub_target.is_file():
+                    candidates.append((directory, sub_target))
+            if len(candidates) == 1:
+                self.directory = str(candidates[0][0])
+                return super().translate_path(pathname)
+
         self.directory = str(ROOT / '_site')
         return super().translate_path(path)
 
