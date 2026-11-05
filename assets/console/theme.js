@@ -114,6 +114,57 @@
       wrapper.append(button);
     });
 
+    const highlightQuery = new URLSearchParams(location.search).get('highlight');
+    if (highlightQuery) {
+      const terms = highlightQuery.trim().split(/\s+/).filter(Boolean);
+      if (terms.length) {
+        const container = document.querySelector('[data-pagefind-body]')
+          || document.querySelector('article')
+          || document.querySelector('main')
+          || document.querySelector('.console-site')
+          || document.body;
+        if (container) {
+          const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const pattern = new RegExp(`(${terms.map(escapeRegExp).join('|')})`, 'gi');
+          let firstMark = null;
+          const walk = node => {
+            if (['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'SELECT', 'NOSCRIPT', 'SVG', 'DIALOG'].includes(node.nodeName)) return;
+            if (node.nodeType === Node.TEXT_NODE) {
+              const text = node.textContent;
+              if (!pattern.test(text)) return;
+              pattern.lastIndex = 0;
+              const fragment = document.createDocumentFragment();
+              let lastIndex = 0;
+              let match;
+              while ((match = pattern.exec(text)) !== null) {
+                const preceding = text.slice(lastIndex, match.index);
+                if (preceding) fragment.append(document.createTextNode(preceding));
+                const mark = document.createElement('mark');
+                mark.className = 'console-highlight';
+                mark.textContent = match[0];
+                fragment.append(mark);
+                if (!firstMark) firstMark = mark;
+                lastIndex = pattern.lastIndex;
+              }
+              if (lastIndex < text.length) {
+                fragment.append(document.createTextNode(text.slice(lastIndex)));
+              }
+              node.replaceWith(fragment);
+            } else {
+              const children = Array.from(node.childNodes);
+              for (const child of children) walk(child);
+            }
+          };
+          walk(container);
+          if (firstMark && !location.hash) {
+            requestAnimationFrame(() => {
+              firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+          }
+        }
+      }
+    }
+
     const searchTriggers = document.querySelectorAll('[data-console-search], [data-console-search-compact]');
     if (!searchTriggers.length) return;
     const openSearch = searchTriggers[0];
@@ -122,10 +173,16 @@
     const syscallRoot = searchConfig.dataset.syscallRoot
       ? new URL(searchConfig.dataset.syscallRoot, location.href)
       : new URL('syscall/', suite);
+    const pinAtlasRoot = searchConfig.dataset.pinAtlasRoot
+      ? new URL(searchConfig.dataset.pinAtlasRoot, location.href)
+      : new URL('pin-atlas/', suite);
+    const guidesRoot = searchConfig.dataset.guidesRoot
+      ? new URL(searchConfig.dataset.guidesRoot, location.href)
+      : new URL('kilavuzlar/', suite);
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
     dialog.setAttribute('aria-labelledby', 'console-search-title');
-    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Ara</span></h2><button type="button" data-search-close aria-label="Aramayı kapat" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Kapat</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides and system calls">Yazılar, kılavuzlar ve sistem çağrıları</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
+    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Ara</span></h2><button type="button" data-search-close aria-label="Aramayı kapat" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Kapat</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls and pinout atlas">Yazılar, kılavuzlar, sistem çağrıları ve pin atlası</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
     document.body.append(dialog);
     applyLanguage(dialog);
     const input = dialog.querySelector('input');
@@ -136,15 +193,19 @@
     let request = 0;
     let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const addResult = (title, url, type, language, excerpt, origin = suite.origin) => {
+    const addResult = (title, url, type, language, excerpt, searchQuery = '') => {
       const item = document.createElement('li');
       const link = document.createElement('a');
-      const address = new URL(url, suite);
-      if (!['http:', 'https:'].includes(address.protocol) || address.origin !== origin) return;
+      const base = type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
+      const address = new URL(url, base);
+      if (!['http:', 'https:'].includes(address.protocol) || address.origin !== base.origin) return;
+      if (searchQuery && !address.searchParams.has('highlight') && !['syscall/', 'pin-atlas/'].includes(type)) {
+        address.searchParams.set('highlight', searchQuery);
+      }
       link.href = address.href;
       if (language) link.lang = language;
       const label = document.createElement('small');
-      label.textContent = t(({ 'yazılar/': 'posts/', 'sayfalar/': 'pages/', 'kılavuzlar/': 'guides/', 'kılavuzlar/arşiv/': 'guides/archive/' })[type] || type);
+      label.textContent = t(({ 'yazılar/': 'posts/', 'sayfalar/': 'pages/', 'kılavuzlar/': 'guides/', 'kılavuzlar/arşiv/': 'guides/archive/', 'pin-atlas/': 'pin-atlas/', 'syscall/': 'syscall/' })[type] || type);
       link.append(label, document.createTextNode(' ' + title));
       if (excerpt) {
         const snippet = document.createElement('small');
@@ -154,7 +215,7 @@
       item.append(link);
       results.append(item);
     };
-    const loadFallback = () => fallbackIndex ||= Promise.allSettled(['search.json', 'kilavuzlar/search.json'].map(async path => {
+    const loadFallback = () => fallbackIndex ||= Promise.allSettled(['search.json', 'kilavuzlar/search.json', 'syscall/search.json', 'pin-atlas/search.json'].map(async path => {
       const response = await fetch(new URL(path, suite));
       if (!response.ok) throw new Error('Search index unavailable');
       return response.json();
@@ -176,7 +237,14 @@
     const addSyscallResult = query => {
       const syscall = new URL(syscallRoot);
       syscall.searchParams.set('q', query);
-      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/', undefined, undefined, syscallRoot.origin);
+      syscall.searchParams.set('highlight', query);
+      addResult(t('Search the syscall table: {query}', { query }), syscall.href, 'syscall/', undefined, undefined);
+    };
+    const addPinAtlasResult = query => {
+      const pinAtlas = new URL(pinAtlasRoot);
+      pinAtlas.searchParams.set('q', query);
+      pinAtlas.searchParams.set('highlight', query);
+      addResult(t('Search Pin Atlas: {query}', { query }), pinAtlas.href, 'pin-atlas/', undefined, undefined);
     };
     const showQuery = query => {
       results.replaceChildren();
@@ -185,6 +253,7 @@
         return;
       }
       addSyscallResult(query);
+      addPinAtlasResult(query);
       status.textContent = t('Searching…');
     };
     const render = async () => {
@@ -199,6 +268,9 @@
         if (current !== request) return;
         const index = await loadIndex(createInstance);
         if (current !== request) return;
+        if (index.options) {
+          try { await index.options({ highlightParam: 'highlight' }); } catch {}
+        }
         const search = await index.search(query);
         if (current !== request) return;
         const fragments = await Promise.all(search.results.slice(0, 12).map(result => result.data()));
@@ -221,8 +293,9 @@
       }
       if (current !== request) return;
       results.replaceChildren();
-      for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt);
+      for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt, query);
       addSyscallResult(query);
+      addPinAtlasResult(query);
       status.textContent = t(message, { count: matches.length });
     };
     const showSearch = () => {
@@ -277,7 +350,7 @@
       const target = event.target;
       const editing = target instanceof HTMLElement && (target.matches('input,textarea,select') || target.isContentEditable);
       const isSlash = event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey;
-      if (isSlash && document.querySelector('#pin-search')) return;
+      if (isSlash && (document.querySelector('#pin-search') || document.querySelector('#home-search'))) return;
       const isSearchShortcut = isSlash ||
         ((event.key === 'k' || event.key === 'K') && (event.ctrlKey || event.metaKey));
       if (isSearchShortcut) { event.preventDefault(); showSearch(); }

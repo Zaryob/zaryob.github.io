@@ -168,6 +168,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-search__results a:focus-visible { background: var(--surface); color: var(--accent); outline: none; }
 .console-search__results small { display: block; color: var(--muted); font-size: var(--text-xs); margin-bottom: 3px; }
 .console-search__status { font-size: var(--text-xs); color: var(--muted); margin: 12px 0 0; }
+mark, .console-highlight { background: var(--selection); color: var(--ink); outline: 1px solid var(--accent); border-radius: 2px; padding: 0 2px; }
 .console-code { position: relative; margin: 1.4rem 0; }
 .console-code pre { margin: 0; padding: 14px 18px; padding-inline-end: 84px; }
 .console-copy { position: absolute; top: 10px; right: 10px; z-index: 1; min-height: 30px !important; padding: 4px 9px !important; font-size: var(--text-xs) !important; }
