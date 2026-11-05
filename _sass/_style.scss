@@ -16,7 +16,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: "IBM Plex Sans", Arial, sans-serif;
-  font-size: 1.05rem;
+  font-size: var(--text-base);
   line-height: 1.65;
 }
 
@@ -70,7 +70,7 @@ a:focus-visible, button:focus-visible {
   margin: 0 0 .85rem;
   color: #efbb97;
   font-family: "IBM Plex Mono", monospace;
-  font-size: .78rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: .06em;
   line-height: 1.5;
@@ -80,19 +80,19 @@ a:focus-visible, button:focus-visible {
 .hero h1 {
   max-width: 900px;
   margin: 0;
-  font-size: clamp(2.2rem, 5.7vw, 4.1rem);
+  font-size: var(--text-h1);
   font-weight: 700;
   letter-spacing: -.035em;
   line-height: 1.15;
   text-wrap: balance;
   overflow-wrap: anywhere;
 }
-.hero--post h1 { font-size: clamp(2rem, 4.1vw, 3.15rem); }
+.hero--post h1 { font-size: var(--text-h1); }
 .hero__lead {
   max-width: 720px;
   margin: 1rem 0 0;
   color: #e7e9e9;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: var(--text-base);
   line-height: 1.55;
 }
 .hero__date {
@@ -100,7 +100,7 @@ a:focus-visible, button:focus-visible {
   margin-top: 1.2rem;
   color: #e6e9eb;
   font-family: "IBM Plex Mono", monospace;
-  font-size: .85rem;
+  font-size: var(--text-base);
 }
 .hero__actions {
   display: flex;
@@ -117,7 +117,7 @@ a:focus-visible, button:focus-visible {
   max-width: 780px;
   margin-bottom: 2.5rem;
   color: var(--muted);
-  font-size: 1.13rem;
+  font-size: var(--text-base);
 }
 .section-heading {
   display: flex;
@@ -128,11 +128,11 @@ a:focus-visible, button:focus-visible {
 }
 .section-heading h2 {
   margin: 0;
-  font-size: clamp(1.55rem, 2.7vw, 2.1rem);
+  font-size: var(--text-h2);
   font-weight: 700;
   letter-spacing: -.02em;
 }
-.section-heading a { font-size: .94rem; font-weight: 600; }
+.section-heading a { font-size: var(--text-base); font-weight: 600; }
 .content-section + .content-section { margin-top: 4rem; }
 
 .project-grid {
@@ -154,26 +154,26 @@ a:focus-visible, button:focus-visible {
   margin: 0 0 .7rem;
   color: var(--accent-dark);
   font-family: "IBM Plex Mono", monospace;
-  font-size: .76rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
 }
-.project-card h3 { margin: 0 0 .7rem; font-size: 1.35rem; font-weight: 700; }
+.project-card h3 { margin: 0 0 .7rem; font-size: var(--text-h3); font-weight: 700; }
 .project-card h3 a { color: var(--ink); text-decoration: none; }
 .project-card h3 a:hover { color: var(--accent-dark); text-decoration: underline; }
 .project-card p { margin: 0 0 1rem; color: var(--muted); }
 .project-card__link { margin-top: auto; font-weight: 600; }
 .project-group { margin-top: 3rem; scroll-margin-top: 5rem; }
-.project-group > h2 { font-size: 1.85rem; font-weight: 700; }
+.project-group > h2 { font-size: var(--text-h2); font-weight: 700; }
 .project-navigation { margin: 1.5rem 0 2rem; }
 .project-navigation ul { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; padding-left: 1.2rem; }
 .project-detail { scroll-margin-top: 5rem; padding: 1.7rem 0; border-top: 1px solid var(--line); }
-.project-detail h2, .project-detail h3 { font-size: 1.65rem; font-weight: 700; }
+.project-detail h2, .project-detail h3 { font-size: var(--text-h2); font-weight: 700; }
 .project-detail__meta {
   color: var(--accent-dark);
   font-family: "IBM Plex Mono", monospace;
-  font-size: .82rem;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 .project-detail dl { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: .55rem 1rem; }
@@ -187,7 +187,7 @@ a:focus-visible, button:focus-visible {
   padding: 1.2rem 1.35rem;
   background: #fff;
 }
-.reading-path h3 { margin: 0 0 .4rem; font-size: 1.13rem; }
+.reading-path h3 { margin: 0 0 .4rem; font-size: var(--text-h3); }
 .reading-path p { margin: 0; color: var(--muted); }
 
 .about-intro { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1.5rem; }
@@ -195,17 +195,17 @@ a:focus-visible, button:focus-visible {
 .about-intro p { margin: .4rem 0 0; }
 .about-content { max-width: 820px; }
 .about-content h2 { margin-top: 3rem; margin-bottom: 1.1rem; font-weight: 700; }
-.about-content h3 { font-size: 1.18rem; font-weight: 700; }
+.about-content h3 { font-size: var(--text-h3); font-weight: 700; }
 .about-entry { padding: 1rem 0; border-top: 1px solid var(--line); }
 .about-entry p { margin-bottom: .45rem; }
-.about-entry__meta { color: var(--muted); font-size: .94rem; }
+.about-entry__meta { color: var(--muted); font-size: var(--text-sm); }
 .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
 .skill-list li {
   border: 1px solid #d8ddd9;
   border-radius: 100px;
   padding: .3rem .7rem;
   background: #fff;
-  font-size: .9rem;
+  font-size: var(--text-sm);
 }
 
 .site-footer {
@@ -215,10 +215,10 @@ a:focus-visible, button:focus-visible {
 }
 .footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem; }
 .footer-name { margin: 0; color: white; font-weight: 700; }
-.footer-note { margin: .2rem 0 0; color: #bcc7cd; font-size: .9rem; }
+.footer-note { margin: .2rem 0 0; color: #bcc7cd; font-size: var(--text-sm); }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .5rem 1rem; }
 .footer-links a, .footer-legal a { color: #d7e0e5; text-decoration: none; }
-.footer-links a { display: inline-flex; align-items: center; gap: .4rem; font-size: .9rem; }
+.footer-links a { display: inline-flex; align-items: center; gap: .4rem; font-size: var(--text-sm); }
 .footer-links a:hover, .footer-legal a:hover { color: white; text-decoration: underline; }
 .footer-legal {
   display: flex;
@@ -228,14 +228,14 @@ a:focus-visible, button:focus-visible {
   margin-top: 2rem;
   padding-top: 1rem;
   color: #aebac1;
-  font-size: .8rem;
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 991px) {
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  body { font-size: 1rem; }
+  body { font-size: var(--text-base); }
   .hero--home { min-height: 360px; }
   .hero--page, .hero--post { min-height: 215px; }
   .hero__inner { padding-top: 2.4rem; padding-bottom: 2.4rem; }

@@ -5,7 +5,7 @@
 }
 
 .post-content {
-  font-size: 1.08rem;
+  font-size: var(--text-prose);
   line-height: 1.8;
   overflow-wrap: break-word;
 }
@@ -18,8 +18,8 @@
   line-height: 1.3;
   scroll-margin-top: 5rem;
 }
-.post-content h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
-.post-content h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+.post-content h2 { font-size: var(--text-h2); }
+.post-content h3 { font-size: var(--text-h3); }
 .post-content img, .post-content video, .post-content iframe {
   max-width: 100%;
   height: auto;
@@ -58,5 +58,5 @@
 
 @media (max-width: 640px) {
   .post-layout { padding-inline: .75rem; }
-  .post-content { font-size: 1.02rem; line-height: 1.75; }
+  .post-content { font-size: var(--text-prose); line-height: 1.75; }
 }

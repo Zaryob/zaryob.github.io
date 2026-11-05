@@ -65,6 +65,23 @@ Fontların özgün OFL lisansı ve Font Awesome simgelerinin lisansı dağıtım
 Yeni yazılan ortak tema kodu GPL-2.0-or-later lisanslıdır; sitelerin mevcut
 lisansları değişmez.
 
+Yazı ölçeğinin kaynağı `Zaryob/console-theme` deposundaki
+`assets/console/theme.css` dosyasıdır. Dört site arayüzde `--text-base: 1rem`,
+makale ve kılavuz gövdesinde `--text-prose: 1.125rem` kullanır. Tarayıcının
+varsayılanı 16 pikselken bunlar 16 ve 18 pikseldir. Yardımcı metinler
+`--text-sm` (14 piksel), meta bilgiler `--text-xs` (13 piksel) kullanır;
+başlıklar `--text-h1`–`--text-h4` ölçeğini paylaşır. Dar ekranda gövde ve kod
+yazısı küçültülmez. Boyutlar `rem` ile kullanıcının yazı tercihine uyar.
+Uzun metin IBM Plex Sans, menü ve kod IBM Plex Mono kullanır; iki aile de ortak
+tema tarafından yerel dosyalardan yüklenir. SVG pin etiketlerinin boyutları
+çizimin koordinatlarıdır; HTML yazı ölçeğine dönüştürülmez.
+
+Ortak tema değişikliklerini önce `console-theme` kaynağında yapın ve değişen
+dosyaları kardeş depolara eşitleyin. Tam eşitlemeden önce `scripts/sync.py --check`
+ile mevcut uygulamaya özgü farkları inceleyin. Dört site derlenip ortak önizleme
+açıldıktan sonra `console-theme/scripts/check_typography.cjs`, 320–1440 piksel
+aralığında ve %200 yazı boyutunda font yüklemesini, okunabilirliği ve taşmayı denetler.
+
 Tema seçicisi `Sistem`, `Koyu`, `Açık` seçeneklerini sunar. İlk açılış sistem
 tercihini izler; açık seçim `zaryob-theme` anahtarında saklanır. Dört site aynı
 origin altında yayımlandığından seçim aralarında paylaşılır. Depolama kapalıysa

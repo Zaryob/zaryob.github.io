@@ -20,14 +20,14 @@
 .blog-post .meta {
   margin: 0 0 .3rem;
   color: #52606b;
-  font-size: .88rem;
+  font-size: var(--text-sm);
 }
-.blog-post h3 { margin: 0 0 .45rem; font-size: clamp(1.18rem, 2.3vw, 1.48rem); font-weight: 700; line-height: 1.35; }
+.blog-post h3 { margin: 0 0 .45rem; font-size: var(--text-h3); font-weight: 700; line-height: 1.35; }
 .blog-post h3 a { color: #18222b; text-decoration: none; }
 .blog-post h3 a:hover { color: #843a0e; text-decoration: underline; }
 .blog-post .details > p:last-child { margin: 0; color: #52606b; line-height: 1.55; }
 .post-pagination { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; }
-.post-pagination span { color: #52606b; font-size: .9rem; }
+.post-pagination span { color: #52606b; font-size: var(--text-sm); }
 
 @media (max-width: 600px) {
   .blog-post { display: block; padding: 1.35rem 0; }
