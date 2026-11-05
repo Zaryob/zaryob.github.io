@@ -399,6 +399,9 @@
     if (!link) return null;
     const destination = new URL(link.href, location.href);
     if (destination.pathname === new URL(location.href).pathname) return null;
+    for (const [key, val] of new URL(location.href).searchParams) {
+      if (!destination.searchParams.has(key)) destination.searchParams.set(key, val);
+    }
     destination.searchParams.set('lang', language);
     if (!destination.hash) destination.hash = new URL(location.href).hash;
     return destination;
