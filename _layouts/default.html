@@ -15,6 +15,7 @@
   <title>{% if page.title == site.title %}{{ site.title | escape }} · Software engineer{% else %}{{ page.title | escape }} · {{ site.title | escape }}{% endif %}</title>
   {% seo title=false %}
   {% else %}{% seo %}{% endif %}
+  {% include breadcrumbs-jsonld.html %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/console/bundle.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>

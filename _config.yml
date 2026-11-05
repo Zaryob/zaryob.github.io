@@ -10,6 +10,13 @@ lang: tr
 twitter_username: pyrz_suleyman
 github_username: Zaryob
 
+social:
+  name: Süleyman Poyraz
+  links:
+    - https://github.com/Zaryob
+    - https://linkedin.com/in/suleyman_poyraz
+    - https://medium.com/@zaryob
+
 sass:
   style: compressed
 
