@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://zaryob.github.io/sitemap.xml
+Sitemap: https://zaryob.github.io/kilavuzlar/sitemap.xml
+Sitemap: https://zaryob.github.io/syscall/sitemap.xml
+Sitemap: https://zaryob.github.io/pin-atlas/sitemap.xml

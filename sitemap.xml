@@ -1,0 +1,113 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Core Suite Navigation Hubs -->
+  <url>
+    <loc>{{ '/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ '/en/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/' | absolute_url }}" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ '/posts/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/posts/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/posts/' | absolute_url }}" />
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/en/posts/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/posts/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/posts/' | absolute_url }}" />
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/projeler/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/projeler/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/projects/' | absolute_url }}" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/en/projects/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/projects/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/projeler/' | absolute_url }}" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/kilavuzlar/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/kilavuzlar/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/kilavuzlar/en/' | absolute_url }}" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/kilavuzlar/en/' | absolute_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/kilavuzlar/en/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="tr" href="{{ '/kilavuzlar/' | absolute_url }}" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/syscall/' | absolute_url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>{{ '/pin-atlas/' | absolute_url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Technical Articles & Posts -->
+{% for post in site.posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+{% if post.translation_key %}
+{% assign post_alternates = site.posts | where: "translation_key", post.translation_key %}
+{% for alt in post_alternates %}
+    <xhtml:link rel="alternate" hreflang="{{ alt.lang | default: 'tr' }}" href="{{ alt.url | absolute_url }}" />
+{% endfor %}
+{% endif %}
+  </url>
+{% endfor %}
+
+  <!-- Fixed Pages -->
+{% assign skip_urls = '/, /en/, /posts/, /en/posts/, /projeler/, /en/projects/, /sitemap.xml, /robots.txt, /feed.xml, /404.html, /search.json' | split: ', ' %}
+{% for page in site.pages %}
+{% if page.url and page.layout and page.title and page.title != 'empty' %}
+{% unless skip_urls contains page.url or page.url contains '/posts/page' %}
+  <url>
+    <loc>{{ page.url | absolute_url }}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+{% if page.translation_key %}
+{% assign page_alternates = site.pages | where: "translation_key", page.translation_key %}
+{% for alt in page_alternates %}
+{% if alt.url and alt.title %}
+    <xhtml:link rel="alternate" hreflang="{{ alt.lang | default: 'tr' }}" href="{{ alt.url | absolute_url }}" />
+{% endif %}
+{% endfor %}
+{% endif %}
+  </url>
+{% endunless %}
+{% endif %}
+{% endfor %}
+</urlset>
