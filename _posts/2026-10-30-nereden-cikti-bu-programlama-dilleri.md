@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: where-did-programming-languages-come-from
 title: "Nereden Çıktı Bu Programlama Dilleri?"
 date: 2026-10-30 19:04:04 +0300
 categories: [programlama]

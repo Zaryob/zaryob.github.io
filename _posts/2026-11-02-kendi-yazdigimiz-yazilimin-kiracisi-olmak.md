@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: becoming-tenants-of-software-we-wrote
 title: 'Kendi Yazdığımız Yazılımın Kiracısı Olmak: OccupySaaS ve Yapay Zekâ Çağında Mülkiyet'
 date: 2026-11-02 22:58:42 +0300
 categories:

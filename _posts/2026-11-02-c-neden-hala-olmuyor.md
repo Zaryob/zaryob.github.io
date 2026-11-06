@@ -1,5 +1,6 @@
 ---
 layout: post
+translation_key: why-is-c-still-not-dying
 title: C Neden Hâlâ Ölmüyor?
 date: 2026-11-02 22:09:44 +0300
 categories:
