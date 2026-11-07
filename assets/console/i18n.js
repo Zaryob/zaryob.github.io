@@ -201,12 +201,12 @@
   "imported from torvalds/linux": "torvalds/linux deposundan içe aktarıldı",
   "C declaration not resolved in the imported headers.": "İçe aktarılan başlıklarda C bildirimi çözümlenemedi.",
   "Argument details are not resolved in the imported headers.": "İçe aktarılan başlıklarda parametre ayrıntıları çözümlenemedi.",
-  "Position": "Sıra",
-  "Kernel C declaration": "Çekirdekteki C bildirimi",
+  "Position": "Konum",
+  "Kernel C declaration": "Çekirdek C bildirimi",
   "Register": "Yazmaç",
   "ABI-dependent": "ABI’ye bağlı",
-  "These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.": "Bunlar mantıksal C parametreleridir. Bu 32 bit ABI’de yazmaçlara yerleştirme ayrıca incelenmelidir.",
-  "This syscall has no C arguments.": "Bu sistem çağrısının C parametresi yok.",
+  "These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.": "Bunlar mantıksal C parametreleridir. Bu 32-bit ABI’de yazmaç paketleme ayrıca kontrol edilmelidir.",
+  "This syscall has no C arguments.": "Bu sistem çağrısının C argümanı yoktur.",
   "C usage example": "C kullanım örneği",
   "Generate a C skeleton": "C iskeleti oluştur",
   "example": "örneği",
@@ -218,7 +218,7 @@
   "Entry point:": "Giriş noktası:",
   "none": "yok",
   "Number:": "Numara:",
-  "This table slot has no implementation. It must not be treated as an available syscall.": "Bu tablo girdisi gerçeklenmemiştir. Kullanılabilir bir sistem çağrısı olarak değerlendirilmemelidir.",
+  "This table slot has no implementation. It must not be treated as an available syscall.": "Bu tablo yuvasının bir uygulaması yoktur. Kullanılabilir bir sistem çağrısı olarak değerlendirilmemelidir.",
   "In Linux {version}:": "Linux {version} sürümünde:",
   "Changes:": "Değişiklikler:",
   "Implementation status": "Uygulanma durumu",
@@ -241,14 +241,14 @@
   "Loading comparison with Linux {version}…": "Linux {version} ile karşılaştırma yükleniyor…",
   "Retry comparison": "Karşılaştırmayı yeniden dene",
   "Invalid kernel table at {url}.": "{url} adresindeki çekirdek tablosu geçersiz.",
-  "signature unresolved": "bildirim çözümlenemedi",
+  "signature unresolved": "imza çözülemedi",
   "Kernel table:": "Çekirdek tablosu:",
   "Look up {name}(2)": "{name}(2) kılavuzuna bak",
-  "Download entry JSON": "Girdiyi JSON indir",
+  "Download entry JSON": "Girdi JSON indir",
   "Table JSON": "Tablo JSON",
   "Permanent link": "Kalıcı bağlantı",
-  "Arguments to {name}": "{name} parametreleri",
-  "Compared with Linux {version}: {added} added, {removed} removed, {changed} changed entries. Changes include reserved or unimplemented slots. Unchanged entries remain visible for context.": "Linux {version} ile karşılaştırma: {added} eklenen, {removed} kaldırılan, {changed} değişen girdi. Değişikliklere ayrılmış veya gerçeklenmemiş girdiler de dahildir. Bağlam için değişmeyen girdiler görünür kalır.",
+  "Arguments to {name}": "{name} argümanları",
+  "Compared with Linux {version}: {added} added, {removed} removed, {changed} changed entries. Changes include reserved or unimplemented slots. Unchanged entries remain visible for context.": "Linux {version} ile karşılaştırıldığında: {added} eklenen, {removed} silinen, {changed} değişen girdi. Değişiklikler ayrılmış veya gerçeklenmemiş yuvaları da içerir. Değişmeyen girdiler bağlam için görünür kalır.",
   "not resolved": "çözümlenemedi",
   "no argument": "parametre yok",
   "added": "eklendi",
@@ -259,9 +259,9 @@
   "{count} of {total} entries · {arch} / Linux {version}": "{total} girdiden {count} tanesi · {arch} / Linux {version}",
   "Loading kernel table…": "Çekirdek tablosu yükleniyor…",
   "Table unavailable": "Tablo kullanılamıyor",
-  "Dataset unavailable": "Veri kümesi kullanılamıyor",
-  "Check that the dataset exists, then reload to retry.": "Veri kümesinin varlığını kontrol edip yeniden yükleyin.",
-  "Check the site deployment and data/manifest.json, then reload to retry.": "Site kurulumunu ve data/manifest.json dosyasını kontrol edip yeniden yükleyin.",
+  "Dataset unavailable": "Veri seti kullanılamıyor",
+  "Check that the dataset exists, then reload to retry.": "Veri setinin var olduğunu kontrol edin, ardından yeniden deneyin.",
+  "Check the site deployment and data/manifest.json, then reload to retry.": "Site dağıtımını ve data/manifest.json dosyasını kontrol edin, ardından yeniden deneyin.",
   "Could not read {url} (HTTP {status}).": "{url} okunamadı (HTTP {status}).",
   "This table slot is unimplemented; no example is generated.": "Bu tablo girdisi gerçeklenmemiş; örnek üretilmiyor.",
   "The kernel signature is unresolved. An example would require guessing the arguments.": "Çekirdek bildirimi çözümlenemedi. Örnek üretmek parametreleri tahmin etmeyi gerektirirdi.",
@@ -319,51 +319,26 @@
   "{arch} system calls": "{arch} sistem çağrıları",
   "This slot is unimplemented.": "Bu yuva gerçeklenmemiştir.",
   "Stack": "Yığın",
-  "ABI-dependent": "ABI’ye bağlı",
   "Copy C declaration": "C bildirimini kopyala",
   "Kernel source for {name}": "{name} için çekirdek kaynağı",
   "View kernel source": "Çekirdek kaynağını gör",
-  "Arguments to {name}": "{name} argümanları",
   "Read {name}({section})": "{name}({section}) kılavuzunu oku",
-  "Loading kernel table…": "Çekirdek tablosu yükleniyor…",
-  "Table unavailable": "Tablo kullanılamıyor",
-  "Dataset unavailable": "Veri seti kullanılamıyor",
-  "C usage example": "C kullanım örneği",
-  "Generate a C skeleton": "C iskeleti oluştur",
-  "Download C {kind}": "C {kind} indir",
-  "example": "örneği",
-  "skeleton": "iskeleti",
-  "signature unresolved": "imza çözülemedi",
-  "In Linux {version}:": "Linux {version} sürümünde:",
-  "Declaration:": "Bildirim:",
-  "Entry point:": "Giriş noktası:",
-  "none": "yok",
-  "Download entry JSON": "Girdi JSON indir",
-  "Table JSON": "Tablo JSON",
-  "Permanent link": "Kalıcı bağlantı",
-  "About the libc syscall() interface": "libc syscall() arayüzü hakkında",
-  "C example:": "C örneği:",
-  "Position": "Konum",
-  "Kernel C declaration": "Çekirdek C bildirimi",
-  "Register": "Yazmaç",
-  "These are logical C parameters. Register packing on this 32-bit ABI must be checked separately.": "Bunlar mantıksal C parametreleridir. Bu 32-bit ABI’de yazmaç paketleme ayrıca kontrol edilmelidir.",
-  "This syscall has no C arguments.": "Bu sistem çağrısının C argümanı yoktur.",
-  "This table slot has no implementation. It must not be treated as an available syscall.": "Bu tablo yuvasının bir uygulaması yoktur. Kullanılabilir bir sistem çağrısı olarak değerlendirilmemelidir.",
-  "unimplemented": "gerçeklenmemiş",
-  "Check that the dataset exists, then reload to retry.": "Veri setinin var olduğunu kontrol edin, ardından yeniden deneyin.",
-  "Check the site deployment and data/manifest.json, then reload to retry.": "Site dağıtımını ve data/manifest.json dosyasını kontrol edin, ardından yeniden deneyin.",
-  "Compared with Linux {version}: {added} added, {removed} removed, {changed} changed entries. Changes include reserved or unimplemented slots. Unchanged entries remain visible for context.": "Linux {version} ile karşılaştırıldığında: {added} eklenen, {removed} silinen, {changed} değişen girdi. Değişiklikler ayrılmış veya gerçeklenmemiş yuvaları da içerir. Değişmeyen girdiler bağlam için görünür kalır."
+  "Execmap": "Execmap",
+  "Tutorials": "Rehberler",
+  "Start": "Başlangıç",
+  "ELF and reverse engineering": "ELF ve tersine mühendislik",
+  "Posts, guides, system calls, pinouts and ELF analysis": "Yazılar, kılavuzlar, sistem çağrıları, pin atlası ve ELF analizi",
+  "Turkish content and local search; shared controls follow your language preference.": "İçerik ve yerel arama Türkçedir; ortak kontroller dil tercihinizi izler.",
+  "Search this site": "Bu sitede ara",
+  "Main navigation": "Ana menü",
+  "Reading routes": "Okuma rotaları",
+  "Resources": "Kaynaklar",
+  "Labs": "Laboratuvarlar"
 };
-  const supported = ['tr', 'en'];
+  const state = window.ZaryobLanguage;
+  const { supported } = state;
   const root = document.documentElement;
-  const query = new URLSearchParams(location.search).get('lang');
-  const browserLanguage = () => /^tr(?:-|$)/i.test(navigator.languages?.[0] || navigator.language || '') ? 'tr' : 'en';
-  let language = browserLanguage();
-  try { language = localStorage.getItem('zaryob-language') || language; } catch { /* Optional persistence. */ }
-  if (supported.includes(query)) language = query;
-  if (!supported.includes(language)) language = browserLanguage();
-  root.lang = language;
-  root.dataset.uiLanguage = language;
+  let language = state.language;
   const t = (source, values = {}) => (language === 'tr' ? translations[source] || source : source)
     .replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match);
   const apply = (scope = document) => {
@@ -392,8 +367,9 @@
     });
   };
   const translationTarget = () => {
-    const pathname = new URL(location.href).pathname;
-    if (pathname.startsWith('/en/') ? language === 'en' : language === 'tr') return null;
+    const contentLanguage = document.querySelector('article[lang]')?.lang
+      || root.dataset.originalLanguage;
+    if (contentLanguage === language) return null;
     const link = document.querySelector(`[data-translation-lang="${language}"]`)
       || document.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
     if (!link) return null;
@@ -408,28 +384,20 @@
   };
   const setLanguage = (next, { persist = true, navigate = true } = {}) => {
     if (!supported.includes(next)) return;
-    language = next;
-    if (persist) try { localStorage.setItem('zaryob-language', language); } catch { /* Page-local fallback. */ }
-    root.lang = language;
-    root.dataset.uiLanguage = language;
-    const url = new URL(location.href);
-    url.searchParams.set('lang', language);
-    history.replaceState(null, '', url);
-    apply();
-    window.dispatchEvent(new CustomEvent('zaryob:language', { detail: { language } }));
+    state.set(next, { persist });
     const destination = translationTarget();
     if (navigate && destination) location.assign(destination);
   };
+  state.subscribe(next => {
+    language = next;
+    apply();
+    window.dispatchEvent(new CustomEvent('zaryob:language', { detail: { language } }));
+  });
   window.ZaryobI18n = { t, apply, setLanguage, get language() { return language; } };
   document.addEventListener('DOMContentLoaded', () => {
     apply();
-    if (supported.includes(query)) try { localStorage.setItem('zaryob-language', language); } catch { /* Optional. */ }
     document.querySelectorAll('[data-console-language]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
     const destination = translationTarget();
     if (destination) location.replace(destination);
-  });
-  window.addEventListener('storage', event => {
-    if (event.key !== 'zaryob-language' && event.key !== null) return;
-    setLanguage(supported.includes(event.newValue) ? event.newValue : browserLanguage(), { persist: false, navigate: false });
   });
 })();

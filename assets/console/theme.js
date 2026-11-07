@@ -179,10 +179,11 @@
     const guidesRoot = searchConfig.dataset.guidesRoot
       ? new URL(searchConfig.dataset.guidesRoot, location.href)
       : new URL('kilavuzlar/', suite);
+    const execmapRoot = new URL('execmap/', suite);
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
     dialog.setAttribute('aria-labelledby', 'console-search-title');
-    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Ara</span></h2><button type="button" data-search-close aria-label="Aramayı kapat" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Kapat</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls and pinout atlas">Yazılar, kılavuzlar, sistem çağrıları ve pin atlası</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
+    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Ara</span></h2><button type="button" data-search-close aria-label="Aramayı kapat" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Kapat</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls, pinouts and ELF analysis">Yazılar, kılavuzlar, sistem çağrıları, pin atlası ve ELF analizi</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
     document.body.append(dialog);
     applyLanguage(dialog);
     const input = dialog.querySelector('input');
@@ -190,15 +191,17 @@
     const status = dialog.querySelector('[role="status"]');
     const indexes = new Map();
     let fallbackIndex;
+    let execmapIndex;
     let request = 0;
     let debounce;
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
     const addResult = (title, url, type, language, excerpt, searchQuery = '') => {
       const item = document.createElement('li');
       const link = document.createElement('a');
-      const base = type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
+      const base = type === 'execmap/' ? execmapRoot : type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
       const address = new URL(url, base);
       if (!['http:', 'https:'].includes(address.protocol) || address.origin !== base.origin) return;
+      address.searchParams.set('lang', root.lang);
       if (searchQuery && !address.searchParams.has('highlight') && !['syscall/', 'pin-atlas/'].includes(type)) {
         address.searchParams.set('highlight', searchQuery);
       }
@@ -220,6 +223,17 @@
       if (!response.ok) throw new Error('Search index unavailable');
       return response.json();
     }));
+    const loadExecmap = () => execmapIndex ||= fetch(new URL('search.json', execmapRoot)).then(async response => {
+      if (!response.ok) throw new Error('Execmap index unavailable');
+      const records = await response.json();
+      if (!Array.isArray(records)) throw new Error('Invalid execmap index');
+      return records.filter(record => typeof record.title === 'string' && typeof record.url === 'string')
+        .map(record => ({ ...record, type: 'execmap/', lang: 'tr' }));
+    }).catch(error => { execmapIndex = undefined; throw error; });
+    const matchRecords = (records, query) => {
+      const terms = normalize(query).split(/\s+/).filter(Boolean);
+      return records.filter(record => terms.every(term => normalize(`${record.title} ${record.description || ''} ${record.text || ''}`).includes(term)));
+    };
     const loadIndex = async createInstance => {
       const language = root.lang;
       if (!indexes.has(language)) {
@@ -263,6 +277,8 @@
       if (!query) return;
       let matches;
       let message = '{count} content results';
+      // Always search execmap, including when Pagefind is healthy.
+      const execmapResults = loadExecmap().then(records => ({ records: matchRecords(records, query), failed: false }), () => ({ records: [], failed: true }));
       try {
         const { createInstance } = await import(new URL('pagefind/pagefind.js', suite).href);
         if (current !== request) return;
@@ -283,14 +299,14 @@
         }));
       } catch {
         const items = await loadFallback();
-        const terms = normalize(query).split(/\s+/).filter(Boolean);
-        matches = items.flatMap(item => item.status === 'fulfilled' && Array.isArray(item.value) ? item.value : [])
-          .filter(record => terms.every(term => normalize(`${record.title} ${record.description || ''}`).includes(term)))
-          .slice(0, 12);
+        matches = matchRecords(items.flatMap(item => item.status === 'fulfilled' && Array.isArray(item.value) ? item.value : []), query).slice(0, 12);
         message = items.some(item => item.status === 'rejected')
           ? 'Some indexes could not be loaded. Available results are shown.'
           : 'Full-text search unavailable. Showing title and topic matches.';
       }
+      const extra = await execmapResults;
+      matches = [...extra.records.slice(0, 6), ...matches].slice(0, 12);
+      if (extra.failed) message = 'Some indexes could not be loaded. Available results are shown.';
       if (current !== request) return;
       results.replaceChildren();
       for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt, query);

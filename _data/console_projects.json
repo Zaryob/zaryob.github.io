@@ -24,5 +24,11 @@
     "title": "Pin Atlas",
     "path": "/pin-atlas/",
     "prompt": "~/pin-atlas"
+  },
+  {
+    "key": "execmap",
+    "title": "Execmap",
+    "path": "/execmap/",
+    "prompt": "~/execmap"
   }
 ]

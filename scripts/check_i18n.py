@@ -8,7 +8,7 @@ from urllib.parse import urlsplit, unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 source = (ROOT / 'assets/console/i18n.js').read_text()
-vocabulary = json.loads(source.split('  const translations = ', 1)[1].split(';\n  const supported', 1)[0])
+vocabulary = json.JSONDecoder().raw_decode(source.split('  const translations = ', 1)[1])[0]
 errors = []
 for original, translated in vocabulary.items():
     if set(re.findall(r'\{\w+\}', original)) != set(re.findall(r'\{\w+\}', translated)):

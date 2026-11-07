@@ -1,16 +1,19 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+const stateScript = readFileSync(new URL('../assets/console/language.js', import.meta.url), 'utf8');
+const pinPath = new URL('../../pin-atlas/public/i18n.js', import.meta.url);
+const pinScript = existsSync(pinPath) ? readFileSync(pinPath, 'utf8') : null;
 const script = readFileSync(new URL('../assets/console/i18n.js', import.meta.url), 'utf8');
-function boot({ stored, query = '', blocked = false, browser = 'en-US', languages } = {}) {
-  let current = new URL(`https://zaryob.github.io/syscall/?arch=loongarch64&kernel=v7.3&q=write${query}#sys-write`);
-  const root = { lang: '', dataset: {} };
+function boot({ stored, query = '', blocked = false, browser = 'en-US', languages, path = '/syscall/', contentLanguage = 'tr', adapter = 'shared', links = [] } = {}) {
+  let current = new URL(`https://zaryob.github.io${path}?arch=loongarch64&kernel=v7.3&q=write${query}#sys-write`);
+  const root = { lang: contentLanguage, dataset: {} };
   const selectors = new Map();
   const listeners = new Map();
   const documentListeners = new Map();
-  const document = { documentElement: root, addEventListener(type, callback) { documentListeners.set(type, callback); }, querySelectorAll: () => [], querySelector: key => selectors.get(key) };
+  const document = { documentElement: root, addEventListener(type, callback) { documentListeners.set(type, [...(documentListeners.get(type) || []), callback]); }, querySelectorAll: selector => selector === '[data-console-projects] a[href]' ? links : [], querySelector: key => selectors.get(key) };
   const context = {
     document, URL, URLSearchParams, Intl, navigator: { language: browser, languages }, CustomEvent: class {},
     location: { get search() { return current.search; }, get href() { return current.href; }, assign(url) { current = new URL(url); }, replace(url) { current = new URL(url); } },
@@ -18,8 +21,9 @@ function boot({ stored, query = '', blocked = false, browser = 'en-US', language
     localStorage: { getItem() { if (blocked) throw Error('disabled'); return stored; }, setItem(_key, value) { if (blocked) throw Error('disabled'); stored = value; } },
     window: { addEventListener(type, callback) { listeners.set(type, callback); }, dispatchEvent() {} },
   };
-  vm.runInNewContext(script, context);
-  return { api: context.window.ZaryobI18n, root, selectors, ready: () => documentListeners.get('DOMContentLoaded')(), storage: value => listeners.get('storage')({ key: 'zaryob-language', newValue: value }), url: () => current };
+  vm.runInNewContext(stateScript, context);
+  vm.runInNewContext(adapter === 'pin' ? pinScript : script, context);
+  return { api: context.window.ZaryobI18n, root, selectors, ready: () => documentListeners.get('DOMContentLoaded').forEach(callback => callback()), storage: value => listeners.get('storage')({ key: 'zaryob-language', newValue: value }), url: () => current };
 }
 test('the primary browser language selects Turkish only for Turkish locales', () => {
   for (const browser of ['tr', 'tr-TR', 'tr-CY', 'TR-tr']) assert.equal(boot({ browser }).api.language, 'tr');
@@ -85,4 +89,53 @@ test('pagination does not redirect back to first page when language matches', ()
   page.selectors.set('link[rel="alternate"][hreflang="tr"]', { href: 'https://zaryob.github.io/posts/' });
   page.ready();
   assert.equal(page.url().pathname, '/syscall/');
+});
+
+test('guides editions navigate both ways under a baseurl while preserving state', () => {
+  for (const [source, target] of [['en', 'tr'], ['tr', 'en']]) {
+    const path = `/kilavuzlar/${source === 'en' ? 'en/' : ''}linux/lvm/`;
+    const destination = `/kilavuzlar/${target === 'en' ? 'en/' : ''}linux/lvm/`;
+    const page = boot({ path, contentLanguage: source, stored: source, blocked: true });
+    page.selectors.set(`[data-translation-lang="${target}"]`, { href: destination });
+    page.api.setLanguage(target);
+    assert.equal(page.url().pathname, destination);
+    assert.equal(page.url().searchParams.get('q'), 'write');
+    assert.equal(page.url().hash, '#sys-write');
+  }
+});
+
+test('an EN guides URL with explicit lang=tr follows its registered TR counterpart', () => {
+  const page = boot({ path: '/kilavuzlar/en/linux/lvm/', contentLanguage: 'en', query: '&lang=tr' });
+  page.selectors.set('link[rel="alternate"][hreflang="tr"]', { href: '/kilavuzlar/linux/lvm/' });
+  page.ready();
+  assert.equal(page.url().pathname, '/kilavuzlar/linux/lvm/');
+  assert.equal(page.url().searchParams.get('lang'), 'tr');
+});
+
+test('Pin Atlas uses the common browser, URL and live storage preference contract', () => {
+  for (const adapter of pinScript ? ['shared', 'pin'] : ['shared']) {
+    const page = boot({ adapter, browser: 'tr-TR', blocked: true });
+    assert.equal(page.api.language, 'tr');
+    page.storage('en');
+    assert.equal(page.api.language, 'en');
+    assert.equal(page.root.dataset.uiLanguage, 'en');
+    assert.equal(page.url().searchParams.get('lang'), 'en');
+    assert.equal(page.url().hash, '#sys-write');
+    page.storage(null);
+    assert.equal(page.api.language, 'tr');
+    assert.equal(boot({ adapter, stored: 'tr', query: '&lang=en' }).api.language, 'en');
+  }
+});
+
+test('project links retain language without copying the source application state', () => {
+  const links = ['/execmap/', '/pin-atlas/'].map(href => ({ href, getAttribute() { return this.href; } }));
+  const page = boot({ blocked: true, query: '&lang=en', links });
+  page.ready();
+  for (const link of links) {
+    const address = new URL(link.href);
+    assert.equal(address.search, '?lang=en');
+    assert.equal(address.hash, '');
+  }
+  page.api.setLanguage('tr');
+  assert.ok(links.every(link => new URL(link.href).search === '?lang=tr'));
 });
