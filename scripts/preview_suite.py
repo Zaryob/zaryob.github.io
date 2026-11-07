@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preview the four built Zaryob sites together on a loopback address."""
+"""Preview the five built Zaryob sites together on a loopback address."""
 import argparse
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class SuiteHandler(SimpleHTTPRequestHandler):
     def translate_path(self, path):
         pathname = urlsplit(path).path
-        for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
+        for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
             if pathname == prefix or pathname.startswith(prefix + '/'):
                 self.directory = str(directory)
                 return super().translate_path(pathname[len(prefix):] or '/')
@@ -25,7 +25,7 @@ class SuiteHandler(SimpleHTTPRequestHandler):
             ref_val = referer.get('Referer') if referer else None
             if ref_val:
                 ref_path = urlsplit(ref_val).path
-                for prefix, directory in [('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
+                for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
                     if ref_path == prefix or ref_path.startswith(prefix + '/'):
                         sub_target = (directory / pathname.lstrip('/')).resolve()
                         if sub_target.exists():
