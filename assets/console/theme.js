@@ -24,7 +24,7 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const { t, apply: applyLanguage } = window.ZaryobI18n || {
-      t: text => ({ 'Open menu': 'Menüyü aç', 'Close menu': 'Menüyü kapat' })[text] || text,
+      t: (text, values = {}) => text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match),
       apply: () => {},
     };
     document.querySelectorAll('[data-console-theme]').forEach(select => {
@@ -183,7 +183,7 @@
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
     dialog.setAttribute('aria-labelledby', 'console-search-title');
-    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Ara</span></h2><button type="button" data-search-close aria-label="Aramayı kapat" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Kapat</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls, pinouts and ELF analysis">Yazılar, kılavuzlar, sistem çağrıları, pin atlası ve ELF analizi</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
+    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Search</span></h2><button type="button" data-search-close aria-label="Close search" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Close</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls, pinouts and ELF analysis">Posts, guides, system calls, pinouts and ELF analysis</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
     document.body.append(dialog);
     applyLanguage(dialog);
     const input = dialog.querySelector('input');
@@ -228,7 +228,7 @@
       const records = await response.json();
       if (!Array.isArray(records)) throw new Error('Invalid execmap index');
       return records.filter(record => typeof record.title === 'string' && typeof record.url === 'string')
-        .map(record => ({ ...record, type: 'execmap/', lang: 'tr' }));
+        .map(record => ({ ...record, type: 'execmap/' }));
     }).catch(error => { execmapIndex = undefined; throw error; });
     const matchRecords = (records, query) => {
       const terms = normalize(query).split(/\s+/).filter(Boolean);
