@@ -59,7 +59,17 @@
       dropdown.querySelector('summary').setAttribute('aria-expanded', 'false');
       if (restoreFocus) dropdown.querySelector('summary').focus();
     };
-    dropdowns.forEach(dropdown => {
+    dropdowns.forEach((dropdown, index) => {
+      const projectPath = dropdown.querySelector('.console-project-path');
+      if (projectPath) {
+        // The mobile path may be ellipsized; keep its full text as context
+        // without replacing the translated action name or other descriptions.
+        projectPath.id ||= `console-project-context-${index}`;
+        const summary = dropdown.querySelector('summary');
+        const descriptions = new Set((summary.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+        descriptions.add(projectPath.id);
+        summary.setAttribute('aria-describedby', [...descriptions].join(' '));
+      }
       const updateDropdown = () => {
         dropdown.querySelector('summary').setAttribute('aria-expanded', String(dropdown.open));
         if (dropdown.open) dropdowns.forEach(other => { if (other !== dropdown && other.open) closeDropdown(other); });
@@ -113,6 +123,7 @@
       const pre = code.parentElement;
       const wrapper = document.createElement('div');
       wrapper.className = 'console-code';
+      if (pre.hasAttribute('data-console-declaration')) wrapper.classList.add('console-declaration');
       pre.before(wrapper);
       wrapper.append(pre);
       const button = document.createElement('button');
@@ -203,10 +214,11 @@
       ? new URL(searchConfig.dataset.guidesRoot, location.href)
       : new URL('kilavuzlar/', suite);
     const execmapRoot = new URL('execmap/', suite);
+    const wireRoot = new URL(searchConfig.dataset.wireRoot || 'wire/', suite);
     const dialog = document.createElement('dialog');
     dialog.className = 'console-search';
     dialog.setAttribute('aria-labelledby', 'console-search-title');
-    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Search</span></h2><button type="button" data-search-close aria-label="Close search" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Close</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls, pinouts and ELF analysis">Posts, guides, system calls, pinouts and ELF analysis</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
+    dialog.innerHTML = '<div class="console-search__heading"><h2 id="console-search-title"><span data-i18n="Zaryob / Search">Zaryob / Search</span></h2><button type="button" data-search-close aria-label="Close search" data-i18n-aria-label="Close search"><span data-i18n="Esc / Close">Esc / Close</span></button></div><label for="console-search-input"><span data-i18n="Posts, guides, system calls, pinouts, ELF analysis and protocols">Posts, guides, system calls, pinouts, ELF analysis and protocols</span></label><input id="console-search-input" type="search" placeholder="Docker, C++, write…" data-i18n-placeholder="Docker, C++, write…" autocomplete="off"><p class="console-search__status" role="status" aria-live="polite"></p><ul class="console-search__results"></ul>';
     document.body.append(dialog);
     applyLanguage(dialog);
     const input = dialog.querySelector('input');
@@ -214,7 +226,7 @@
     const status = dialog.querySelector('[role="status"]');
     const indexes = new Map();
     let fallbackIndex;
-    let execmapIndex;
+    const adapterIndexes = new Map();
     let request = 0;
     let debounce;
     let settled = false; // The list shows the finished results for the current query.
@@ -226,7 +238,7 @@
       if (typeof type !== 'string') type = 'sayfalar/';
       const item = document.createElement('li');
       const link = document.createElement('a');
-      const base = type === 'execmap/' ? execmapRoot : type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
+      const base = type === 'wire/' ? wireRoot : type === 'execmap/' ? execmapRoot : type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
       let address;
       try { address = new URL(url, base); } catch { return; }
       if (!['http:', 'https:'].includes(address.protocol) || address.origin !== base.origin) return;
@@ -255,13 +267,16 @@
       if (!response.ok) throw new Error('Search index unavailable');
       return response.json();
     }));
-    const loadExecmap = () => execmapIndex ||= fetch(new URL('search.json', execmapRoot)).then(async response => {
-      if (!response.ok) throw new Error('Execmap index unavailable');
-      const records = await response.json();
-      if (!Array.isArray(records)) throw new Error('Invalid execmap index');
-      return records.filter(record => typeof record.title === 'string' && typeof record.url === 'string')
-        .map(record => ({ ...record, type: 'execmap/' }));
-    }).catch(error => { execmapIndex = undefined; throw error; });
+    const loadAdapter = (type, base) => {
+      if (!adapterIndexes.has(type)) adapterIndexes.set(type, fetch(new URL('search.json', base)).then(async response => {
+        if (!response.ok) throw new Error('Search adapter unavailable');
+        const records = await response.json();
+        if (!Array.isArray(records)) throw new Error('Invalid search adapter');
+        return records.filter(record => record && typeof record.title === 'string' && typeof record.url === 'string')
+          .map(record => ({ ...record, type }));
+      }).catch(error => { adapterIndexes.delete(type); throw error; }));
+      return adapterIndexes.get(type);
+    };
     const matchRecords = (records, query) => {
       const terms = normalize(query).split(/\s+/).filter(Boolean);
       return records.filter(record => record && typeof record === 'object' && terms.every(term => normalize(`${record.title} ${record.description || ''} ${record.text || ''}`).includes(term)));
@@ -321,8 +336,10 @@
       if (!query) return;
       let matches;
       let message = '{count} content results';
-      // Always search execmap, including when Pagefind is healthy.
-      const execmapResults = loadExecmap().then(records => ({ records: matchRecords(records, query), failed: false })).catch(() => ({ records: [], failed: true }));
+      // Node-built sites have independent indexes, even when Pagefind is healthy.
+      const adapterResults = Promise.all([['execmap/', execmapRoot], ['wire/', wireRoot]].map(([type, base]) =>
+        loadAdapter(type, base).then(records => ({ records: matchRecords(records, query), failed: false }))
+          .catch(() => ({ records: [], failed: true }))));
       try {
         const { createInstance } = await import(new URL('pagefind/pagefind.js', suite).href);
         if (current !== request) return;
@@ -348,9 +365,14 @@
           ? 'Some indexes could not be loaded. Available results are shown.'
           : 'Full-text search unavailable. Showing title and topic matches.';
       }
-      const extra = await execmapResults;
-      matches = [...extra.records.slice(0, 6), ...matches].slice(0, 12);
-      if (extra.failed) message = 'Some indexes could not be loaded. Available results are shown.';
+      const adapters = await adapterResults;
+      // Interleave adapters so either site can contribute without displacing all Pagefind matches.
+      const extra = [];
+      for (let i = 0; i < 6; i++) for (const adapter of adapters) {
+        if (adapter.records[i]) extra.push(adapter.records[i]);
+      }
+      matches = [...extra.slice(0, 6), ...matches].slice(0, 12);
+      if (adapters.some(adapter => adapter.failed)) message = 'Some indexes could not be loaded. Available results are shown.';
       if (current !== request) return;
       results.replaceChildren();
       let count = 0;

@@ -12,7 +12,11 @@
   --ink: #252a30; --muted: #59616c; --line: #c7c9c8;
   --accent: #815310; --accent-dark: #815310; --link: #815310;
   --red: #815310; --dark: #eeece5; --success: #37643b;
-  --warning: #815310; --danger: #a02d35; --selection: #ded5bd; --control-border: #9d814f;
+  --warning: #815310; --danger: #a02d35; --info: #2f5f8f; --selection: #ded5bd; --control-border: #9d814f;
+  --success-surface: color-mix(in srgb, var(--success) 12%, var(--paper));
+  --warning-surface: color-mix(in srgb, var(--warning) 12%, var(--paper));
+  --danger-surface: color-mix(in srgb, var(--danger) 12%, var(--paper));
+  --info-surface: color-mix(in srgb, var(--info) 12%, var(--paper));
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
   --font-prose: "IBM Plex Sans", system-ui, sans-serif;
   /* Relative sizes respect the browser's default text size and page zoom. */
@@ -24,6 +28,7 @@
   --text-h3: 1.25rem;
   --text-h2: 1.5rem;
   --text-h1: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --text-hero: clamp(2.1rem, 1.4rem + 3vw, 3.75rem);
   --text-brand: 1.3125rem;
   --line-body: 1.7;
   --line-prose: 1.8;
@@ -37,7 +42,7 @@
   --ink: #dce0e6; --muted: #a5adb8; --line: #363e49;
   --accent: #e2b56f; --accent-dark: #e2b56f; --link: #e2b56f;
   --red: #e2b56f; --dark: #20242b; --success: #a7ca9b;
-  --warning: #e2b56f; --danger: #f2a0a3; --selection: #48402d; --control-border: #8e7959;
+  --warning: #e2b56f; --danger: #f2a0a3; --info: #9cc0e4; --selection: #48402d; --control-border: #8e7959;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
@@ -46,7 +51,7 @@
     --ink: #dce0e6; --muted: #a5adb8; --line: #363e49;
     --accent: #e2b56f; --accent-dark: #e2b56f; --link: #e2b56f;
     --red: #e2b56f; --dark: #20242b; --success: #a7ca9b;
-    --warning: #e2b56f; --danger: #f2a0a3; --selection: #48402d; --control-border: #8e7959;
+    --warning: #e2b56f; --danger: #f2a0a3; --info: #9cc0e4; --selection: #48402d; --control-border: #8e7959;
   }
 }
 * { box-sizing: border-box; }
@@ -60,6 +65,16 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-site h4, .pin-atlas-site h4 { font-size: var(--text-h4); }
 .console-site :is(h5,h6) { font-size: var(--text-base); }
 .console-site :is(strong,b) { font-weight: 500; }
+/* Opt in to prose; navigation, commands and data keep the mono default. */
+.console-prose { font: var(--text-prose)/var(--line-prose) var(--font-prose); }
+.console-prose--compact { font-size: var(--text-base); }
+.console-prose :is(strong,b) { font-weight: 600; }
+.console-meta { font: var(--text-sm)/var(--line-body) var(--font-mono); color: var(--muted); }
+.console-badge { --badge-ink: var(--muted); --badge-surface: var(--surface); display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 1px 6px; border: 1px solid color-mix(in srgb, var(--badge-ink) 45%, var(--line)); border-radius: 2px; background: var(--badge-surface); color: var(--badge-ink); font: 500 var(--text-xs)/1.5 var(--font-mono); overflow-wrap: anywhere; }
+.console-badge--success { --badge-ink: var(--success); --badge-surface: var(--success-surface); }
+.console-badge--warning { --badge-ink: var(--warning); --badge-surface: var(--warning-surface); }
+.console-badge--danger { --badge-ink: var(--danger); --badge-surface: var(--danger-surface); }
+.console-badge--info { --badge-ink: var(--info); --badge-surface: var(--info-surface); }
 .console-site a, .console-site a:visited { color: var(--link); text-underline-offset: .24em; }
 .console-site a:hover { color: var(--ink); }
 .console-site :is(button,input,select,textarea) { color: var(--ink); background: var(--paper); border: 1px solid var(--control-border); border-radius: 0; font-size: var(--text-base); line-height: 1.5; box-shadow: none; }
@@ -155,7 +170,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .console-site .skip-link { position: fixed; top: -100px; left: 16px; z-index: 50; background: var(--surface); color: var(--ink); padding: 8px 14px; transform: none; }
 .console-site .skip-link:focus { top: 10px; }
-/* Landing hero shared by the five sites: prompt line, title and lead on the left, a small terminal panel on the right. */
+/* Landing hero shared by the suite: prompt line, title and lead on the left, a small terminal panel on the right. */
 .console-hero { --hero-green: #37643b; --hero-red: #a02d35; --hero-blue: #2f5f8f; border-bottom: 1px solid var(--line); }
 :root[data-theme="dark"] .console-hero { --hero-green: #a7ca9b; --hero-red: #f2a0a3; --hero-blue: #9cc0e4; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .console-hero { --hero-green: #a7ca9b; --hero-red: #f2a0a3; --hero-blue: #9cc0e4; } }
@@ -168,7 +183,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 @keyframes console-hero-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .console-hero__cursor { animation: none; } }
 .console-hero__copy { min-width: 0; }
-.console-site .console-hero__title, .pin-atlas-site .console-hero__title, .console-hero__title { margin: 0; font: 500 clamp(2.1rem, 1.4rem + 3vw, 3.75rem)/1.1 var(--font-mono); letter-spacing: -.02em; color: var(--ink); text-wrap: balance; overflow-wrap: anywhere; }
+.console-site .console-hero__title, .pin-atlas-site .console-hero__title, .console-hero__title { margin: 0; font: 500 var(--text-hero)/1.1 var(--font-mono); letter-spacing: -.02em; color: var(--ink); text-wrap: balance; overflow-wrap: anywhere; }
 .console-hero__lead { margin: 18px 0 0; max-width: 36rem; font: 400 var(--text-prose)/1.6 var(--font-prose); color: var(--muted); }
 .console-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .console-hero__panel { margin: 0; min-width: 0; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); overflow: hidden; }
@@ -203,7 +218,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
   .console-suite__list a { min-width: 0; }
 }
 @media print { .console-suite { display: none; } }
-.console-footer { max-width: var(--shell-width); margin: 0 auto; padding: 20px 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-xs); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
+.console-footer { max-width: var(--shell-width); margin: 0 auto; padding: 20px var(--gutter); border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-xs); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
 .console-hints { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .console-hints kbd:not(:first-child) { margin-left: 12px; }
 .console-search { width: min(720px, calc(100% - 32px)); max-height: calc(100dvh - 48px); margin: 8vh auto auto; padding: 24px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); }
@@ -245,8 +260,13 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 @media (max-width: 1180px) {
   html { scroll-padding-top: 5rem; }
   .console-header__inner { flex-wrap: wrap; gap: 0 18px; min-height: 68px; padding: 12px 20px; }
-  .console-brand { margin: 0; }
-  .console-header-actions { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; }
+  .console-identity { flex: 1 1 0; }
+  .console-brand { min-width: 0; flex-shrink: 1; margin: 0; overflow: hidden; text-overflow: ellipsis; }
+  .console-projects { flex: 1 1 0; min-width: 44px; }
+  .console-projects > summary { overflow: hidden; }
+  .console-project-path { flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .console-prompt-dollar { flex-shrink: 0; }
+  .console-header-actions { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px; margin-left: auto; }
   .console-js .console-search-compact { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 40px; padding: 8px; }
   .console-search-compact:hover { color: var(--accent); background: var(--surface); border-color: var(--accent); }
   .console-js .console-menu { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 40px; margin-left: 0; padding: 8px; }
@@ -295,3 +315,9 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-language-note { margin: 0 0 24px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); color: var(--muted); font-size: var(--text-xs); }
 .console-language-note[hidden] { display: none; }
 .console-language-note a { margin-inline-start: 12px; white-space: nowrap; }
+
+/* A short declaration keeps its copy action beside, rather than over, the code.
+   Applications with dynamic markup can own the button behaviour in this shell. */
+.console-declaration { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; align-items: center; min-width: 0; margin: .75rem 0; padding: 8px 12px; border: 1px solid var(--line); background: var(--surface); }
+.console-declaration > :is(pre, code) { min-width: 0; margin: 0; padding: 0; border: 0; background: transparent; overflow-x: auto; white-space: pre; font: 400 var(--text-sm)/1.6 var(--font-mono); }
+.console-declaration > button { position: static; min-height: 44px !important; max-width: 9rem; padding: 6px 10px !important; font-size: var(--text-xs) !important; overflow-wrap: anywhere; }

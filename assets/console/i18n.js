@@ -334,7 +334,7 @@
   "Tutorials": "Rehberler",
   "Start": "Başlangıç",
   "ELF and reverse engineering": "ELF ve tersine mühendislik",
-  "Posts, guides, system calls, pinouts and ELF analysis": "Yazılar, kılavuzlar, sistem çağrıları, pin atlası ve ELF analizi",
+  "Posts, guides, system calls, pinouts, ELF analysis and protocols": "Yazılar, kılavuzlar, sistem çağrıları, pin atlası, ELF analizi ve protokoller",
   "Turkish content and local search; shared controls follow your language preference.": "İçerik ve yerel arama Türkçedir; ortak kontroller dil tercihinizi izler.",
   "Search this site": "Bu sitede ara",
   "Main navigation": "Ana menü",

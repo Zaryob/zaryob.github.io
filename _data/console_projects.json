@@ -30,5 +30,11 @@
     "title": "Execmap",
     "path": "/execmap/",
     "prompt": "~/execmap"
+  },
+  {
+    "key": "wire",
+    "title": "Wire",
+    "path": "/wire/",
+    "prompt": "~/wire"
   }
 ]
