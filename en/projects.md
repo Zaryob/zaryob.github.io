@@ -10,14 +10,15 @@ translation_of: /projeler/
 translated: '2026-11-03'
 ---
 
-<p class="page-intro">My work spans package management and XML libraries, network analysis, research tools and native applications. This page brings together projects I am developing today and software I worked on in the past, explaining what I did, why I did it and where my contribution begins.</p>
-<p>My main account, <a href="https://github.com/Zaryob">Zaryob</a>, and <a href="https://github.com/9base">9base</a>, where I collect past work and source archives, are two parts of this story. Moving a repository to 9base does not change its history or original authors. The historical projects below are presented in that context, rather than as products I currently maintain.</p>
+<p class="page-intro">Current and historical work in package management, system software, network analysis and native applications.</p>
+
 <nav class="project-navigation" aria-label="Project categories"><ul>
 {% for group in site.data.project_groups_en %}<li><a href="#{{ group.id }}">{{ group.title }}</a></li>{% endfor %}
 <li><a href="#kaynak-arsivi">9base source archive</a></li></ul></nav>
 {% for group in site.data.project_groups_en %}
 <section class="project-group" id="{{ group.id }}" aria-labelledby="group-{{ group.id }}">
 <h2 id="group-{{ group.id }}">{{ group.title }}</h2><p>{{ group.intro }}</p>
+{% if group.id == 'history' %}<p>My main account, <a href="https://github.com/Zaryob">Zaryob</a>, and <a href="https://github.com/9base">9base</a>, where I collect past work and source archives, are two parts of this story. Moving a repository to 9base does not change its history or original authors. The historical projects below are presented in that context, rather than as products I currently maintain.</p>{% endif %}
 {% assign grouped_projects = site.data.projects_en | where: "group", group.id %}
 {% for project in grouped_projects %}{% include project-detail.html project=project %}{% endfor %}
 </section>{% endfor %}

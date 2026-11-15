@@ -8,9 +8,9 @@ permalink: /projeler/
 description: "Süleyman Poyraz'ın uygulamaları, sistem yazılımı, teknik belgeleri ve 9base'de korunan tarihsel açık kaynak çalışmaları."
 ---
 
-<p class="page-intro">Paket yönetimi ve XML kütüphanelerinden ağ analizine, araştırma araçlarına ve yerel uygulamalara uzanan çalışmalarım. Burada bugün geliştirdiğim projelerle geçmişte üzerinde çalıştığım yazılımları, neyi neden yaptığımı ve katkımın nerede başladığını anlatarak bir araya getiriyorum.</p>
+<p class="page-intro">Paket yönetimi, sistem yazılımı, ağ analizi ve yerel uygulamalar üzerine güncel ve tarihsel çalışmalarım.</p>
 
-<p>Ana hesabım <a href="https://github.com/Zaryob">Zaryob</a> ile geçmiş çalışmalarımı ve kaynak arşivlerini topladığım <a href="https://github.com/9base">9base</a> bu hikâyenin iki parçası. Bir depoyu 9base’e taşımam, onun geçmişini ya da özgün yazarlarını değiştirmiyor. Aşağıdaki tarihsel projeler, bugün bakımını üstlendiğim ürünler olarak sunulmuyor.</p>
+
 
 <nav class="project-navigation" aria-label="Proje kategorileri">
   <ul>{% for group in site.data.project_groups %}
@@ -23,6 +23,7 @@ description: "Süleyman Poyraz'ın uygulamaları, sistem yazılımı, teknik bel
 <section class="project-group" id="{{ group.id }}" aria-labelledby="group-{{ group.id }}">
   <h2 id="group-{{ group.id }}">{{ group.title }}</h2>
   <p>{{ group.intro }}</p>
+{% if group.id == 'history' %}<p>Ana hesabım <a href="https://github.com/Zaryob">Zaryob</a> ile geçmiş çalışmalarımı ve kaynak arşivlerini topladığım <a href="https://github.com/9base">9base</a> bu hikâyenin iki parçası. Bir depoyu 9base’e taşımam, onun geçmişini ya da özgün yazarlarını değiştirmiyor. Aşağıdaki tarihsel projeler, bugün bakımını üstlendiğim ürünler olarak sunulmuyor.</p>{% endif %}
   {% assign grouped_projects = site.data.projects | where: "group", group.id %}
   {% for project in grouped_projects %}{% include project-detail.html project=project %}{% endfor %}
 </section>
