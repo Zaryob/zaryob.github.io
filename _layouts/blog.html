@@ -6,7 +6,7 @@ layout: default
 {% assign category = page.category | default: category %}
 {% include writing-topics.html %}
 <section class="content-section" aria-labelledby="category-heading">
-  <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{% if page.lang == 'en' %}Posts in {{ page.title }}{% else %}{{ page.title }} yazıları{% endif %}</span></h2></div>
+  <div class="section-heading console-sr-only"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{% if page.lang == 'en' %}Posts in {{ page.title }}{% else %}{{ page.title }} yazıları{% endif %}</span></h2></div>
   <div class="blog-list" data-paginated-list data-page-size="15">
     {% assign category_posts = site.categories[category] %}
     {% if page.lang == 'en' %}
