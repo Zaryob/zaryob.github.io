@@ -1,0 +1,7 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-or-later{% endcomment %}
+{% comment %}Suite analytics: Umami (cookie-free) and Google Analytics 4 (sets cookies). Override with site.umami_id / site.google_analytics.{% endcomment %}
+{% assign suite_umami = site.umami_id | default: '2ddfb587-71f9-4068-a66b-1f92ad4bf209' %}
+{% assign suite_ga = site.google_analytics | default: 'G-M6NQ8DV1XP' %}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="{{ suite_umami }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ suite_ga }}"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '{{ suite_ga }}');</script>
