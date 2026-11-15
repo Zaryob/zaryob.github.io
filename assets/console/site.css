@@ -187,3 +187,17 @@
 .console-home .project-detail__actions .site-button { display: block; }
 .console-home .page-content { overflow-wrap: anywhere; }
 
+
+.console-home .hero--page:not(.hero--post) .hero__inner { align-items: start; text-align: left; }
+.console-home .hero--page:not(.hero--post) .hero__lead { margin-inline: 0; }
+.console-home .hero--archive.hero--photo .hero__inner { min-height: 160px; padding-block: 32px; }
+.console-home .hero--photo.hero--post .hero__inner { min-height: clamp(240px, 32vw, 400px); padding-block: 32px; }
+.console-home :is(.page-intro,.project-group > p,.project-detail__description) { font-family: var(--font-prose); font-size: var(--text-prose); line-height: var(--line-prose); max-width: 72ch; }
+@media (max-width: 640px) {
+  .home-terminal-extra { display: none; }
+  .console-hero--home .console-hero__screen { line-height: 1.6; }
+}
+
+.console-home .footer-cols { grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),1fr)); }
+.console-home .footer-col { min-width: 0; }
+.console-home .footer-col a { max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
