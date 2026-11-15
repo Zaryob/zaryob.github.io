@@ -161,12 +161,14 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-suite__list a { display: grid; gap: 2px; min-width: 132px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 2px; color: var(--ink); text-decoration: none; }
 .console-suite__list a:hover, .console-suite__list a[aria-current] { border-color: var(--accent); color: var(--accent); background: var(--surface); }
 .console-suite__list small { color: var(--muted); font-size: var(--text-xs); }
+.console-suite :is(a, p, li) { min-width: 0; overflow-wrap: anywhere; }
+.console-suite__inner > * { min-width: 0; }
 .console-suite__meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0; color: var(--muted); font-size: var(--text-xs); }
 .console-suite__meta a { color: var(--muted); }
 .console-suite__meta a:hover { color: var(--accent); }
 @media (max-width: 720px) {
   .console-suite__inner { grid-template-columns: 1fr; padding: 20px 16px 16px; }
-  .console-suite__list { display: grid; grid-template-columns: 1fr 1fr; }
+  .console-suite__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); }
   .console-suite__list a { min-width: 0; }
 }
 @media print { .console-suite { display: none; } }
