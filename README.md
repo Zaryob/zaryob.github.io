@@ -1,69 +1,71 @@
-# Süleyman Poyraz'ın sitesi
+# Süleyman Poyraz's site
 
-[zaryob.github.io](https://zaryob.github.io/) üzerinde yayımlanan kişisel site, proje vitrini ve yazı arşivi. Kaynak dosyalar Jekyll ile statik HTML'ye dönüştürülür. Medium'daki yazılar için kalıcı kopya oluştururken içerik ve görseller bu depoda tutulur.
+**English** · [Türkçe](README.tr.md)
 
-## Yerelde çalıştırma
+The personal site, project showcase and writing archive published at [zaryob.github.io](https://zaryob.github.io/). The sources are turned into static HTML with Jekyll. Posts that also appear on Medium get a permanent copy here, with their text and images kept in this repository.
 
-Python 3, Ruby 3.3 veya daha yeni bir sürüm ve Bundler kurulu olmalı. `scripts/jekyll.py` uygun Ruby sürümünü seçer. `Gemfile`, Jekyll 4 ile kullanılan eklentileri (`jekyll-feed`, `jekyll-paginate`, `jekyll-seo-tag`) doğrudan yükler; sürümler `Gemfile.lock` ile sabitlenir.
+## Running locally
+
+You need Python 3, Ruby 3.3 or newer, and Bundler. `scripts/jekyll.py` picks a suitable Ruby version. The `Gemfile` loads the plugins used with Jekyll 4 (`jekyll-feed`, `jekyll-paginate`, `jekyll-seo-tag`) directly; versions are pinned in `Gemfile.lock`.
 
 ```sh
 python3 scripts/jekyll.py install
 python3 scripts/jekyll.py serve --livereload
 ```
 
-Site `http://127.0.0.1:4000` adresinde açılır. Yayına çıkacak HTML'yi ve yerel bağlantıları denetlemek için:
+The site opens at `http://127.0.0.1:4000`. To check the HTML that will be published and its local links:
 
 ```sh
 python3 scripts/jekyll.py build --trace
 python3 scripts/check_site.py _site
 ```
 
-GitHub Actions aynı derlemeyi ve bağlantı denetimini her push ve pull request için çalıştırır. Ardından Pagefind tam metin indeksini üretir ve `main` derlemelerini GitHub Pages'e yayımlar. Denetim, oluşturulan sayfalardaki yerel `href`, `src`, `srcset` ve `poster` hedeflerinin yanı sıra `feed.xml` ve `sitemap.xml` dosyalarının varlığını kontrol eder.
+GitHub Actions runs the same build and link check for every push and pull request. It then generates the Pagefind full-text index and publishes `main` builds to GitHub Pages. The check verifies the local `href`, `src`, `srcset` and `poster` targets in the generated pages, and that `feed.xml` and `sitemap.xml` exist.
 
-Tam metin aramasını yerelde denemek için blog ve kılavuz depolarında Jekyll derlemesinden sonra `npx --yes pagefind@1.6.0 --site _site` komutunu çalıştırın. Ardından bu depodan `python3 scripts/preview_suite.py` ile ortak önizlemeyi açın.
+To try full-text search locally, run `npx --yes pagefind@1.6.0 --site _site` after the Jekyll build in the blog and guides repositories. Then open the combined preview from this repository with `python3 scripts/preview_suite.py`.
 
-## Yazı ekleme ve Medium arşivi
+## Adding a post and the Medium archive
 
-Yazıların kaynağı `_posts/YYYY-MM-DD-kisa-baslik.md` dosyalarıdır. Yeni yazının ön bilgileri için örnek:
+Posts live in `_posts/YYYY-MM-DD-short-title.md`. Example front matter for a new post:
 
 ```yaml
 ---
 layout: post
-title: "Yazının başlığı"
+title: "Title of the post"
 date: 2025-04-26 20:00:00 +0300
 categories: [programlama]
-image: "/assets/img/pages/kapak.webp"
+image: "/assets/img/pages/cover.webp"
 ---
 ```
 
-`image` alanına sitedeki tam yolu yazın (sosyal paylaşım görseli de bu yoldan üretilir); kapak dosyalarını `assets/img/pages/` içine koyun. Yazı içindeki görselleri `assets/img/posts/` altında saklayın ve Markdown içinde yerel `/assets/img/posts/dosya.webp` yoluna bağlayın. Kod örneklerini mümkün olduğunca Markdown kod blokları olarak ekleyin; Gist veya Medium gömüsü tek kopya olmasın.
+Give `image` the full path within the site (the social sharing image is derived from it) and put cover files in `assets/img/pages/`. Keep images used inside a post under `assets/img/posts/` and link them in Markdown with the local `/assets/img/posts/file.webp` path. Add code samples as Markdown code blocks wherever possible; a Gist or Medium embed should not be the only copy.
 
-Kapak başka bir klasördeyse `cover_image: "/assets/img/posts/dosya.webp"` kullanın. Yeni bir kapak ekledikten sonra kartlar için küçük kopyalarını üretin:
+If the cover is in another folder, use `cover_image: "/assets/img/posts/file.webp"`. After adding a new cover, generate its small copies for the cards:
 
 ```sh
 python3 -m pip install Pillow
 python3 scripts/make_thumbnails.py
 ```
 
-Betik, kapak boyutlarını da `_data/cover_sizes.json` dosyasına yazar; sayfa başındaki görselin `width`/`height` değerleri buradan gelir. Üretilen `assets/img/thumbs/` dosyalarını ve bu veri dosyasını da commit'e ekleyin.
+The script also writes the cover dimensions to `_data/cover_sizes.json`; the `width`/`height` of the image at the top of a page come from there. Commit the generated `assets/img/thumbs/` files and this data file as well.
 
-600 KB'ı aşan görselleri küçültmek için `python3 scripts/optimize_images.py` çalıştırın: görseli en fazla 1920 piksel genişliğe indirir, PNG'leri WebP'ye çevirip yazılardaki yolları ve Medium envanterindeki özetleri günceller; hareketli görsellere dokunmaz. Ardından `make_thumbnails.py` betiğini yeniden çalıştırın.
+To shrink images larger than 600 KB, run `python3 scripts/optimize_images.py`: it scales an image down to at most 1920 pixels wide, converts PNGs to WebP, and updates the paths in posts and the digests in the Medium inventory; it leaves animated images alone. Run `make_thumbnails.py` again afterwards.
 
-Site simgeleri (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `assets/icons/icon-*.png`) `python3 scripts/make_icons.py` ile üretilir.
+The site icons (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `assets/icons/icon-*.png`) are generated with `python3 scripts/make_icons.py`.
 
-Türkçe yazılar `/feed.xml`, İngilizce yazılar `/en/feed.xml` akışında yayımlanır; ikisi de `_includes/atom-feed.xml` şablonunu kullanır. `_plugins/turkish_pagination.rb`, İngilizce yazıları `/posts/pageN/` sayfalamasının dışında tutar.
+Turkish posts are published in the `/feed.xml` feed and English posts in `/en/feed.xml`; both use the `_includes/atom-feed.xml` template. `_plugins/turkish_pagination.rb` keeps English posts out of the `/posts/pageN/` pagination.
 
-Medium'da yayımlanmış bir yazıyı arşive eklerken:
+When adding a post already published on Medium to the archive:
 
-1. Başlığı, özgün yayımlanma tarihini, metni, kod bloklarını ve görselleri karşılaştırın.
-2. Yerel Markdown dosyasını ve gereken görselleri depoya ekleyin. Dış bağlantıları kaynak oldukları yerde koruyun, fakat sitenin kendi yazılarına giden bağlantıları yerel adreslere çevirin.
-3. `python3 scripts/jekyll.py build --trace` ve `python3 scripts/check_site.py _site` komutlarını çalıştırın. Telefonda da yazının okunabilirliğini kontrol edin.
-4. Medium'daki özgün bağlantıyı yazının ön bilgilerine `medium_url` olarak kaydedin. Böylece iki sürüm arasında iz sürülebilir.
+1. Compare the title, original publication date, text, code blocks and images.
+2. Add the local Markdown file and the images it needs to the repository. Keep external links where they are sources, but turn links to the site's own posts into local addresses.
+3. Run `python3 scripts/jekyll.py build --trace` and `python3 scripts/check_site.py _site`. Check that the post reads well on a phone too.
+4. Record the original Medium link in the post's front matter as `medium_url`, so the two versions can be traced to each other.
 
-Bu işlem otomatik eşitleme değildir; yeni Medium yazıları ayrıca depoya aktarılmalıdır.
+This is not an automatic sync; new Medium posts have to be brought into the repository separately.
 
-Görsel kaynakları ve yerel karşılıkları `_data/medium_media.json` içinde kayıtlıdır. Her kayıtta yazı dosyası, yerel görsel ve SHA-256 özeti bulunur; bilinen özgün adresler ayrıca kaydedilir. Taşınan yayıncı adresleri `resolved_source` alanında tutulur. Yeni arşiv görselleri `assets/img/medium/` altındadır; mevcut yerel görseller tekrar indirilip çoğaltılmaz. Animasyonlu GIF dosyaları özgün biçiminde saklanır.
+Image sources and their local counterparts are recorded in `_data/medium_media.json`. Each record holds the post file, the local image and its SHA-256 digest; known original addresses are recorded as well. Publisher addresses that have moved are kept in the `resolved_source` field. New archive images are under `assets/img/medium/`; existing local images are not downloaded again or duplicated. Animated GIF files are stored in their original format.
 
-`scripts/check_site.py`, bu envanterdeki dosyaları ve içerik özetlerini doğrular; görsellerin sayfalarda gerçekten kullanıldığını da denetler. Harici sunucudan yüklenen fotoğrafları hata olarak bildirir. Yeni bir Medium görseli eklediğinizde envantere kaydını da ekleyin.
+`scripts/check_site.py` verifies the files and content digests in this inventory, and also checks that the images are actually used in pages. It reports photos loaded from an external server as errors. When you add a new Medium image, add its inventory record too.
 
-Sosyal bağlantı ikonları `_includes/icon.html` aracılığıyla `assets/icons/site.svg` dosyasından yüklenir. Font Awesome atfı `assets/fontawesome/LICENSE.txt` dosyasındadır. Menü ikonları ve ortak tema için [ortak görünüm belgesine](CONSOLE_THEME.md) bakın.
+Social link icons are loaded from `assets/icons/site.svg` through `_includes/icon.html`. The Font Awesome attribution is in `assets/fontawesome/LICENSE.txt`. For the menu icons and the shared theme, see the [shared appearance document](CONSOLE_THEME.md).
