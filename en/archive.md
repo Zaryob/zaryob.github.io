@@ -19,6 +19,6 @@ translated: '2026-11-03'
 {% assign grouped_by_month = year.items | group_by_exp: "post", "post.date | date: '%-m' | minus: 1" %}
 {% for month in grouped_by_month %}<h3>{{ months[month.name] }}</h3><ul>
 {% for post in month.items %}
-<li class="arch-list"><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d" }}</time> » <a href="{{ post.url | relative_url }}" lang="{{ post.lang | default: 'tr' }}">{{ post.title }}</a> <small>[{% if post.lang == 'en' %}EN{% else %}TR{% endif %}]</small></li>
+{% assign m = post.date | date: "%-m" | minus: 1 %}<li class="arch-list"><time datetime="{{ post.date | date: '%Y-%m-%d' }}"><span aria-hidden="true">{{ post.date | date: "%d" }}</span><span class="console-sr-only">{{ post.date | date: "%d" }} {{ months[m] }} {{ post.date | date: "%Y" }}</span></time> » <a href="{{ post.url | relative_url }}" lang="{{ post.lang | default: 'tr' }}">{{ post.title }}</a> <small>[{% if post.lang == 'en' %}EN{% else %}TR{% endif %}]</small></li>
 {% endfor %}</ul>{% endfor %}{% endfor %}
 </section></div>
