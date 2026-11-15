@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preview the five built Zaryob sites together on a loopback address."""
+"""Preview the six built Zaryob sites together on a loopback address."""
 import argparse
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -8,12 +8,14 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+MOUNTS = {f'/{name}': ROOT.parent / name / '_site'
+          for name in ['execmap', 'wire', 'kilavuzlar', 'syscall', 'pin-atlas']}
 
 
 class SuiteHandler(SimpleHTTPRequestHandler):
     def translate_path(self, path):
         pathname = urlsplit(path).path
-        for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
+        for prefix, directory in MOUNTS.items():
             if pathname == prefix or pathname.startswith(prefix + '/'):
                 self.directory = str(directory)
                 return super().translate_path(pathname[len(prefix):] or '/')
@@ -25,7 +27,7 @@ class SuiteHandler(SimpleHTTPRequestHandler):
             ref_val = referer.get('Referer') if referer else None
             if ref_val:
                 ref_path = urlsplit(ref_val).path
-                for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site')]:
+                for prefix, directory in MOUNTS.items():
                     if ref_path == prefix or ref_path.startswith(prefix + '/'):
                         sub_target = (directory / pathname.lstrip('/')).resolve()
                         if sub_target.exists():
@@ -34,7 +36,7 @@ class SuiteHandler(SimpleHTTPRequestHandler):
 
             # Safety fallback: if asset uniquely exists in one sub-site, serve from there
             candidates = []
-            for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site')]:
+            for prefix, directory in MOUNTS.items():
                 sub_target = (directory / pathname.lstrip('/')).resolve()
                 if sub_target.is_file():
                     candidates.append((directory, sub_target))
@@ -67,7 +69,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=4180)
     args = parser.parse_args()
-    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall', 'pin-atlas', 'execmap']:
+    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall', 'pin-atlas', 'execmap', 'wire']:
         if not (ROOT.parent / name / '_site/index.html').is_file():
             raise SystemExit(f'Build {name} before starting this preview.')
     server = ThreadingHTTPServer(('127.0.0.1', args.port), partial(SuiteHandler, directory=str(ROOT / '_site')))
