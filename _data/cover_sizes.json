@@ -276,8 +276,16 @@
     "height": 1304
   },
   "/assets/img/pages/home-bg.webp": {
-    "width": 1920,
-    "height": 1440
+    "width": 2400,
+    "height": 700
+  },
+  "/assets/img/pages/home-hero-narrow.webp": {
+    "width": 1200,
+    "height": 900
+  },
+  "/assets/img/pages/home-hero.webp": {
+    "width": 2400,
+    "height": 700
   },
   "/assets/img/pages/internet-bg.jpeg": {
     "width": 1838,

@@ -21,7 +21,8 @@ social:
     - https://medium.com/@zaryob
 
 # Social preview for pages without their own image or cover_image.
-default_image: /assets/img/pages/home-bg.webp
+default_image: /assets/img/social/card-tr.png
+default_image_en: /assets/img/social/card-en.png
 
 sass:
   style: compressed

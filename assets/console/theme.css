@@ -152,6 +152,24 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .console-site .skip-link { position: fixed; top: -100px; left: 16px; z-index: 50; background: var(--surface); color: var(--ink); padding: 8px 14px; transform: none; }
 .console-site .skip-link:focus { top: 10px; }
+.console-suite { border-top: 1px solid var(--line); margin-top: 48px; font-size: var(--text-sm); }
+.console-suite + .console-footer, .console-suite + footer { margin-top: 0; }
+.console-suite__inner { max-width: var(--shell-width); margin: 0 auto; padding: 24px var(--gutter) 20px; display: grid; grid-template-columns: 1fr auto; gap: 12px 36px; align-items: end; }
+.console-suite__prompt { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: var(--text-xs); }
+.console-suite__prompt span { color: var(--accent); }
+.console-suite__list { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 0; padding: 0; list-style: none; }
+.console-suite__list a { display: grid; gap: 2px; min-width: 132px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 2px; color: var(--ink); text-decoration: none; }
+.console-suite__list a:hover, .console-suite__list a[aria-current] { border-color: var(--accent); color: var(--accent); background: var(--surface); }
+.console-suite__list small { color: var(--muted); font-size: var(--text-xs); }
+.console-suite__meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0; color: var(--muted); font-size: var(--text-xs); }
+.console-suite__meta a { color: var(--muted); }
+.console-suite__meta a:hover { color: var(--accent); }
+@media (max-width: 720px) {
+  .console-suite__inner { grid-template-columns: 1fr; padding: 20px 16px 16px; }
+  .console-suite__list { display: grid; grid-template-columns: 1fr 1fr; }
+  .console-suite__list a { min-width: 0; }
+}
+@media print { .console-suite { display: none; } }
 .console-footer { max-width: var(--shell-width); margin: 0 auto; padding: 20px 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-xs); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px; }
 .console-hints { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .console-hints kbd:not(:first-child) { margin-left: 12px; }

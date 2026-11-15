@@ -22,8 +22,9 @@
   {% comment %} jekyll-seo-tag copies page.lang into og:locale; Open Graph expects language_TERRITORY. {% endcomment %}
   {% assign seo_tags = seo_tags | replace: 'property="og:locale" content="tr"', 'property="og:locale" content="tr_TR"' | replace: 'property="og:locale" content="en"', 'property="og:locale" content="en_US"' %}
   {% unless page.image %}
-    {% assign social_image = page.cover_image | default: site.default_image %}
-    {% if page.cover_image %}{% assign seo_tags = seo_tags | replace: 'name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"' %}{% endif %}
+    {% assign social_default = site.default_image %}{% if page.lang == 'en' %}{% assign social_default = site.default_image_en | default: site.default_image %}{% endif %}
+    {% assign social_image = page.cover_image | default: social_default %}
+    {% if social_image %}{% assign seo_tags = seo_tags | replace: 'name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"' %}{% endif %}
   {% endunless %}
   {{ seo_tags }}
   {% if social_image %}
@@ -47,7 +48,7 @@
 
   {% assign list_pages = 'home,posts,page-arsiv' | split: ',' %}
   <main id="main-content"{% if page.title %}{% unless paginator or page.layout == 'blog' or page.path == '404.html' or list_pages contains page.translation_key %} data-pagefind-body{% endunless %}{% endif %}>
-    {% assign hero_file = page.cover_image %}
+    {% assign hero_file = page.hero_image | default: page.cover_image %}
     {% unless hero_file %}
       {% if page.image contains '/' %}{% assign hero_file = page.image %}
       {% elsif page.image %}{% assign hero_file = '/assets/img/pages/' | append: page.image %}{% endif %}
@@ -56,7 +57,7 @@
     {% if page.type != 'noimage' %}
       {% if page.path == 'index.html' or page.home %}
       <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
-        {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true"{% if hero_size %} width="{{ hero_size.width }}" height="{{ hero_size.height }}"{% endif %} fetchpriority="high" decoding="async">{% endif %}
+        {% if hero_file %}<picture>{% if page.hero_image_narrow %}<source media="(max-width: 1359px)" srcset="{{ page.hero_image_narrow | relative_url }}">{% endif %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true"{% if hero_size %} width="{{ hero_size.width }}" height="{{ hero_size.height }}"{% endif %} fetchpriority="high" decoding="async"></picture>{% endif %}
         <div class="site-container hero__inner">
           <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">{% if page.lang == 'en' %}software engineer{% else %}yazılım mühendisi{% endif %}</span></p>
           <h1>Süleyman Poyraz</h1>

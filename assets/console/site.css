@@ -190,3 +190,14 @@
 .console-home .post-pagination { flex-wrap: wrap; }
 .console-home .project-detail__actions .site-button { display: block; }
 .console-home .page-content { overflow-wrap: anywhere; }
+
+/* Home hero: generated ZARYOB hex-dump artwork. Wide screens keep the text on the calm left half. */
+.console-home .hero--home.hero--photo { background: #12161c; }
+.console-home .hero--home.hero--photo::before { background: rgba(10, 14, 20, .5); }
+@media (min-width: 1360px) {
+  .console-home .hero--home.hero--photo::before { background: linear-gradient(90deg, rgba(10, 14, 20, .55), rgba(10, 14, 20, 0) 55%); }
+  .console-home .hero--home .hero__photo { object-position: right center; }
+  .console-home .hero--home .hero__inner { align-items: flex-start; text-align: left; }
+  .console-home .hero--home .hero__lead { margin-inline: 0; max-width: 28rem; text-wrap: balance; }
+  .console-home .hero--home .hero__actions { justify-content: flex-start; }
+}
