@@ -92,6 +92,9 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-projects[open] > summary { margin-bottom: 0; }
 .console-projects > summary::-webkit-details-marker { display: none; }
 .console-prompt-dollar { color: var(--accent); margin-left: .45em; }
+.console-prompt-cursor { display: inline-block; flex: 0 0 auto; align-self: center; width: .55em; height: 1.05em; margin-left: .4em; background: var(--accent); animation: console-hero-blink 1.1s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) { .console-prompt-cursor { animation: none; } }
+@media print { .console-prompt-cursor { display: none; } }
 .console-projects > summary > .console-icon { width: 10px; height: 10px; flex-basis: 10px; margin-left: 10px; color: var(--muted); }
 .console-projects > summary:hover .console-project-path, .console-projects[open] .console-project-path { color: var(--accent); }
 .console-projects[open] > summary > .console-icon { transform: rotate(180deg); }
