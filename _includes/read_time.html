@@ -1,3 +1,3 @@
 {% assign words = include.content | number_of_words %}
 {% assign minutes = words | divided_by: 135 | at_least: 1 %}
-<span class="reading-time" title="{% if page.lang == 'en' %}Estimated read time{% else %}Tahmini okuma süresi{% endif %}" data-i18n-title="Estimated read time" data-i18n="{minutes} min read" data-i18n-vars='{"minutes":{{ minutes }}}'>{% if page.lang == 'en' %}{{ minutes }} min read{% else %}{{ minutes }} dakika okuma süresi{% endif %}</span>
+<span class="reading-time" data-i18n="{minutes} min read" data-i18n-vars='{"minutes":{{ minutes }}}'>{% if page.lang == 'en' %}{{ minutes }} min read{% else %}{{ minutes }} dakika okuma süresi{% endif %}</span>
