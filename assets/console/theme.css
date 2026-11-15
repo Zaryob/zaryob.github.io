@@ -321,3 +321,5 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-declaration { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; align-items: center; min-width: 0; margin: .75rem 0; padding: 8px 12px; border: 1px solid var(--line); background: var(--surface); }
 .console-declaration > :is(pre, code) { min-width: 0; margin: 0; padding: 0; border: 0; background: transparent; overflow-x: auto; white-space: pre; font: 400 var(--text-sm)/1.6 var(--font-mono); }
 .console-declaration > button { position: static; min-height: 44px !important; max-width: 9rem; padding: 6px 10px !important; font-size: var(--text-xs) !important; overflow-wrap: anywhere; }
+
+@media (min-width: 1181px) { .console-tools { min-width: 0; max-width: 100%; margin-left: 0; flex-wrap: wrap; } }
