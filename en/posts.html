@@ -13,7 +13,7 @@ translated: '2026-11-03'
 
 {% include writing-topics.html %}
 <section class="content-section" aria-labelledby="posts-heading">
-<div class="section-heading"><h2 id="posts-heading">English articles</h2></div>
+<div class="section-heading console-sr-only"><h2 id="posts-heading">English articles</h2></div>
 <div class="blog-list">
 {% for post in site.posts %}{% if post.lang == 'en' %}{% include post-card.html post=post %}{% endif %}{% endfor %}
 </div>
