@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: where-did-programming-languages-come-from
 title: "Where Did These Programming Languages Come From?"
@@ -37,7 +38,7 @@ cover_image: "/assets/img/medium/nereden-cikti-programlama-dilleri-1.webp"
 
 <p>The 1940s, as you know, spearheaded the great leaps that evolved the calculator into the "computer." Though World War II spearheaded many things, including our journey to the Moon. By the way, let me do a quick product placement right here:</p>
 
-<p><a href="/arsiv/v2den-aya-von-braun/">The Legacy of World War II: From V-2s to the Journey to the Moon; Herbert von Braun</a></p>
+<p><a href="/yazilar/v2den-aya-von-braun/">The Legacy of World War II: From V-2s to the Journey to the Moon; Herbert von Braun</a></p>
 
 <p>This evolutionary effect of wars is not very surprising to me. Well, after all, we aren't all that far removed from the apes who invented sticks to kill each other in the savannas 100,000 years ago.</p>
 

@@ -3,7 +3,7 @@ description: "Programming — articles and resources by Süleyman Poyraz."
 layout: blog
 category: programlama
 title: Programming
-permalink: /en/programlama/
+permalink: /en/programming/
 image: /assets/img/pages/programming-bg.jpg
 image_hash: 14e966d46bb6ece26db3432d8171b1b4
 lang: en

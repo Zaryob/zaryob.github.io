@@ -38,7 +38,7 @@ medium_url: "https://medium.com/@zaryob/nereden-%C3%A7%C4%B1kt%C4%B1-bu-programl
 
 <p>1940&#39;lı yıllar ise bildiğiniz gibi hesap makinesini “bilgisayara” evrilten büyük sıçramalara öncü oldu. Gerçi 2. Dünya Savaşı pek çok şeye öncü oldu, buna Ay’a gitmemiz de dahil. Bu arada hemen bir ürün yerleştirmemi de yapayım:</p>
 
-<p><a href="/arsiv/v2den-aya-von-braun/">II. Dünya Savaşının Mirası: V-2&#39;lerden, Aya Yolculuğa; Herbert von Braun</a></p>
+<p><a href="/yazilar/v2den-aya-von-braun/">II. Dünya Savaşının Mirası: V-2&#39;lerden, Aya Yolculuğa; Herbert von Braun</a></p>
 
 <p>Savaşların bu geliştirici etkisi çok da şaşırtıcı değil benim için. Eee ne de olsa 100 bin yıl önce savanalarda birbirlerini öldürmek için sopalar icat eden maymunlardan çok da uzakta değiliz.</p>
 

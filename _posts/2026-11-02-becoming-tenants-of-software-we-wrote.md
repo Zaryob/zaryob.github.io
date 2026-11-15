@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: becoming-tenants-of-software-we-wrote
 title: 'Becoming Tenants of the Software We Wrote: OccupySaaS and Ownership in the Era of AI'

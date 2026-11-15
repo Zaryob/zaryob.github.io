@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: spain-electricity-crisis
 title: "What The Electricity Crisis In Spain Sheds Light On Us?"

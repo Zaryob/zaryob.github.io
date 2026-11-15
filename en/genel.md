@@ -3,7 +3,7 @@ description: "General — articles and resources by Süleyman Poyraz."
 layout: blog
 category: genel
 title: General
-permalink: /en/genel/
+permalink: /en/general/
 lang: en
 translation_key: category-genel
 translation_of: /genel/

@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: technology-tulip-crazes
 title: "Technological Tulip Crazes: The Biggest Technology Bubble of the Last Century"

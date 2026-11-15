@@ -73,3 +73,7 @@ Sosyal bağlantı ikonları `_includes/icon.html` aracılığıyla `assets/icons
 ## Lisans
 
 Sitenin kaynak kodu GPL-3.0-or-later ile lisanslıdır ([LICENSE](LICENSE)). Yazılar, sayfalar ve yazara ait görseller [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.tr) ile lisanslıdır ([LICENSE-CONTENT](LICENSE-CONTENT), [LICENSES/CC-BY-SA-4.0.txt](LICENSES/CC-BY-SA-4.0.txt)). Üçüncü taraf malzeme kendi lisansını korur.
+
+## Adresler
+
+Türkçe yazılar `/yazilar/<slug>/`, İngilizce yazılar `/en/posts/<slug>/` adresinde yayımlanır; kategoriler artık adreste yer almaz. Önceki `/:categories/:title/` adresleri `_data/legacy_post_urls.json` dosyasında, adı değişen sayfalar `_data/legacy_page_urls.yml` dosyasındadır; `_plugins/legacy_redirects.rb` her biri için bir yönlendirme sayfası üretir. Yazı listesini elle düzenlemeyin: bir zamanlar yayında olan adresleri kaydeder.

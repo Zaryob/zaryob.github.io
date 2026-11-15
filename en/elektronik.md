@@ -3,7 +3,7 @@ description: "Electronics — articles and resources by Süleyman Poyraz."
 layout: blog
 category: elektronik
 title: Electronics
-permalink: /en/elektronik/
+permalink: /en/electronics/
 image: /assets/img/pages/electronik-bg.jpg
 image_hash: fd7fff582b02262c7e3377b981048d36
 lang: en

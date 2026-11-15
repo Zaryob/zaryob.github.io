@@ -4,6 +4,7 @@
   {% for topic in site.data.writing_topics %}
   {% comment %} Topics with no post in the page language are left out; the date archive is a page, not a category. {% endcomment %}
   {% assign topic_path = topic_prefix | append: topic.path %}
+  {% if page.lang == 'en' and topic.path_en %}{% assign topic_path = topic.path_en %}{% endif %}
   {% assign topic_posts = site.categories[topic.key] %}
   {% if page.lang == 'en' %}{% assign topic_posts = topic_posts | where: 'lang', 'en' %}{% else %}{% assign topic_posts = topic_posts | where_exp: 'post', 'post.lang != "en"' %}{% endif %}
   {% if topic.key == 'arsiv' or topic_posts.size > 0 or page.url == topic_path %}

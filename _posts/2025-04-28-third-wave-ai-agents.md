@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: ai-agents-third-wave
 title: "Third Wave in Artificial Intelligence: AI Agents"

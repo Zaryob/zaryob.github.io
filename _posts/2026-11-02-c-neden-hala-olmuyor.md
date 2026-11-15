@@ -21,7 +21,7 @@ medium_url: https://medium.com/@zaryob/c-neden-h%C3%A2l%C3%A2-%C3%B6lm%C3%BCyor-
 
 <p>Daha önce Java’yı öldürdüğüm yazıyı bilenler bilir.</p>
 
-<p><a href="/genel/internet/tabut/">Düşenin Tabutuna Bir Çivi de Sen Çak</a></p>
+<p><a href="/yazilar/tabut/">Düşenin Tabutuna Bir Çivi de Sen Çak</a></p>
 
 <p>Bu yazı aman öldü aman ölmedi minvalinde bir yazı olmayacak. Rust developer’lara rağmen neden hala language leaderboard’da C hep başta onu tartışacağız.</p>
 

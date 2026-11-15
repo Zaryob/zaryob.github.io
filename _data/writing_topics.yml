@@ -2,11 +2,13 @@
   title: Genel
   title_en: General
   path: /genel/
+  path_en: /en/general/
   icon: writing
 - key: programlama
   title: Programlama
   title_en: Programming
   path: /programlama/
+  path_en: /en/programming/
   icon: code
 - key: linux
   title: Linux
@@ -22,6 +24,7 @@
   title: Elektronik
   title_en: Electronics
   path: /elektronik/
+  path_en: /en/electronics/
   icon: chip
 - key: pi
   title: Raspberry Pi
@@ -37,4 +40,5 @@
   title: Tarih arşivi
   title_en: Date archive
   path: /arsiv/
+  path_en: /en/archive/
   icon: archive

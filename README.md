@@ -73,3 +73,7 @@ Social link icons are loaded from `assets/icons/site.svg` through `_includes/ico
 ## License
 
 Site source code is licensed under GPL-3.0-or-later ([LICENSE](LICENSE)). Posts, pages and the author's own images are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CONTENT](LICENSE-CONTENT), [LICENSES/CC-BY-SA-4.0.txt](LICENSES/CC-BY-SA-4.0.txt)). Third-party material keeps its own licence.
+
+## Addresses
+
+Turkish posts are published at `/yazilar/<slug>/` and English posts at `/en/posts/<slug>/`; categories no longer appear in the address. The earlier `/:categories/:title/` addresses are listed in `_data/legacy_post_urls.json`, and renamed pages in `_data/legacy_page_urls.yml`; `_plugins/legacy_redirects.rb` writes a redirect page for each. Do not edit the post list by hand: it records addresses that were once public.

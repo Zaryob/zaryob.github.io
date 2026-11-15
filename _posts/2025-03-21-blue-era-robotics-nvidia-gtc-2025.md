@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: robotics-blue-2025
 title: "The “Blue” Era of Robotics: My NVIDIA GTC 2025 Notes"

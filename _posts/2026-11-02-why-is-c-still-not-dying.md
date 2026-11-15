@@ -1,4 +1,5 @@
 ---
+permalink: /en/posts/:title/
 layout: post
 translation_key: why-is-c-still-not-dying
 title: "Why Is C Still Not Dying?"
@@ -15,7 +16,7 @@ cover_image: /assets/img/medium/c-neden-hala-olmuyor-1.webp
 
 <p>Those who know my article where I previously killed off Java will know.</p>
 
-<p><a href="/genel/internet/tabut/">Drive Another Nail into the Coffin of the Fallen</a></p>
+<p><a href="/yazilar/tabut/">Drive Another Nail into the Coffin of the Fallen</a></p>
 
 <p>This article won't be along the lines of "oh it died, oh no it didn't." We will discuss why C is always at the top of the language leaderboard despite Rust developers.</p>
 

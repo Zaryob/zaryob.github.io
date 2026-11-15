@@ -46,7 +46,7 @@ exclude:
   - vendor
   - scripts
 
-permalink: /:categories/:title/
+permalink: /yazilar/:title/
 markdown: kramdown
 paginate: 15
 paginate_path: "/posts/page:num/"
