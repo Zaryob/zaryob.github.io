@@ -138,7 +138,7 @@
 .console-home .about-content h2, .console-home .about-content h3 { font-weight: 500; }
 .console-home .about-entry { border-color: var(--line); }
 .console-home .skill-list li { border-color: var(--line); border-radius: 2px; background: var(--surface); font-size: var(--text-xs); }
-.console-home .site-footer { background: var(--surface); color: var(--muted); border-top: 1px solid var(--line); padding-block: 32px 16px; font-family: var(--font-mono); }
+.console-home .site-footer { background: var(--paper); color: var(--muted); border-top: 1px solid var(--line); padding-block: 32px 16px; font-family: var(--font-mono); }
 .console-home .footer-prompt { margin: 0 0 20px; color: var(--muted); font-size: var(--text-sm); }
 .console-home .footer-prompt__host { color: var(--accent); font-weight: 500; }
 .console-home .footer-prompt__cmd { color: var(--ink); }
@@ -198,6 +198,13 @@
   .console-hero--home .console-hero__screen { line-height: 1.6; }
 }
 
-.console-home .footer-cols { grid-template-columns: repeat(auto-fit,minmax(min(100%,18rem),1fr)); }
+.console-home .footer-cols { grid-template-columns: repeat(auto-fit,minmax(min(100%,16rem),1fr)); }
 .console-home .footer-col { min-width: 0; }
 .console-home .footer-col a { max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
+
+/* One console listing groups site pages, sibling projects and contact links. */
+.console-home .site-footer .console-suite { margin: 0; border: 0; }
+.console-home .site-footer .console-suite__inner { display: block; max-width: none; padding: 0; }
+.console-home .site-footer .console-suite__prompt { margin: 0 0 8px; color: var(--accent); font-size: var(--text-xs); }
+.console-home .site-footer .console-suite__list { display: block; }
+.console-home .footer-col a { min-height: 44px; }

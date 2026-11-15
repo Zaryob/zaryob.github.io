@@ -108,7 +108,6 @@ yazılım mühendisi
 
   {% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
   {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
-  {% include console-suite.html %}
   <footer class="site-footer" id="site-footer">
     <div class="site-container">
       <p class="footer-prompt" aria-hidden="true"><span class="footer-prompt__host">zaryob</span>:~ $ <span class="footer-prompt__cmd">ls -F</span></p>
@@ -124,6 +123,7 @@ yazılım mühendisi
             <li><a href="{% if en %}{{ '/en/feed.xml' | relative_url }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">feed.xml</a></li>
           </ul>
         </nav>
+        <div class="footer-col">{% include console-suite.html compact=true %}</div>
         <nav class="footer-col" aria-label="{% if en %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
           <p class="footer-col__title">~/<span data-i18n="contact">{% if en %}contact{% else %}iletişim{% endif %}</span></p>
           <ul>
