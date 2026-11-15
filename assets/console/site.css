@@ -37,22 +37,19 @@
 }
 .console-home .site-container { max-width: var(--shell-width); padding-inline: var(--gutter); }
 .console-home .hero { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--line); }
-.console-home .hero--home { min-height: 0; }
 .console-home .hero--page, .console-home .hero--post { min-height: 0; }
 .console-home .hero__inner { padding-block: 32px; }
-.console-home .hero--home .hero__inner { padding-block: 48px; }
 .console-home .hero h1, .console-home .hero--post h1 { max-width: 100%; font-size: var(--text-h1); font-weight: 500; letter-spacing: 0; line-height: 1.5; text-wrap: initial; }
-.console-home .hero--home h1 { font-size: clamp(2.125rem, calc(1.5rem + 2.5vw), 3.5rem); line-height: 1.2; }
 .console-home .hero__eyebrow { color: var(--accent); font-size: var(--text-xs); font-weight: 400; text-transform: none; letter-spacing: 0; margin-bottom: 16px; }
 .console-home .hero__lead { max-width: 65ch; color: var(--muted); font-size: var(--text-base); line-height: 1.8; }
 .console-home .hero__date { color: var(--muted); font-size: var(--text-xs); margin-top: 12px; }
 .console-home .hero__actions { gap: 24px; margin-top: 24px; }
 .console-home a.site-button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--control-border); min-height: 44px; padding: 8px 12px; color: var(--accent); background: var(--paper); font: var(--text-base)/1.5 var(--font-mono); text-align: center; text-decoration: none; border-radius: 3px; transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease; }
 .console-home a.site-button:hover { border-color: var(--accent); background: var(--surface); }
-.console-home .hero__actions .site-button { gap: 10px; min-height: 42px; padding: 10px 18px; border-radius: 4px; }
-.console-home .hero__actions .site-button:hover { color: var(--ink); border-color: var(--accent); background: var(--surface); transform: translateY(-1px); }
-.console-home .hero__actions .site-button--accent { background: var(--accent); color: var(--paper); border-color: var(--accent); }
-.console-home .hero__actions .site-button--accent:hover { background: var(--selection); color: var(--ink); }
+.console-home :is(.hero__actions, .console-hero__actions) .site-button { gap: 10px; min-height: 42px; padding: 10px 18px; border-radius: 4px; }
+.console-home :is(.hero__actions, .console-hero__actions) .site-button:hover { color: var(--ink); border-color: var(--accent); background: var(--surface); transform: translateY(-1px); }
+.console-home :is(.hero__actions, .console-hero__actions) .site-button--accent { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+.console-home :is(.hero__actions, .console-hero__actions) .site-button--accent:hover { background: var(--selection); color: var(--ink); }
 .console-home .page-content { padding-block: 40px 72px; }
 .console-home .page-intro { color: var(--muted); font-size: var(--text-base); }
 .console-home .section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; padding-bottom: 14px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
@@ -167,7 +164,6 @@
   .console-home .project-grid, .console-home .topic-grid { grid-template-columns: 1fr; }
   .console-home .footer-cols { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .console-home :is(.footer-col,.footer-legal) a { min-height: 44px; }
-  .console-home .hero--home .hero__inner { padding-block: 36px; }
   .console-home .blog-post { display: flex; gap: 16px; }
   .console-home .blog-post__image-link { flex: 0 0 100px; width: 100px; margin: 0; }
   .console-home .blog-post img { width: 100px; height: 80px; }
@@ -191,13 +187,3 @@
 .console-home .project-detail__actions .site-button { display: block; }
 .console-home .page-content { overflow-wrap: anywhere; }
 
-/* Home hero: generated ZARYOB hex-dump artwork. Wide screens keep the text on the calm left half. */
-.console-home .hero--home.hero--photo { background: #12161c; }
-.console-home .hero--home.hero--photo::before { background: rgba(10, 14, 20, .5); }
-@media (min-width: 1360px) {
-  .console-home .hero--home.hero--photo::before { background: linear-gradient(90deg, rgba(10, 14, 20, .55), rgba(10, 14, 20, 0) 55%); }
-  .console-home .hero--home .hero__photo { object-position: right center; }
-  .console-home .hero--home .hero__inner { align-items: flex-start; text-align: left; }
-  .console-home .hero--home .hero__lead { margin-inline: 0; max-width: 28rem; text-wrap: balance; }
-  .console-home .hero--home .hero__actions { justify-content: flex-start; }
-}

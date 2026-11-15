@@ -56,16 +56,36 @@
     {% assign hero_size = site.data.cover_sizes[hero_file] %}
     {% if page.type != 'noimage' %}
       {% if page.path == 'index.html' or page.home %}
-      <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
-        {% if hero_file %}<picture>{% if page.hero_image_narrow %}<source media="(max-width: 1359px)" srcset="{{ page.hero_image_narrow | relative_url }}">{% endif %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true"{% if hero_size %} width="{{ hero_size.width }}" height="{{ hero_size.height }}"{% endif %} fetchpriority="high" decoding="async"></picture>{% endif %}
-        <div class="site-container hero__inner">
-          <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">{% if page.lang == 'en' %}software engineer{% else %}yazılım mühendisi{% endif %}</span></p>
-          <h1>Süleyman Poyraz</h1>
-          <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">{% if page.lang == 'en' %}I build system software and share what I learn.{% else %}Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.{% endif %}</span></p>
-          <div class="hero__actions">
-            <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">→</span></a>
-            <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="Read the posts">{% if page.lang == 'en' %}Read the posts{% else %}Yazıları oku{% endif %}</span> <span aria-hidden="true">→</span></a>
+      {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+      <header class="console-hero console-hero--home" aria-labelledby="home-title">
+        <div class="console-hero__inner">
+          <p class="console-hero__prompt" aria-hidden="true"><b>zaryob</b><i>:</i>~ <b>$</b><span class="console-hero__cursor"></span></p>
+          <div class="console-hero__copy">
+            <h1 id="home-title" class="console-hero__title">Süleyman Poyraz</h1>
+            <p class="console-hero__lead"><span data-i18n="I build system software and share what I learn.">{% if page.lang == 'en' %}I build system software and share what I learn.{% else %}Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.{% endif %}</span></p>
+            <div class="console-hero__actions">
+              <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">→</span></a>
+              <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="Read the posts">{% if page.lang == 'en' %}Read the posts{% else %}Yazıları oku{% endif %}</span> <span aria-hidden="true">→</span></a>
+            </div>
           </div>
+          <figure class="console-hero__panel">
+            <figcaption class="console-hero__panel-head"><span>ls -F</span><span>~</span></figcaption>
+{% if page.lang == 'en' %}<div class="console-hero__screen"><span class="h-dim">$</span> ls -F
+<a href="{{ '/en/posts/' | relative_url }}">posts/</a>        <a href="{{ suite_root }}/kilavuzlar/en/">guides/</a>
+<a href="{{ suite_root }}/syscall/">syscall/</a>      <a href="{{ suite_root }}/pin-atlas/">pin-atlas/</a>
+<a href="{{ suite_root }}/execmap/">execmap/</a>      <a href="{{ '/en/about/' | relative_url }}">about.txt</a>
+
+<span class="h-dim">$</span> cat about.txt
+software engineer
+<span class="h-dim"># code, systems, learning notes</span></div>{% else %}<div class="console-hero__screen"><span class="h-dim">$</span> ls -F
+<a href="{{ '/posts/' | relative_url }}">yazilar/</a>      <a href="{{ suite_root }}/kilavuzlar/">kilavuzlar/</a>
+<a href="{{ suite_root }}/syscall/">syscall/</a>      <a href="{{ suite_root }}/pin-atlas/">pin-atlas/</a>
+<a href="{{ suite_root }}/execmap/">execmap/</a>      <a href="{{ '/hakkinda/' | relative_url }}">hakkinda.txt</a>
+
+<span class="h-dim">$</span> cat hakkinda.txt
+yazılım mühendisi
+<span class="h-dim"># kod, sistemler, öğrenme notları</span></div>{% endif %}
+          </figure>
         </div>
       </header>
       {% elsif page.title and page.title != 'empty' %}
