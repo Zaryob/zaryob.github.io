@@ -39,7 +39,12 @@
             {% for topic in site.data.writing_topics %}
               {% assign topic_path = topic.path %}
               {% if page.lang == 'en' %}{% assign topic_path = '/en' | append: topic.path %}{% if topic.path_en %}{% assign topic_path = topic.path_en %}{% endif %}{% endif %}
+              {% comment %} Same rule as the topic tabs: a topic with no post in the page language is left out; the date archive is a page, not a category. {% endcomment %}
+              {% assign topic_posts = site.categories[topic.key] %}
+              {% if page.lang == 'en' %}{% assign topic_posts = topic_posts | where: 'lang', 'en' %}{% else %}{% assign topic_posts = topic_posts | where_exp: 'post', 'post.lang != "en"' %}{% endif %}
+              {% if topic.key == 'arsiv' or topic_posts.size > 0 or page.url == topic_path %}
               <a href="{{ suite_root }}{{ topic_path }}"{% if site.suite_section == 'home' and page.url == topic_path or page.category == topic.key %} aria-current="page"{% endif %}>{% include console-icon.html name=topic.icon %}<span data-i18n="{{ topic.title_en | default: topic.title | escape }}">{{ topic.title }}</span></a>
+              {% endif %}
             {% endfor %}
           </nav>
         </details>
