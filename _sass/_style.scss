@@ -180,15 +180,6 @@ a:focus-visible, button:focus-visible {
 .project-detail dt { color: var(--ink); }
 .project-detail dd { margin: 0; color: var(--muted); }
 
-.reading-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.reading-path {
-  border: 1px solid var(--line);
-  border-radius: .85rem;
-  padding: 1.2rem 1.35rem;
-  background: #fff;
-}
-.reading-path h3 { margin: 0 0 .4rem; font-size: var(--text-h3); }
-.reading-path p { margin: 0; color: var(--muted); }
 
 .about-intro { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1.5rem; }
 .about-avatar { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; }
@@ -233,7 +224,7 @@ a:focus-visible, button:focus-visible {
   .hero--page, .hero--post { min-height: 215px; }
   .hero__inner { padding-top: 2.4rem; padding-bottom: 2.4rem; }
   .hero__actions { width: 100%; }
-  .project-grid, .reading-paths { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: 1fr; }
   .project-detail dl { grid-template-columns: 1fr; gap: .1rem; }
   .project-detail dd { margin-bottom: .7rem; }
   .about-intro { grid-template-columns: 1fr; }

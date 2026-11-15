@@ -1,33 +1,32 @@
+{% comment %}
+  "Start with a topic": the site's own reading paths and the sibling tools,
+  as one grid of identical cards. Tools come from _data/console_projects.json.
+{% endcomment %}
 {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
-<nav class="suite-paths" aria-label="{% if page.lang == 'en' %}Knowledge library{% else %}Bilgi kitaplığı{% endif %}">
-  {% if page.lang == 'en' %}
-  <a href="{{ '/en/posts/' | relative_url }}">
-    posts/
-    <span class="suite-paths__description">Ideas and technical articles</span>
-  </a>
-  {% else %}
-  <a href="{{ '/posts/' | relative_url }}">
-    yazılar/
-    <span class="suite-paths__description">Fikirler ve teknik yazılar</span>
-  </a>
-  {% endif %}
-
-  {% assign suite_projects = site.data.console_projects | where_exp: 'project', "project.key != 'home'" %}
-  {% for project in suite_projects %}
+{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
+<ul class="topic-grid">
+  <li class="topic-card">
+    <p class="topic-card__path">~/programlama</p>
+    <h3><a href="{% if en %}{{ '/en/programlama/' | relative_url }}{% else %}{{ '/programlama/' | relative_url }}{% endif %}"><span data-i18n="Modern C++ and programming">{% if en %}Modern C++ and programming{% else %}Modern C++ ve programlama{% endif %}</span></a></h3>
+    <p><span data-i18n="Compile time, semantics, debugging and practical software notes.">{% if en %}Compile time, semantics, debugging and practical software notes.{% else %}Derleme zamanı, semantik, hata ayıklama ve pratik yazılım notları.{% endif %}</span></p>
+  </li>
+  <li class="topic-card">
+    <p class="topic-card__path">~/internet{% if en %} <small>[TR]</small>{% endif %}</p>
+    <h3><a href="{{ '/internet/' | relative_url }}{% if en %}?lang=tr" hreflang="tr{% endif %}"><span data-i18n="Internet 101">{% if en %}Internet 101{% else %}İnternet 101{% endif %}</span></a></h3>
+    <p><span data-i18n="Foundations from network hardware to TCP/IP and protocols.">{% if en %}Foundations from network hardware to TCP/IP and protocols.{% else %}Ağ donanımından TCP/IP ve protokollere uzanan temel yazılar.{% endif %}</span></p>
+  </li>
+  {% for project in site.data.console_projects %}{% unless project.key == 'home' %}
   {% assign project_title = project.title %}
-  {% if page.lang == 'en' %}{% assign project_title = project.title_en | default: project.title %}{% endif %}
-  <a href="{{ suite_root }}{{ project.path }}">
-    {{ project_title | escape }}/
-    {% case project.key %}
-      {% when 'kilavuzlar' %}
-        <span class="suite-paths__description">{% if page.lang == 'en' %}Step-by-step practical notes{% else %}Adım adım uygulama notları{% endif %}</span>
-      {% when 'syscall' %}
-        <span class="suite-paths__description">{% if page.lang == 'en' %}Linux system calls{% else %}Linux sistem çağrıları{% endif %}</span>
-      {% when 'pin-atlas' %}
-        <span class="suite-paths__description">{% if page.lang == 'en' %}Pin maps and wiring plans{% else %}Pin haritaları ve bağlantı planları{% endif %}</span>
-      {% when 'execmap' %}
-        <span class="suite-paths__description">{% if page.lang == 'en' %}ELF analysis and reverse engineering{% else %}ELF çözümleme ve tersine mühendislik{% endif %}</span>
-    {% endcase %}
-  </a>
-  {% endfor %}
-</nav>
+  {% if en %}{% assign project_title = project.title_en | default: project.title %}{% endif %}
+  <li class="topic-card">
+    <p class="topic-card__path">{{ project.prompt | escape }}</p>
+    <h3><a href="{{ suite_root }}{{ project.path }}">{{ project_title | escape }}</a></h3>
+    <p>{% case project.key %}
+      {% when 'kilavuzlar' %}{% if en %}Step-by-step practical notes{% else %}Adım adım uygulama notları{% endif %}
+      {% when 'syscall' %}{% if en %}Linux system calls{% else %}Linux sistem çağrıları{% endif %}
+      {% when 'pin-atlas' %}{% if en %}Pin maps and wiring plans{% else %}Pin haritaları ve bağlantı planları{% endif %}
+      {% when 'execmap' %}{% if en %}ELF analysis and reverse engineering{% else %}ELF çözümleme ve tersine mühendislik{% endif %}
+    {% endcase %}</p>
+  </li>
+  {% endunless %}{% endfor %}
+</ul>
