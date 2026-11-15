@@ -93,7 +93,7 @@ medium_url: "https://medium.com/@zaryob/the-blue-era-of-robotics-my-nvidia-gtc-2
 
 <p>There is also a reading that I will recommend. We said that Deepmind took a role in developing this robot, he recently released the open source Robotics module for Gemini:</p>
 
-<figure><img src="/assets/img/medium/abcd4a638b9cbb64d3.png" alt="Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world." width="1200" height="630" loading="lazy" decoding="async"><figcaption><a href="https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/">Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world.</a></figcaption></figure>
+<figure><img src="/assets/img/medium/abcd4a638b9cbb64d3.webp" alt="Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world." width="1200" height="630" loading="lazy" decoding="async"><figcaption><a href="https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/">Introducing Gemini Robotics and Gemini Robotics-ER, AI models designed for robots to understand, act and react to the physical world.</a></figcaption></figure>
 
 <h2>Sources</h2>
 

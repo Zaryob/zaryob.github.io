@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+{% comment %}
+  One Atom feed per language: include.lang selects the posts, include.home is the
+  matching home page. Entry ids follow jekyll-feed (post.id), so readers that
+  already subscribed to /feed.xml do not see old posts as new.
+{% endcomment %}
+{% assign feed_lang = include.lang %}
+{% if feed_lang == 'en' %}{% assign feed_posts = site.posts | where: 'lang', 'en' %}{% else %}{% assign feed_posts = site.posts | where_exp: 'post', 'post.lang != "en"' %}{% endif %}
+{% assign cdata_end_token = "]]>" %}
+{% assign cdata_end_token_escaped = "]]]]><![CDATA[>" %}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ feed_lang }}">
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
+  <link href="{{ include.home | absolute_url }}" rel="alternate" type="text/html" hreflang="{{ feed_lang }}" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ page.url | absolute_url | xml_escape }}</id>
+  <title type="html">{{ page.title | default: site.title | xml_escape }}</title>
+  <subtitle>{{ page.description | default: site.description | xml_escape }}</subtitle>
+  <author>
+    <name>{{ site.author.name | xml_escape }}</name>
+  </author>
+  {% for post in feed_posts limit: 10 %}
+  {% assign post_title = post.title | strip_html | normalize_whitespace | xml_escape %}
+  <entry xml:lang="{{ post.lang | default: 'tr' }}">
+    <title type="html">{{ post_title }}</title>
+    <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post_title }}" />
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+    <id>{{ post.id | absolute_url | xml_escape }}</id>
+    <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip | replace: cdata_end_token, cdata_end_token_escaped }}]]></content>
+    <author>
+      <name>{{ site.author.name | xml_escape }}</name>
+    </author>
+    {% for category in post.categories %}
+    <category term="{{ category | xml_escape }}" />
+    {% endfor %}
+    {% for tag in post.tags %}
+    <category term="{{ tag | xml_escape }}" />
+    {% endfor %}
+    {% assign post_summary = post.description | default: post.excerpt %}
+    {% if post_summary and post_summary != empty %}
+    <summary type="html"><![CDATA[{{ post_summary | strip_html | normalize_whitespace | replace: cdata_end_token, cdata_end_token_escaped }}]]></summary>
+    {% endif %}
+    {% assign post_image = post.image | default: post.cover_image %}
+    {% if post_image %}
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{{ post_image | absolute_url | xml_escape }}" />
+    <media:content medium="image" url="{{ post_image | absolute_url | xml_escape }}" xmlns:media="http://search.yahoo.com/mrss/" />
+    {% endif %}
+  </entry>
+  {% endfor %}
+</feed>

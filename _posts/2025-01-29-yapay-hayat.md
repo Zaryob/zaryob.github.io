@@ -3,7 +3,7 @@ layout: post
 title: "Yapay Hayat: 6 Ayı Yapay Zeka Araçları Kullanarak Geçen Bir Yazılımcının Güncesi"
 date: 2025-01-29 22:54:42 +0300
 categories: [genel]
-image: "/assets/img/pages/2025-01-29-yapay-hayat.png"
+image: "/assets/img/pages/2025-01-29-yapay-hayat.webp"
 image_hash: "5dcae51363b931caca8669f567f14958"
 ---
 

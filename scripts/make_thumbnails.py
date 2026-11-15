@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Create small list images for post covers. Requires Pillow."""
+"""Create small list images for post covers and record cover sizes. Requires Pillow."""
 
+import json
 import re
 from pathlib import Path
 
@@ -10,6 +11,8 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 POSTS = ROOT / "_posts"
 THUMBS = ROOT / "assets/img/thumbs"
+PAGE_COVERS = ROOT / "assets/img/pages"
+SIZES = ROOT / "_data/cover_sizes.json"
 IMAGE_FIELD = re.compile(r"^(image|cover_image):\s*[\"']?([^\"'\n]+)", re.MULTILINE)
 
 
@@ -50,6 +53,15 @@ def main() -> None:
         save_thumbnail(source, target)
         count += 1
     print(f"Created {count} thumbnails in {THUMBS.relative_to(ROOT)}")
+
+    # The layout reads these to put width and height on the hero image.
+    sizes = {}
+    for source in sorted(sources | {path for path in PAGE_COVERS.iterdir() if path.is_file()}):
+        with Image.open(source) as image:
+            width, height = ImageOps.exif_transpose(image).size
+        sizes["/" + source.relative_to(ROOT).as_posix()] = {"width": width, "height": height}
+    SIZES.write_text(json.dumps(sizes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Recorded {len(sizes)} cover sizes in {SIZES.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

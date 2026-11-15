@@ -122,8 +122,8 @@
     "post": "_posts/2025-01-29-yapay-hayat.md",
     "medium_url": "https://medium.com/@zaryob/yapay-hayat-6-ay%C4%B1-yapay-zeka-ara%C3%A7lar%C4%B1-kullanarak-ge%C3%A7en-bir-yaz%C4%B1l%C4%B1mc%C4%B1n%C4%B1n-g%C3%BCncesi-2a568f1b0fea",
     "source": "https://miro.medium.com/v2/resize:fit:700/1*XcrlE2O5McrKhmn1Z_FJWA.png",
-    "local": "/assets/img/pages/2025-01-29-yapay-hayat.png",
-    "sha256": "3e929d6c6aec1a2e676273526d2d1d10b096ccefd5d3766889cc3ada097b7c29"
+    "local": "/assets/img/pages/2025-01-29-yapay-hayat.webp",
+    "sha256": "e3eaca10ec19316548f8e9ff2907f4a885c661270740a2e9130f751a05e833ea"
   },
   {
     "post": "_posts/2025-01-29-yapay-hayat.md",
@@ -207,7 +207,7 @@
     "medium_url": "https://medium.com/@zaryob/efsanele%C5%9Fmi%C5%9F-bir-bilgisayar-markas%C4%B1-thinkpad-32382a496b9d",
     "source": "https://miro.medium.com/v2/resize:fit:700/1*Q75oY4qaD2Hvttqy07VxBQ.jpeg",
     "local": "/assets/img/pages/2021-10-26-thinkpad.jpeg",
-    "sha256": "18fc257c022d9f533b1827c0473f6314b170d18c2644e5f4af3345d4dc8396a2"
+    "sha256": "cccbb01403b8e4b676324da95d533340fdf77839c8db23bd8f54c0446bc7e80b"
   },
   {
     "post": "_posts/2021-10-26-thinkpad.md",
@@ -312,7 +312,7 @@
     "medium_url": "https://medium.com/@zaryob/kopyala-yap%C4%B1%C5%9Ft%C4%B1r%C4%B1n-daha-ak%C4%B1ll%C4%B1-hali-github-copilot-4548a9256640",
     "source": "https://miro.medium.com/v2/resize:fit:700/0*Q1SNkWHHG58ApnuV",
     "local": "/assets/img/pages/2021-11-06-kopyala-yapistir.jpeg",
-    "sha256": "b67cd86109b7dd96b3a4d60d181198ecf29666653de350f911a30405f1c4fb91"
+    "sha256": "da73c74132b8f2f908c5aad47868c9b380a52e41236ef4941bc7bd03f06cc85f"
   },
   {
     "post": "_posts/2021-11-06-kopyala-yapistir.md",
@@ -564,7 +564,7 @@
     "medium_url": "https://medium.com/@zaryob/veri-y%C3%B6netimi-dosya-sistemleri-7e0bb1ec7f9b",
     "source": "https://miro.medium.com/v2/resize:fit:700/1*Ykvnb-LGWzHg4ptu9nxEww.jpeg",
     "local": "/assets/img/pages/2021-04-09-fs.webp",
-    "sha256": "fb607692d1f463f3b08469657d6ea20908cdec299951ad5cd30769af0a2c84b3"
+    "sha256": "e4496d54da15260a41db602be447167fe938722c898d80f8688a25168aa9d496"
   },
   {
     "post": "_posts/2021-04-09-fs.md",
@@ -1509,7 +1509,7 @@
     "medium_url": "https://medium.com/@zaryob/veri-y%C3%B6netimi-s%C4%B1k-kullan%C4%B1lan-dosya-sistemleri-ec7939df4439",
     "source": "https://miro.medium.com/v2/resize:fit:700/1*546LnGpDRawPBQelBVvjaA.jpeg",
     "local": "/assets/img/pages/2021-04-10-fs_types.webp",
-    "sha256": "fb89eea745266718beaafcbbc4f036b8abc921e58eff4b006c7c8a230f7b129f"
+    "sha256": "cbf993434783e1c231e5b2ece51162d91a6a3f1cdf2d5c57a840c41cff676247"
   },
   {
     "post": "_posts/2021-02-06-kotlin.md",
@@ -1522,8 +1522,8 @@
     "post": "_posts/2021-09-04-bilim-meraklilarina.md",
     "medium_url": "https://medium.com/@zaryob/bilim-merakl%C4%B1lar%C4%B1na-a%C3%A7%C4%B1k-kaynak-fc456ca9e8f5",
     "source": "https://miro.medium.com/v2/resize:fit:700/0*3dKrnSZSpoUL6ZWm.png",
-    "local": "/assets/img/pages/2021-09-04-bilim.png",
-    "sha256": "52e47b835324322341c10220b034a54d7e5531ce847c053832c8f685962f6784"
+    "local": "/assets/img/pages/2021-09-04-bilim.webp",
+    "sha256": "82f1cdb7504f1ca9330bdef1196f33f09633e17ab59eac382fc577ca6184a432"
   },
   {
     "post": "_posts/2021-09-04-bilim-meraklilarina.md",
@@ -1577,8 +1577,8 @@
   {
     "post": "_posts/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.md",
     "source": "https://lh3.googleusercontent.com/J74rVi68EPPNMBLxhxI76Bli7QggLtYRYfp5Pk2HVPtSt2NIIk2VmLktQbwDZeIlZiW3AHwlpLNcswHuz_ecR-oj4kI-mtF53yYsGJKfvPugAw5ulQ=w1200-h630-n-nu",
-    "local": "/assets/img/medium/abcd4a638b9cbb64d3.png",
-    "sha256": "f6b3fe912d82476b0f848305cb45399069dcadc0aa82e1f3ad36c28e5b940482"
+    "local": "/assets/img/medium/abcd4a638b9cbb64d3.webp",
+    "sha256": "35be3be158b02d34682a7546b277eab78912290f2490176d14e1de84b9013139"
   },
   {
     "post": "_posts/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.md",
@@ -1615,7 +1615,7 @@
     "post": "_posts/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.md",
     "source": "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2021/06/european_robotic_arm_installation_on_nauka/23367771-1-eng-GB/European_Robotic_Arm_installation_on_Nauka_pillars.jpg",
     "local": "/assets/img/medium/59cc0da1cd7179ea03.jpg",
-    "sha256": "63364cb7fbc3ba0b86464f9c76d84883a911b9e7c0faed765d7a0cd22588942a"
+    "sha256": "81283b1684260db909fca8e955796e9ffb4f7ebbdfa18b1cbb140935cdfe8849"
   },
   {
     "post": "_posts/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.md",
@@ -1655,8 +1655,8 @@
   {
     "post": "_posts/2025-03-21-blue-era-robotics-nvidia-gtc-2025.md",
     "source": "https://lh3.googleusercontent.com/J74rVi68EPPNMBLxhxI76Bli7QggLtYRYfp5Pk2HVPtSt2NIIk2VmLktQbwDZeIlZiW3AHwlpLNcswHuz_ecR-oj4kI-mtF53yYsGJKfvPugAw5ulQ=w1200-h630-n-nu",
-    "local": "/assets/img/medium/abcd4a638b9cbb64d3.png",
-    "sha256": "f6b3fe912d82476b0f848305cb45399069dcadc0aa82e1f3ad36c28e5b940482",
+    "local": "/assets/img/medium/abcd4a638b9cbb64d3.webp",
+    "sha256": "35be3be158b02d34682a7546b277eab78912290f2490176d14e1de84b9013139",
     "medium_url": "https://medium.com/@zaryob/the-blue-era-of-robotics-my-nvidia-gtc-2025-notes-a59c80d4e84f"
   },
   {
@@ -1699,7 +1699,7 @@
     "post": "_posts/2025-03-21-blue-era-robotics-nvidia-gtc-2025.md",
     "source": "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2021/06/european_robotic_arm_installation_on_nauka/23367771-1-eng-GB/European_Robotic_Arm_installation_on_Nauka_pillars.jpg",
     "local": "/assets/img/medium/59cc0da1cd7179ea03.jpg",
-    "sha256": "63364cb7fbc3ba0b86464f9c76d84883a911b9e7c0faed765d7a0cd22588942a",
+    "sha256": "81283b1684260db909fca8e955796e9ffb4f7ebbdfa18b1cbb140935cdfe8849",
     "medium_url": "https://medium.com/@zaryob/the-blue-era-of-robotics-my-nvidia-gtc-2025-notes-a59c80d4e84f"
   },
   {

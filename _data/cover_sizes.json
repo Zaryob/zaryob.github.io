@@ -1,0 +1,334 @@
+{
+  "/assets/img/medium/787bce7849fac3cfea.jpg": {
+    "width": 400,
+    "height": 280
+  },
+  "/assets/img/medium/c-neden-hala-olmuyor-1.webp": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/medium/c3916e73a6ce6fd280.jpg": {
+    "width": 700,
+    "height": 524
+  },
+  "/assets/img/medium/kendi-yazdigimiz-yazilimin-kiracisi-olmak-1.webp": {
+    "width": 1024,
+    "height": 585
+  },
+  "/assets/img/medium/nereden-cikti-programlama-dilleri-1.webp": {
+    "width": 1024,
+    "height": 538
+  },
+  "/assets/img/pages/2021-02-03-java-bg.jpg": {
+    "width": 1920,
+    "height": 1280
+  },
+  "/assets/img/pages/2021-02-05-jvm.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
+  "/assets/img/pages/2021-02-05-kotlin.png": {
+    "width": 1680,
+    "height": 1050
+  },
+  "/assets/img/pages/2021-02-07-chromium.png": {
+    "width": 1188,
+    "height": 521
+  },
+  "/assets/img/pages/2021-02-07-raspberry-pi-guncellemesi.jpg": {
+    "width": 1920,
+    "height": 1278
+  },
+  "/assets/img/pages/2021-02-08-islemci-mimarileri.jpg": {
+    "width": 1920,
+    "height": 1079
+  },
+  "/assets/img/pages/2021-02-09-risc.jpg": {
+    "width": 1920,
+    "height": 1280
+  },
+  "/assets/img/pages/2021-02-12-rasp5.jpg": {
+    "width": 1280,
+    "height": 748
+  },
+  "/assets/img/pages/2021-02-13-rust.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
+  "/assets/img/pages/2021-03-08-VIM.png": {
+    "width": 1536,
+    "height": 864
+  },
+  "/assets/img/pages/2021-03-09-emacs.jpg": {
+    "width": 700,
+    "height": 437
+  },
+  "/assets/img/pages/2021-03-10-github.png": {
+    "width": 700,
+    "height": 367
+  },
+  "/assets/img/pages/2021-03-11-flutter.png": {
+    "width": 700,
+    "height": 391
+  },
+  "/assets/img/pages/2021-03-12-tinkerboard.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "/assets/img/pages/2021-04-09-fs.webp": {
+    "width": 1920,
+    "height": 1280
+  },
+  "/assets/img/pages/2021-04-10-fs_types.webp": {
+    "width": 1920,
+    "height": 1280
+  },
+  "/assets/img/pages/2021-04-22-python_trics.jpg": {
+    "width": 700,
+    "height": 388
+  },
+  "/assets/img/pages/2021-04-23-zfs.jpg": {
+    "width": 800,
+    "height": 364
+  },
+  "/assets/img/pages/2021-04-24-dart.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "/assets/img/pages/2021-04-26-git.png": {
+    "width": 1856,
+    "height": 957
+  },
+  "/assets/img/pages/2021-05-01-fcm.jpeg": {
+    "width": 700,
+    "height": 393
+  },
+  "/assets/img/pages/2021-05-01-flutter-paket.jpeg": {
+    "width": 700,
+    "height": 393
+  },
+  "/assets/img/pages/2021-05-03-almalinux.jpg": {
+    "width": 720,
+    "height": 375
+  },
+  "/assets/img/pages/2021-05-14-linux.jpg": {
+    "width": 700,
+    "height": 393
+  },
+  "/assets/img/pages/2021-08-22-java.png": {
+    "width": 700,
+    "height": 547
+  },
+  "/assets/img/pages/2021-08-23-brave.png": {
+    "width": 700,
+    "height": 366
+  },
+  "/assets/img/pages/2021-08-25-internet.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/assets/img/pages/2021-08-27-internet.jpg": {
+    "width": 1332,
+    "height": 850
+  },
+  "/assets/img/pages/2021-08-29-internet.jpg": {
+    "width": 1023,
+    "height": 770
+  },
+  "/assets/img/pages/2021-08-31-internet.jpg": {
+    "width": 3840,
+    "height": 2560
+  },
+  "/assets/img/pages/2021-09-03-internet.jpg": {
+    "width": 1000,
+    "height": 750
+  },
+  "/assets/img/pages/2021-09-04-bilim.webp": {
+    "width": 1920,
+    "height": 1080
+  },
+  "/assets/img/pages/2021-09-05-internet.jpg": {
+    "width": 700,
+    "height": 484
+  },
+  "/assets/img/pages/2021-09-06-internet-alt-aglar.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
+  "/assets/img/pages/2021-09-07-internet-tcp-ip.jpg": {
+    "width": 1429,
+    "height": 826
+  },
+  "/assets/img/pages/2021-09-09-oyunlar.jpg": {
+    "width": 2560,
+    "height": 1441
+  },
+  "/assets/img/pages/2021-09-09-uctan.jpg": {
+    "width": 1024,
+    "height": 600
+  },
+  "/assets/img/pages/2021-09-12-quic.jpg": {
+    "width": 1280,
+    "height": 720
+  },
+  "/assets/img/pages/2021-09-19-regex.jpg": {
+    "width": 1200,
+    "height": 1200
+  },
+  "/assets/img/pages/2021-10-02-windowsunuzu-cekilir-kilin.jpg": {
+    "width": 3840,
+    "height": 2160
+  },
+  "/assets/img/pages/2021-10-06-pypy-pythonun-kuyrugunu-yiyen-yilan.jpg": {
+    "width": 1024,
+    "height": 772
+  },
+  "/assets/img/pages/2021-10-12-mini-mini-birler-microservices.png": {
+    "width": 1024,
+    "height": 768
+  },
+  "/assets/img/pages/2021-10-21-yazilimda-telemetri.png": {
+    "width": 1920,
+    "height": 937
+  },
+  "/assets/img/pages/2021-10-26-thinkpad.jpeg": {
+    "width": 1920,
+    "height": 1440
+  },
+  "/assets/img/pages/2021-11-06-kopyala-yapistir.jpeg": {
+    "width": 1920,
+    "height": 1080
+  },
+  "/assets/img/pages/2021-11-26-tabut.jpeg": {
+    "width": 750,
+    "height": 422
+  },
+  "/assets/img/pages/2022-01-02-ai-ml-ve-dl.png": {
+    "width": 2960,
+    "height": 1600
+  },
+  "/assets/img/pages/2022-03-05-nedir-bu-opencv.webp": {
+    "width": 720,
+    "height": 405
+  },
+  "/assets/img/pages/2023-03-15-soguk-savas.webp": {
+    "width": 832,
+    "height": 468
+  },
+  "/assets/img/pages/2025-01-17-modern-cpp.jpeg": {
+    "width": 2048,
+    "height": 1136
+  },
+  "/assets/img/pages/2025-01-26-modern-cpp-semantikler.jpg": {
+    "width": 1920,
+    "height": 1272
+  },
+  "/assets/img/pages/2025-01-29-yapay-hayat.webp": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/assets/img/pages/2025-02-05-modern-cpp-compile-time.webp": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/pages/2025-02-10-paralel-programlama.webp": {
+    "width": 2432,
+    "height": 1412
+  },
+  "/assets/img/pages/2025-02-14-opencv.jpeg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/pages/2025-02-24-modern-cpp-o-kadar-yazdik.webp": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/pages/2025-02-27-cpp-madenleri.jpeg": {
+    "width": 1920,
+    "height": 1285
+  },
+  "/assets/img/pages/2025-03-04-ve-perde.jpg": {
+    "width": 1456,
+    "height": 816
+  },
+  "/assets/img/pages/2025-03-16-bir-uzay-gorevi-bir-tutsaklik-hikayesi-starliner.jpeg": {
+    "width": 1280,
+    "height": 647
+  },
+  "/assets/img/pages/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.jpeg": {
+    "width": 1200,
+    "height": 675
+  },
+  "/assets/img/pages/GS4HDkSW8AE4PBo.jpeg": {
+    "width": 1536,
+    "height": 2048
+  },
+  "/assets/img/pages/archive-bg.jpg": {
+    "width": 1920,
+    "height": 1501
+  },
+  "/assets/img/pages/code-bg.jpg": {
+    "width": 1920,
+    "height": 1280
+  },
+  "/assets/img/pages/electronik-bg.jpg": {
+    "width": 1920,
+    "height": 1304
+  },
+  "/assets/img/pages/home-bg.webp": {
+    "width": 1920,
+    "height": 1440
+  },
+  "/assets/img/pages/internet-bg.jpeg": {
+    "width": 1838,
+    "height": 991
+  },
+  "/assets/img/pages/meeting-4735434.jpg": {
+    "width": 1920,
+    "height": 1440
+  },
+  "/assets/img/pages/pixelart.jpg": {
+    "width": 728,
+    "height": 410
+  },
+  "/assets/img/pages/programming-bg.jpg": {
+    "width": 1920,
+    "height": 1440
+  },
+  "/assets/img/pages/raspberrypi-bg.jpg": {
+    "width": 1620,
+    "height": 1080
+  },
+  "/assets/img/posts/medium-26b74a71dbcc69.webp": {
+    "width": 1024,
+    "height": 676
+  },
+  "/assets/img/posts/medium-831e5c38ca7dbe.webp": {
+    "width": 1024,
+    "height": 683
+  },
+  "/assets/img/posts/medium-9210900be51356.webp": {
+    "width": 1024,
+    "height": 676
+  },
+  "/assets/img/posts/medium-a7a062f6d1af92.webp": {
+    "width": 1024,
+    "height": 683
+  },
+  "/assets/img/posts/medium-b547ec57a79729.webp": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/posts/medium-bb9c27dc121db1.webp": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/assets/img/posts/medium-f97cf193efa199.webp": {
+    "width": 1024,
+    "height": 576
+  },
+  "/assets/img/posts/medium-kendine-yalan-soyleme-1.webp": {
+    "width": 700,
+    "height": 700
+  }
+}

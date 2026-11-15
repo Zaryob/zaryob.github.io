@@ -57,4 +57,4 @@ for source in [*list((ROOT / '_pages').glob('*.md')), ROOT / 'index.html', ROOT 
         errors.append(f'{source.name}: expected one English fixed page')
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'Validated {pairs} guide/error-page pairs, {blocks} unchanged fenced code blocks and all 13 fixed-page editions.')
+print(f'Validated {pairs} guide/error-page pairs, {blocks} unchanged fenced code blocks and all 15 fixed-page editions.')

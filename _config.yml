@@ -23,11 +23,11 @@ social:
 # Social preview for pages without their own image or cover_image.
 default_image: /assets/img/pages/home-bg.webp
 
-# No gem theme: github-pages would otherwise add primer's /assets/css/style.css.
-theme: null
-
 sass:
   style: compressed
+  sourcemap: never
+  silence_deprecations:
+    - import
 
 include:
   - _pages
@@ -48,9 +48,7 @@ paginate: 15
 paginate_path: "/posts/page:num/"
 
 plugins:
-  - jekyll-feed
   - jekyll-paginate
-  - jekyll-sitemap
   - jekyll-seo-tag
 
 # Common Zaryob navigation; override suite_url for a combined local preview.

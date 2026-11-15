@@ -100,7 +100,7 @@ Nitekim Boeing yönetiminin, uçağı rakip Airbus A320neo’ya hızlı bir ceva
 ​Soruşturma kapsamında eksik bilgi verdiği için dolandırıcılıkla suçlandıktan sonra Boeing’in, 2,5 milyar doların üzerinde ceza ve tazminat ödemesine karar verildi. FAA, zorunlu tasarım ve eğitim değişikliklerinin bir listesine tabi olarak, 18 Kasım 2020'de MAX’ın yeniden hizmete girmesine izin vermeden önce Boeing, teslimatı bekleyen 450'den fazla MAX uçağı üretmişti.
 
 
-![](/assets/img/posts/0*mT10vHP0LQeWOBvx.png)
+![](/assets/img/posts/0*mT10vHP0LQeWOBvx.webp)
 
 
 Peki bir şirket nasıl böyle büyük bir mühendislik kararını yönetimsel kararların gölgesinde bıraktı. İşte o noktada dikkat çekici bir rapor var, ibreler 1996'da gerçekleşen McDonnell-Douglas birleşmesine dönüyor.

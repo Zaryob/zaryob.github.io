@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /en/feed.xml
+title: Süleyman Poyraz
+description: Articles on C++, Linux, networks and software development.
+---
+{% include atom-feed.xml lang='en' home='/en/' %}

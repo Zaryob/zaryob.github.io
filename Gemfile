@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
-gem "webrick"
-gem "tzinfo-data", platforms: [:windows, :jruby]
+ruby ">= 3.3"
+gem "jekyll", "~> 4.4.1"
+gem "webrick", "~> 1.9"
+
+group :jekyll_plugins do
+  gem "jekyll-paginate", "~> 1.1"
+  gem "jekyll-seo-tag", "~> 2.8"
+end

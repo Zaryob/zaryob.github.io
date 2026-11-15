@@ -1,0 +1,5 @@
+---
+layout: null
+permalink: /feed.xml
+---
+{% include atom-feed.xml lang='tr' home='/' %}

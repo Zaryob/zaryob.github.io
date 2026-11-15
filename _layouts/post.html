@@ -5,7 +5,15 @@ layout: default
 {% include console-content-language.html %}
 <article class="post-layout" lang="{{ page.lang | default: 'tr' }}">
   <div class="post-content">
+    {% comment %}
+      The page title is the only h1. Posts that use "#" for their sections are
+      shifted one level down here, so the prose itself stays untouched.
+    {% endcomment %}
+    {% if content contains '<h1' %}
+    {{ content | replace: '<h5', '<h6' | replace: '</h5>', '</h6>' | replace: '<h4', '<h5' | replace: '</h4>', '</h5>' | replace: '<h3', '<h4' | replace: '</h3>', '</h4>' | replace: '<h2', '<h3' | replace: '</h2>', '</h3>' | replace: '<h1', '<h2' | replace: '</h1>', '</h2>' }}
+    {% else %}
     {{ content }}
+    {% endif %}
   </div>
   <nav class="post-end-nav" aria-label="{% if page.lang == 'en' %}Post navigation{% else %}Yazı gezinmesi{% endif %}" data-i18n-aria-label="Post navigation" data-pagefind-ignore>
     {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">{% if page.lang == 'en' %}Original post on Medium{% else %}Medium'daki özgün yazı{% endif %}</span></a><span aria-hidden="true"> · </span>{% endif %}

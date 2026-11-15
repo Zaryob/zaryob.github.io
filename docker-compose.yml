@@ -1,6 +1,6 @@
 services:
   jekyll:
-    # Same Ruby as CI; the gems (Jekyll 3.10 through github-pages) come from Gemfile.lock.
+    # Same Ruby as CI; the gems (Jekyll 4 and its plugins) come from Gemfile.lock.
     image: ruby:3.3
     working_dir: /srv/jekyll
     command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling --verbose"

@@ -4,7 +4,7 @@
 
 ## Yerelde çalıştırma
 
-Python 3, Ruby 3.3 veya daha yeni bir sürüm ve Bundler kurulu olmalı. `scripts/jekyll.py` uygun Ruby sürümünü seçer. `Gemfile`, Jekyll ve ilgili eklentileri `github-pages` gem'i üzerinden yükler.
+Python 3, Ruby 3.3 veya daha yeni bir sürüm ve Bundler kurulu olmalı. `scripts/jekyll.py` uygun Ruby sürümünü seçer. `Gemfile`, Jekyll 4 ile kullanılan eklentileri (`jekyll-feed`, `jekyll-paginate`, `jekyll-seo-tag`) doğrudan yükler; sürümler `Gemfile.lock` ile sabitlenir.
 
 ```sh
 python3 scripts/jekyll.py install
@@ -45,7 +45,13 @@ python3 -m pip install Pillow
 python3 scripts/make_thumbnails.py
 ```
 
-Üretilen `assets/img/thumbs/` dosyalarını da commit'e ekleyin.
+Betik, kapak boyutlarını da `_data/cover_sizes.json` dosyasına yazar; sayfa başındaki görselin `width`/`height` değerleri buradan gelir. Üretilen `assets/img/thumbs/` dosyalarını ve bu veri dosyasını da commit'e ekleyin.
+
+600 KB'ı aşan görselleri küçültmek için `python3 scripts/optimize_images.py` çalıştırın: görseli en fazla 1920 piksel genişliğe indirir, PNG'leri WebP'ye çevirip yazılardaki yolları ve Medium envanterindeki özetleri günceller; hareketli görsellere dokunmaz. Ardından `make_thumbnails.py` betiğini yeniden çalıştırın.
+
+Site simgeleri (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `assets/icons/icon-*.png`) `python3 scripts/make_icons.py` ile üretilir.
+
+Türkçe yazılar `/feed.xml`, İngilizce yazılar `/en/feed.xml` akışında yayımlanır; ikisi de `_includes/atom-feed.xml` şablonunu kullanır. `_plugins/turkish_pagination.rb`, İngilizce yazıları `/posts/pageN/` sayfalamasının dışında tutar.
 
 Medium'da yayımlanmış bir yazıyı arşive eklerken:
 

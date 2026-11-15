@@ -126,7 +126,7 @@ Sonuç olarak, robotik ve yapay zeka arasındaki sınırlar bulanıklaşırken, 
 Tavsiye edeceğim bir de okuma var. Deepmind bu robotu geliştirirken rol aldı demiştik, geçenlerde açık kaynak kodlu olarak Gemini için Robotik modülü yayınladı:
 
 
-<figure><img src="/assets/img/medium/abcd4a638b9cbb64d3.png" alt="Google DeepMind: Gemini Robotics" width="1200" height="630" loading="lazy" decoding="async"></figure>
+<figure><img src="/assets/img/medium/abcd4a638b9cbb64d3.webp" alt="Google DeepMind: Gemini Robotics" width="1200" height="630" loading="lazy" decoding="async"></figure>
 
 [Google DeepMind: Gemini Robotics](https://deepmind.google/discover/blog/gemini-robotics-brings-ai-into-the-physical-world/)
 
