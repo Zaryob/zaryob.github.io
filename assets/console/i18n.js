@@ -280,6 +280,10 @@
   "Reference sections": "Referans bölümleri",
   "System call table; scroll horizontally on narrow screens": "Sistem çağrısı tablosu; dar ekranda yatay kaydırın",
   "guides/archive/": "kılavuzlar/arşiv/",
+  "Post": "Yazı",
+  "Page": "Sayfa",
+  "Guide": "Kılavuz",
+  "Archived guide": "Arşiv kılavuzu",
   "Posts in {category}": "{category} yazıları",
   "Linux": "Linux",
   "Raspberry Pi": "Raspberry Pi",
@@ -421,6 +425,9 @@
       const matching = links.some(link => link.dataset.translationLang === language);
       note.hidden = note.dataset.contentLanguage === language && !links.length;
       note.querySelector('[data-translation-missing]').hidden = note.dataset.contentLanguage === language || matching;
+      // The interface already says which language it is in; name the content language only when they differ.
+      const label = note.querySelector('[data-content-language-label]');
+      if (label) label.hidden = note.dataset.contentLanguage === language;
     });
   };
   const translationTarget = () => {

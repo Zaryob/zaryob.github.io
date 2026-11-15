@@ -251,7 +251,7 @@
       link.href = address.href;
       if (language) link.lang = language;
       const label = document.createElement('small');
-      label.textContent = t(({ 'yazılar/': 'posts/', 'sayfalar/': 'pages/', 'kılavuzlar/': 'guides/', 'kılavuzlar/arşiv/': 'guides/archive/', 'pin-atlas/': 'pin-atlas/', 'syscall/': 'syscall/' })[type] || type);
+      label.textContent = t(({ 'yazılar/': 'Post', 'sayfalar/': 'Page', 'kılavuzlar/': 'Guide', 'kılavuzlar/arşiv/': 'Archived guide', 'pin-atlas/': 'Pin Atlas', 'syscall/': 'Syscall', 'wire/': 'Wire', 'execmap/': 'Execmap' })[type] || type);
       link.append(label, document.createTextNode(' ' + title));
       if (excerpt) {
         const snippet = document.createElement('small');
