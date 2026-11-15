@@ -15,10 +15,18 @@ description: "Süleyman Poyraz'ın açık kaynak projeleri ve Linux, sistem yaz�
     {% assign featured_projects = site.data.projects | where: "featured", true %}
     {% for project in featured_projects limit: 4 %}
     <article class="project-card">
-      <p class="project-card__eyebrow"><span data-i18n="{{ project.type_en | default: project.type | escape }}">{{ project.type }}</span></p>
-      <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.name }}</a></h3>
-      <p><span data-i18n="{{ project.summary_en | default: project.summary | escape }}">{{ project.summary }}</span></p>
-      <a class="project-card__link" href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}"><span data-i18n="Explore project">Projeyi incele</span> <span aria-hidden="true">→</span></a>
+      {% if project.shot %}
+      <img class="project-card__media" src="{{ project.shot | relative_url }}" alt="{{ project.shot_alt | escape }}" width="{{ project.shot_width }}" height="{{ project.shot_height }}" loading="lazy" decoding="async">
+      {% elsif project.snippet %}
+      <pre class="project-card__media project-card__term" aria-label="{{ project.name | escape }}"><code>{{ project.snippet | strip | escape }}</code></pre>
+      {% endif %}
+      <div class="project-card__body">
+        <p class="project-card__eyebrow"><span data-i18n="{{ project.type_en | default: project.type | escape }}">{{ project.type }}</span></p>
+        <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.name }}</a></h3>
+        <p><span data-i18n="{{ project.summary_en | default: project.summary | escape }}">{{ project.summary }}</span></p>
+        {% if project.facts %}<ul class="project-card__facts">{% for fact in project.facts %}<li>{{ fact | escape }}</li>{% endfor %}</ul>{% endif %}
+        <a class="project-card__link" href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}"><span data-i18n="Explore project">Projeyi incele</span> <span aria-hidden="true">→</span></a>
+      </div>
     </article>
     {% endfor %}
   </div>

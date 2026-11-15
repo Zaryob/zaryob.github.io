@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% include console-content-language.html %}
+<div class="read-progress" aria-hidden="true" hidden></div>
 <article class="post-layout" lang="{{ page.lang | default: 'tr' }}">
   <div class="post-content">
     {% comment %}
@@ -24,3 +25,23 @@ layout: default
     {% endif %}
   </nav>
 </article>
+<script>
+(() => {
+  // Reading progress: 0 at the top of the page, full when the article's end reaches the viewport's bottom.
+  const bar = document.querySelector('.read-progress');
+  const body = document.querySelector('.post-content');
+  if (!bar || !body) return;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const end = body.getBoundingClientRect().bottom + scrollY - innerHeight;
+    bar.hidden = end < innerHeight; // short posts need no bar
+    bar.style.setProperty('--read', end > 0 ? Math.min(1, Math.max(0, scrollY / end)) : 1);
+  };
+  const request = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', request);
+  addEventListener('load', request);
+  update();
+})();
+</script>

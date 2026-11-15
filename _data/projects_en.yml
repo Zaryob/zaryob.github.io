@@ -9,6 +9,11 @@
   link_text: Source and verification
   group: tools
   featured: true
+  shot: "/assets/img/projects/imshark.webp"
+  shot_width: 1120
+  shot_height: 658
+  shot_alt: "The imshark window: packet list, protocol tree and hex dump"
+  facts: ["v1.0.0", "GPL-3.0", "macOS · Linux · Windows"]
 - name: Performer
   type: Linux performance tools · eBPF / Python
   summary: A tool for storing process profiles in portable bundles and viewing them offline.
@@ -21,6 +26,12 @@
   link_text: Source and demo
   group: tools
   featured: true
+  snippet: |
+    $ sudo performer collect --pid PID --duration 30 \
+        --profile standard --label baseline --out runs
+    $ docker compose up -d --build viewer
+    # viewer → http://127.0.0.1:8080
+  facts: ["v0.2.0", "Apache-2.0", "bpftrace · Python 3.8+"]
 - name: Sift
   type: Native RSS app · macOS / iOS
   summary: An app combining RSS reading, local storage and optional on-device summaries.
@@ -33,6 +44,11 @@
   link_text: Source and requirements
   group: tools
   featured: true
+  shot: "/assets/img/projects/sift.webp"
+  shot_width: 1120
+  shot_height: 836
+  shot_alt: "The Sift macOS window: feed list and reader view"
+  facts: ["MIT", "SwiftUI · SwiftData", "macOS · iOS"]
 - name: iksemel-rs
   type: XML / XMPP · Rust
   summary: A separate Rust implementation inspired by Gürer Özen’s iksemel.
@@ -45,6 +61,14 @@
   link_text: Source and test evidence
   group: systems
   featured: true
+  snippet: |
+    use iksemel::DomParser;
+
+    let dom = DomParser::parse_str(xml)?;
+    let root = dom.borrow();
+    let published = root.select("entry[status=published]");
+    let author = root.find_path_text(&["entry", "author", "name"]);
+  facts: ["v0.5.0", "LGPL-2.1", "SAX · DOM · async XMPP"]
 - name: Pena
   type: Guitar tuning and practice · iOS
   summary: Pitch detection, a metronome, a chord library and daily practice routines.

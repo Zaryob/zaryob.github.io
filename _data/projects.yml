@@ -11,6 +11,11 @@
   link_text: "Kaynak ve doğrulama"
   group: "tools"
   featured: true
+  shot: "/assets/img/projects/imshark.webp"
+  shot_width: 1120
+  shot_height: 658
+  shot_alt: "imshark penceresi: paket listesi, protokol ağacı ve hex dökümü"
+  facts: ["v1.0.0", "GPL-3.0", "macOS · Linux · Windows"]
 
 - name: "Performer"
   type: "Linux performans araçları · eBPF / Python"
@@ -25,6 +30,12 @@
   link_text: "Kaynak ve demo"
   group: "tools"
   featured: true
+  snippet: |
+    $ sudo performer collect --pid PID --duration 30 \
+        --profile standard --label baseline --out runs
+    $ docker compose up -d --build viewer
+    # viewer → http://127.0.0.1:8080
+  facts: ["v0.2.0", "Apache-2.0", "bpftrace · Python 3.8+"]
 
 - name: "Sift"
   type: "Yerel RSS uygulaması · macOS / iOS"
@@ -39,6 +50,11 @@
   link_text: "Kaynak ve gereksinimler"
   group: "tools"
   featured: true
+  shot: "/assets/img/projects/sift.webp"
+  shot_width: 1120
+  shot_height: 836
+  shot_alt: "Sift macOS penceresi: besleme listesi ve okuyucu görünümü"
+  facts: ["MIT", "SwiftUI · SwiftData", "macOS · iOS"]
 
 - name: "iksemel-rs"
   type: "XML / XMPP · Rust"
@@ -53,6 +69,14 @@
   link_text: "Kaynak ve test kanıtları"
   group: "systems"
   featured: true
+  snippet: |
+    use iksemel::DomParser;
+
+    let dom = DomParser::parse_str(xml)?;
+    let root = dom.borrow();
+    let published = root.select("entry[status=published]");
+    let author = root.find_path_text(&["entry", "author", "name"]);
+  facts: ["v0.5.0", "LGPL-2.1", "SAX · DOM · async XMPP"]
 
 - name: "Pena"
   type: "Gitar akort ve pratik · iOS"

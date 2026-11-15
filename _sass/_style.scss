@@ -213,13 +213,6 @@ a:focus-visible, button:focus-visible {
   color: #e7e9eb;
   padding: 2.3rem 0 1.1rem;
 }
-.footer-inner { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem; }
-.footer-name { margin: 0; color: white; font-weight: 700; }
-.footer-note { margin: .2rem 0 0; color: #bcc7cd; font-size: var(--text-sm); }
-.footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .5rem 1rem; }
-.footer-links a, .footer-legal a { color: #d7e0e5; text-decoration: none; }
-.footer-links a { display: inline-flex; align-items: center; gap: .4rem; font-size: var(--text-sm); }
-.footer-links a:hover, .footer-legal a:hover { color: white; text-decoration: underline; }
 .footer-legal {
   display: flex;
   justify-content: space-between;
@@ -244,8 +237,6 @@ a:focus-visible, button:focus-visible {
   .project-detail dl { grid-template-columns: 1fr; gap: .1rem; }
   .project-detail dd { margin-bottom: .7rem; }
   .about-intro { grid-template-columns: 1fr; }
-  .footer-inner, .footer-legal { flex-direction: column; }
-  .footer-links { justify-content: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

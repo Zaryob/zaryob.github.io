@@ -10,6 +10,8 @@
     <p class="project-detail__summary">{{ project.summary }}</p>
   </div>
 
+  {% if project.shot %}<img class="project-detail__shot" src="{{ project.shot | relative_url }}" alt="{{ project.shot_alt | escape }}" width="{{ project.shot_width }}" height="{{ project.shot_height }}" loading="lazy" decoding="async">{% endif %}
+
   <dl class="project-detail__specs">
     <div class="project-detail__spec">
       <dt>{% if page.lang == 'en' %}Need{% else %}İhtiyaç{% endif %}</dt>

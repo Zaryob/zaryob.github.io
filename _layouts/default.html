@@ -15,6 +15,9 @@
   {% if page.lang == 'en' %}
   <title>{% if page.title == site.title %}{{ site.title | escape }} · Software engineer{% else %}{{ page.title | escape }} · {{ site.title | escape }}{% endif %}</title>
   {% capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {% elsif page.path == 'index.html' %}
+  <title>{{ site.title | escape }} · Sistem yazılımı, C++ ve Linux</title>
+  {% capture seo_tags %}{% seo title=false %}{% endcapture %}
   {% else %}{% capture seo_tags %}{% seo %}{% endcapture %}{% endif %}
   {% comment %} jekyll-seo-tag copies page.lang into og:locale; Open Graph expects language_TERRITORY. {% endcomment %}
   {% assign seo_tags = seo_tags | replace: 'property="og:locale" content="tr"', 'property="og:locale" content="tr_TR"' | replace: 'property="og:locale" content="en"', 'property="og:locale" content="en_US"' %}
@@ -59,18 +62,19 @@
           <h1>Süleyman Poyraz</h1>
           <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">{% if page.lang == 'en' %}I build system software and share what I learn.{% else %}Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.{% endif %}</span></p>
           <div class="hero__actions">
-            <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">↗</span></a>
+            <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">→</span></a>
             <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="Read the posts">{% if page.lang == 'en' %}Read the posts{% else %}Yazıları oku{% endif %}</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </header>
       {% elsif page.title and page.title != 'empty' %}
       <header class="hero hero--page{% if page.layout == 'post' %} hero--post{% endif %}{% if hero_file %} hero--photo{% endif %}">
-        {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true"{% if hero_size %} width="{{ hero_size.width }}" height="{{ hero_size.height }}"{% endif %} fetchpriority="high" decoding="async">{% endif %}
+        {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="{{ page.cover_alt | escape }}"{% unless page.cover_alt %} aria-hidden="true"{% endunless %}{% if hero_size %} width="{{ hero_size.width }}" height="{{ hero_size.height }}"{% endif %} fetchpriority="high" decoding="async">{% endif %}
         <div class="site-container hero__inner">
           <h1{% if page.title_i18n %} data-i18n="{{ page.title_i18n | escape }}"{% endif %}{% if page.layout == 'post' %} lang="{{ page.lang | default: 'tr' }}"{% endif %}>{{ page.title }}</h1>
           {% if page.subtitle %}<p class="hero__lead">{{ page.subtitle }}</p>{% endif %}
           {% if page.layout == 'post' %}{% include post-meta.html post=page %}{% endif %}
+          {% if page.cover_caption %}<p class="hero__caption">{{ page.cover_caption }}</p>{% endif %}
         </div>
       </header>
       {% endif %}
@@ -82,23 +86,45 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-container footer-inner">
-      <div>
-        <p class="footer-name">Süleyman Poyraz</p>
-        <p class="footer-note"><span data-i18n="Code, systems and learning notes.">{% if page.lang == 'en' %}Code, systems and learning notes.{% else %}Kod, sistemler ve öğrenme notları.{% endif %}</span></p>
+  {% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
+  {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+  <footer class="site-footer" id="site-footer">
+    <div class="site-container">
+      <p class="footer-prompt" aria-hidden="true"><span class="footer-prompt__host">zaryob</span>:~ $ <span class="footer-prompt__cmd">ls -F</span></p>
+      <div class="footer-cols">
+        <nav class="footer-col" aria-label="{% if en %}Site sections{% else %}Site bölümleri{% endif %}" data-i18n-aria-label="Site sections">
+          <p class="footer-col__title">~/site</p>
+          <ul>
+            <li><a href="{% if en %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="posts/">{% if en %}posts/{% else %}yazılar/{% endif %}</span></a></li>
+            <li><a href="{% if en %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="projects/">{% if en %}projects/{% else %}projeler/{% endif %}</span></a></li>
+            <li><a href="{% if en %}{{ '/en/arsiv/' | relative_url }}{% else %}{{ '/arsiv/' | relative_url }}{% endif %}"><span data-i18n="archive/">{% if en %}archive/{% else %}arşiv/{% endif %}</span></a></li>
+            <li><a href="{% if en %}{{ '/en/bookshelf/' | relative_url }}{% else %}{{ '/kitapligim/' | relative_url }}{% endif %}"><span data-i18n="bookshelf/">{% if en %}bookshelf/{% else %}kitaplık/{% endif %}</span></a></li>
+            <li><a href="{% if en %}{{ '/en/about/' | relative_url }}{% else %}{{ '/hakkinda/' | relative_url }}{% endif %}">about.txt</a></li>
+            <li><a href="{% if en %}{{ '/en/feed.xml' | relative_url }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">feed.xml</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="{% if en %}Zaryob projects{% else %}Zaryob projeleri{% endif %}" data-i18n-aria-label="Zaryob projects">
+          <p class="footer-col__title">~/<span data-i18n="tools">{% if en %}tools{% else %}araçlar{% endif %}</span></p>
+          <ul>
+            {% for project in site.data.console_projects %}{% unless project.key == 'home' %}
+            <li><a href="{{ suite_root }}{{ project.path }}">{{ project.path | remove_first: '/' }}</a></li>
+            {% endunless %}{% endfor %}
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="{% if en %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
+          <p class="footer-col__title">~/<span data-i18n="contact">{% if en %}contact{% else %}iletişim{% endif %}</span></p>
+          <ul>
+            <li><a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium <span aria-hidden="true">↗</span></a></li>
+            <li><a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">{% if en %}Email{% else %}E-posta{% endif %}</span></a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="footer-links" aria-label="{% if page.lang == 'en' %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
-        <a href="{% if page.lang == 'en' %}{{ '/en/bookshelf/' | relative_url }}{% else %}{{ '/kitapligim/' | relative_url }}{% endif %}"><span data-i18n="My bookshelf">{% if page.lang == 'en' %}My bookshelf{% else %}Kitaplığım{% endif %}</span></a>
-        <a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub</a>
-        <a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn</a>
-        <a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium</a>
-        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">{% if page.lang == 'en' %}Email{% else %}E-posta{% endif %}</span></a>
-      </nav>
-    </div>
-    <div class="site-container footer-legal">
-      <span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz</span>
-      <span><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if page.lang == 'en' %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a> · MIT</span>
+      <div class="footer-legal">
+        <span><span aria-hidden="true"># </span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz · <span data-i18n="Code, systems and learning notes.">{% if en %}Code, systems and learning notes.{% else %}Kod, sistemler ve öğrenme notları.{% endif %}</span></span>
+        <span class="footer-legal__links"><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if en %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a> · MIT <a class="footer-top" href="#main-content"><span aria-hidden="true">↑ </span><span data-i18n="Back to top">{% if en %}Back to top{% else %}Başa dön{% endif %}</span></a></span>
+      </div>
     </div>
   </footer>
 
