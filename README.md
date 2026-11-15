@@ -69,3 +69,7 @@ Image sources and their local counterparts are recorded in `_data/medium_media.j
 `scripts/check_site.py` verifies the files and content digests in this inventory, and also checks that the images are actually used in pages. It reports photos loaded from an external server as errors. When you add a new Medium image, add its inventory record too.
 
 Social link icons are loaded from `assets/icons/site.svg` through `_includes/icon.html`. The Font Awesome attribution is in `assets/fontawesome/LICENSE.txt`. For the menu icons and the shared theme, see the [shared appearance document](CONSOLE_THEME.md).
+
+## License
+
+Site source code is licensed under GPL-3.0-or-later ([LICENSE](LICENSE)). Posts, pages and the author's own images are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CONTENT](LICENSE-CONTENT)). Third-party material keeps its own licence.

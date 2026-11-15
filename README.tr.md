@@ -69,3 +69,7 @@ Görsel kaynakları ve yerel karşılıkları `_data/medium_media.json` içinde 
 `scripts/check_site.py`, bu envanterdeki dosyaları ve içerik özetlerini doğrular; görsellerin sayfalarda gerçekten kullanıldığını da denetler. Harici sunucudan yüklenen fotoğrafları hata olarak bildirir. Yeni bir Medium görseli eklediğinizde envantere kaydını da ekleyin.
 
 Sosyal bağlantı ikonları `_includes/icon.html` aracılığıyla `assets/icons/site.svg` dosyasından yüklenir. Font Awesome atfı `assets/fontawesome/LICENSE.txt` dosyasındadır. Menü ikonları ve ortak tema için [ortak görünüm belgesine](CONSOLE_THEME.md) bakın.
+
+## Lisans
+
+Sitenin kaynak kodu GPL-3.0-or-later ile lisanslıdır ([LICENSE](LICENSE)). Yazılar, sayfalar ve yazara ait görseller [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.tr) ile lisanslıdır ([LICENSE-CONTENT](LICENSE-CONTENT)). Üçüncü taraf malzeme kendi lisansını korur.

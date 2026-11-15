@@ -1,0 +1,22 @@
+Content licence
+===============
+
+Copyright (c) 2016-2026 Süleyman Poyraz
+
+Unless a file or page says otherwise, the written content of this repository
+(blog posts, pages and the author's own images) is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0).
+
+  Summary:    https://creativecommons.org/licenses/by-sa/4.0/
+  Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+
+Source code (layouts, styles, scripts and plugins) is licensed
+separately under the GNU General Public License, version 3 or later; see
+LICENSE.
+
+Not covered by either licence: third-party material, which keeps its own
+terms. This includes the bundled fonts (SIL Open Font License), Font Awesome
+icons (CC BY 4.0), the shared console theme (GPL-2.0-or-later), and logos,
+screenshots, quotations and trademarks that belong to their owners.

@@ -62,8 +62,8 @@ Koyu tema antrasit, açık tema kırık beyaz taban kullanır. Her iki paletin
 arka plan, metin, vurgu, sınır ve anlamsal durum renkleri `theme.css` içindedir.
 Fontlar yerel WOFF2 olarak sunulur; normal ve medium ağırlıklar kullanılır.
 Fontların özgün OFL lisansı ve Font Awesome simgelerinin lisansı dağıtımda tutulur.
-Yeni yazılan ortak tema kodu GPL-2.0-or-later lisanslıdır; sitelerin mevcut
-lisansları değişmez.
+Yeni yazılan ortak tema kodu GPL-2.0-or-later lisanslıdır; sitenin kendi kodu
+GPL-3.0-or-later, içeriği CC BY-SA 4.0 lisanslıdır.
 
 Yazı ölçeğinin kaynağı `Zaryob/console-theme` deposundaki
 `assets/console/theme.css` dosyasıdır. Beş site arayüzde `--text-base: 1rem`,

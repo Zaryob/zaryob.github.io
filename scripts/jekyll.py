@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# SPDX-License-Identifier: GPL-2.0-only
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Run Bundler/Jekyll with Ruby 3.3+, without changing the user's shell."""
 import os
 from pathlib import Path
