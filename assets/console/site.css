@@ -138,19 +138,6 @@
 .console-home .about-content h2, .console-home .about-content h3 { font-weight: 500; }
 .console-home .about-entry { border-color: var(--line); }
 .console-home .skill-list li { border-color: var(--line); border-radius: 2px; background: var(--surface); font-size: var(--text-xs); }
-.console-home .site-footer { background: var(--paper); color: var(--muted); border-top: 1px solid var(--line); padding-block: 32px 16px; font-family: var(--font-mono); }
-.console-home .footer-prompt { margin: 0 0 20px; color: var(--muted); font-size: var(--text-sm); }
-.console-home .footer-prompt__host { color: var(--accent); font-weight: 500; }
-.console-home .footer-prompt__cmd { color: var(--ink); }
-.console-home .footer-cols { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px 32px; }
-.console-home .footer-col__title { margin: 0 0 8px; color: var(--accent); font-size: var(--text-xs); font-weight: 500; }
-.console-home .footer-col ul { margin: 0; padding: 0 0 0 14px; border-left: 1px solid var(--line); list-style: none; }
-.console-home .footer-col a { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; color: var(--ink); font-size: var(--text-sm); text-decoration: none; }
-.console-home .footer-col a:hover { color: var(--accent); text-decoration: underline; }
-.console-home .footer-legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-xs); }
-.console-home .footer-legal a { display: inline-flex; align-items: center; min-height: 32px; color: var(--muted); font-size: var(--text-xs); }
-.console-home .footer-legal a:hover { color: var(--accent); }
-.console-home .footer-top { margin-inline-start: 16px; }
 .console-home .post-pagination span { color: var(--muted); font-size: var(--text-xs); }
 .console-home .topic-nav { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 0; padding: 14px 0; border-bottom: 1px solid var(--line); list-style: none; font-size: var(--text-xs); }
 .console-home .topic-nav { margin-bottom: 24px; }
@@ -162,8 +149,6 @@
 @media (max-width: 760px) {
   .console-home .site-container { padding-inline: 20px; }
   .console-home .project-grid, .console-home .topic-grid { grid-template-columns: 1fr; }
-  .console-home .footer-cols { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .console-home :is(.footer-col,.footer-legal) a { min-height: 44px; }
   .console-home .blog-post { display: flex; gap: 16px; }
   .console-home .blog-post__image-link { flex: 0 0 100px; width: 100px; margin: 0; }
   .console-home .blog-post img { width: 100px; height: 80px; }
@@ -198,13 +183,4 @@
   .console-hero--home .console-hero__screen { line-height: 1.6; }
 }
 
-.console-home .footer-cols { grid-template-columns: repeat(auto-fit,minmax(min(100%,16rem),1fr)); }
-.console-home .footer-col { min-width: 0; }
-.console-home .footer-col a { max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
 
-/* One console listing groups site pages, sibling projects and contact links. */
-.console-home .site-footer .console-suite { margin: 0; border: 0; }
-.console-home .site-footer .console-suite__inner { display: block; max-width: none; padding: 0; }
-.console-home .site-footer .console-suite__prompt { margin: 0 0 8px; color: var(--accent); font-size: var(--text-xs); }
-.console-home .site-footer .console-suite__list { display: block; }
-.console-home .footer-col a { min-height: 44px; }

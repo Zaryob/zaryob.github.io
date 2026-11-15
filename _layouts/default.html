@@ -108,12 +108,9 @@ yazılım mühendisi
 
   {% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
   {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
-  <footer class="site-footer" id="site-footer">
-    <div class="site-container">
-      <p class="footer-prompt" aria-hidden="true"><span class="footer-prompt__host">zaryob</span>:~ $ <span class="footer-prompt__cmd">ls -F</span></p>
-      <div class="footer-cols">
-        <nav class="footer-col" aria-label="{% if en %}Site sections{% else %}Site bölümleri{% endif %}" data-i18n-aria-label="Site sections">
-          <p class="footer-col__title">~/site</p>
+  {% capture footer_columns %}
+        <nav class="suite-footer__col" aria-label="{% if en %}Site sections{% else %}Site bölümleri{% endif %}" data-i18n-aria-label="Site sections">
+          <p class="suite-footer__title">~/site</p>
           <ul>
             <li><a href="{% if en %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="posts/">{% if en %}posts/{% else %}yazılar/{% endif %}</span></a></li>
             <li><a href="{% if en %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="projects/">{% if en %}projects/{% else %}projeler/{% endif %}</span></a></li>
@@ -123,23 +120,10 @@ yazılım mühendisi
             <li><a href="{% if en %}{{ '/en/feed.xml' | relative_url }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}">feed.xml</a></li>
           </ul>
         </nav>
-        <div class="footer-col">{% include console-suite.html compact=true %}</div>
-        <nav class="footer-col" aria-label="{% if en %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
-          <p class="footer-col__title">~/<span data-i18n="contact">{% if en %}contact{% else %}iletişim{% endif %}</span></p>
-          <ul>
-            <li><a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub <span aria-hidden="true">↗</span></a></li>
-            <li><a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn <span aria-hidden="true">↗</span></a></li>
-            <li><a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium <span aria-hidden="true">↗</span></a></li>
-            <li><a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">{% if en %}Email{% else %}E-posta{% endif %}</span></a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-legal">
-        <span><span aria-hidden="true"># </span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz · <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <span data-i18n="Code, systems and learning notes.">{% if en %}Code, systems and learning notes.{% else %}Kod, sistemler ve öğrenme notları.{% endif %}</span></span>
-        <span class="footer-legal__links"><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if en %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a> · GPL-3.0-or-later <a class="footer-top" href="#main-content"><span aria-hidden="true">↑ </span><span data-i18n="Back to top">{% if en %}Back to top{% else %}Başa dön{% endif %}</span></a></span>
-      </div>
-    </div>
-  </footer>
+  {% endcapture %}
+  {% capture footer_legal %}<span aria-hidden="true"># </span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz · <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <span data-i18n="Code, systems and learning notes.">{% if en %}Code, systems and learning notes.{% else %}Kod, sistemler ve öğrenme notları.{% endif %}</span>{% endcapture %}
+  {% capture footer_links %}<a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if en %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a>&nbsp;· GPL-3.0-or-later{% endcapture %}
+  {% include console-footer.html columns=footer_columns legal=footer_legal links=footer_links top="#main-content" %}
 
   {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous" async></script>{% endif %}
 </body>

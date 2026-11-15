@@ -1,0 +1,41 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-or-later
+One ls -F footer for every suite site. Parameters (all optional):
+  cwd      prompt directory, e.g. "~/kilavuzlar" (default "~")
+  columns  captured HTML of the site's own <nav class="suite-footer__col"> blocks, listed first
+  legal    captured HTML for the left side of the bottom row
+  links    captured HTML for the right side of the bottom row, before "Back to top"
+  note     captured HTML for a full-width note under the bottom row
+  top      back-to-top target (default "#main")
+{% endcomment %}
+{% assign footer_lang = page.lang | default: site.lang | default: 'tr' %}
+{% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+<footer class="suite-footer" id="site-footer">
+  <div class="suite-footer__inner">
+    <p class="suite-footer__prompt" aria-hidden="true"><span class="suite-footer__host">zaryob</span>:{{ include.cwd | default: '~' }} $ <span class="suite-footer__cmd">ls -F</span></p>
+    <div class="suite-footer__cols">
+      {{ include.columns }}
+      <nav class="suite-footer__col" aria-label="{% if footer_lang == 'en' %}Zaryob projects{% else %}Zaryob projeleri{% endif %}" data-i18n-aria-label="Zaryob projects">
+        <p class="suite-footer__title">~/<span data-i18n="projects/">{% if footer_lang == 'en' %}projects/{% else %}projeler/{% endif %}</span></p>
+        <ul class="console-suite__list">
+          {% for project in site.data.console_projects %}{% if project.key != 'home' %}
+          <li><a href="{{ suite_root }}{{ project.path }}" aria-label="{{ project.title | escape }}"{% if project.title_en %} data-i18n-aria-label="{{ project.title_en }}"{% endif %}{% if site.suite_section == project.key %} aria-current="location"{% endif %}>{{ project.prompt }}/</a></li>
+          {% endif %}{% endfor %}
+        </ul>
+      </nav>
+      <nav class="suite-footer__col" aria-label="{% if footer_lang == 'en' %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
+        <p class="suite-footer__title">~/<span data-i18n="contact">{% if footer_lang == 'en' %}contact{% else %}iletişim{% endif %}</span></p>
+        <ul>
+          <li><a href="https://github.com/Zaryob" rel="me">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://linkedin.com/in/suleyman_poyraz" rel="me">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://medium.com/@zaryob" rel="me">Medium <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:{{ site.email | default: 'zaryob.dev@gmail.com' }}"><span data-i18n="Email">{% if footer_lang == 'en' %}Email{% else %}E-posta{% endif %}</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="suite-footer__legal">
+      <span>{{ include.legal }}</span>
+      <span>{{ include.links }}<a class="suite-footer__top" href="{{ include.top | default: '#main' }}"><span aria-hidden="true">↑ </span><span data-i18n="Back to top">{% if footer_lang == 'en' %}Back to top{% else %}Başa dön{% endif %}</span></a></span>
+      {% if include.note %}<p class="suite-footer__note">{{ include.note }}</p>{% endif %}
+    </div>
+  </div>
+</footer>
