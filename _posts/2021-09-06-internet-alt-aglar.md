@@ -3,7 +3,7 @@ layout: post
 title: "Internet 101: Alt Ağlar Ip Subnetting"
 date: 2021-09-06 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-06-internet-alt-aglar.jpg"
+image: "/assets/img/pages/2021-09-06-internet-alt-aglar.jpg"
 image_hash: "a568a0feef4f7c4c6d73804a16a15e43"
 ---
 

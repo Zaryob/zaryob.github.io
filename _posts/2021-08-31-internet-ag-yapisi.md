@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101: Ağların Yapısı — TCP/IP Yapısı ve OSI Model"
 date: 2021-08-31 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-08-31-internet.jpg"
+image: "/assets/img/pages/2021-08-31-internet.jpg"
 image_hash: "0cd2da7bebff6e26129bc28814aee8c2"
 ---
 

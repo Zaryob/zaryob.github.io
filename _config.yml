@@ -1,5 +1,7 @@
 title: Süleyman Poyraz
-author: Süleyman Poyraz
+author:
+  name: Süleyman Poyraz
+  twitter: pyrz_suleyman
 email: zaryob.dev@gmail.com
 description: >-
   C++, Linux, ağlar ve yazılım geliştirme üzerine yazılarım, notlarım ve projelerim.
@@ -7,7 +9,8 @@ url: https://zaryob.github.io
 baseurl: ""
 lang: tr
 
-twitter_username: pyrz_suleyman
+twitter:
+  username: pyrz_suleyman
 github_username: Zaryob
 
 social:
@@ -16,6 +19,12 @@ social:
     - https://github.com/Zaryob
     - https://linkedin.com/in/suleyman_poyraz
     - https://medium.com/@zaryob
+
+# Social preview for pages without their own image or cover_image.
+default_image: /assets/img/pages/home-bg.webp
+
+# No gem theme: github-pages would otherwise add primer's /assets/css/style.css.
+theme: null
 
 sass:
   style: compressed
@@ -26,6 +35,8 @@ include:
 exclude:
   - CONSOLE_THEME.md
   - README.md
+  - LICENSE
+  - docker-compose.yml
   - Gemfile
   - Gemfile.lock
   - vendor

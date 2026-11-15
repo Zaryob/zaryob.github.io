@@ -3,7 +3,7 @@ layout: post
 title: "Hileler 101: Yeni Linux Kullanıcılarına Öneriler"
 date: 2021-05-03 12:23:43 +0300
 categories: [genel, linux, programlama]
-image: "2021-05-14-linux.jpg"
+image: "/assets/img/pages/2021-05-14-linux.jpg"
 image_hash: "e1581b0554fa4e93f7ca7532d59f9613"
 ---
 

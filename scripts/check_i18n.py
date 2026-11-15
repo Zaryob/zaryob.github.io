@@ -49,7 +49,7 @@ for site in [ROOT / '_site', ROOT.parent / 'kilavuzlar/_site', ROOT.parent / 'sy
         pages += 1
         if parser.alternates:
             translated_pages += 1
-            if set(parser.alternates) != {'tr', 'en'}:
+            if set(parser.alternates) - {'x-default'} != {'tr', 'en'}:
                 errors.append(f'{path}: translation group needs one TR and one EN alternate')
             for address in parser.alternates.values():
                 relative = unquote(urlsplit(address).path).removeprefix('/kilavuzlar') if site.parent.name == 'kilavuzlar' else unquote(urlsplit(address).path)

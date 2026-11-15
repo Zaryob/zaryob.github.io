@@ -2,7 +2,8 @@
 translation_key: page-hakkinda
 lang: tr
 layout: default
-title: Süleyman Poyraz
+title: Hakkımda
+title_i18n: About
 permalink: /hakkinda/
 type: noimage
 description: "Süleyman Poyraz: sistem yazılımı, gömülü sistemler ve açık kaynak projeleri üzerine çalışan yazılım mühendisi."

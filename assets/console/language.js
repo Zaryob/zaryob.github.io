@@ -5,32 +5,38 @@
   const supported = ['tr', 'en'];
   const key = 'zaryob-language';
   const root = document.documentElement;
+  // <html lang> states the language of the page content and is never rewritten;
+  // the interface language lives in data-ui-language.
   root.dataset.originalLanguage = root.lang;
   const browserLanguage = () => /^tr(?:-|$)/i.test(navigator.languages?.[0] || navigator.language || '') ? 'tr' : 'en';
   const query = new URL(location.href).searchParams.get('lang');
   let language = browserLanguage();
+  // Explicit: chosen by the reader (saved selection or ?lang=), not guessed from the browser.
+  let explicit = false;
   try {
     const saved = localStorage.getItem(key);
-    if (supported.includes(saved)) language = saved;
+    if (supported.includes(saved)) { language = saved; explicit = true; }
   } catch { /* Optional persistence. */ }
-  if (supported.includes(query)) language = query;
+  if (supported.includes(query)) { language = query; explicit = true; }
   const listeners = new Set();
   const applyProjectLinks = (scope = document) => {
     scope.querySelectorAll('[data-console-projects] a[href]').forEach(link => {
       const address = new URL(link.getAttribute('href'), location.href);
       if (!['http:', 'https:'].includes(address.protocol)) return;
-      address.searchParams.set('lang', language);
+      if (explicit) address.searchParams.set('lang', language);
+      else address.searchParams.delete('lang');
       link.href = address.href;
     });
   };
   const render = () => {
-    root.lang = language;
     root.dataset.uiLanguage = language;
     applyProjectLinks();
   };
-  const set = (next, { persist = true, updateUrl = true } = {}) => {
+  const set = (next, { persist = true, updateUrl = true, explicit: chosen = true } = {}) => {
     if (!supported.includes(next)) return;
     language = next;
+    explicit = chosen;
+    if (!chosen) persist = updateUrl = false;
     if (persist) try { localStorage.setItem(key, language); } catch { /* Page-local preference. */ }
     if (updateUrl) {
       const address = new URL(location.href);
@@ -43,9 +49,9 @@
   window.ZaryobLanguage = {
     supported, browserLanguage, set, applyProjectLinks,
     get language() { return language; },
+    get explicit() { return explicit; },
     subscribe(listener) { listeners.add(listener); return () => listeners.delete(listener); },
   };
-  root.lang = language;
   root.dataset.uiLanguage = language;
   document.addEventListener('DOMContentLoaded', () => {
     if (supported.includes(query)) try { localStorage.setItem(key, language); } catch { /* Optional. */ }
@@ -53,6 +59,7 @@
   });
   window.addEventListener('storage', event => {
     if (event.key !== key && event.key !== null) return;
-    set(supported.includes(event.newValue) ? event.newValue : browserLanguage(), { persist: false });
+    if (supported.includes(event.newValue)) set(event.newValue, { persist: false });
+    else set(browserLanguage(), { explicit: false });
   });
 })();

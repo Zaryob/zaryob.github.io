@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101: Ağ Donanımı Cihazları ve Omurga Sistemler"
 date: 2021-08-27 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-08-27-internet.jpg"
+image: "/assets/img/pages/2021-08-27-internet.jpg"
 image_hash: "9bb80a06ec17f09dccda16adbc5625fb"
 ---
 

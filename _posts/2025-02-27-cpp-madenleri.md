@@ -3,7 +3,7 @@ layout: post
 title: "STL Madenleri: Modern C++'ın Derinliklerine Doğru Bir Kazı"
 date: 2025-02-27 16:46:12 +0300
 categories: [programlama]
-image: "2025-02-27-cpp-madenleri.jpeg"
+image: "/assets/img/pages/2025-02-27-cpp-madenleri.jpeg"
 image_hash: "96e8ad973bb2830ad38e48f7d7a7b2d0"
 ---
 

@@ -11,7 +11,7 @@
 {% endunless %}
 <article class="blog-post" lang="{{ post.lang | default: 'tr' }}">
   {% if cover %}
-  <a class="blog-post__image-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }} yazısını oku" data-i18n-aria-label="Read {title}" data-i18n-vars='{"title": {{ post.title | jsonify | escape }}}'>
+  <a class="blog-post__image-link" href="{{ post.url | relative_url }}" aria-label="{% if page.lang == 'en' %}Read {{ post.title | escape }}{% else %}{{ post.title | escape }} yazısını oku{% endif %}" data-i18n-aria-label="Read {title}" data-i18n-vars='{"title": {{ post.title | jsonify | escape }}}'>
     <img src="{{ cover | relative_url }}" alt="" loading="lazy" decoding="async" width="180" height="136">
   </a>
   {% endif %}

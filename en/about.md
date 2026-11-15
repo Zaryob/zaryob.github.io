@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Süleyman Poyraz
+title: About
 permalink: /en/about/
 type: noimage
 description: 'Süleyman Poyraz: software engineer working on system software, embedded

@@ -32,11 +32,11 @@ layout: post
 title: "Yazının başlığı"
 date: 2025-04-26 20:00:00 +0300
 categories: [programlama]
-image: "kapak.webp"
+image: "/assets/img/pages/kapak.webp"
 ---
 ```
 
-`image` alanı kullanılıyorsa dosyayı `assets/img/pages/` içine koyun. Yazı içindeki görselleri `assets/img/posts/` altında saklayın ve Markdown içinde yerel `/assets/img/posts/dosya.webp` yoluna bağlayın. Kod örneklerini mümkün olduğunca Markdown kod blokları olarak ekleyin; Gist veya Medium gömüsü tek kopya olmasın.
+`image` alanına sitedeki tam yolu yazın (sosyal paylaşım görseli de bu yoldan üretilir); kapak dosyalarını `assets/img/pages/` içine koyun. Yazı içindeki görselleri `assets/img/posts/` altında saklayın ve Markdown içinde yerel `/assets/img/posts/dosya.webp` yoluna bağlayın. Kod örneklerini mümkün olduğunca Markdown kod blokları olarak ekleyin; Gist veya Medium gömüsü tek kopya olmasın.
 
 Kapak başka bir klasördeyse `cover_image: "/assets/img/posts/dosya.webp"` kullanın. Yeni bir kapak ekledikten sonra kartlar için küçük kopyalarını üretin:
 

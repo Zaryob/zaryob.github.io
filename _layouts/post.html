@@ -7,8 +7,8 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-  <nav class="post-end-nav" aria-label="Yazı gezinmesi" data-i18n-aria-label="Post navigation" data-pagefind-ignore>
-    {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">Medium'daki özgün yazı</span></a><span aria-hidden="true"> · </span>{% endif %}
+  <nav class="post-end-nav" aria-label="{% if page.lang == 'en' %}Post navigation{% else %}Yazı gezinmesi{% endif %}" data-i18n-aria-label="Post navigation" data-pagefind-ignore>
+    {% if page.medium_url %}<a href="{{ page.medium_url }}" rel="alternate"><span data-i18n="Original post on Medium">{% if page.lang == 'en' %}Original post on Medium{% else %}Medium'daki özgün yazı{% endif %}</span></a><span aria-hidden="true"> · </span>{% endif %}
     {% if page.lang == 'en' %}
       <a href="{{ '/en/posts/' | relative_url }}"><span data-i18n="← All posts">← All posts</span></a>
     {% else %}

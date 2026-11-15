@@ -3,7 +3,7 @@ layout: post
 title: "CloudLinux şirketi AlmaLinux için ticari destek verecek"
 date: 2021-05-03 12:23:43 +0300
 categories: [genel, linux, programlama]
-image: "2021-05-03-almalinux.jpg"
+image: "/assets/img/pages/2021-05-03-almalinux.jpg"
 image_hash: "330649b2a058944e95e231d9fa888fdb"
 ---
 

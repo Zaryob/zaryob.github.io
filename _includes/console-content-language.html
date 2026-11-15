@@ -1,3 +1,4 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-or-later{% endcomment %}
 {% assign content_language = page.lang | default: 'tr' | split: '-' | first %}
 {% assign translation_candidates = site.posts | concat: site.pages %}
 <aside class="console-language-note" data-content-language="{{ content_language }}"{% unless page.translation_key %} hidden{% endunless %} aria-label="Çeviriler" data-i18n-aria-label="Translations">

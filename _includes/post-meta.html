@@ -1,11 +1,11 @@
 {% assign meta_post = include.post %}
-<div class="post-meta" aria-label="Yazı bilgileri" data-i18n-aria-label="Post information" data-pagefind-ignore>
+<div class="post-meta" aria-label="{% if page.lang == 'en' %}Post information{% else %}Yazı bilgileri{% endif %}" data-i18n-aria-label="Post information" data-pagefind-ignore>
   {% if meta_post.categories.size > 0 %}
   <span class="post-meta__categories">
     {% include console-icon.html name='folder' %}
     {% for meta_category in meta_post.categories %}
       {% assign meta_topic = site.data.writing_topics | where: 'key', meta_category | first %}
-      {% if meta_topic %}<a href="{{ meta_topic.path | relative_url }}"><span data-i18n="{{ meta_topic.title_en | default: meta_topic.title | escape }}">{{ meta_topic.title }}</span></a>{% else %}<span>{{ meta_category | replace: 'genel', 'Genel' | replace: 'metineditoru', 'Metin editörleri' | replace: 'python', 'Python' }}</span>{% endif %}{% unless forloop.last %}<span class="post-meta__separator" aria-hidden="true">/</span>{% endunless %}
+      {% if meta_topic %}<a href="{% if page.lang == 'en' %}{{ meta_topic.path | prepend: '/en' | relative_url }}{% else %}{{ meta_topic.path | relative_url }}{% endif %}"><span data-i18n="{{ meta_topic.title_en | default: meta_topic.title | escape }}">{% if page.lang == 'en' %}{{ meta_topic.title_en | default: meta_topic.title }}{% else %}{{ meta_topic.title }}{% endif %}</span></a>{% else %}<span>{{ meta_category | replace: 'genel', 'Genel' | replace: 'metineditoru', 'Metin editörleri' | replace: 'python', 'Python' }}</span>{% endif %}{% unless forloop.last %}<span class="post-meta__separator" aria-hidden="true">/</span>{% endunless %}
     {% endfor %}
   </span>
   {% endif %}

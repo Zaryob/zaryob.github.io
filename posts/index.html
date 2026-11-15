@@ -5,28 +5,35 @@ layout: default
 title: Yazılar
 title_i18n: Posts
 description: "Süleyman Poyraz'ın yazılım, Linux, ağlar ve teknoloji üzerine Türkçe yazıları."
-image: "home-bg.webp"
+image: "/assets/img/pages/home-bg.webp"
 ---
 
 {% include writing-topics.html %}
 
 <section class="content-section" aria-labelledby="posts-heading">
   <div class="section-heading"><h2 id="posts-heading"><span data-i18n="All articles">Bütün yazılar</span></h2></div>
+  {% comment %}
+    jekyll-paginate counts the English editions as well, so paginator.posts would
+    leave uneven pages once they are hidden. Slice the Turkish posts by hand instead.
+  {% endcomment %}
+  {% assign turkish_posts = site.posts | where_exp: 'post', 'post.lang != "en"' %}
+  {% assign page_offset = paginator.page | minus: 1 | times: paginator.per_page %}
+  {% assign turkish_pages = turkish_posts.size | plus: paginator.per_page | minus: 1 | divided_by: paginator.per_page %}
   <div class="blog-list">
-    {% for post in paginator.posts %}
-      {% unless post.lang == 'en' %}
-        {% include post-card.html post=post %}
-      {% endunless %}
+    {% for post in turkish_posts limit: paginator.per_page offset: page_offset %}
+      {% include post-card.html post=post %}
+    {% else %}
+      <p><a href="{{ '/posts/' | relative_url }}"><span data-i18n="← All posts">← Tüm yazılar</span></a></p>
     {% endfor %}
   </div>
 
-  {% if paginator.total_pages > 1 %}
+  {% if turkish_pages > 1 %}
   <nav class="post-pagination" aria-label="Yazı sayfaları" data-i18n-aria-label="Post pages">
     {% if paginator.previous_page %}
     <a class="site-button" href="{{ paginator.previous_page_path | relative_url }}"><span data-i18n="← Newer posts">← Yeni yazılar</span></a>
     {% endif %}
-    <span><span data-i18n="Page {page} / {total}" data-i18n-vars='{"page":{{ paginator.page }},"total":{{ paginator.total_pages }}}'>Sayfa {{ paginator.page }} / {{ paginator.total_pages }}</span></span>
-    {% if paginator.next_page %}
+    {% if paginator.page <= turkish_pages %}<span><span data-i18n="Page {page} / {total}" data-i18n-vars='{"page":{{ paginator.page }},"total":{{ turkish_pages }}}'>Sayfa {{ paginator.page }} / {{ turkish_pages }}</span></span>{% endif %}
+    {% if paginator.page < turkish_pages %}
     <a class="site-button" href="{{ paginator.next_page_path | relative_url }}"><span data-i18n="Older posts →">Eski yazılar →</span></a>
     {% endif %}
   </nav>

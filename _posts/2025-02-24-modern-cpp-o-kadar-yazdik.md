@@ -3,7 +3,7 @@ layout: post
 title: "E O Kadar Yazdık: Modern C++'ın Hata Yakalama ve Ayıklama Yetenekleri"
 date: 2025-02-24 20:46:12 +0300
 categories: [programlama]
-image: "2025-02-24-modern-cpp-o-kadar-yazdik.png"
+image: "/assets/img/pages/2025-02-24-modern-cpp-o-kadar-yazdik.png"
 image_hash: "28b5e972255de1398b3d657915d420e8"
 ---
 

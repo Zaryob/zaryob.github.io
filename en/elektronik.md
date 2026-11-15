@@ -4,7 +4,7 @@ layout: blog
 category: elektronik
 title: Electronics
 permalink: /en/elektronik/
-image: electronik-bg.jpg
+image: /assets/img/pages/electronik-bg.jpg
 image_hash: fd7fff582b02262c7e3377b981048d36
 lang: en
 translation_key: category-elektronik

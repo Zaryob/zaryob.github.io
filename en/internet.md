@@ -4,7 +4,7 @@ layout: blog
 category: internet
 title: Internet
 permalink: /en/internet/
-image: internet-bg.jpeg
+image: /assets/img/pages/internet-bg.jpeg
 image_hash: a2949bc1310b53ff52b8b97492be4de9
 lang: en
 translation_key: category-internet

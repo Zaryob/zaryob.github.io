@@ -129,7 +129,8 @@
   approach: "Araç ve konu bazında metinler; ilgili yazılar ve belgelerle beraber okunabilecek bir koleksiyon."
   result: "Kılavuz dosyaları ve değişiklik geçmişi."
   repo: "https://github.com/Zaryob/kilavuzlar"
-  link_text: "Kaynak ve proje geçmişi"
+  docs: "https://zaryob.github.io/kilavuzlar/"
+  link_text: "Kılavuzları oku"
   featured: false
 
 - name: "dotfiles"

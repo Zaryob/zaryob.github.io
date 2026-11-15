@@ -3,7 +3,7 @@ layout: post
 title: "Internet 101: TCP Ip Uygulamaları"
 date: 2021-09-07 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-07-internet-tcp-ip.jpg"
+image: "/assets/img/pages/2021-09-07-internet-tcp-ip.jpg"
 image_hash: "c07c7500ed57e97f4beb0fe7adb9016a"
 ---
 

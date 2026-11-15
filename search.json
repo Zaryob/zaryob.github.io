@@ -6,8 +6,10 @@ permalink: /search.json
 {% for post in site.posts %}
   {"lang": {{ post.lang | default: 'tr' | jsonify }}, "title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "type": "yazılar/", "description": {{ post.subtitle | default: post.excerpt | strip_html | truncate: 300 | jsonify }}}{% unless forloop.last %},{% endunless %}
 {% endfor %}
-{% assign search_pages = site.pages | where_exp: 'item', 'item.title' | where_exp: 'item', 'item.layout != nil' %}
+{% assign search_pages = site.pages | where_exp: 'item', 'item.title' | where_exp: 'item', 'item.layout != nil' | where_exp: 'item', "item.url != '/404.html'" %}
+{% assign search_started = site.posts.size %}
 {% for item in search_pages %}
-  {% if site.posts.size > 0 or forloop.first == false %},{% endif %}{"lang": {{ item.lang | default: 'tr' | jsonify }}, "title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "type": "sayfalar/", "description": {{ item.description | default: item.title | jsonify }}}
+  {% if item.url contains '/posts/page' %}{% continue %}{% endif %}
+  {% if search_started > 0 %},{% endif %}{% assign search_started = 1 %}{"lang": {{ item.lang | default: 'tr' | jsonify }}, "title": {{ item.title | jsonify }}, "url": {{ item.url | relative_url | jsonify }}, "type": "sayfalar/", "description": {{ item.description | default: item.title | jsonify }}}
 {% endfor %}
 ]

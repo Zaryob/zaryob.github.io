@@ -14,14 +14,26 @@
   <script src="{{ '/assets/console/theme.js' | relative_url }}"></script>
   {% if page.lang == 'en' %}
   <title>{% if page.title == site.title %}{{ site.title | escape }} · Software engineer{% else %}{{ page.title | escape }} · {{ site.title | escape }}{% endif %}</title>
-  {% seo title=false %}
-  {% else %}{% seo %}{% endif %}
+  {% capture seo_tags %}{% seo title=false %}{% endcapture %}
+  {% else %}{% capture seo_tags %}{% seo %}{% endcapture %}{% endif %}
+  {% comment %} jekyll-seo-tag copies page.lang into og:locale; Open Graph expects language_TERRITORY. {% endcomment %}
+  {% assign seo_tags = seo_tags | replace: 'property="og:locale" content="tr"', 'property="og:locale" content="tr_TR"' | replace: 'property="og:locale" content="en"', 'property="og:locale" content="en_US"' %}
+  {% unless page.image %}
+    {% assign social_image = page.cover_image | default: site.default_image %}
+    {% if page.cover_image %}{% assign seo_tags = seo_tags | replace: 'name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"' %}{% endif %}
+  {% endunless %}
+  {{ seo_tags }}
+  {% if social_image %}
+  <meta property="og:image" content="{{ social_image | absolute_url }}">
+  <meta property="twitter:image" content="{{ social_image | absolute_url }}">
+  {% endif %}
+  {% feed_meta %}
   {% include breadcrumbs-jsonld.html %}
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/console/bundle.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body class="console-site console-home">
-  <a class="skip-link" href="#main-content"><span data-i18n="Skip to content">İçeriğe geç</span></a>
+  <a class="skip-link" href="#main-content"><span data-i18n="Skip to content">{% if page.lang == 'en' %}Skip to content{% else %}İçeriğe geç{% endif %}</span></a>
 
   {% include console-header.html %}
 
@@ -37,12 +49,12 @@
       <header class="hero hero--home{% if hero_file %} hero--photo{% endif %}">
         {% if hero_file %}<img class="hero__photo" src="{{ hero_file | relative_url }}" alt="" aria-hidden="true" fetchpriority="high" decoding="async">{% endif %}
         <div class="site-container hero__inner">
-          <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">yazılım mühendisi</span></p>
+          <p class="hero__eyebrow">~/about.txt · <span data-i18n="software engineer">{% if page.lang == 'en' %}software engineer{% else %}yazılım mühendisi{% endif %}</span></p>
           <h1>Süleyman Poyraz</h1>
-          <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.</span></p>
+          <p class="hero__lead"><span data-i18n="I build system software and share what I learn.">{% if page.lang == 'en' %}I build system software and share what I learn.{% else %}Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.{% endif %}</span></p>
           <div class="hero__actions">
-            <a class="site-button site-button--accent" href="{{ '/projeler/' | relative_url }}"><span data-i18n="See my projects">Projelerimi gör</span> <span aria-hidden="true">↗</span></a>
-            <a class="site-button" href="{{ '/posts/' | relative_url }}"><span data-i18n="Read the posts">Yazıları oku</span> <span aria-hidden="true">→</span></a>
+            <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">↗</span></a>
+            <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="Read the posts">{% if page.lang == 'en' %}Read the posts{% else %}Yazıları oku{% endif %}</span> <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </header>
@@ -68,22 +80,22 @@
     <div class="site-container footer-inner">
       <div>
         <p class="footer-name">Süleyman Poyraz</p>
-        <p class="footer-note"><span data-i18n="Code, systems and learning notes.">Kod, sistemler ve öğrenme notları.</span></p>
+        <p class="footer-note"><span data-i18n="Code, systems and learning notes.">{% if page.lang == 'en' %}Code, systems and learning notes.{% else %}Kod, sistemler ve öğrenme notları.{% endif %}</span></p>
       </div>
-      <nav class="footer-links" aria-label="Sosyal bağlantılar" data-i18n-aria-label="Social links">
-        <a href="{{ '/kitapligim/' | relative_url }}"><span data-i18n="My bookshelf">Kitaplığım</span></a>
+      <nav class="footer-links" aria-label="{% if page.lang == 'en' %}Social links{% else %}Sosyal bağlantılar{% endif %}" data-i18n-aria-label="Social links">
+        <a href="{% if page.lang == 'en' %}{{ '/en/bookshelf/' | relative_url }}{% else %}{{ '/kitapligim/' | relative_url }}{% endif %}"><span data-i18n="My bookshelf">{% if page.lang == 'en' %}My bookshelf{% else %}Kitaplığım{% endif %}</span></a>
         <a href="https://github.com/Zaryob">{% include icon.html name="github" %} GitHub</a>
         <a href="https://linkedin.com/in/suleyman_poyraz">{% include icon.html name="linkedin" %} LinkedIn</a>
         <a href="https://medium.com/@zaryob">{% include icon.html name="medium" %} Medium</a>
-        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">E-posta</span></a>
+        <a href="mailto:{{ site.email }}">{% include icon.html name="mail" %} <span data-i18n="Email">{% if page.lang == 'en' %}Email{% else %}E-posta{% endif %}</span></a>
       </nav>
     </div>
     <div class="site-container footer-legal">
       <span>© 2016–{{ site.time | date: '%Y' }} Süleyman Poyraz</span>
-      <span><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">Site kaynak kodu</span></a> · GPLv3</span>
+      <span><a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if page.lang == 'en' %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a> · MIT</span>
     </div>
   </footer>
 
-  {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>{% endif %}
+  {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous" async></script>{% endif %}
 </body>
 </html>

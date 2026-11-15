@@ -4,7 +4,7 @@ layout: page
 title: Archive
 subtitle: Articles from across the years
 permalink: /en/arsiv/
-image: archive-bg.jpg
+image: /assets/img/pages/archive-bg.jpg
 image_hash: cc30914dbb849385dc6c0bf877626671
 lang: en
 translation_key: page-arsiv

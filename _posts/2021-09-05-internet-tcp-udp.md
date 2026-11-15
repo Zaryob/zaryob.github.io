@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101: TCP — TCP İletişimi Nasıl Yapılır - TCP Paketleri — UDP ile TCP’nin Farkları"
 date: 2021-09-05 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-05-internet.jpg"
+image: "/assets/img/pages/2021-09-05-internet.jpg"
 image_hash: "1cf8fef9ba4e57e4da2cc06a858571f5"
 ---
 

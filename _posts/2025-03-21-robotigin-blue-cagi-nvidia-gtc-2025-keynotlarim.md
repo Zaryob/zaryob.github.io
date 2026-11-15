@@ -6,7 +6,7 @@ title: "Robotiğin “Blue” Çağı: Nvidia GTC 2025 Keynotlarım"
 date: 2025-03-21 07:02:34 +0300
 categories: [genel]
 tags: ["nvidia","nvidia-newton","türkçe","robotik","gtc2025"]
-image: "2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.jpeg"
+image: "/assets/img/pages/2025-03-21-robotigin-blue-cagi-nvidia-gtc-2025-keynotlarim.jpeg"
 image_hash: "bc8e1c7ab32c7fb486e5412684070a8d"
 ---
 

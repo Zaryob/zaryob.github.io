@@ -1,8 +1,13 @@
+{% comment %}SPDX-License-Identifier: GPL-2.0-or-later{% endcomment %}
 {% if page.translation_key %}
 {% unless page.url contains '/posts/page' %}
 {% assign alternates = site.posts | concat: site.pages %}
+{% assign default_alternate = page.url %}
 {% for alternate in alternates %}{% if alternate.translation_key == page.translation_key %}{% unless alternate.url contains '/posts/page' %}
-<link rel="alternate" hreflang="{{ alternate.lang | default: 'tr' | split: '-' | first }}" href="{{ alternate.url | absolute_url }}">
+{% assign alternate_language = alternate.lang | default: 'tr' | split: '-' | first %}
+{% if alternate_language == 'tr' %}{% assign default_alternate = alternate.url %}{% endif %}
+<link rel="alternate" hreflang="{{ alternate_language }}" href="{{ alternate.url | absolute_url }}">
 {% endunless %}{% endif %}{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ default_alternate | absolute_url }}">
 {% endunless %}
 {% endif %}

@@ -4,7 +4,7 @@ layout: blog
 category: pixelart
 title: Pixel Art
 permalink: /en/pixelart/
-image: pixelart.jpg
+image: /assets/img/pages/pixelart.jpg
 image_hash: 934bee399ce669974100a5d559925157
 lang: en
 translation_key: category-pixelart

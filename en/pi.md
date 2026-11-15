@@ -4,7 +4,7 @@ layout: blog
 category: pi
 title: Raspberry Pi
 permalink: /en/pi/
-image: raspberrypi-bg.jpg
+image: /assets/img/pages/raspberrypi-bg.jpg
 image_hash: 80738471d1f9b811754aca914194612e
 lang: en
 translation_key: category-pi

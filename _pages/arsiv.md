@@ -5,7 +5,7 @@ layout: page
 title: Arşiv
 subtitle: Geçmişe doğru neler yazdığım...
 permalink: /arsiv/
-image: "archive-bg.jpg"
+image: "/assets/img/pages/archive-bg.jpg"
 image_hash: "cc30914dbb849385dc6c0bf877626671"
 ---
   
@@ -15,12 +15,12 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
 {% assign turkish_posts = site.posts | where_exp: "post", "post.lang != 'en'" %}
 {% assign grouped_by_year = turkish_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year in grouped_by_year %}
-  <h1>{{ year.name }}</h1>
+  <h2>{{ year.name }}</h2>
   
   {% assign grouped_by_month = year.items | group_by_exp: "post", "post.date | date: '%-m' | minus: 1 " %}
   <ul>
   {% for month in grouped_by_month %}
-    <h2>{{ months[month.name] }}</h2>
+    <h3>{{ months[month.name] }}</h3>
     <ul>
       {% for post in month.items %}
         {% assign m = post.date | date: "%-m" | minus: 1 %}

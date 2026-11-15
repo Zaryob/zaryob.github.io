@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101: Internet Protocol (IP) — IP Adres Sistemi — IP paketleri — IPv4 ve IPv6"
 date: 2021-09-03 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-03-internet.jpg"
+image: "/assets/img/pages/2021-09-03-internet.jpg"
 image_hash: "0eaa74f1c6c658a026a8385aacddeb38"
 ---
 

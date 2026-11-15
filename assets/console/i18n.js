@@ -333,7 +333,8 @@
   "Main navigation": "Ana menü",
   "Reading routes": "Okuma rotaları",
   "Resources": "Kaynaklar",
-  "Labs": "Laboratuvarlar"
+  "Labs": "Laboratuvarlar",
+  "Search failed. Try again.": "Arama başarısız oldu. Yeniden deneyin."
 };
   const state = window.ZaryobLanguage;
   const { supported } = state;
@@ -397,7 +398,9 @@
   document.addEventListener('DOMContentLoaded', () => {
     apply();
     document.querySelectorAll('[data-console-language]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
-    const destination = translationTarget();
+    // Follow the other edition only for an explicit choice (saved selection or ?lang=).
+    // A browser-language guess translates the controls and leaves the reader on the page.
+    const destination = state.explicit ? translationTarget() : null;
     if (destination) location.replace(destination);
   });
 })();

@@ -6,6 +6,8 @@ vendor
 
 # hidden files
 .*
+!.gitignore
+!.github/
 
 # python compiled files
 *.pyc
@@ -29,5 +31,3 @@ package-lock.json
 package.json
 
 *.xcworkspace/
-
-Gemfile.lock

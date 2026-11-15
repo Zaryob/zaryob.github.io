@@ -3,7 +3,7 @@ layout: post
 title: "Nedir Bu OpenCV?"
 date: 2022-03-05 12:23:43 +0300
 categories: [genel, internet]
-image: "2022-03-05-nedir-bu-opencv.webp"
+image: "/assets/img/pages/2022-03-05-nedir-bu-opencv.webp"
 image_hash: "8c882204fc4b0bfbda252d10112d8a9c"
 ---
 

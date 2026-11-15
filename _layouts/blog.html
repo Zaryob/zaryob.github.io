@@ -6,7 +6,7 @@ layout: default
 {% assign category = page.category | default: category %}
 {% include writing-topics.html %}
 <section class="content-section" aria-labelledby="category-heading">
-  <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{{ page.title }} yazıları</span></h2></div>
+  <div class="section-heading"><h2 id="category-heading"><span data-i18n="Posts in {category}" data-i18n-vars='{"category": {{ page.title_i18n | default: page.title | jsonify | escape }}}'>{% if page.lang == 'en' %}Posts in {{ page.title }}{% else %}{{ page.title }} yazıları{% endif %}</span></h2></div>
   <div class="blog-list" data-paginated-list data-page-size="15">
     {% assign category_posts = site.categories[category] %}
     {% if page.lang == 'en' %}
@@ -21,10 +21,10 @@ layout: default
     {% endfor %}
   </div>
 
-  <nav class="post-pagination" data-category-pagination aria-label="Yazı sayfaları" data-i18n-aria-label="Post pages" hidden>
-    <a class="site-button" data-prev-page href="#"><span data-i18n="← Newer posts">← Yeni yazılar</span></a>
-    <span><span data-page-indicator data-i18n="Page {page} / {total}">Sayfa 1 / 1</span></span>
-    <a class="site-button" data-next-page href="#"><span data-i18n="Older posts →">Eski yazılar →</span></a>
+  <nav class="post-pagination" data-category-pagination aria-label="{% if page.lang == 'en' %}Post pages{% else %}Yazı sayfaları{% endif %}" data-i18n-aria-label="Post pages" hidden>
+    <a class="site-button" data-prev-page href="#"><span data-i18n="← Newer posts">{% if page.lang == 'en' %}← Newer posts{% else %}← Yeni yazılar{% endif %}</span></a>
+    <span><span data-page-indicator data-i18n="Page {page} / {total}">{% if page.lang == 'en' %}Page 1 / 1{% else %}Sayfa 1 / 1{% endif %}</span></span>
+    <a class="site-button" data-next-page href="#"><span data-i18n="Older posts →">{% if page.lang == 'en' %}Older posts →{% else %}Eski yazılar →{% endif %}</span></a>
   </nav>
 </section>
 
@@ -55,7 +55,8 @@ layout: default
       item.style.display = isVisible ? '' : 'none';
     });
 
-    const isEn = (document.documentElement.lang || '').startsWith('en');
+    const root = document.documentElement;
+    const isEn = (root.dataset.uiLanguage || root.lang || '').startsWith('en');
 
     if (page > 1) {
       prevBtn.style.display = '';

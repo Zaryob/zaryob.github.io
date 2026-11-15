@@ -3,7 +3,7 @@ layout: post
 title: "İnternetin Yeni Çağı: Quic Protokolü"
 date: 2021-09-12 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-12-quic.jpg"
+image: "/assets/img/pages/2021-09-12-quic.jpg"
 image_hash: "1c48d1c52b9a8a6c5f21798b187a47c7"
 ---
 

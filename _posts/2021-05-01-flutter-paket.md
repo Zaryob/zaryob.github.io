@@ -3,7 +3,7 @@ layout: post
 title: "Flutter: Linux için Uygulama Paketi Oluşturmak"
 date: 2021-05-01 13:23:33 +0300
 categories: [genel, linux, programlama]
-image: "2021-05-01-flutter-paket.jpeg"
+image: "/assets/img/pages/2021-05-01-flutter-paket.jpeg"
 image_hash: "00b9dcc6362a4b02b5674158dd557a8f"
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Uçtan Uca Okunuyoruz"
 date: 2021-09-09 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-09-uctan.jpg"
+image: "/assets/img/pages/2021-09-09-uctan.jpg"
 image_hash: "ed26d40fec190cecb3219f77522dfb69"
 ---
 

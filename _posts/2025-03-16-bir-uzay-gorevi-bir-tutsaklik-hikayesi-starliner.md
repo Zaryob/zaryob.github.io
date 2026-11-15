@@ -4,7 +4,7 @@ title: "Bir Uzay Görevi, Bir Tutsaklık Hikayesi: Starliner"
 date: 2025-03-16 10:27:28 +0300
 categories: [genel]
 tags: ["starliner","boeing","boeing-737-max","iss"]
-image: "2025-03-16-bir-uzay-gorevi-bir-tutsaklik-hikayesi-starliner.jpeg"
+image: "/assets/img/pages/2025-03-16-bir-uzay-gorevi-bir-tutsaklik-hikayesi-starliner.jpeg"
 image_hash: "4dec3027097033084fe28d391f90a945"
 ---
 

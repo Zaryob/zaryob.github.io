@@ -1,9 +1,9 @@
-version: '2'
-
 services:
   jekyll:
-    image: jekyll/jekyll:latest
-    command: jekyll serve --watch --force_polling --verbose
+    # Same Ruby as CI; the gems (Jekyll 3.10 through github-pages) come from Gemfile.lock.
+    image: ruby:3.3
+    working_dir: /srv/jekyll
+    command: sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling --verbose"
     ports:
       - 4000:4000
     volumes:

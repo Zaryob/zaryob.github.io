@@ -72,6 +72,11 @@ permalink: /sitemap.xml
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>{{ '/execmap/' | absolute_url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
   <!-- Technical Articles & Posts -->
 {% for post in site.posts %}
@@ -93,7 +98,16 @@ permalink: /sitemap.xml
 {% assign skip_urls = '/, /en/, /posts/, /en/posts/, /projeler/, /en/projects/, /sitemap.xml, /robots.txt, /feed.xml, /404.html, /search.json' | split: ', ' %}
 {% for page in site.pages %}
 {% if page.url and page.layout and page.title and page.title != 'empty' %}
-{% unless skip_urls contains page.url or page.url contains '/posts/page' %}
+{% assign page_listed = true %}
+{% if page.layout == 'blog' %}
+{% comment %} Category pages with no post in their language stay out of the sitemap. {% endcomment %}
+{% assign blog_category = page.permalink | split: '/' | last %}
+{% assign blog_category = page.category | default: blog_category %}
+{% assign blog_posts = site.categories[blog_category] %}
+{% if page.lang == 'en' %}{% assign blog_posts = blog_posts | where: 'lang', 'en' %}{% else %}{% assign blog_posts = blog_posts | where_exp: 'post', 'post.lang != "en"' %}{% endif %}
+{% unless blog_posts.size > 0 %}{% assign page_listed = false %}{% endunless %}
+{% endif %}
+{% unless skip_urls contains page.url or page.url contains '/posts/page' or page_listed == false %}
   <url>
     <loc>{{ page.url | absolute_url }}</loc>
     <changefreq>monthly</changefreq>

@@ -3,7 +3,7 @@ layout: post
 title: "Kopyala-Yapıştır’ın Daha Akıllı Hali: Github CoPilot"
 date: 2021-11-06 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-11-06-kopyala-yapistir.jpeg"
+image: "/assets/img/pages/2021-11-06-kopyala-yapistir.jpeg"
 image_hash: "09ead2b255c3ac06e09cb9615fca5aaf"
 ---
 

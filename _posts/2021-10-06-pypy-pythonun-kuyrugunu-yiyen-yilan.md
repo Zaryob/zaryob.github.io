@@ -3,7 +3,7 @@ layout: post
 title: "PyPy: Python’un Kuyruğunu Yiyen Yılan"
 date: 2021-10-06 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-10-06-pypy-pythonun-kuyrugunu-yiyen-yilan.jpg"
+image: "/assets/img/pages/2021-10-06-pypy-pythonun-kuyrugunu-yiyen-yilan.jpg"
 image_hash: "b758889f7897151cb174f6391a6bfe7b"
 ---
 

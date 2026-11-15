@@ -3,7 +3,7 @@ layout: post
 title: "Bilim Meraklılarına, Açık Kaynak…."
 date: 2021-09-04 12:23:43 +0300
 categories: [genel]
-image: "2021-09-04-bilim.png"
+image: "/assets/img/pages/2021-09-04-bilim.png"
 image_hash: "36f85eee6721426241832571fae381ac"
 ---
 

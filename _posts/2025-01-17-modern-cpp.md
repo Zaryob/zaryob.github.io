@@ -3,7 +3,7 @@ layout: post
 title: "Tüm Gurular Toplandık: Modern C++"
 date: 2025-01-17 22:39:23 +0300
 categories: [programlama]
-image: "2025-01-17-modern-cpp.jpeg"
+image: "/assets/img/pages/2025-01-17-modern-cpp.jpeg"
 image_hash: "3bde78199468d6affeb6539c56af87c9"
 ---
 

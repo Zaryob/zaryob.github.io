@@ -27,6 +27,11 @@
       t: (text, values = {}) => text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match),
       apply: () => {},
     };
+    // Interface language. <html lang> describes the page content and is only the fallback
+    // when no language adapter is loaded; fallback labels are the English source strings.
+    const uiLanguage = () => window.ZaryobI18n?.language || root.dataset.uiLanguage || root.lang;
+    const labelLanguage = () => window.ZaryobI18n ? uiLanguage() : 'en';
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     document.querySelectorAll('[data-console-theme]').forEach(select => {
       select.value = preference;
       select.addEventListener('change', () => {
@@ -86,10 +91,24 @@
         closeDropdown(dropdown, true);
       } else if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true') {
         setMenuOpen(false);
-        menu.focus();
+        menu?.focus();
       }
     });
 
+    let copyStatus;
+    const announce = message => {
+      if (!copyStatus) {
+        copyStatus = document.createElement('p');
+        copyStatus.className = 'console-sr-only';
+        copyStatus.setAttribute('role', 'status');
+        copyStatus.setAttribute('aria-live', 'polite');
+        document.body.append(copyStatus);
+      }
+      copyStatus.lang = labelLanguage();
+      copyStatus.textContent = '';
+      // Clear first so a repeated message is announced again.
+      setTimeout(() => { copyStatus.textContent = message; }, 50);
+    };
     document.querySelectorAll('pre > code').forEach(code => {
       const pre = code.parentElement;
       const wrapper = document.createElement('div');
@@ -103,12 +122,14 @@
       button.dataset.i18n = 'Copy';
       button.dataset.i18nAriaLabel = 'Copy code';
       button.textContent = label;
+      button.lang = labelLanguage();
       button.setAttribute('aria-label', t('Copy code'));
       button.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(code.textContent);
           button.textContent = t('Copied');
         } catch { button.textContent = t('Select code to copy'); }
+        announce(button.textContent);
         setTimeout(() => { button.textContent = t('Copy'); }, 2200);
       });
       wrapper.append(button);
@@ -128,7 +149,9 @@
           const pattern = new RegExp(`(${terms.map(escapeRegExp).join('|')})`, 'gi');
           let firstMark = null;
           const walk = node => {
-            if (['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'SELECT', 'NOSCRIPT', 'SVG', 'DIALOG'].includes(node.nodeName)) return;
+            if (['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'SELECT', 'NOSCRIPT', 'DIALOG'].includes(node.nodeName)) return;
+            // SVG and MathML report lowercase names and cannot hold an HTML <mark>.
+            if (node.nodeType === Node.ELEMENT_NODE && node.namespaceURI !== 'http://www.w3.org/1999/xhtml') return;
             if (node.nodeType === Node.TEXT_NODE) {
               const text = node.textContent;
               if (!pattern.test(text)) return;
@@ -158,7 +181,7 @@
           walk(container);
           if (firstMark && !location.hash) {
             requestAnimationFrame(() => {
-              firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              firstMark.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'center' });
             });
           }
         }
@@ -194,14 +217,22 @@
     let execmapIndex;
     let request = 0;
     let debounce;
+    let settled = false; // The list shows the finished results for the current query.
+    let openFirst = false; // Enter was pressed before those results arrived.
     const normalize = text => text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
     const addResult = (title, url, type, language, excerpt, searchQuery = '') => {
+      // Index records come from other repositories; skip malformed ones instead of failing the search.
+      if (typeof title !== 'string' || typeof url !== 'string') return;
+      if (typeof type !== 'string') type = 'sayfalar/';
       const item = document.createElement('li');
       const link = document.createElement('a');
       const base = type === 'execmap/' ? execmapRoot : type === 'syscall/' ? syscallRoot : type === 'pin-atlas/' ? pinAtlasRoot : (type.startsWith('kılavuzlar') ? guidesRoot : suite);
-      const address = new URL(url, base);
+      let address;
+      try { address = new URL(url, base); } catch { return; }
       if (!['http:', 'https:'].includes(address.protocol) || address.origin !== base.origin) return;
-      address.searchParams.set('lang', root.lang);
+      // Carry only an explicit preference; a browser-language guess must not become one downstream.
+      const preferred = window.ZaryobLanguage ? (window.ZaryobLanguage.explicit ? uiLanguage() : '') : root.lang;
+      if (preferred) address.searchParams.set('lang', preferred);
       if (searchQuery && !address.searchParams.has('highlight') && !['syscall/', 'pin-atlas/'].includes(type)) {
         address.searchParams.set('highlight', searchQuery);
       }
@@ -217,6 +248,7 @@
       }
       item.append(link);
       results.append(item);
+      return true;
     };
     const loadFallback = () => fallbackIndex ||= Promise.allSettled(['search.json', 'kilavuzlar/search.json', 'syscall/search.json', 'pin-atlas/search.json'].map(async path => {
       const response = await fetch(new URL(path, suite));
@@ -232,15 +264,26 @@
     }).catch(error => { execmapIndex = undefined; throw error; });
     const matchRecords = (records, query) => {
       const terms = normalize(query).split(/\s+/).filter(Boolean);
-      return records.filter(record => terms.every(term => normalize(`${record.title} ${record.description || ''} ${record.text || ''}`).includes(term)));
+      return records.filter(record => record && typeof record === 'object' && terms.every(term => normalize(`${record.title} ${record.description || ''} ${record.text || ''}`).includes(term)));
     };
     const loadIndex = async createInstance => {
-      const language = root.lang;
+      const language = uiLanguage();
       if (!indexes.has(language)) {
-        const index = createInstance({ baseUrl: suite.href });
+        // Pagefind reads its index language from <html lang> while createInstance runs and
+        // has no option for it. Search follows the interface language, so present that
+        // for this synchronous call only and put the content language straight back.
+        const contentLanguage = root.getAttribute('lang');
+        let index;
+        try {
+          if (language) root.lang = language;
+          index = createInstance({ baseUrl: suite.href });
+        } finally {
+          if (contentLanguage === null) root.removeAttribute('lang');
+          else root.setAttribute('lang', contentLanguage);
+        }
         const guides = new URL('kilavuzlar/', suite);
         indexes.set(language, index.mergeIndex(new URL('pagefind/', guides).href, {
-          baseUrl: guides.href,
+          baseUrl: guides.href, ...(language ? { language } : {}),
         }).then(() => index).catch(error => {
           index.destroy();
           throw error;
@@ -261,6 +304,8 @@
       addResult(t('Search Pin Atlas: {query}', { query }), pinAtlas.href, 'pin-atlas/', undefined, undefined);
     };
     const showQuery = query => {
+      settled = false;
+      dialog.lang = labelLanguage();
       results.replaceChildren();
       if (!query) {
         status.textContent = t('Search by title or full text.');
@@ -270,15 +315,14 @@
       addPinAtlasResult(query);
       status.textContent = t('Searching…');
     };
-    const render = async () => {
-      const current = ++request;
+    const search = async current => {
       const query = input.value.trim();
       showQuery(query);
       if (!query) return;
       let matches;
       let message = '{count} content results';
       // Always search execmap, including when Pagefind is healthy.
-      const execmapResults = loadExecmap().then(records => ({ records: matchRecords(records, query), failed: false }), () => ({ records: [], failed: true }));
+      const execmapResults = loadExecmap().then(records => ({ records: matchRecords(records, query), failed: false })).catch(() => ({ records: [], failed: true }));
       try {
         const { createInstance } = await import(new URL('pagefind/pagefind.js', suite).href);
         if (current !== request) return;
@@ -295,7 +339,7 @@
           type: result.meta.type || 'sayfalar/',
           url: result.url,
           excerpt: result.plain_excerpt,
-          lang: root.lang,
+          lang: uiLanguage(),
         }));
       } catch {
         const items = await loadFallback();
@@ -309,10 +353,25 @@
       if (extra.failed) message = 'Some indexes could not be loaded. Available results are shown.';
       if (current !== request) return;
       results.replaceChildren();
-      for (const record of matches) addResult(record.title, record.url, record.type, record.lang, record.excerpt, query);
+      let count = 0;
+      for (const record of matches) if (addResult(record.title, record.url, record.type, record.lang, record.excerpt, query)) count++;
       addSyscallResult(query);
       addPinAtlasResult(query);
-      status.textContent = t(message, { count: matches.length });
+      status.textContent = t(message, { count });
+      settled = true;
+      if (openFirst) results.querySelector('a')?.click();
+      openFirst = false;
+    };
+    const render = async () => {
+      const current = ++request;
+      try {
+        await search(current);
+      } catch {
+        // Never leave the dialog on "Searching…"; the per-site query links stay usable.
+        if (current !== request) return;
+        openFirst = false;
+        status.textContent = t('Search failed. Try again.');
+      }
     };
     const showSearch = () => {
       if (dialog.open) return;
@@ -325,7 +384,8 @@
     dialog.addEventListener('close', () => {
       clearTimeout(debounce);
       request++;
-      if (compactNavigation.matches && menu?.getAttribute('aria-expanded') !== 'true') menu.focus();
+      openFirst = false;
+      if (menu && compactNavigation.matches && menu.getAttribute('aria-expanded') !== 'true') menu.focus();
       else openSearch.focus();
     });
     dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); } });
@@ -347,12 +407,19 @@
         }
       } else if (event.key === 'Enter' && event.target === input) {
         event.preventDefault();
-        links[0].click();
+        if (settled) { links[0].click(); return; }
+        // The list still holds the placeholder links of an unfinished query:
+        // search now and open the first real result when it arrives.
+        clearTimeout(debounce);
+        const waiting = openFirst;
+        openFirst = true;
+        if (!waiting) render();
       }
     });
     input.addEventListener('input', () => {
       request++;
       clearTimeout(debounce);
+      openFirst = false;
       const query = input.value.trim();
       showQuery(query);
       if (query) debounce = setTimeout(render, 140);

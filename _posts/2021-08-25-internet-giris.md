@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101: İnternete Giriş"
 date: 2021-08-25 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-08-25-internet.jpg"
+image: "/assets/img/pages/2021-08-25-internet.jpg"
 image_hash: "5d55d48c217a4c74ba72c08acfa886f7"
 ---
 

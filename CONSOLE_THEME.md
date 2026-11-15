@@ -1,9 +1,9 @@
 # Ortak Zaryob görünümü
 
-Kişisel site, Kılavuzlar, Syscall ve Pin Atlas; terminal yolu biçimindeki kimliği,
+Kişisel site, Kılavuzlar, Syscall, Pin Atlas ve Execmap; terminal yolu biçimindeki kimliği,
 IBM Plex Mono'yu, proje seçiciyi ve açık/koyu renk değişkenlerini paylaşır.
-Ana site `zaryob:~ $`, araçlar `zaryob:~/kilavuzlar $`, `zaryob:~/syscall $` ve
-`zaryob:~/pin-atlas $` olarak görünür. `zaryob` ana siteye döner; yol ve `$`
+Ana site `zaryob:~ $`, araçlar `zaryob:~/kilavuzlar $`, `zaryob:~/syscall $`,
+`zaryob:~/pin-atlas $` ve `zaryob:~/execmap $` olarak görünür. `zaryob` ana siteye döner; yol ve `$`
 proje seçiciyi açar. Başlıkta proje bağlantıları yan yana birikmez. Ana sitenin
 Yazılar, Projeler ve Hakkımda gezinmesi yalnızca ana sitede bulunur. Her site yerel font ve tema
 kopyasını yayımlar; diğer sitelerin CSS dosyalarına çalışma anında bağımlı değildir.
@@ -66,7 +66,7 @@ Yeni yazılan ortak tema kodu GPL-2.0-or-later lisanslıdır; sitelerin mevcut
 lisansları değişmez.
 
 Yazı ölçeğinin kaynağı `Zaryob/console-theme` deposundaki
-`assets/console/theme.css` dosyasıdır. Dört site arayüzde `--text-base: 1rem`,
+`assets/console/theme.css` dosyasıdır. Beş site arayüzde `--text-base: 1rem`,
 makale ve kılavuz gövdesinde `--text-prose: 1.125rem` kullanır. Tarayıcının
 varsayılanı 16 pikselken bunlar 16 ve 18 pikseldir. Yardımcı metinler
 `--text-sm` (14 piksel), meta bilgiler `--text-xs` (13 piksel) kullanır;
@@ -78,12 +78,12 @@ tema tarafından yerel dosyalardan yüklenir. SVG pin etiketlerinin boyutları
 
 Ortak tema değişikliklerini önce `console-theme` kaynağında yapın ve değişen
 dosyaları kardeş depolara eşitleyin. Tam eşitlemeden önce `scripts/sync.py --check`
-ile mevcut uygulamaya özgü farkları inceleyin. Dört site derlenip ortak önizleme
+ile mevcut uygulamaya özgü farkları inceleyin. Beş site derlenip ortak önizleme
 açıldıktan sonra `console-theme/scripts/check_typography.cjs`, 320–1440 piksel
 aralığında ve %200 yazı boyutunda font yüklemesini, okunabilirliği ve taşmayı denetler.
 
 Tema seçicisi `Sistem`, `Koyu`, `Açık` seçeneklerini sunar. İlk açılış sistem
-tercihini izler; açık seçim `zaryob-theme` anahtarında saklanır. Dört site aynı
+tercihini izler; açık seçim `zaryob-theme` anahtarında saklanır. Beş site aynı
 origin altında yayımlandığından seçim aralarında paylaşılır. Depolama kapalıysa
 seçim mevcut sayfada çalışır. JavaScript kapalıysa CSS sistem temasını izler;
 gezinme ve belge içeriği kullanılabilir kalır.
@@ -97,7 +97,7 @@ Syscall sorgularını mevcut `?q=` aramasına gönderir. Sunucu veya API anahtar
 gerektirmez. Aramayı `/`, `Ctrl+K` veya `⌘K` ile açıp sonuçlar arasında ok
 tuşlarıyla gezinebilirsiniz.
 
-Dört Jekyll sitesini derledikten sonra ortak önizleme:
+Beş siteyi derledikten sonra ortak önizleme:
 
 ```sh
 python3 scripts/preview_suite.py --port 4180
@@ -115,7 +115,7 @@ Ortak menüdeki TR/EN seçimi arayüz dilidir. İlk ziyarette tarayıcının bir
 dili Türkçe (`tr`, `tr-TR` vb.) ise Türkçe, diğer dillerde İngilizce seçilir.
 Geçerli `?lang=tr` / `?lang=en` parametresi kayıtlı tercihten, kayıtlı tercih de
 tarayıcı dilinden önce gelir. Geçersiz veya temizlenen kayıt tarayıcı diline döner. Seçim
-`zaryob-language` anahtarında saklanır ve aynı origin altındaki üç bölümde
+`zaryob-language` anahtarında saklanır ve aynı origin altındaki beş bölümde
 paylaşılır. Depolama engelliyse mevcut sayfada ve açık dil URL’lerinde çalışır.
 Tema ve dil birbirinden bağımsızdır. Syscall filtreleri ve ayrıntı bağlantısı
 dil değişiminde korunur; JSON verileri ve indirilen C kodu değiştirilmez.
@@ -128,7 +128,7 @@ ipucu ve yer tutucular için `data-i18n-aria-label`, `data-i18n-title`,
 `data-i18n-placeholder` vardır. Değişkenler JSON `data-i18n-vars` ile,
 JavaScript’te `window.ZaryobI18n.t(metin, değerler)` ile verilir. Çeviriler
 textContent/setAttribute üzerinden uygulanır; çeviri metni HTML olarak yürütülmez.
-Ortak betik de eşitleme betiğiyle üç depoya kopyalanır.
+Ortak betik de eşitleme betiğiyle beş depoya kopyalanır.
 
 Yazı ve belge çevirileri ayrı Markdown dosyalarıdır. Aynı içeriğin sürümlerine
 aynı `translation_key`, her dosyaya kendi `lang: tr` veya `lang: en` alanını
@@ -142,7 +142,7 @@ translation_key: ai-agents-third-wave
 title: "Third Wave in Artificial Intelligence: AI Agents"
 ```
 
-Mevcut dört TR/EN yazı çifti, sabit sayfalar ve kılavuz sürümleri bu şekilde bağlandı. Gerçek çevirisi olan içerikte
+Mevcut yedi TR/EN yazı çifti, sabit sayfalar ve kılavuz sürümleri bu şekilde bağlandı. Gerçek çevirisi olan içerikte
 dil seçimi karşılık sayfayı açar; ilk yüklemede kayıtlı/tarayıcı tercihi de uygulanır.
 Açık dil bağlantıları `?lang=` taşır ve tercih geri yönlendirme döngüsü oluşturmaz; içerik notunda doğrudan dil bağlantısı da
 vardır. Karşılık yoksa arayüz çevrilir, özgün başlık/gövde korunur ve çevirinin

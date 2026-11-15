@@ -3,7 +3,7 @@ layout: post
 title: "Asus Tinkerboard Sağlam geldi"
 date: 2021-03-12 21:55:02 +0300
 categories: [genel, programlama, pi, elektronik]
-image: "2021-03-12-tinkerboard.jpg"
+image: "/assets/img/pages/2021-03-12-tinkerboard.jpg"
 image_hash: "051034573b9158da750e33b22bcea80f"
 ---
 

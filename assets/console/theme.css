@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later */
-/* Shared by zaryob.github.io, kilavuzlar, syscall and pin-atlas. Sync with scripts/sync_console_theme.py. */
+/* Shared by zaryob.github.io, kilavuzlar, syscall, pin-atlas and execmap. Edit in console-theme; copy with scripts/sync.py. */
 @font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.woff2") format("woff2"); font-style: normal; font-weight: 500 700; font-display: swap; }
 @font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Regular.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }
@@ -165,7 +165,8 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-search__results li { border-top: 1px solid var(--line); }
 .console-search__results a { display: block; padding: 12px 8px; text-decoration: none; border-radius: 2px; }
 .console-search__results a:hover,
-.console-search__results a:focus-visible { background: var(--surface); color: var(--accent); outline: none; }
+.console-search__results a:focus-visible { background: var(--surface); color: var(--accent); }
+.console-search__results a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .console-search__results small { display: block; color: var(--muted); font-size: var(--text-xs); margin-bottom: 3px; }
 .console-search__status { font-size: var(--text-xs); color: var(--muted); margin: 12px 0 0; }
 mark, .console-highlight { background: var(--selection); color: var(--ink); outline: 1px solid var(--accent); border-radius: 2px; padding: 0 2px; }

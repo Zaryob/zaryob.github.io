@@ -3,7 +3,7 @@ layout: post
 title: "Oyunlar: Teknolojinin Hiç Anlatılmayan Arka Planı"
 date: 2021-09-09 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-09-oyunlar.jpg"
+image: "/assets/img/pages/2021-09-09-oyunlar.jpg"
 image_hash: "8af511631d751343c3ac57d0fec6e2ec"
 ---
 

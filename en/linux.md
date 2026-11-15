@@ -4,7 +4,7 @@ layout: blog
 category: linux
 title: Linux
 permalink: /en/linux/
-image: code-bg.jpg
+image: /assets/img/pages/code-bg.jpg
 image_hash: 8da8c95398564475073e06f25143d370
 lang: en
 translation_key: category-linux

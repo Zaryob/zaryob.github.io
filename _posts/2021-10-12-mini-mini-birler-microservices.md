@@ -3,7 +3,7 @@ layout: post
 title: "Mini Mini Birler: Microservices Yapısı ve Yanlış Bilinenler"
 date: 2021-10-06 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-10-12-mini-mini-birler-microservices.png"
+image: "/assets/img/pages/2021-10-12-mini-mini-birler-microservices.png"
 image_hash: "5eb48a4e2c015e8afa737e627fe75cdf"
 ---
 

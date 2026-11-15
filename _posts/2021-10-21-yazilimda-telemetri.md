@@ -3,7 +3,7 @@ layout: post
 title: "Yazılımda Telemetri Sistemleri: Tanım — Perspektif — Kullanım — Gizlilik"
 date: 2021-10-21 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-10-21-yazilimda-telemetri.png"
+image: "/assets/img/pages/2021-10-21-yazilimda-telemetri.png"
 image_hash: "38db6887149be5b8e091c9855b6af13d"
 ---
 

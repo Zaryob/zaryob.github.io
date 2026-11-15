@@ -3,7 +3,7 @@ layout: post
 title: "Hileler 101: Tanrıların dili Regex"
 date: 2021-09-19 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-09-19-regex.jpg"
+image: "/assets/img/pages/2021-09-19-regex.jpg"
 image_hash: "cf1e76c74723af6eb45ee626ca4269a9"
 ---
 

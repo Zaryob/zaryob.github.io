@@ -3,7 +3,7 @@ layout: post
 title: "Paralel Programlama 101"
 date: 2025-02-10 19:42:52 +0300
 categories: [programlama]
-image: "2025-02-10-paralel-programlama.webp"
+image: "/assets/img/pages/2025-02-10-paralel-programlama.webp"
 image_hash: "1d9326f63b4fce9436dd7c59afd364e4"
 math: true
 ---

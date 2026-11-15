@@ -3,7 +3,7 @@ layout: post
 title: "Windows’unuzu Çekilir Kılın"
 date: 2021-10-02 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-10-02-windowsunuzu-cekilir-kilin.jpg"
+image: "/assets/img/pages/2021-10-02-windowsunuzu-cekilir-kilin.jpg"
 image_hash: "b758889f7897151cb174f6391a6bfe7b"
 ---
 

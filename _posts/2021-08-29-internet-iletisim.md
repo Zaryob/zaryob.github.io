@@ -3,7 +3,7 @@ layout: post
 title: "İnternet 101:İnternet İçerisinde Nasıl İletişim Yaparız?"
 date: 2021-08-29 12:23:43 +0300
 categories: [genel, internet]
-image: "2021-08-29-internet.jpg"
+image: "/assets/img/pages/2021-08-29-internet.jpg"
 image_hash: "74f8e1440b314fd0f262152b07e31a72"
 ---
 

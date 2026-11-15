@@ -114,7 +114,8 @@
   approach: Texts organised by tool and topic, intended to be read alongside related articles and documentation.
   result: Guide files and their change history.
   repo: https://github.com/Zaryob/kilavuzlar
-  link_text: Source and project history
+  docs: https://zaryob.github.io/kilavuzlar/en/
+  link_text: Read the guides
   featured: false
   display_name: Guides
 - name: dotfiles

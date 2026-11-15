@@ -3,7 +3,7 @@ layout: post
 title: "Hileler 101: Python Kullanırken Ufkunuzu Açacak Bazı Püf Noktalar"
 date: 2021-04-22 12:23:43 +0300
 categories: [genel, linux, programlama]
-image: "2021-04-22-python_trics.jpg"
+image: "/assets/img/pages/2021-04-22-python_trics.jpg"
 image_hash: "1a99ed6255f6692947dfd4d295ff2833"
 ---
 

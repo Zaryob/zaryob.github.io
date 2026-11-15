@@ -3,7 +3,7 @@ layout: post
 title: "Modern C++'ta Derleme Zamanı Özellikleri"
 date: 2025-02-05 18:29:22 +0300
 categories: [programlama]
-image: "2025-02-05-modern-cpp-compile-time.webp"
+image: "/assets/img/pages/2025-02-05-modern-cpp-compile-time.webp"
 image_hash: "28e960d2654d12b03416972c02c6ce00"
 ---
 

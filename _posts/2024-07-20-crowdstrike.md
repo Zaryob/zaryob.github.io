@@ -3,7 +3,7 @@ layout: post
 title: "CrowdStrike Kazası: Son Yılların En büyük Güncelleme Kazasının Anatomisi"
 date: 2024-07-20 21:41:51 +0300
 categories: [genel, internet]
-image: "GS4HDkSW8AE4PBo.jpeg"
+image: "/assets/img/pages/GS4HDkSW8AE4PBo.jpeg"
 image_hash: "6964e050cfefd1be63848aef1fd92005"
 ---
 

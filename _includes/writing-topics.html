@@ -1,6 +1,13 @@
-<nav aria-label="Yazı konuları" data-i18n-aria-label="Post topics"><ul class="topic-nav">
-  <li><a href="{{ '/posts/' | relative_url }}"{% if page.url contains '/posts/' %} aria-current="page"{% endif %}>{% include console-icon.html name='writing' %}<span data-i18n="All posts">Tüm yazılar</span></a></li>
+{% assign topic_prefix = '' %}{% if page.lang == 'en' %}{% assign topic_prefix = '/en' %}{% endif %}
+<nav aria-label="{% if page.lang == 'en' %}Post topics{% else %}Yazı konuları{% endif %}" data-i18n-aria-label="Post topics"><ul class="topic-nav">
+  <li><a href="{{ topic_prefix | append: '/posts/' | relative_url }}"{% if page.url contains '/posts/' %} aria-current="page"{% endif %}>{% include console-icon.html name='writing' %}<span data-i18n="All posts">{% if page.lang == 'en' %}All posts{% else %}Tüm yazılar{% endif %}</span></a></li>
   {% for topic in site.data.writing_topics %}
-  <li><a href="{{ topic.path | relative_url }}"{% if page.url == topic.path or page.category == topic.key %} aria-current="page"{% endif %}>{% include console-icon.html name=topic.icon %}<span data-i18n="{{ topic.title_en | default: topic.title | escape }}">{{ topic.title }}</span></a></li>
+  {% comment %} Topics with no post in the page language are left out; the date archive is a page, not a category. {% endcomment %}
+  {% assign topic_path = topic_prefix | append: topic.path %}
+  {% assign topic_posts = site.categories[topic.key] %}
+  {% if page.lang == 'en' %}{% assign topic_posts = topic_posts | where: 'lang', 'en' %}{% else %}{% assign topic_posts = topic_posts | where_exp: 'post', 'post.lang != "en"' %}{% endif %}
+  {% if topic.key == 'arsiv' or topic_posts.size > 0 or page.url == topic_path %}
+  <li><a href="{{ topic_path | relative_url }}"{% if page.url == topic_path or page.category == topic.key %} aria-current="page"{% endif %}>{% include console-icon.html name=topic.icon %}<span data-i18n="{{ topic.title_en | default: topic.title | escape }}">{% if page.lang == 'en' %}{{ topic.title_en | default: topic.title }}{% else %}{{ topic.title }}{% endif %}</span></a></li>
+  {% endif %}
   {% endfor %}
 </ul></nav>

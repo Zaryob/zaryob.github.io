@@ -34,7 +34,7 @@ class SuiteHandler(SimpleHTTPRequestHandler):
 
             # Safety fallback: if asset uniquely exists in one sub-site, serve from there
             candidates = []
-            for prefix, directory in [('/pin-atlas', ROOT.parent / 'pin-atlas/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site')]:
+            for prefix, directory in [('/execmap', ROOT.parent / 'execmap/_site'), ('/pin-atlas', ROOT.parent / 'pin-atlas/_site'), ('/syscall', ROOT.parent / 'syscall/_site'), ('/kilavuzlar', ROOT.parent / 'kilavuzlar/_site')]:
                 sub_target = (directory / pathname.lstrip('/')).resolve()
                 if sub_target.is_file():
                     candidates.append((directory, sub_target))
@@ -67,7 +67,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=4180)
     args = parser.parse_args()
-    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall', 'pin-atlas']:
+    for name in ['zaryob.github.io', 'kilavuzlar', 'syscall', 'pin-atlas', 'execmap']:
         if not (ROOT.parent / name / '_site/index.html').is_file():
             raise SystemExit(f'Build {name} before starting this preview.')
     server = ThreadingHTTPServer(('127.0.0.1', args.port), partial(SuiteHandler, directory=str(ROOT / '_site')))
