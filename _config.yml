@@ -38,6 +38,7 @@ exclude:
   - README.tr.md
   - LICENSE
   - LICENSE-CONTENT
+  - LICENSES
   - docker-compose.yml
   - Gemfile
   - Gemfile.lock

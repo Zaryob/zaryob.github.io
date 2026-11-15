@@ -72,4 +72,4 @@ Social link icons are loaded from `assets/icons/site.svg` through `_includes/ico
 
 ## License
 
-Site source code is licensed under GPL-3.0-or-later ([LICENSE](LICENSE)). Posts, pages and the author's own images are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CONTENT](LICENSE-CONTENT)). Third-party material keeps its own licence.
+Site source code is licensed under GPL-3.0-or-later ([LICENSE](LICENSE)). Posts, pages and the author's own images are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CONTENT](LICENSE-CONTENT), [LICENSES/CC-BY-SA-4.0.txt](LICENSES/CC-BY-SA-4.0.txt)). Third-party material keeps its own licence.
