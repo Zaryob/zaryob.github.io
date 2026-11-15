@@ -23,11 +23,7 @@ image_hash: "cc30914dbb849385dc6c0bf877626671"
     <h3>{{ months[month.name] }}</h3>
     <ul>
       {% for post in month.items %}
-        {% assign m = post.date | date: "%-m" | minus: 1 %}
-        {% assign dd = post.date | date: "%d" %}
-        {% assign mm = months[m] %}
-        {% assign yy = post.date | date: "%Y" %}
-        <li class="arch-list"> {{ dd }} {{ mm }} {{ yy }} &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
+        <li class="arch-list"> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%d" }}</time> &raquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a> </li>
       {% endfor %}
     </ul>
   {% endfor %}
