@@ -37,6 +37,8 @@
   "{minutes} min read": "{minutes} dakika okuma süresi",
   "Copy": "Kopyala",
   "Copy code": "Kodu kopyala",
+  "↔ wrap": "↔ sar",
+  "Wrap long lines": "Uzun satırları sar",
   "Copied": "Kopyalandı",
   "Select code to copy": "Kodu seçerek kopyala",
   "Zaryob / Search": "Zaryob / Ara",

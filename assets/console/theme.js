@@ -198,6 +198,110 @@
       wrapper.append(button);
     });
 
+    // A code block that scrolls sideways shows a fade at each edge that hides code,
+    // and a toggle that wraps its lines instead. Site scripts may still move the copy
+    // button into their own code bar on DOMContentLoaded, so place the toggle afterwards.
+    const codeBlocks = [...document.querySelectorAll('.console-code')];
+    const codeCues = [];
+    codeBlocks.forEach((wrapper, index) => {
+      const pre = wrapper.querySelector(':scope > pre');
+      if (!pre) return;
+      const fades = ['start', 'end'].map(side => {
+        const fade = document.createElement('span');
+        fade.className = `console-code-fade console-code-fade--${side}`;
+        fade.setAttribute('aria-hidden', 'true');
+        return fade;
+      });
+      pre.after(...fades);
+      let toggle = null;
+      let wrapped = false;
+      let inRow = false;
+      const copy = wrapper.querySelector('.console-copy');
+      const place = () => {
+        const left = pre.offsetLeft + pre.clientLeft;
+        const top = pre.offsetTop + pre.clientTop;
+        // A sticky line-number gutter stays visible; the start fade begins after it.
+        const gutter = pre.firstElementChild;
+        const gutterWidth = gutter && gutter.tagName !== 'CODE' && getComputedStyle(gutter).position === 'sticky'
+          ? gutter.offsetWidth : 0;
+        wrapper.style.setProperty('--console-code-top', `${top}px`);
+        wrapper.style.setProperty('--console-code-height', `${pre.clientHeight}px`);
+        wrapper.style.setProperty('--console-code-left', `${left + gutterWidth}px`);
+        wrapper.style.setProperty('--console-code-right', `${wrapper.clientWidth - left - pre.clientWidth}px`);
+        if (toggle && inRow && copy && !toggle.hidden) {
+          const style = getComputedStyle(copy);
+          const copyTop = parseFloat(style.top);
+          const copyRight = parseFloat(style.right);
+          const besideRight = copyRight + copy.offsetWidth + 6;
+          // With large text the pair may not fit side by side: stack the toggle under Copy.
+          const stacked = wrapper.clientWidth - besideRight - toggle.offsetWidth < left + 4;
+          toggle.style.top = `${stacked ? copyTop + copy.offsetHeight + 6 : copyTop}px`;
+          toggle.style.right = `${stacked ? copyRight : besideRight}px`;
+          if (stacked) wrapper.style.setProperty('--console-code-row', `${copyTop + copy.offsetHeight + 6 + toggle.offsetHeight + 8}px`);
+          else wrapper.style.removeProperty('--console-code-row');
+        }
+      };
+      const update = () => {
+        const hidden = pre.scrollWidth - pre.clientWidth;
+        // A few pixels are the end padding, not hidden code.
+        const overflow = hidden > 4;
+        wrapper.classList.toggle('console-code--fade-start', overflow && pre.scrollLeft > 1);
+        wrapper.classList.toggle('console-code--fade-end', overflow && pre.scrollLeft < hidden - 1);
+        if (toggle && !wrapped) {
+          toggle.hidden = !overflow;
+          wrapper.classList.toggle('console-code--actions-row', inRow && overflow);
+        }
+        place();
+      };
+      if (!wrapper.classList.contains('console-declaration')) {
+        toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'console-code-toggle';
+        toggle.hidden = true;
+        toggle.dataset.i18n = '↔ wrap';
+        toggle.dataset.i18nAriaLabel = 'Wrap long lines';
+        toggle.textContent = t('↔ wrap');
+        toggle.lang = labelLanguage();
+        toggle.setAttribute('aria-label', t('Wrap long lines'));
+        toggle.setAttribute('aria-pressed', 'false');
+        pre.id ||= `console-code-${index + 1}`;
+        toggle.setAttribute('aria-controls', pre.id);
+        toggle.addEventListener('click', () => {
+          wrapped = !wrapped;
+          toggle.setAttribute('aria-pressed', String(wrapped));
+          wrapper.classList.toggle('console-code--wrapped', wrapped);
+          update();
+        });
+      }
+      codeCues.push({ wrapper, pre, copy, update, place: () => {
+        if (!toggle) return;
+        const head = wrapper.previousElementSibling;
+        if (copy && copy.parentElement !== wrapper) {
+          // The site moved Copy into its own code bar: sit next to it there.
+          toggle.classList.add('console-code-toggle--bar');
+          copy.before(toggle);
+        } else if (copy && head && getComputedStyle(copy).position === 'absolute' && parseFloat(getComputedStyle(copy).top) < 0) {
+          // Copy floats over the site's code header: join that header.
+          toggle.classList.add('console-code-toggle--bar');
+          head.append(toggle);
+        } else {
+          // Copy sits inside the block: both get their own row above the first line.
+          inRow = Boolean(copy);
+          toggle.classList.toggle('console-code-toggle--row', inRow);
+          if (copy) copy.before(toggle); else wrapper.append(toggle);
+        }
+      } });
+      pre.addEventListener('scroll', update, { passive: true });
+    });
+    setTimeout(() => {
+      codeCues.forEach(cue => { cue.place(); cue.update(); });
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(entries => entries.forEach(entry => codeCues.find(cue => cue.pre === entry.target || cue.copy === entry.target)?.update()));
+        codeCues.forEach(cue => { observer.observe(cue.pre); if (cue.copy) observer.observe(cue.copy); });
+      }
+      document.fonts?.ready.then(() => codeCues.forEach(cue => cue.update()));
+    });
+
     const highlightQuery = new URLSearchParams(location.search).get('highlight');
     if (highlightQuery) {
       const terms = highlightQuery.trim().split(/\s+/).filter(Boolean);
