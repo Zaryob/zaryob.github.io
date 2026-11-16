@@ -14,11 +14,11 @@ One ls -F footer for every suite site. Parameters (all optional):
     <p class="suite-footer__prompt" aria-hidden="true"><span class="suite-footer__host">zaryob</span>:{{ include.cwd | default: '~' }} $ <span class="suite-footer__cmd">ls -F</span></p>
     <div class="suite-footer__cols">
       {{ include.columns }}
-      <nav class="suite-footer__col" aria-label="{% if footer_lang == 'en' %}Zaryob projects{% else %}Zaryob projeleri{% endif %}" data-i18n-aria-label="Zaryob projects">
-        <p class="suite-footer__title">~/<span data-i18n="projects/">{% if footer_lang == 'en' %}projects/{% else %}projeler/{% endif %}</span></p>
+      <nav class="suite-footer__col" aria-label="{% if footer_lang == 'en' %}Zaryob sites{% else %}Zaryob siteleri{% endif %}" data-i18n-aria-label="Zaryob sites">
+        <p class="suite-footer__title">~/<span data-i18n="sites/">{% if footer_lang == 'en' %}sites/{% else %}siteler/{% endif %}</span></p>
         <ul class="console-suite__list">
           {% for project in site.data.console_projects %}{% if project.key != 'home' %}
-          <li><a href="{{ suite_root }}{{ project.path }}" aria-label="{{ project.title | escape }}"{% if project.title_en %} data-i18n-aria-label="{{ project.title_en }}"{% endif %}{% if site.suite_section == project.key %} aria-current="location"{% endif %}>{{ project.prompt }}/</a></li>
+          <li><a href="{{ suite_root }}{{ project.path }}"{% if site.suite_section == project.key %} aria-current="location"{% endif %}>{{ project.prompt }}/<span class="console-sr-only"> — <span{% if project.title_en %} data-i18n="{{ project.title_en }}"{% endif %}>{% if footer_lang == 'en' and project.title_en %}{{ project.title_en }}{% else %}{{ project.title }}{% endif %}</span></span></a></li>
           {% endif %}{% endfor %}
         </ul>
       </nav>
