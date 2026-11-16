@@ -6,6 +6,7 @@
   "Home": "Ana sayfa",
   "Switch project": "Proje değiştir",
   "Zaryob projects": "Zaryob projeleri",
+  "Zaryob sites": "Zaryob siteleri",
   "Posts": "Yazılar",
   "Guides": "Kılavuzlar",
   "Projects": "Projeler",
