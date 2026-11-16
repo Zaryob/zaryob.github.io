@@ -285,9 +285,11 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-site .console-code-toggle[aria-pressed="true"] { border-color: var(--accent); background: var(--selection); color: var(--accent); }
 /* Copy and the toggle form one group in the top right corner of the block. In a block taller
    than the screen the group, a site code bar or a site code header stays under the sticky page
-   header while the reader scrolls through the code, and stops at the block's bottom edge. */
-:root { --console-code-stick: calc(var(--console-header-height, 0px) + 8px); }
-.console-code { --console-code-gap: 10px; }
+   header while the reader scrolls through the code, and stops at the block's bottom edge. A bar
+   or header sticks flush to the page header; the floating group's ring reaches up to it, so no
+   strip of code shows between the two. */
+:root { --console-code-stick: var(--console-header-height, 0px); }
+.console-code { --console-code-gap: 10px; --console-code-ring: 4px; }
 .console-code--grouped { display: grid; grid-template-columns: minmax(0, 1fr); }
 .console-code--grouped > :is(pre, .console-code-actions) { grid-area: 1 / 1; }
 .console-code-actions { position: relative; z-index: 1; align-self: start; justify-self: end; display: flex; flex-wrap: wrap-reverse; justify-content: flex-end; align-items: center; gap: 6px; max-width: calc(100% - var(--console-code-gap) - 5px); margin: var(--console-code-gap) var(--console-code-gap) 0 0; }
@@ -297,11 +299,13 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-code-actions--rail > .console-copy { pointer-events: auto; }
 .console-code--tall > .console-code-actions, .console-code--tall > [data-console-code="bar"], .console-code-span--tall > [data-console-code="head"] { position: sticky; top: var(--console-code-stick); }
 .console-code--tall > [data-console-code="bar"], .console-code-span--tall > [data-console-code="head"] { z-index: 2; }
+.console-code--tall > .console-code-actions:not(.console-code-actions--rail) { top: calc(var(--console-code-stick) + var(--console-code-ring)); }
 .console-code--tall > .console-code-actions--rail { z-index: 3; top: calc(var(--console-code-stick) + var(--console-code-head-height, 0px)); margin-bottom: calc(-1 * var(--console-code-after, 0px)); }
-.console-code-actions[data-console-floating]:not(.console-code-actions--rail) { background: var(--paper); box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--line), 0 8px 18px rgb(0 0 0 / .35); }
+.console-code-actions[data-console-floating]:not(.console-code-actions--rail) { background: var(--paper); box-shadow: 0 0 0 var(--console-code-ring) var(--paper), 0 0 0 calc(var(--console-code-ring) + 1px) var(--line), 0 8px 18px rgb(0 0 0 / .35); }
 /* Rouge's reset must not make a site code bar see-through once it floats over the code. */
 .console-site .highlight [data-console-code="bar"] { background: var(--paper); }
-:is([data-console-code="bar"], [data-console-code="head"])[data-console-floating] { box-shadow: 0 8px 14px -6px rgb(0 0 0 / .45); }
+/* The page header's measured height is rounded up; the paper edge above a stuck bar closes that sub-pixel seam. */
+:is([data-console-code="bar"], [data-console-code="head"])[data-console-floating] { box-shadow: 0 -1px 0 var(--paper), 0 8px 14px -6px rgb(0 0 0 / .45); }
 .console-site .console-code-toggle--bar { flex-shrink: 0; margin-inline-start: auto; }
 .console-site .console-code-toggle--bar + .console-copy { margin-inline-start: 0; }
 /* A site code bar that holds the toggle may wrap rather than push past the block. */
