@@ -125,6 +125,43 @@ yazılım mühendisi
   {% capture footer_links %}<a href="https://github.com/Zaryob/zaryob.github.io"><span data-i18n="Site source code">{% if en %}Site source code{% else %}Site kaynak kodu{% endif %}</span></a>&nbsp;· GPL-3.0-or-later{% endcapture %}
   {% include console-footer.html columns=footer_columns legal=footer_legal links=footer_links top="#main-content" %}
 
-  {% if page.math %}<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous" async></script>{% endif %}
+  {% if page.math %}<script>
+  // A formula wider than the column is marked and scrolls inside its own box (see _post.scss);
+  // it is then named for keyboard and screen reader users. Formulas that fit stay as MathJax made them.
+  window.MathJax = { startup: { pageReady: () => MathJax.startup.defaultPageReady().then(() => {
+    const content = document.querySelector('.post-content');
+    if (!content) return;
+    const mark = () => content.querySelectorAll('mjx-container').forEach(math => {
+      math.removeAttribute('data-math-wide');
+      if (math.getAttribute('display') === 'true') {
+        if (math.scrollWidth > math.clientWidth + 1) math.setAttribute('data-math-wide', '');
+      } else {
+        // An inline formula cannot break, so it is wide when it is wider than its line box.
+        let block = math.parentElement;
+        while (block !== content && getComputedStyle(block).display.startsWith('inline')) block = block.parentElement;
+        const style = getComputedStyle(block);
+        const line = block.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+        if (math.getBoundingClientRect().width > line + 1) math.setAttribute('data-math-wide', '');
+      }
+      const scrolls = math.scrollWidth > math.clientWidth + 1;
+      if (scrolls) {
+        const en = (math.closest('[lang]')?.lang || '').startsWith('en');
+        math.setAttribute('role', 'region');
+        math.setAttribute('aria-label', en ? 'Formula, scrolls sideways' : 'Formül, yana kayar');
+        if (!math.hasAttribute('tabindex')) math.tabIndex = 0;
+      } else if (math.getAttribute('role') === 'region') {
+        math.removeAttribute('role');
+        math.removeAttribute('aria-label');
+      }
+    });
+    let queued = false;
+    new ResizeObserver(() => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; mark(); });
+    }).observe(content);
+    mark();
+  }) } };
+  </script><script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous" async></script>{% endif %}
 </body>
 </html>
