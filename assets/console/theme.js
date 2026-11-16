@@ -217,6 +217,10 @@
       let wrapped = false;
       let inRow = false;
       const copy = wrapper.querySelector('.console-copy');
+      // The element that keeps Copy in view while a tall block scrolls past: the group of
+      // Copy and the toggle, a site code bar that holds Copy, or a site header above the block.
+      let sticky = null;
+      let rail = null;
       const place = () => {
         const left = pre.offsetLeft + pre.clientLeft;
         const top = pre.offsetTop + pre.clientTop;
@@ -229,17 +233,32 @@
         wrapper.style.setProperty('--console-code-left', `${left + gutterWidth}px`);
         wrapper.style.setProperty('--console-code-right', `${wrapper.clientWidth - left - pre.clientWidth}px`);
         if (toggle && inRow && copy && !toggle.hidden) {
-          const style = getComputedStyle(copy);
-          const copyTop = parseFloat(style.top);
-          const copyRight = parseFloat(style.right);
-          const besideRight = copyRight + copy.offsetWidth + 6;
-          // With large text the pair may not fit side by side: stack the toggle under Copy.
-          const stacked = wrapper.clientWidth - besideRight - toggle.offsetWidth < left + 4;
-          toggle.style.top = `${stacked ? copyTop + copy.offsetHeight + 6 : copyTop}px`;
-          toggle.style.right = `${stacked ? copyRight : besideRight}px`;
-          if (stacked) wrapper.style.setProperty('--console-code-row', `${copyTop + copy.offsetHeight + 6 + toggle.offsetHeight + 8}px`);
+          // With large text the pair may not fit side by side: the toggle wraps under Copy.
+          const group = copy.parentElement;
+          if (group.offsetHeight > copy.offsetHeight + 2) wrapper.style.setProperty('--console-code-row', `${group.offsetTop + group.offsetHeight + 8}px`);
           else wrapper.style.removeProperty('--console-code-row');
         }
+        if (sticky) {
+          const span = rail ? sticky.parentElement : wrapper;
+          if (rail) {
+            wrapper.style.setProperty('--console-code-head-height', `${sticky.offsetHeight}px`);
+            // The rail may follow the header past the block's end, but Copy must stay inside the block.
+            const after = Math.max(0, span.getBoundingClientRect().bottom - wrapper.getBoundingClientRect().bottom);
+            const overhang = Math.max(0, copy.offsetTop + copy.offsetHeight);
+            wrapper.style.setProperty('--console-code-after', `${after - overhang}px`);
+          }
+          const tall = span.offsetHeight > root.clientHeight - (parseFloat(root.style.getPropertyValue('--console-header-height')) || 0);
+          span.classList.toggle('console-code-span--tall', tall);
+          wrapper.classList.toggle('console-code--tall', tall);
+          float();
+        }
+      };
+      // While stuck below its resting place the floating element gets a shadow.
+      const float = () => {
+        if (!sticky) return;
+        const span = rail ? sticky.parentElement : wrapper;
+        const rest = span.getBoundingClientRect().top + parseFloat(getComputedStyle(sticky).marginTop);
+        sticky.toggleAttribute('data-console-floating', wrapper.classList.contains('console-code--tall') && sticky.getBoundingClientRect().top > rest + 0.5);
       };
       let overflow = false;
       const fade = () => {
@@ -283,22 +302,42 @@
           update();
         });
       }
-      codeCues.push({ wrapper, pre, copy, update, place: () => {
+      codeCues.push({ wrapper, pre, copy, update, float, place: () => {
         if (!toggle) return;
         const head = wrapper.previousElementSibling;
         if (copy && copy.parentElement !== wrapper) {
           // The site moved Copy into its own code bar: sit next to it there.
           toggle.classList.add('console-code-toggle--bar');
           copy.before(toggle);
+          if (copy.parentElement.parentElement === wrapper) {
+            sticky = copy.parentElement;
+            sticky.dataset.consoleCode = 'bar';
+          }
         } else if (copy && head && getComputedStyle(copy).position === 'absolute' && parseFloat(getComputedStyle(copy).top) < 0) {
           // Copy floats over the site's code header: join that header.
           toggle.classList.add('console-code-toggle--bar');
           head.append(toggle);
+          // The header sticks within its own container; Copy rides on a rail that follows it.
+          if (head.parentElement.firstElementChild === head) {
+            sticky = head;
+            head.dataset.consoleCode = 'head';
+            rail = document.createElement('div');
+            rail.className = 'console-code-actions console-code-actions--rail';
+            copy.before(rail);
+            rail.append(copy);
+            wrapper.classList.add('console-code--grouped');
+          }
         } else {
-          // Copy sits inside the block: both get their own row above the first line.
+          // Copy sits inside the block: both form one group above the first line.
           inRow = Boolean(copy);
           toggle.classList.toggle('console-code-toggle--row', inRow);
-          if (copy) copy.before(toggle); else wrapper.append(toggle);
+          if (copy) {
+            sticky = document.createElement('div');
+            sticky.className = 'console-code-actions';
+            copy.before(sticky);
+            sticky.append(toggle, copy);
+            wrapper.classList.add('console-code--grouped');
+          } else wrapper.append(toggle);
         }
       } });
       pre.addEventListener('scroll', fade, { passive: true });
@@ -310,6 +349,10 @@
         codeCues.forEach(cue => { observer.observe(cue.pre); if (cue.copy) observer.observe(cue.copy); });
       }
       document.fonts?.ready.then(() => codeCues.forEach(cue => cue.update()));
+      let floatFrame = 0;
+      const floatAll = () => { floatFrame ||= requestAnimationFrame(() => { floatFrame = 0; codeCues.forEach(cue => cue.float()); }); };
+      addEventListener('scroll', floatAll, { passive: true });
+      addEventListener('resize', () => codeCues.forEach(cue => cue.update()), { passive: true });
     });
 
     const highlightQuery = new URLSearchParams(location.search).get('highlight');
