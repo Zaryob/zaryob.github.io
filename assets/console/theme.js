@@ -103,11 +103,12 @@
     };
     dropdowns.forEach((dropdown, index) => {
       const projectPath = dropdown.querySelector('.console-project-path');
-      if (projectPath) {
-        // The mobile path may be ellipsized; keep its full text as context
-        // without replacing the translated action name or other descriptions.
+      const summary = dropdown.querySelector('summary');
+      if (projectPath && summary.hasAttribute('aria-label')) {
+        // The mobile path may be ellipsized; where an aria-label replaces the
+        // visible path as the name, keep the full path as context without
+        // replacing the translated action name or other descriptions.
         projectPath.id ||= `console-project-context-${index}`;
-        const summary = dropdown.querySelector('summary');
         const descriptions = new Set((summary.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
         descriptions.add(projectPath.id);
         summary.setAttribute('aria-describedby', [...descriptions].join(' '));
