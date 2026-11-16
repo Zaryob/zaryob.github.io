@@ -218,7 +218,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .suite-footer__legal a:hover { color: var(--accent); }
 .suite-footer__note { flex-basis: 100%; margin: 0; padding-block: 4px; line-height: 1.6; }
 .suite-footer__note a { min-height: 0; }
-.suite-footer__top { margin-inline-start: 16px; }
+.suite-footer__top { gap: .5em; margin-inline-start: 16px; }
 @media (max-width: 560px) { .suite-footer__inner { padding: 24px 16px 12px; } }
 @media print { .suite-footer { display: none; } }
 .console-hints { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }

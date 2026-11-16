@@ -74,6 +74,7 @@
   "Site source code": "Site kaynak kodu",
   "Site sections": "Site bölümleri",
   "projects/": "projeler/",
+  "sites/": "siteler/",
   "archive/": "arşiv/",
   "bookshelf/": "kitaplık/",
   "tools": "araçlar",
