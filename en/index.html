@@ -15,7 +15,7 @@ translated: '2026-11-03'
 <section class="content-section" aria-labelledby="projects-heading">
   <div class="section-heading">
     <h2 id="projects-heading"><span data-i18n="What I am working on">What I am working on</span></h2>
-    <a href="{{ '/en/projects/' | relative_url }}"><span data-i18n="All projects">All projects</span> <span aria-hidden="true">→</span></a>
+    <a href="{{ '/en/projects/' | relative_url }}"><span data-i18n="Projects">Projects</span> <span aria-hidden="true">→</span></a>
   </div>
   <div class="project-grid">
     {% assign featured_projects = site.data.projects_en | where: "featured", true %}
@@ -31,7 +31,6 @@ translated: '2026-11-03'
         <h3><a href="{{ '/en/projects/' | relative_url }}#{{ project.name | slugify }}">{{ project.display_name | default: project.name }}</a></h3>
         <p><span data-i18n="{{ project.summary_en | default: project.summary | escape }}">{{ project.summary_en | default: project.summary }}</span></p>
         {% if project.facts %}<ul class="project-card__facts">{% for fact in project.facts %}<li>{{ fact | escape }}</li>{% endfor %}</ul>{% endif %}
-        <a class="project-card__link" href="{{ '/en/projects/' | relative_url }}#{{ project.name | slugify }}"><span data-i18n="Explore project">Explore project</span> <span aria-hidden="true">→</span></a>
       </div>
     </article>
     {% endfor %}
@@ -41,7 +40,7 @@ translated: '2026-11-03'
 <section class="content-section" aria-labelledby="writing-heading">
   <div class="section-heading">
     <h2 id="writing-heading"><span data-i18n="Latest posts">Latest posts</span></h2>
-    <a href="{{ '/en/posts/' | relative_url }}"><span data-i18n="All articles">All articles</span> <span aria-hidden="true">→</span></a>
+    <a href="{{ '/en/posts/' | relative_url }}"><span data-i18n="All posts">All posts</span> <span aria-hidden="true">→</span></a>
   </div>
   <div class="blog-list">
     {% assign featured_count = 0 %}
