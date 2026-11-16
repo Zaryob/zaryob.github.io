@@ -55,7 +55,11 @@
   }
 }
 * { box-sizing: border-box; }
-html { scroll-padding-top: 6rem; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+/* Anchors and focused controls stop just below the sticky header. theme.js measures the
+   header into --console-header-height; the rem values are the no-script fallback. */
+html { --console-scroll-gap: .75rem; scroll-padding-top: calc(var(--console-header-height, 5.25rem) + var(--console-scroll-gap)); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+/* The header itself sits inside that padding; focusing one of its controls must not scroll the page. */
+.console-header :focus { scroll-margin-top: calc(-1 * (var(--console-header-height, 5.25rem) + var(--console-scroll-gap))); }
 body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); color: var(--ink); font: var(--text-base)/var(--line-body) var(--font-mono); font-synthesis: none; transition: background-color 0.15s ease, color 0.15s ease; }
 .console-site :is(h1,h2,h3,h4,h5,h6,button,input,select,textarea,code,pre,kbd,summary) { font-family: var(--font-mono); letter-spacing: 0; }
 .console-site :is(h1,h2,h3,h4), .pin-atlas-site :is(h1,h2,h3,h4) { color: var(--ink); font-weight: 500; line-height: var(--line-heading); overflow-wrap: anywhere; }
@@ -280,7 +284,7 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   .console-tools { gap: 10px; }
 }
 @media (max-width: 1180px) {
-  html { scroll-padding-top: 5rem; }
+  html { scroll-padding-top: calc(var(--console-header-height, 4.25rem) + var(--console-scroll-gap)); }
   .console-header__inner { flex-wrap: wrap; gap: 0 18px; min-height: 68px; padding: 12px 20px; }
   .console-identity { flex: 1 1 0; }
   .console-brand { min-width: 0; flex-shrink: 1; margin: 0; overflow: hidden; text-overflow: ellipsis; }

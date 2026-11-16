@@ -53,6 +53,20 @@
     menu?.addEventListener('click', () => {
       setMenuOpen(menu.getAttribute('aria-expanded') !== 'true');
     });
+    // Keep scroll-padding-top equal to the sticky header's real height, which changes
+    // with text size, wrapping and viewport width.
+    const header = document.querySelector('.console-header');
+    if (header && 'ResizeObserver' in window) {
+      const measureHeader = () => {
+        // The open phone menu is not part of the bar that covers the page.
+        if (navigation?.classList.contains('is-open')) return;
+        const position = getComputedStyle(header).position;
+        const height = position === 'sticky' || position === 'fixed' ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        root.style.setProperty('--console-header-height', `${height}px`);
+      };
+      measureHeader();
+      new ResizeObserver(measureHeader).observe(header);
+    }
     const dropdowns = [...document.querySelectorAll('[data-console-categories], [data-console-projects]')];
     const closeDropdown = (dropdown, restoreFocus = false) => {
       dropdown.open = false;
