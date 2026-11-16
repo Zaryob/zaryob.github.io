@@ -269,6 +269,31 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-site .highlight .console-copy { background: var(--paper); }
 .console-site .highlight .console-copy:hover { background: var(--surface); }
 .console-site .highlight .console-copy:active { background: var(--selection); }
+/* Sideways-scrolling code: an edge fade where code is hidden and a toggle that wraps the lines. */
+.console-code-fade { position: absolute; top: var(--console-code-top, 0); height: var(--console-code-height, 100%); width: clamp(16px, 8%, 40px); opacity: 0; pointer-events: none; transition: opacity .15s ease; }
+.console-site .console-code .console-code-fade--end { right: var(--console-code-right, 0); background: linear-gradient(to left, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset -2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-site .console-code .console-code-fade--start { left: var(--console-code-left, 0); background: linear-gradient(to right, var(--surface) 15%, color-mix(in srgb, var(--surface) 0%, transparent)); box-shadow: inset 2px 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+.console-code--fade-end > .console-code-fade--end, .console-code--fade-start > .console-code-fade--start { opacity: 1; }
+.console-site .console-code-toggle { min-height: 30px; padding: 4px 9px; border-color: var(--control-border); background: var(--paper); color: var(--ink); font: var(--text-xs)/1.5 var(--font-mono); white-space: nowrap; }
+.console-site .console-code-toggle[hidden] { display: none; }
+.console-site .console-code-toggle:hover { background: var(--surface); color: var(--accent); }
+.console-site .console-code-toggle[aria-pressed="true"] { border-color: var(--accent); background: var(--selection); color: var(--accent); }
+.console-code-toggle--row { position: absolute; z-index: 1; top: 10px; right: 96px; }
+.console-site .console-code-toggle--bar { flex-shrink: 0; margin-inline-start: auto; }
+.console-site .console-code-toggle--bar + .console-copy { margin-inline-start: 0; }
+/* A site code bar that holds the toggle may wrap rather than push past the block. */
+:has(> .console-code-toggle--bar) { flex-wrap: wrap; }
+.console-site .console-code--actions-row > pre { padding-top: var(--console-code-row, 52px); padding-inline-end: 18px; }
+.console-site .console-code--wrapped > pre, .console-site .console-code--wrapped > pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
+/* Line numbers no longer match wrapped lines; they return when the lines scroll again. */
+.console-code--wrapped > pre > [aria-hidden="true"]:first-child { display: none; }
+.console-site .console-code.console-code--wrapped > pre[id]:has(> [aria-hidden="true"]:first-child) { display: block; padding-inline-start: 14px; }
+@media (pointer: coarse) {
+  .console-site .console-code-toggle { min-height: 44px; }
+  .console-site .console-code--actions-row > pre { padding-top: var(--console-code-row, 60px); }
+}
+@media (prefers-reduced-motion: reduce) { .console-code-fade { transition: none; } }
+@media print { .console-code-toggle, .console-code-fade { display: none !important; } }
 .console-site pre.highlight { background: var(--surface); }
 .console-site .highlight .err { background: transparent; color: var(--danger); }
 .console-site .highlight :is(.c,.c1,.cm,.cp,.cs,.w) { color: var(--muted); font-style: normal; }
@@ -344,6 +369,8 @@ html.console-scroll-locked .console-header { z-index: 45; }
   /* The copy button gets its own row above the first line instead of a right gutter on every line. */
   .console-site .console-code:where(:not(.console-declaration)) pre { padding: 60px 14px 12px; }
   .console-copy { top: 8px; right: 8px; min-height: 44px !important; }
+  .console-site .console-code-toggle { min-height: 44px; }
+  .console-site .console-code--actions-row > pre { padding: var(--console-code-row, 60px) 14px 12px; }
 }
 @media (max-width: 380px) {
   .console-header__inner { gap: 10px 8px; }
