@@ -11,5 +11,5 @@
   {% endif %}
   <time datetime="{{ meta_post.date | date_to_xmlschema }}">{% include console-icon.html name='calendar' %}<span data-i18n-date="{{ meta_post.date | date_to_xmlschema }}">{{ meta_post.date | date: '%d.%m.%Y' }}</span></time>
   <span class="post-meta__duration">{% include console-icon.html name='clock' %}{% include read_time.html content=meta_post.content %}</span>
-  {% if meta_post.lang == 'en' %}<span lang="en">English</span>{% endif %}
+  {% assign meta_post_lang = meta_post.lang | default: 'tr' %}{% assign meta_page_lang = page.lang | default: 'tr' %}{% if meta_post_lang != meta_page_lang %}<span lang="{{ meta_post_lang }}">{% if meta_post_lang == 'en' %}English{% else %}Türkçe{% endif %}</span>{% endif %}
 </div>

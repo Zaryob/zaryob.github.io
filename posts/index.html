@@ -12,7 +12,7 @@ hero_image: "/assets/img/pages/home-bg.webp"
 {% include writing-topics.html %}
 
 <section class="content-section" aria-labelledby="posts-heading">
-  <div class="section-heading"><h2 id="posts-heading"><span data-i18n="All articles">Bütün yazılar</span></h2></div>
+  <div class="section-heading console-sr-only"><h2 id="posts-heading"><span data-i18n="All articles">Bütün yazılar</span></h2></div>
   <div class="blog-list">
     {% comment %} _plugins/turkish_pagination.rb keeps the English editions out of the paginator. {% endcomment %}
     {% for post in paginator.posts %}
