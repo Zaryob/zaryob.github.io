@@ -262,6 +262,24 @@
         sticky.toggleAttribute('data-console-floating', wrapper.classList.contains('console-code--tall') && sticky.getBoundingClientRect().top > rest + 0.5);
       };
       let overflow = false;
+      const code = pre.querySelector(':scope > code') || pre;
+      // A block needs the row when its longest line runs into the end padding kept for Copy,
+      // or under Copy itself where Copy sits beside the first line and is wider than that padding.
+      const reachesPastLimit = () => {
+        const box = pre.getBoundingClientRect();
+        const start = box.left + pre.clientLeft;
+        const style = getComputedStyle(pre);
+        let limit = pre.clientWidth - parseFloat(style.paddingRight);
+        if (inRow && copy && copy.offsetParent) {
+          const button = copy.getBoundingClientRect();
+          const firstLine = box.top + pre.clientTop + parseFloat(style.paddingTop);
+          if (button.bottom > firstLine) limit = Math.min(limit, button.left - start);
+        }
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const reach = range.getBoundingClientRect().right - start + pre.scrollLeft;
+        return reach > limit + 0.01;
+      };
       const fade = () => {
         const hidden = pre.scrollWidth - pre.clientWidth;
         wrapper.classList.toggle('console-code--fade-start', overflow && pre.scrollLeft > 1);
@@ -273,8 +291,7 @@
         // undo each other and Copy ends up over the code.
         const row = wrapper.classList.contains('console-code--actions-row');
         if (row) wrapper.classList.remove('console-code--actions-row');
-        // A few pixels are the end padding, not hidden code.
-        overflow = pre.scrollWidth - pre.clientWidth > 4;
+        overflow = reachesPastLimit();
         if (row) wrapper.classList.add('console-code--actions-row');
         if (toggle && !wrapped) {
           toggle.hidden = !overflow;
