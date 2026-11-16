@@ -359,6 +359,10 @@ html.console-scroll-locked .console-header { z-index: 45; }
   .console-categories > summary .console-icon:last-child { margin-left: auto; }
   .console-category-menu { position: static; width: 100%; padding: 4px 8px 8px 20px; border: 0; border-left: 1px solid var(--line); }
   .console-tools { align-self: stretch; justify-content: space-between; flex-wrap: wrap; width: 100%; margin: 12px 0 0; padding: 16px 8px 8px; border-top: 1px solid var(--line); gap: 14px 20px; }
+  /* Without JavaScript the search, theme and language controls stay hidden; drop the row when
+     nothing else is in it, and the navigation too when that row was all it held. */
+  :root:not(.console-js) .console-tools:not(:has(> :not(.console-search-open, .console-theme, .console-language))),
+  :root:not(.console-js) .console-nav:not(:has(> :not(.console-tools))):not(:has(> .console-tools > :not(.console-search-open, .console-theme, .console-language))) { display: none; }
   .console-search-open { flex: 1 0 100%; min-width: 120px; justify-content: flex-start; }
   .console-search-open kbd { margin-left: auto; }
   :is(.console-theme,.console-language) > span { display: inline; }
