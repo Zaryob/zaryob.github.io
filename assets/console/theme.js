@@ -199,6 +199,18 @@
       }
     }
 
+    // A page with its own search box (Pin Atlas home and workspace) keeps "/" for that box,
+    // so the suite search button names Ctrl/⌘ K there instead.
+    const localSearch = () => document.querySelector('[data-console-local-search], #pin-search, #home-search');
+    const slashIsLocal = Boolean(localSearch());
+    root.classList.toggle('console-slash-local', slashIsLocal);
+    const modifierKey = /Mac|iPhone|iPad|iPod/.test(navigator.userAgentData?.platform || navigator.platform || '') ? '⌘K' : 'Ctrl K';
+    document.querySelectorAll('[data-console-search]').forEach(button => {
+      button.setAttribute('aria-keyshortcuts', slashIsLocal ? 'Control+K Meta+K' : '/ Control+K Meta+K');
+      const hint = button.querySelector('kbd');
+      if (hint && slashIsLocal) hint.textContent = modifierKey;
+    });
+
     const searchTriggers = document.querySelectorAll('[data-console-search], [data-console-search-compact]');
     if (!searchTriggers.length) return;
     const openSearch = searchTriggers[0];
@@ -455,7 +467,7 @@
       const target = event.target;
       const editing = target instanceof HTMLElement && (target.matches('input,textarea,select') || target.isContentEditable);
       const isSlash = event.key === '/' && !editing && !event.ctrlKey && !event.metaKey && !event.altKey;
-      if (isSlash && (document.querySelector('#pin-search') || document.querySelector('#home-search'))) return;
+      if (isSlash && localSearch()) return;
       const isSearchShortcut = isSlash ||
         ((event.key === 'k' || event.key === 'K') && (event.ctrlKey || event.metaKey));
       if (isSearchShortcut) { event.preventDefault(); showSearch(); }
