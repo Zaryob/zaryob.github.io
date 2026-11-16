@@ -267,6 +267,9 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   :is(.console-theme,.console-language) > span { display: none; }
   .console-tools { gap: 10px; }
 }
+/* Set by theme.js while a compact menu panel is open. */
+html.console-scroll-locked { overflow: hidden; padding-right: var(--console-scrollbar-width, 0px); }
+html.console-scroll-locked .console-header { z-index: 45; }
 @media (max-width: 1180px) {
   html { scroll-padding-top: calc(var(--console-header-height, 4.25rem) + var(--console-scroll-gap)); }
   .console-header__inner { flex-wrap: wrap; gap: 0 18px; min-height: 68px; padding: 12px 20px; }
@@ -283,6 +286,21 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   .console-nav { order: 3; flex: 0 0 100%; width: 100%; gap: 0; flex-direction: column; max-height: calc(100dvh - 88px); overflow-y: auto; overscroll-behavior: contain; }
   .console-js .console-nav { display: none; }
   .console-js .console-nav.is-open { display: flex; padding-top: 12px; }
+  /* An open menu or project list fills the viewport under the header and scrolls on its own;
+     theme.js locks the page behind it. */
+  .console-js .console-nav.is-open,
+  .console-js .console-projects[open] > .console-project-menu {
+    position: fixed; z-index: 1; top: var(--console-panel-top, var(--console-header-height, 69px)); right: 0; left: 0;
+    width: auto; max-width: none; height: calc(100vh - var(--console-panel-top, var(--console-header-height, 69px)));
+    height: calc(100dvh - var(--console-panel-top, var(--console-header-height, 69px))); max-height: none;
+    margin: 0; padding: 12px max(16px, var(--gutter)) max(24px, env(safe-area-inset-bottom));
+    overflow-y: auto; overscroll-behavior: contain; border: 0; border-top: 1px solid var(--line); background: var(--paper);
+  }
+  .console-js .console-nav.is-open { flex-wrap: nowrap; }
+  .console-js .console-nav.is-open > * { flex-shrink: 0; }
+  /* Inside a panel, focus scrolls the panel itself as usual. */
+  .console-js :is(.console-nav.is-open, .console-projects[open] > .console-project-menu) :focus { scroll-margin-top: 0; }
+  .console-js .console-projects[open] > .console-project-menu > a { max-width: 40rem; }
   .console-nav > a { gap: 10px; }
   .console-nav a { min-height: 44px; padding: 8px; border-bottom: 0; border-left: 2px solid transparent; }
   .console-nav a[aria-current] { border-left-color: var(--accent); background: var(--surface); }

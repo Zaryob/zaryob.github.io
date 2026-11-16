@@ -49,6 +49,9 @@
       if (menu) menu.dataset.i18nAriaLabel = open ? 'Close menu' : 'Open menu';
       navigation?.classList.toggle('is-open', open);
       if (open && navigation) navigation.scrollTop = 0;
+      // One panel at a time: the open menu replaces an open project list.
+      if (open) dropdowns?.forEach(dropdown => { if (dropdown.open) closeDropdown(dropdown); });
+      updateScrollLock();
     };
     menu?.addEventListener('click', () => {
       setMenuOpen(menu.getAttribute('aria-expanded') !== 'true');
@@ -58,8 +61,7 @@
     const header = document.querySelector('.console-header');
     if (header && 'ResizeObserver' in window) {
       const measureHeader = () => {
-        // The open phone menu is not part of the bar that covers the page.
-        if (navigation?.classList.contains('is-open')) return;
+        if (root.classList.contains('console-scroll-locked')) placePanel();
         const position = getComputedStyle(header).position;
         const height = position === 'sticky' || position === 'fixed' ? Math.ceil(header.getBoundingClientRect().height) : 0;
         root.style.setProperty('--console-header-height', `${height}px`);
@@ -67,10 +69,36 @@
       measureHeader();
       new ResizeObserver(measureHeader).observe(header);
     }
+    // On compact screens an open menu or project list is a panel that fills the viewport
+    // under the header. The page behind it keeps its place and does not scroll.
+    let lockedScroll = null;
+    function placePanel() {
+      const top = header ? Math.max(0, Math.round(header.getBoundingClientRect().bottom)) : 0;
+      root.style.setProperty('--console-panel-top', `${top}px`);
+    }
+    function updateScrollLock() {
+      const lock = compactNavigation.matches && (menu?.getAttribute('aria-expanded') === 'true'
+        || dropdowns.some(dropdown => dropdown.open && dropdown.matches('[data-console-projects]')));
+      if (lock) placePanel();
+      if (lock === root.classList.contains('console-scroll-locked')) return;
+      if (lock) {
+        lockedScroll = window.scrollY;
+        // Keep the width the scrollbar used so nothing shifts sideways.
+        root.style.setProperty('--console-scrollbar-width', `${Math.max(0, window.innerWidth - root.clientWidth)}px`);
+        root.classList.add('console-scroll-locked');
+      } else {
+        root.classList.remove('console-scroll-locked');
+        root.style.removeProperty('--console-scrollbar-width');
+        if (lockedScroll !== null && Math.abs(window.scrollY - lockedScroll) > 1) window.scrollTo({ top: lockedScroll, behavior: 'instant' });
+        lockedScroll = null;
+      }
+    }
+    window.addEventListener('resize', () => { if (root.classList.contains('console-scroll-locked')) placePanel(); });
     const dropdowns = [...document.querySelectorAll('[data-console-categories], [data-console-projects]')];
     const closeDropdown = (dropdown, restoreFocus = false) => {
       dropdown.open = false;
       dropdown.querySelector('summary').setAttribute('aria-expanded', 'false');
+      updateScrollLock();
       if (restoreFocus) dropdown.querySelector('summary').focus();
     };
     dropdowns.forEach((dropdown, index) => {
@@ -87,6 +115,8 @@
       const updateDropdown = () => {
         dropdown.querySelector('summary').setAttribute('aria-expanded', String(dropdown.open));
         if (dropdown.open) dropdowns.forEach(other => { if (other !== dropdown && other.open) closeDropdown(other); });
+        if (dropdown.open && compactNavigation.matches && dropdown.matches('[data-console-projects]') && menu?.getAttribute('aria-expanded') === 'true') setMenuOpen(false);
+        updateScrollLock();
       };
       updateDropdown();
       dropdown.addEventListener('toggle', updateDropdown);
@@ -96,6 +126,12 @@
         if (event.relatedTarget && !dropdown.contains(event.relatedTarget)) closeDropdown(dropdown);
       });
     });
+    navigation?.addEventListener('focusout', event => {
+      // Tabbing past the end of the open panel would reach controls hidden behind it.
+      const next = event.relatedTarget;
+      if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && next
+        && !next.closest('.console-header, dialog')) setMenuOpen(false);
+    });
     compactNavigation.addEventListener('change', () => {
       const restoreFocus = compactNavigation.matches && navigation?.contains(document.activeElement);
       setMenuOpen(false);
@@ -103,10 +139,12 @@
       if (restoreFocus) menu?.focus();
     });
     document.addEventListener('click', event => {
+      // A tap on an open panel's empty ground counts as outside the menu.
+      const ground = compactNavigation.matches && event.target.matches?.('.console-project-menu, .console-nav');
       dropdowns.forEach(dropdown => {
-        if (dropdown.open && !dropdown.contains(event.target)) closeDropdown(dropdown);
+        if (dropdown.open && (!dropdown.contains(event.target) || (ground && dropdown.matches('[data-console-projects]')))) closeDropdown(dropdown);
       });
-      if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && !event.target.closest('.console-header')) setMenuOpen(false);
+      if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && (!event.target.closest('.console-header') || event.target === navigation)) setMenuOpen(false);
     });
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape' || document.querySelector('dialog[open]')) return;
