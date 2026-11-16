@@ -22,6 +22,24 @@
     document.querySelectorAll('[data-console-theme]').forEach(select => { select.value = preference; });
   });
 
+  // Safari on iPhone ignores interactive-widget=resizes-content, so its on-screen keyboard
+  // covers the bottom of the page. --console-keyboard-inset is how much of the layout viewport
+  // it hides (0px without a keyboard); panels and dialogs subtract it to stay in view.
+  const visual = window.visualViewport;
+  const measureKeyboard = () => {
+    const zoomed = visual && Math.abs(visual.scale - 1) > 0.01;
+    const inset = visual && !zoomed ? Math.max(0, Math.round(window.innerHeight - visual.height - visual.offsetTop)) : 0;
+    root.style.setProperty('--console-keyboard-inset', `${inset}px`);
+    root.toggleAttribute('data-console-keyboard', inset > 0);
+  };
+  measureKeyboard();
+  if (visual) {
+    let keyboardFrame = 0;
+    const queueKeyboard = () => { keyboardFrame ||= requestAnimationFrame(() => { keyboardFrame = 0; measureKeyboard(); }); };
+    visual.addEventListener('resize', queueKeyboard);
+    visual.addEventListener('scroll', queueKeyboard);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const { t, apply: applyLanguage } = window.ZaryobI18n || {
       t: (text, values = {}) => text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match),
@@ -103,11 +121,12 @@
     };
     dropdowns.forEach((dropdown, index) => {
       const projectPath = dropdown.querySelector('.console-project-path');
-      if (projectPath) {
-        // The mobile path may be ellipsized; keep its full text as context
-        // without replacing the translated action name or other descriptions.
+      const summary = dropdown.querySelector('summary');
+      if (projectPath && summary.hasAttribute('aria-label')) {
+        // The mobile path may be ellipsized; where an aria-label replaces the
+        // visible path as the name, keep the full path as context without
+        // replacing the translated action name or other descriptions.
         projectPath.id ||= `console-project-context-${index}`;
-        const summary = dropdown.querySelector('summary');
         const descriptions = new Set((summary.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
         descriptions.add(projectPath.id);
         summary.setAttribute('aria-describedby', [...descriptions].join(' '));
@@ -261,6 +280,24 @@
         sticky.toggleAttribute('data-console-floating', wrapper.classList.contains('console-code--tall') && sticky.getBoundingClientRect().top > rest + 0.5);
       };
       let overflow = false;
+      const code = pre.querySelector(':scope > code') || pre;
+      // A block needs the row when its longest line runs into the end padding kept for Copy,
+      // or under Copy itself where Copy sits beside the first line and is wider than that padding.
+      const reachesPastLimit = () => {
+        const box = pre.getBoundingClientRect();
+        const start = box.left + pre.clientLeft;
+        const style = getComputedStyle(pre);
+        let limit = pre.clientWidth - parseFloat(style.paddingRight);
+        if (inRow && copy && copy.offsetParent) {
+          const button = copy.getBoundingClientRect();
+          const firstLine = box.top + pre.clientTop + parseFloat(style.paddingTop);
+          if (button.bottom > firstLine) limit = Math.min(limit, button.left - start);
+        }
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const reach = range.getBoundingClientRect().right - start + pre.scrollLeft;
+        return reach > limit + 0.01;
+      };
       const fade = () => {
         const hidden = pre.scrollWidth - pre.clientWidth;
         wrapper.classList.toggle('console-code--fade-start', overflow && pre.scrollLeft > 1);
@@ -272,8 +309,7 @@
         // undo each other and Copy ends up over the code.
         const row = wrapper.classList.contains('console-code--actions-row');
         if (row) wrapper.classList.remove('console-code--actions-row');
-        // A few pixels are the end padding, not hidden code.
-        overflow = pre.scrollWidth - pre.clientWidth > 4;
+        overflow = reachesPastLimit();
         if (row) wrapper.classList.add('console-code--actions-row');
         if (toggle && !wrapped) {
           toggle.hidden = !overflow;

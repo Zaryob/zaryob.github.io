@@ -24,6 +24,7 @@
   "Zaryob navigation": "Zaryob gezinme",
   "Post categories": "Yazı kategorileri",
   "Search Zaryob content": "Zaryob içeriklerinde ara",
+  "Zaryob content": "Zaryob içerikleri",
   "Color theme": "Renk teması",
   "Skip to content": "İçeriğe geç",
   "General": "Genel",
