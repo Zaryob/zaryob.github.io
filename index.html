@@ -25,7 +25,6 @@ description: "Süleyman Poyraz'ın açık kaynak projeleri ve Linux, sistem yaz�
         <h3><a href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}">{{ project.name }}</a></h3>
         <p><span data-i18n="{{ project.summary_en | default: project.summary | escape }}">{{ project.summary }}</span></p>
         {% if project.facts %}<ul class="project-card__facts">{% for fact in project.facts %}<li>{{ fact | escape }}</li>{% endfor %}</ul>{% endif %}
-        <a class="project-card__link" href="{{ '/projeler/' | relative_url }}#{{ project.name | slugify }}"><span data-i18n="Explore project">Projeyi incele</span> <span aria-hidden="true">→</span></a>
       </div>
     </article>
     {% endfor %}
