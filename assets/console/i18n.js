@@ -44,7 +44,7 @@
   "Copied": "Kopyalandı",
   "Select code to copy": "Kodu seçerek kopyala",
   "Zaryob / Search": "Zaryob / Ara",
-  "Esc / Close": "Esc / Kapat",
+  "Close": "Kapat",
   "Close search": "Aramayı kapat",
   "Full-text search unavailable. Showing title and topic matches.": "Tam metin araması kullanılamıyor. Başlık ve konu eşleşmeleri gösteriliyor.",
   "Search by title or full text.": "Başlıkta veya tam metinde ara.",
