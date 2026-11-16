@@ -63,8 +63,8 @@
             <h1 id="home-title" class="console-hero__title">Süleyman Poyraz</h1>
             <p class="console-hero__lead"><span data-i18n="I build system software and share what I learn.">{% if page.lang == 'en' %}I build system software and share what I learn.{% else %}Sistem yazılımı geliştiriyor, öğrendiklerimi anlaşılır Türkçe ile yazıyorum.{% endif %}</span></p>
             <div class="console-hero__actions">
-              <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="See my projects">{% if page.lang == 'en' %}See my projects{% else %}Projelerimi gör{% endif %}</span> <span aria-hidden="true">→</span></a>
-              <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="Read the posts">{% if page.lang == 'en' %}Read the posts{% else %}Yazıları oku{% endif %}</span> <span aria-hidden="true">→</span></a>
+              <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="Projects">{% if page.lang == 'en' %}Projects{% else %}Projeler{% endif %}</span> <span aria-hidden="true">→</span></a>
+              <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="All posts">{% if page.lang == 'en' %}All posts{% else %}Tüm yazılar{% endif %}</span> <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <figure class="console-hero__panel">
@@ -77,11 +77,11 @@
 <span class="h-dim">$</span> cat about.txt
 software engineer
 <span class="h-dim"># code, systems, learning notes</span></span></div>{% else %}<div class="console-hero__screen"><span class="h-dim">$</span> ls -F
-<a href="{{ '/posts/' | relative_url }}">yazilar/</a>      <a href="{{ suite_root }}/kilavuzlar/">kilavuzlar/</a>
+<a href="{{ '/posts/' | relative_url }}">yazılar/</a>      <a href="{{ suite_root }}/kilavuzlar/">kilavuzlar/</a>
 <a href="{{ suite_root }}/syscall/">syscall/</a>      <a href="{{ suite_root }}/pin-atlas/">pin-atlas/</a>
 <a href="{{ suite_root }}/execmap/">execmap/</a>      <a href="{{ suite_root }}/wire/">wire/</a><span class="home-terminal-extra">
-<a href="{{ '/hakkinda/' | relative_url }}">hakkinda.txt</a>
-<span class="h-dim">$</span> cat hakkinda.txt
+<a href="{{ '/hakkinda/' | relative_url }}">about.txt</a>
+<span class="h-dim">$</span> cat about.txt
 yazılım mühendisi
 <span class="h-dim"># kod, sistemler, öğrenme notları</span></span></div>{% endif %}
           </figure>
