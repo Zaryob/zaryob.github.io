@@ -22,6 +22,24 @@
     document.querySelectorAll('[data-console-theme]').forEach(select => { select.value = preference; });
   });
 
+  // Safari on iPhone ignores interactive-widget=resizes-content, so its on-screen keyboard
+  // covers the bottom of the page. --console-keyboard-inset is how much of the layout viewport
+  // it hides (0px without a keyboard); panels and dialogs subtract it to stay in view.
+  const visual = window.visualViewport;
+  const measureKeyboard = () => {
+    const zoomed = visual && Math.abs(visual.scale - 1) > 0.01;
+    const inset = visual && !zoomed ? Math.max(0, Math.round(window.innerHeight - visual.height - visual.offsetTop)) : 0;
+    root.style.setProperty('--console-keyboard-inset', `${inset}px`);
+    root.toggleAttribute('data-console-keyboard', inset > 0);
+  };
+  measureKeyboard();
+  if (visual) {
+    let keyboardFrame = 0;
+    const queueKeyboard = () => { keyboardFrame ||= requestAnimationFrame(() => { keyboardFrame = 0; measureKeyboard(); }); };
+    visual.addEventListener('resize', queueKeyboard);
+    visual.addEventListener('scroll', queueKeyboard);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const { t, apply: applyLanguage } = window.ZaryobI18n || {
       t: (text, values = {}) => text.replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match),

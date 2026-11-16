@@ -234,6 +234,11 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-search label { display: block; margin-bottom: 8px; font-size: var(--text-sm); color: var(--muted); }
 .console-search input { width: 100%; min-height: 46px; }
 .console-search__results { padding: 0; margin: 16px 0 0; list-style: none; max-height: 50vh; overflow-y: auto; }
+/* With an on-screen keyboard over the page (Safari on iPhone), the dialog ends above it and
+   only the result list shrinks and scrolls, so the field and the first results stay in view. */
+:root[data-console-keyboard] .console-search[open] { display: flex; flex-direction: column; max-height: calc(100dvh - 8vh - 16px - var(--console-keyboard-inset, 0px)); }
+:root[data-console-keyboard] .console-search[open] > * { flex-shrink: 0; }
+:root[data-console-keyboard] .console-search[open] > .console-search__results { flex: 0 1 auto; min-height: 0; }
 .console-search__results li { border-top: 1px solid var(--line); }
 .console-search__results a { display: block; padding: 12px 8px; text-decoration: none; border-radius: 2px; }
 .console-search__results a:hover,
@@ -334,8 +339,8 @@ html.console-scroll-locked .console-header { z-index: 45; }
   .console-js .console-nav.is-open,
   .console-js .console-projects[open] > .console-project-menu {
     position: fixed; z-index: 1; top: var(--console-panel-top, var(--console-header-height, 69px)); right: 0; left: 0;
-    width: auto; max-width: none; height: calc(100vh - var(--console-panel-top, var(--console-header-height, 69px)));
-    height: calc(100dvh - var(--console-panel-top, var(--console-header-height, 69px))); max-height: none;
+    width: auto; max-width: none; height: calc(100vh - var(--console-panel-top, var(--console-header-height, 69px)) - var(--console-keyboard-inset, 0px));
+    height: calc(100dvh - var(--console-panel-top, var(--console-header-height, 69px)) - var(--console-keyboard-inset, 0px)); max-height: none;
     margin: 0; padding: 12px max(16px, var(--gutter)) max(24px, env(safe-area-inset-bottom));
     overflow-y: auto; overscroll-behavior: contain; border: 0; border-top: 1px solid var(--line); background: var(--paper);
   }
