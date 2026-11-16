@@ -137,32 +137,50 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-tools { display: flex; flex-wrap: wrap; min-width: 0; align-self: center; align-items: center; gap: 14px; margin-left: auto; flex-shrink: 0; }
 .console-header-actions { display: contents; }
 .console-search-compact { display: none; }
-.console-search-open { display: none; align-items: center; justify-content: space-between; gap: 10px; min-width: 108px; color: var(--muted) !important; text-align: left; }
-:is(.console-theme,.console-language) { display: none; position: relative; align-items: center; gap: 8px; margin: 0; font-size: var(--text-sm); color: var(--muted); }
+.console-search-open { display: none; justify-content: space-between; }
+:is(.console-theme,.console-language) { display: none; }
 .console-js :is(.console-search-open,.console-theme,.console-language) { display: flex; }
+/* The header controls read as three short commands in one thin frame:
+   $ ara /   $ tema=koyu ▾   $ dil=tr ▾   (native button and selects underneath). */
+.console-header :is(.console-search-open,.console-theme,.console-language) {
+  position: relative; align-items: center; gap: 0; min-width: 0; min-height: 32px; margin: 0; padding: 0 1ch;
+  border: 1px solid var(--control-border); border-radius: 0; background: var(--paper); color: var(--ink);
+  font: var(--text-base)/1.5 var(--font-mono); white-space: nowrap;
+}
+.console-header :is(.console-theme,.console-language) { padding-inline-end: 0; }
+.console-header :is(.console-search-open,.console-theme,.console-language) > span { display: inline; color: var(--muted); text-transform: lowercase; }
+.console-header .console-search-open > span { color: var(--ink); }
+.console-header :is(.console-search-open,.console-theme,.console-language) > span::before { content: "$ "; content: "$ " / ""; color: var(--accent); }
+.console-header :is(.console-theme,.console-language) > span::after { content: "="; content: "=" / ""; color: var(--muted); }
+.console-header .console-search-open > :is(.console-icon,svg) { display: none; }
+.console-header .console-search-open kbd {
+  display: inline-block; min-width: 2.4ch; margin: 0 0 0 1ch; padding: 0 .5ch;
+  border: 1px solid var(--line); border-radius: 0; background: var(--surface); color: var(--muted);
+  font: var(--text-xs)/1.45 var(--font-mono); text-align: center;
+}
+.console-header :is(.console-search-open,.console-theme,.console-language):hover { border-color: var(--accent); background: var(--surface); color: var(--ink); }
+.console-header .console-search-open:hover kbd { border-color: var(--control-border); color: var(--accent); }
+.console-header .console-search-open:active { background: var(--selection); }
 :is(.console-theme,.console-language) select {
   /* Safari's native popup bezel ignores some of the shared box styling. */
   -webkit-appearance: none;
   appearance: none;
-  width: 7.5rem;
-  max-width: 100%;
-  min-height: 44px;
-  height: auto;
-  padding: 7px 28px 7px 10px;
-  font: var(--text-base)/1.5 var(--font-mono);
 }
-:is(.console-theme,.console-language)::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  transform: translateY(-50%);
-  background: var(--muted);
-  -webkit-mask: url("select-chevron.svg") center / contain no-repeat;
-  mask: url("select-chevron.svg") center / contain no-repeat;
-  pointer-events: none;
+.console-header :is(.console-theme,.console-language) select {
+  width: auto; field-sizing: content; min-width: 0; max-width: 100%; height: auto; min-height: 30px; margin: 0;
+  padding: 0 2.4ch 0 0; border: 0; border-radius: 0; background: transparent; color: var(--ink);
+  font: 500 var(--text-base)/1.5 var(--font-mono); text-transform: lowercase;
+}
+.console-header :is(.console-theme,.console-language) select:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* Ring the whole prompt, not just the value, where :has() is available. */
+@supports selector(:has(*)) {
+  .console-header :is(.console-theme,.console-language):has(select:focus-visible) { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .console-header :is(.console-theme,.console-language) select:focus-visible { outline: 0; }
+}
+.console-header :is(.console-theme,.console-language) option { color: var(--ink); background: var(--paper); text-transform: none; }
+.console-header :is(.console-theme,.console-language)::after {
+  content: "\25BE"; content: "\25BE" / ""; position: absolute; right: .9ch; top: 50%; transform: translateY(-50%);
+  color: var(--accent); font-size: var(--text-sm); line-height: 1; pointer-events: none;
 }
 .console-menu { display: none; }
 .console-menu .console-icon { display: block; width: 18px; height: 18px; }
@@ -255,8 +273,6 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   .console-header__inner { gap: 24px; padding-inline: 24px; }
   .console-nav { gap: 12px; }
   .console-nav > a, .console-categories > summary { gap: 6px; font-size: var(--text-base); }
-  .console-search-open { min-width: 76px; gap: 12px; }
-  :is(.console-theme,.console-language) > span { display: none; }
   .console-tools { gap: 10px; }
 }
 @media (max-width: 1180px) {
@@ -286,16 +302,17 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   .console-category-menu { position: static; width: 100%; padding: 4px 8px 8px 20px; border: 0; border-left: 1px solid var(--line); }
   .console-tools { align-self: stretch; justify-content: space-between; flex-wrap: wrap; width: 100%; margin: 12px 0 0; padding: 16px 8px 8px; border-top: 1px solid var(--line); gap: 14px 20px; }
   .console-search-open { flex: 1 0 100%; min-width: 120px; justify-content: flex-start; }
-  .console-search-open kbd { margin-left: auto; }
-  :is(.console-theme,.console-language) > span { display: inline; }
+  /* Touch layout: the open menu row keeps 44px targets. */
+  .console-header :is(.console-search-open,.console-theme,.console-language) { min-height: 44px; }
+  .console-header .console-search-open { padding-inline: 1.25ch; }
+  .console-header .console-search-open kbd { margin-inline-start: auto; }
+  .console-header :is(.console-theme,.console-language) select { min-height: 42px; }
 }
 @media (max-width: 560px) {
   .console-header__inner { padding: 12px 16px; gap: 12px; }
   .console-identity { font-size: var(--text-h4); }
   .console-brand { margin: 0; }
   .console-tools { gap: 12px; }
-  .console-search-open { padding-inline: 10px; }
-  :is(.console-theme,.console-language) select { padding-inline: 10px 28px; }
   .console-search { padding: 16px; }
   .console-site pre { padding: 16px; }
   .console-code pre { padding: 12px 14px; padding-inline-end: 72px; }
@@ -311,8 +328,6 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   body.console-site, .console-header { transition: none !important; }
 }
 
-/* Language controls share the theme palette and Safari select reset. */
-.console-language select { width: 4.5rem; max-width: 100%; }
 .console-language-note { margin: 0 0 24px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); color: var(--muted); font-size: var(--text-xs); }
 .console-language-note[hidden] { display: none; }
 .console-language-note a { margin-inline-start: 12px; white-space: nowrap; }
