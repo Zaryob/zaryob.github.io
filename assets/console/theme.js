@@ -241,16 +241,26 @@
           else wrapper.style.removeProperty('--console-code-row');
         }
       };
-      const update = () => {
+      let overflow = false;
+      const fade = () => {
         const hidden = pre.scrollWidth - pre.clientWidth;
-        // A few pixels are the end padding, not hidden code.
-        const overflow = hidden > 4;
         wrapper.classList.toggle('console-code--fade-start', overflow && pre.scrollLeft > 1);
         wrapper.classList.toggle('console-code--fade-end', overflow && pre.scrollLeft < hidden - 1);
+      };
+      const update = () => {
+        // The row drops the end padding kept for Copy, so a line that only reaches into that
+        // padding fits once the row is in place. Judge overflow without the row, or the two
+        // undo each other and Copy ends up over the code.
+        const row = wrapper.classList.contains('console-code--actions-row');
+        if (row) wrapper.classList.remove('console-code--actions-row');
+        // A few pixels are the end padding, not hidden code.
+        overflow = pre.scrollWidth - pre.clientWidth > 4;
+        if (row) wrapper.classList.add('console-code--actions-row');
         if (toggle && !wrapped) {
           toggle.hidden = !overflow;
           wrapper.classList.toggle('console-code--actions-row', inRow && overflow);
         }
+        fade();
         place();
       };
       if (!wrapper.classList.contains('console-declaration')) {
@@ -291,7 +301,7 @@
           if (copy) copy.before(toggle); else wrapper.append(toggle);
         }
       } });
-      pre.addEventListener('scroll', update, { passive: true });
+      pre.addEventListener('scroll', fade, { passive: true });
     });
     setTimeout(() => {
       codeCues.forEach(cue => { cue.place(); cue.update(); });
