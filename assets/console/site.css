@@ -161,6 +161,8 @@
   .console-home .blog-post { flex-direction: column; }
   .console-home .blog-post__image-link { flex: none; width: 100%; }
   .console-home .blog-post img { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+  /* Like other code blocks, the copy button sits in its own row above the snippet, which grows to keep every line. */
+  .console-home .project-card .console-code pre { aspect-ratio: auto; padding: 60px 16px 16px; }
 }
 
 .console-home :is(.about-content,.reading-column) { font-family: var(--font-prose); font-size: var(--text-prose); line-height: var(--line-prose); overflow-wrap: anywhere; }
