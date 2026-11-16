@@ -43,6 +43,27 @@
   overflow-x: auto;
   margin: 1.5rem 0;
 }
+/* MathJax formulas wider than the column (marked in default.html) scroll inside their own box
+   instead of widening the page. A thin accent edge marks a side that still hides part of the
+   formula: page-coloured covers move with the content and hide that edge once it is reached. */
+.post-content mjx-container[jax="CHTML"][data-math-wide] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Room for glyphs that reach just past the formula's box, which the scroll box would clip. */
+  padding-block: 4px;
+  margin-block: calc(1em - 4px);
+  background:
+    linear-gradient(var(--paper), var(--paper)) left / 6px 100% no-repeat local,
+    linear-gradient(var(--paper), var(--paper)) right / 6px 100% no-repeat local,
+    linear-gradient(to right, color-mix(in srgb, var(--accent) 55%, transparent) 2px, transparent 2px) left / 6px 100% no-repeat scroll,
+    linear-gradient(to left, color-mix(in srgb, var(--accent) 55%, transparent) 2px, transparent 2px) right / 6px 100% no-repeat scroll;
+}
+.post-content mjx-container[jax="CHTML"][data-math-wide]:not([display="true"]) {
+  display: inline-block;
+  margin-block: -4px;
+  vertical-align: middle;
+}
 .post-content blockquote {
   border-left: 4px solid #a94f18;
   margin: 1.5rem 0;
