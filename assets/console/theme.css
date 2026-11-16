@@ -260,7 +260,25 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-site .console-code-toggle[hidden] { display: none; }
 .console-site .console-code-toggle:hover { background: var(--surface); color: var(--accent); }
 .console-site .console-code-toggle[aria-pressed="true"] { border-color: var(--accent); background: var(--selection); color: var(--accent); }
-.console-code-toggle--row { position: absolute; z-index: 1; top: 10px; right: 96px; }
+/* Copy and the toggle form one group in the top right corner of the block. In a block taller
+   than the screen the group, a site code bar or a site code header stays under the sticky page
+   header while the reader scrolls through the code, and stops at the block's bottom edge. */
+:root { --console-code-stick: calc(var(--console-header-height, 0px) + 8px); }
+.console-code { --console-code-gap: 10px; }
+.console-code--grouped { display: grid; grid-template-columns: minmax(0, 1fr); }
+.console-code--grouped > :is(pre, .console-code-actions) { grid-area: 1 / 1; }
+.console-code-actions { position: relative; z-index: 1; align-self: start; justify-self: end; display: flex; flex-wrap: wrap-reverse; justify-content: flex-end; align-items: center; gap: 6px; max-width: calc(100% - var(--console-code-gap) - 5px); margin: var(--console-code-gap) var(--console-code-gap) 0 0; }
+.console-code-actions:not(.console-code-actions--rail) > .console-copy { position: static; }
+/* A rail under a site code header carries Copy, which the site lifts into that header. */
+.console-code-actions--rail { justify-self: stretch; display: block; height: 0; max-width: none; margin: 0; pointer-events: none; }
+.console-code-actions--rail > .console-copy { pointer-events: auto; }
+.console-code--tall > .console-code-actions, .console-code--tall > [data-console-code="bar"], .console-code-span--tall > [data-console-code="head"] { position: sticky; top: var(--console-code-stick); }
+.console-code--tall > [data-console-code="bar"], .console-code-span--tall > [data-console-code="head"] { z-index: 2; }
+.console-code--tall > .console-code-actions--rail { z-index: 3; top: calc(var(--console-code-stick) + var(--console-code-head-height, 0px)); margin-bottom: calc(-1 * var(--console-code-after, 0px)); }
+.console-code-actions[data-console-floating]:not(.console-code-actions--rail) { background: var(--paper); box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--line), 0 8px 18px rgb(0 0 0 / .35); }
+/* Rouge's reset must not make a site code bar see-through once it floats over the code. */
+.console-site .highlight [data-console-code="bar"] { background: var(--paper); }
+:is([data-console-code="bar"], [data-console-code="head"])[data-console-floating] { box-shadow: 0 8px 14px -6px rgb(0 0 0 / .45); }
 .console-site .console-code-toggle--bar { flex-shrink: 0; margin-inline-start: auto; }
 .console-site .console-code-toggle--bar + .console-copy { margin-inline-start: 0; }
 /* A site code bar that holds the toggle may wrap rather than push past the block. */
@@ -352,6 +370,7 @@ html.console-scroll-locked .console-header { z-index: 45; }
   /* The copy button gets its own row above the first line instead of a right gutter on every line. */
   .console-site .console-code:where(:not(.console-declaration)) pre { padding: 60px 14px 12px; }
   .console-copy { top: 8px; right: 8px; min-height: 44px !important; }
+  .console-code { --console-code-gap: 8px; }
   .console-site .console-code-toggle { min-height: 44px; }
   .console-site .console-code--actions-row > pre { padding: var(--console-code-row, 60px) 14px 12px; }
 }
