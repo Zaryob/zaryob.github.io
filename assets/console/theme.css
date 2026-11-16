@@ -243,6 +243,10 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
 .console-copy { position: absolute; top: 10px; right: 10px; z-index: 1; min-height: 30px !important; padding: 4px 9px !important; font-size: var(--text-xs) !important; }
 .console-site .highlight { background: transparent; color: var(--ink); }
 .console-site .highlight * { color: var(--ink); background: transparent; font-style: normal; font-weight: 400; }
+/* Rouge's reset above must not make the copy button see-through over the code. */
+.console-site .highlight .console-copy { background: var(--paper); }
+.console-site .highlight .console-copy:hover { background: var(--surface); }
+.console-site .highlight .console-copy:active { background: var(--selection); }
 .console-site pre.highlight { background: var(--surface); }
 .console-site .highlight .err { background: transparent; color: var(--danger); }
 .console-site .highlight :is(.c,.c1,.cm,.cp,.cs,.w) { color: var(--muted); font-style: normal; }
@@ -298,8 +302,9 @@ mark, .console-highlight { background: var(--selection); color: var(--ink); outl
   :is(.console-theme,.console-language) select { padding-inline: 10px 28px; }
   .console-search { padding: 16px; }
   .console-site pre { padding: 16px; }
-  .console-code pre { padding: 12px 14px; padding-inline-end: 72px; }
-  .console-copy { top: 8px; right: 8px; }
+  /* The copy button gets its own row above the first line instead of a right gutter on every line. */
+  .console-site .console-code:where(:not(.console-declaration)) pre { padding: 60px 14px 12px; }
+  .console-copy { top: 8px; right: 8px; min-height: 44px !important; }
 }
 @media (max-width: 380px) {
   .console-header__inner { gap: 10px 8px; }
