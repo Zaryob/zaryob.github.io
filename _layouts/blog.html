@@ -17,7 +17,7 @@ layout: default
     {% for post in category_posts %}
       {% include post-card.html post=post %}
     {% else %}
-      {% if page.lang == 'en' %}<p>No English editions are available in this category yet. <a href="{{ page.translation_of | relative_url }}?lang=tr">Browse the Turkish articles</a>.</p>{% else %}<p><span data-i18n="No posts in this category yet.">Bu kategoride henüz yazı yok.</span></p>{% endif %}
+      {% if page.lang == 'en' %}<p>No English editions are available in this category yet. <a href="{{ page.translation_of | relative_url }}">Browse the Turkish articles</a>.</p>{% else %}<p><span data-i18n="No posts in this category yet.">Bu kategoride henüz yazı yok.</span></p>{% endif %}
     {% endfor %}
   </div>
 

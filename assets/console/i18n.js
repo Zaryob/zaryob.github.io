@@ -404,7 +404,7 @@
   const state = window.ZaryobLanguage;
   const { supported } = state;
   const root = document.documentElement;
-  let language = state.language;
+  let language = state.uiLanguage;
   const t = (source, values = {}) => (language === 'tr' ? translations[source] || source : source)
     .replace(/\{(\w+)\}/g, (match, key) => Object.hasOwn(values, key) ? String(values[key]) : match);
   const apply = (scope = document) => {
@@ -453,12 +453,14 @@
   };
   const setLanguage = (next, { persist = true, navigate = true } = {}) => {
     if (!supported.includes(next)) return;
-    state.set(next, { persist });
+    const route = navigate && state.routeFor(next);
+    state.set(next, { persist, updateUrl: !route });
+    if (route && state.followRoute(next, root.dataset.replaceLanguage === 'true')) return;
     const destination = translationTarget();
     if (navigate && destination) location.assign(destination);
   };
-  state.subscribe(next => {
-    language = next;
+  state.subscribe(() => {
+    language = state.uiLanguage;
     apply();
     window.dispatchEvent(new CustomEvent('zaryob:language', { detail: { language } }));
   });
@@ -468,7 +470,7 @@
     document.querySelectorAll('[data-console-language]').forEach(select => select.addEventListener('change', () => setLanguage(select.value)));
     // Follow the other edition only for an explicit choice (saved selection or ?lang=).
     // A browser-language guess translates the controls and leaves the reader on the page.
-    const destination = state.explicit ? translationTarget() : null;
+    const destination = state.explicit && !root.dataset.routeLanguage ? translationTarget() : null;
     if (destination) location.replace(destination);
   });
 })();

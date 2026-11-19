@@ -1,5 +1,6 @@
 {% comment %}SPDX-License-Identifier: GPL-2.0-or-later{% endcomment %}
 {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
+{% assign console_lang = page.lang | default: site.lang | default: 'tr' | split: '-' | first %}
 {% assign writing_current = false %}
 {% assign home_path = '/' %}
 {% assign posts_path = '/posts/' %}
@@ -20,7 +21,8 @@
         <summary role="button" aria-controls="console-project-menu"><span class="console-project-path"><span class="console-prompt-separator">~{% unless site.suite_section == 'home' %}/{% endunless %}</span>{% unless site.suite_section == 'home' %}{{ site.suite_section }}{% endunless %}</span><span class="console-sr-only"> — <span data-i18n="Switch project">Proje değiştir</span></span><span class="console-prompt-dollar" aria-hidden="true">$</span><span class="console-prompt-cursor" aria-hidden="true"></span>{% include console-icon.html name='chevron-down' %}</summary>
         <nav class="console-project-menu" id="console-project-menu" aria-label="Zaryob projeleri" data-i18n-aria-label="Zaryob projects">
           {% for project in site.data.console_projects %}
-            <a href="{{ suite_root }}{{ project.path }}"{% if site.suite_section == project.key %} aria-current="location"{% endif %}><span{% if project.title_en %} data-i18n="{{ project.title_en }}"{% endif %}>{{ project.title }}</span><small>{{ project.prompt }}</small></a>
+            {% assign path_tr = project.path_tr | default: project.path %}{% assign path_en = project.path_en | default: project.path %}
+            <a href="{{ suite_root }}{% if console_lang == 'en' %}{{ path_en }}{% else %}{{ path_tr }}{% endif %}" data-project-tr="{{ suite_root }}{{ path_tr }}" data-project-en="{{ suite_root }}{{ path_en }}"{% if site.suite_section == project.key %} aria-current="location"{% endif %}><span{% if project.title_en %} data-i18n="{{ project.title_en }}"{% endif %}>{% if console_lang == 'en' and project.title_en %}{{ project.title_en }}{% else %}{{ project.title }}{% endif %}</span><small>{{ project.prompt }}</small></a>
           {% endfor %}
         </nav>
       </details>

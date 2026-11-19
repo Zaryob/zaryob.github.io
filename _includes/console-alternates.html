@@ -6,7 +6,7 @@
 {% for alternate in alternates %}{% if alternate.translation_key == page.translation_key %}{% unless alternate.url contains '/posts/page' %}
 {% assign alternate_language = alternate.lang | default: 'tr' | split: '-' | first %}
 {% if alternate_language == 'tr' %}{% assign default_alternate = alternate.url %}{% endif %}
-<link rel="alternate" hreflang="{{ alternate_language }}" href="{{ alternate.url | absolute_url }}">
+<link rel="alternate" hreflang="{{ alternate_language }}" href="{{ alternate.url | absolute_url }}" data-language-route="{{ alternate.url | relative_url }}">
 {% endunless %}{% endif %}{% endfor %}
 <link rel="alternate" hreflang="x-default" href="{{ default_alternate | absolute_url }}">
 {% endunless %}

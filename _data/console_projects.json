@@ -4,6 +4,7 @@
     "title": "Ana sayfa",
     "title_en": "Home",
     "path": "/",
+    "path_en": "/en/",
     "prompt": "~"
   },
   {
@@ -11,24 +12,28 @@
     "title": "Kılavuzlar",
     "title_en": "Guides",
     "path": "/kilavuzlar/",
+    "path_en": "/kilavuzlar/en/",
     "prompt": "~/kilavuzlar"
   },
   {
     "key": "syscall",
     "title": "Syscall",
     "path": "/syscall/",
+    "path_tr": "/syscall/tr/",
     "prompt": "~/syscall"
   },
   {
     "key": "pin-atlas",
     "title": "Pin Atlas",
     "path": "/pin-atlas/",
+    "path_tr": "/pin-atlas/tr/",
     "prompt": "~/pin-atlas"
   },
   {
     "key": "execmap",
     "title": "Execmap",
     "path": "/execmap/",
+    "path_tr": "/execmap/tr/",
     "prompt": "~/execmap"
   },
   {

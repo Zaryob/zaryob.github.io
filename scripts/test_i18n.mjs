@@ -7,16 +7,16 @@ const stateScript = readFileSync(new URL('../assets/console/language.js', import
 const pinPath = new URL('../../pin-atlas/public/i18n.js', import.meta.url);
 const pinScript = existsSync(pinPath) ? readFileSync(pinPath, 'utf8') : null;
 const script = readFileSync(new URL('../assets/console/i18n.js', import.meta.url), 'utf8');
-function boot({ stored, query = '', blocked = false, browser = 'en-US', languages, path = '/syscall/', contentLanguage = 'tr', adapter = 'shared', links = [] } = {}) {
+function boot({ stored, query = '', blocked = false, browser = 'en-US', languages, path = '/syscall/', contentLanguage = 'tr', routeLanguage, adapter = 'shared', links = [] } = {}) {
   let current = new URL(`https://zaryob.github.io${path}?arch=loongarch64&kernel=v7.3&q=write${query}#sys-write`);
-  const root = { lang: contentLanguage, dataset: {} };
+  const root = { lang: contentLanguage, dataset: { routeLanguage } };
   const selectors = new Map();
   const listeners = new Map();
   const documentListeners = new Map();
   const document = { documentElement: root, addEventListener(type, callback) { documentListeners.set(type, [...(documentListeners.get(type) || []), callback]); }, querySelectorAll: selector => selector === '[data-console-projects] a[href]' ? links : [], querySelector: key => selectors.get(key) };
   const context = {
     document, URL, URLSearchParams, Intl, navigator: { language: browser, languages }, CustomEvent: class {},
-    location: { get search() { return current.search; }, get href() { return current.href; }, assign(url) { current = new URL(url); }, replace(url) { current = new URL(url); } },
+    location: { get search() { return current.search; }, get pathname() { return current.pathname; }, get href() { return current.href; }, assign(url) { current = new URL(url); }, replace(url) { current = new URL(url); } },
     history: { replaceState(_state, _title, url) { current = new URL(url); } },
     localStorage: { getItem() { if (blocked) throw Error('disabled'); return stored; }, setItem(_key, value) { if (blocked) throw Error('disabled'); stored = value; } },
     window: { addEventListener(type, callback) { listeners.set(type, callback); }, dispatchEvent() {} },
@@ -138,4 +138,26 @@ test('project links retain language without copying the source application state
   }
   page.api.setLanguage('tr');
   assert.ok(links.every(link => new URL(link.href).search === '?lang=tr'));
+});
+
+test('published language paths take priority over stored preferences', () => {
+  const link = { href: 'https://zaryob.github.io/execmap/tr/', dataset: { projectTr: '/execmap/tr/', projectEn: '/execmap/' } };
+  const page = boot({ path: '/syscall/tr/', routeLanguage: 'tr', stored: 'en', links: [link] });
+  page.ready();
+  assert.equal(page.api.language, 'tr');
+  assert.equal(page.url().pathname, '/syscall/tr/');
+  assert.equal(link.href, '/execmap/tr/');
+});
+
+test('legacy language links resolve to the published edition with filters and fragments intact', () => {
+  for (const adapter of pinScript ? ['shared', 'pin'] : ['shared']) {
+    const page = boot({ routeLanguage: 'en', contentLanguage: 'en', query: '&lang=tr', adapter });
+    page.selectors.set('link[rel="alternate"][hreflang="tr"][data-language-route]', { dataset: { languageRoute: '/syscall/tr/' } });
+    page.ready();
+    assert.equal(page.url().pathname, '/syscall/tr/');
+    assert.equal(page.url().search, '?arch=loongarch64&kernel=v7.3&q=write');
+    assert.equal(page.url().hash, '#sys-write');
+    page.ready();
+    assert.equal(page.url().pathname, '/syscall/tr/');
+  }
 });
