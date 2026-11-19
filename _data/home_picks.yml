@@ -1,0 +1,114 @@
+# Links to individual resources in sibling sites and to sections of the projects page.
+- type: Execmap
+  suite: true
+  en: { url: /execmap/rehberler/elf-dosyadan-bellege.html, title: "How does Linux load a program into memory?", summary: "Compare ELF segments with a live process’s memory map." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/linux/perf-ile-cpu-darbogazi/, title: "perf ile CPU darboğazı bulmak", summary: "Örneklerden çağrı grafiğine ve flame graph’a geç." }
+  en: { url: /kilavuzlar/en/linux/perf-ile-cpu-darbogazi/, title: "Find a CPU bottleneck with perf", summary: "Turn samples into call graphs and flame graphs." }
+
+- type: Wire
+  suite: true
+  tr: { url: /wire/tcp/, title: "Bir TCP başlığını bit bit oku", summary: "Sıra numarası, onay numarası ve bayrakları paket üzerinde bul." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/docker/cpp-derleme-ve-test/, title: "Docker içinde C++ derle ve test et", summary: "CMake ve CTest için çok aşamalı bir derleme kur." }
+  en: { url: /kilavuzlar/en/docker/cpp-derleme-ve-test/, title: "Build and test C++ in Docker", summary: "Set up a multi-stage build with CMake and CTest." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/docker/coklu-mimari-imajlar/, title: "Tek Docker imajı, iki mimari", summary: "Buildx ile AMD64 ve ARM64 için imaj oluştur." }
+  en: { url: /kilavuzlar/en/docker/coklu-mimari-imajlar/, title: "One Docker image, two architectures", summary: "Build an image for AMD64 and ARM64 with Buildx." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/cpp/tasinabilir-cmake-projesi/, title: "Taşınabilir bir CMake projesi kur", summary: "Hedefleri, derleme ön ayarlarını ve araç zincirlerini düzenle." }
+  en: { url: /kilavuzlar/en/cpp/tasinabilir-cmake-projesi/, title: "Set up a portable CMake project", summary: "Organize targets, presets and toolchains." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/cpp/tracy-ile-profilleme/, title: "Tracy ile C++ uygulamasını profille", summary: "Bir karenin süresini kod bölgelerine kadar izle." }
+  en: { url: /kilavuzlar/en/cpp/tracy-ile-profilleme/, title: "Profile a C++ application with Tracy", summary: "Trace frame times down to instrumented code zones." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/sanallastirma/apple-silicon-arm64-linux/, title: "Apple Silicon’da ARM64 Linux", summary: "Bir Apple Silicon Mac üzerinde Linux sanal makinesi kur." }
+  en: { url: /kilavuzlar/en/sanallastirma/apple-silicon-arm64-linux/, title: "Run ARM64 Linux on Apple Silicon", summary: "Set up a Linux virtual machine on an Apple Silicon Mac." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/emacs/cmake-ve-lldb/, title: "Emacs’te CMake ve LLDB", summary: "C++ derleme ve hata ayıklama akışını editörden yönet." }
+  en: { url: /kilavuzlar/en/emacs/cmake-ve-lldb/, title: "CMake and LLDB in Emacs", summary: "Build and debug C++ from the editor." }
+
+- type: guide
+  suite: true
+  tr: { url: /kilavuzlar/linux/lvm-bolumunu-buyutmek/, title: "Ubuntu’da bir LVM bölümünü büyüt", summary: "Diskten dosya sistemine kadar genişletme adımlarını izle." }
+  en: { url: /kilavuzlar/en/linux/lvm-bolumunu-buyutmek/, title: "Grow an LVM volume on Ubuntu", summary: "Follow the resize from the disk through to the filesystem." }
+
+- type: Execmap
+  suite: true
+  en: { url: /execmap/laboratuvarlar/gdb-ilk-inceleme.html, title: "From C to machine code with GDB", summary: "Pause a small C program and watch a variable change in memory." }
+
+- type: Execmap
+  suite: true
+  en: { url: /execmap/rehberler/dinamik-baglama.html, title: "How does the dynamic linker find a symbol?", summary: "Follow a call through the GOT, PLT and relocations." }
+
+- type: Execmap
+  suite: true
+  en: { url: /execmap/rehberler/baslangic-ve-auxv.html, title: "What happens before main()?", summary: "Inspect the initial stack, auxiliary vector and process entry point." }
+
+- type: Execmap
+  suite: true
+  en: { url: /execmap/rehberler/bpftrace-temelleri.html, title: "Write your first bpftrace script", summary: "Try probes, filters, counters and histograms in small examples." }
+
+- type: Wire
+  suite: true
+  tr: { url: /wire/ipv4/, title: "Bir IPv4 paketini çözümle", summary: "Başlık boyutunu, TTL’yi ve adresleri hex dökümünde bul." }
+
+- type: Wire
+  suite: true
+  tr: { url: /wire/dns/, title: "DNS sorgusunun içinde ne var?", summary: "İleti kimliğini, bölüm sayaçlarını ve bayrakları incele." }
+
+- type: Wire
+  suite: true
+  tr: { url: /wire/quic/, title: "QUIC bağlantısının ilk paketi", summary: "Initial paketinin sürümünü, bağlantı kimliklerini ve token alanını incele." }
+
+- type: Syscall
+  suite: true
+  tr: { url: /syscall/tr/call/openat/, title: "openat() için Linux sistem çağrısı tablosu", summary: "Dizin tanıtıcısını, parametreleri ve mimariye göre çağrı numarasını bul." }
+  en: { url: /syscall/call/openat/, title: "Look up openat() in the Linux syscall table", summary: "Find the directory descriptor, parameters and architecture-specific numbers." }
+
+- type: Syscall
+  suite: true
+  tr: { url: /syscall/tr/call/mmap/, title: "mmap() çekirdek arayüzü", summary: "Bellek eşleme çağrısının imzasına ve mimari farklarına bak." }
+  en: { url: /syscall/call/mmap/, title: "The mmap() kernel interface", summary: "Compare the memory-mapping signature across Linux architectures." }
+
+- type: Syscall
+  suite: true
+  tr: { url: /syscall/tr/call/execve/, title: "execve() hangi parametreleri alır?", summary: "Program yolu, argüman dizisi ve ortam değişkenlerinin arayüzüne bak." }
+  en: { url: /syscall/call/execve/, title: "What arguments does execve() take?", summary: "Look up the interface for the path, argument vector and environment." }
+
+- type: Pin Atlas
+  suite: true
+  tr: { url: /pin-atlas/tr/boards/pico2w/, title: "Raspberry Pi Pico 2 W pinleri", summary: "GPIO, ADC ve seri veri yollarının kart üzerindeki yerini bul." }
+  en: { url: /pin-atlas/boards/pico2w/, title: "Raspberry Pi Pico 2 W pinout", summary: "Locate GPIO, ADC and serial buses on the board." }
+
+- type: Pin Atlas
+  suite: true
+  tr: { url: /pin-atlas/tr/boards/arduino-uno-r3/, title: "Arduino Uno R3 pinleri", summary: "Analog girişleri, PWM çıkışlarını ve diğer pin işlevlerini eşleştir." }
+  en: { url: /pin-atlas/boards/arduino-uno-r3/, title: "Arduino Uno R3 pinout", summary: "Match analog inputs, PWM outputs and other pin functions." }
+
+- type: Pin Atlas
+  suite: true
+  tr: { url: /pin-atlas/tr/boards/nucleo-f401re/, title: "NUCLEO-F401RE pinleri", summary: "Kartın başlıklarını ve STM32 üzerindeki işlevlerini karşılaştır." }
+  en: { url: /pin-atlas/boards/nucleo-f401re/, title: "NUCLEO-F401RE pinout", summary: "Connect the board headers with the underlying STM32 functions." }
+
+- type: project
+  tr: { url: "/projeler/#pena", title: "Pena ile gitar pratiği", summary: "SwiftUI ile geliştirdiğim akort, metronom ve akor uygulaması." }
+  en: { url: "/en/projects/#pena", title: "Guitar practice with Pena", summary: "My SwiftUI app for tuning, timing and looking up chords." }
+
+- type: project
+  tr: { url: "/projeler/#inary", title: "Inary ve PiSi’nin paket yönetimi mirası", summary: "PiSi kökenli paket yöneticisinin Python 3 çatalı." }
+  en: { url: "/en/projects/#inary", title: "Inary and PiSi’s package management legacy", summary: "An archived Python 3 fork of the PiSi package manager." }

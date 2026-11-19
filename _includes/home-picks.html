@@ -1,0 +1,19 @@
+{%- assign picks_language = page.lang | default: 'tr' -%}
+{%- assign picks = site.data.home_pick_pool[picks_language] -%}
+{%- assign picks_count = site.home_pick_count | default: 3 -%}
+{% if picks and picks.size > 0 %}
+<section class="console-hero__panel home-picks" aria-labelledby="home-picks-heading" data-home-picks>
+  <h2 id="home-picks-heading" class="console-hero__panel-head home-picks__heading">{% if picks_language == 'en' %}Highlights{% else %}Seçki{% endif %}</h2>
+  <ul class="home-picks__list" role="list">
+    {% for pick in picks limit: picks_count %}
+      {% include home-pick.html pick=pick language=picks_language %}
+    {% endfor %}
+  </ul>
+  <template>
+    {% for pick in picks %}
+      {% include home-pick.html pick=pick language=picks_language %}
+    {% endfor %}
+  </template>
+</section>
+<script src="{{ '/assets/console/home-picks.js' | relative_url }}" defer></script>
+{% endif %}

@@ -1,0 +1,27 @@
+{%- assign pick = include.pick -%}
+{%- assign language = include.language -%}
+{%- if pick.suite -%}
+  {%- assign suite = site.suite_url | default: 'https://zaryob.github.io' -%}
+  {%- assign pick_url = suite | append: pick.url -%}
+{%- else -%}
+  {%- assign pick_url = pick.url | relative_url -%}
+{%- endif -%}
+{%- capture pick_label -%}
+  {%- case pick.type -%}
+    {%- when 'post' -%}{% if language == 'en' %}Article{% else %}Yazı{% endif %}
+    {%- when 'page' -%}{% if language == 'en' %}Page{% else %}Sayfa{% endif %}
+    {%- when 'guide' -%}{% if language == 'en' %}Guide{% else %}Kılavuz{% endif %}
+    {%- when 'project' -%}{% if language == 'en' %}Project{% else %}Proje{% endif %}
+    {%- else -%}{{ pick.type }}
+  {%- endcase -%}
+{%- endcapture -%}
+<li>
+  <a class="home-picks__link" href="{{ pick_url | escape }}" hreflang="{{ language | escape }}">
+    <span class="home-picks__label">{{ pick_label | escape }}</span>
+    <span class="home-picks__title">{{ pick.title | escape }}</span>
+    <span class="home-picks__arrow" aria-hidden="true">→</span>
+    {% if pick.summary and pick.summary != empty %}
+    <span class="home-picks__summary">{{ pick.summary | strip_html | escape }}</span>
+    {% endif %}
+  </a>
+</li>

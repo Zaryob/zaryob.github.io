@@ -8,6 +8,7 @@ description: >-
 url: https://zaryob.github.io
 baseurl: ""
 lang: tr
+home_pick_count: 3
 
 twitter:
   username: pyrz_suleyman

@@ -55,6 +55,20 @@ The site icons (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `assets/ic
 
 Turkish posts are published in the `/feed.xml` feed and English posts in `/en/feed.xml`; both use the `_includes/atom-feed.xml` template. `_plugins/turkish_pagination.rb` keeps English posts out of the `/posts/pageN/` pagination.
 
+## Adding a homepage highlight
+
+Add `home_pick: true` to a post or page’s front matter. The highlight uses its title and, if present, its `description`. To supply a shorter title or description, use this form:
+
+```yaml
+home_pick:
+  title: "Short title"
+  summary: "One sentence about what readers will find."
+```
+
+Each homepage only displays content published in its own language. Adding `home_pick` to one edition includes translations with the same `translation_key` on their respective homepages. Add individual resources from sibling Zaryob sites and sections of the projects page to `_data/home_picks.yml`. The `url` under `tr` or `en` must point to content in that language. Set the number of visible highlights with `home_pick_count` in `_config.yml`.
+
+## Archiving a Medium post
+
 When adding a post already published on Medium to the archive:
 
 1. Compare the title, original publication date, text, code blocks and images.

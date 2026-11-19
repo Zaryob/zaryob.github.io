@@ -55,6 +55,20 @@ Site simgeleri (`favicon.ico`, `favicon.svg`, `apple-touch-icon.png`, `assets/ic
 
 Türkçe yazılar `/feed.xml`, İngilizce yazılar `/en/feed.xml` akışında yayımlanır; ikisi de `_includes/atom-feed.xml` şablonunu kullanır. `_plugins/turkish_pagination.rb`, İngilizce yazıları `/posts/pageN/` sayfalamasının dışında tutar.
 
+## Anasayfa seçkisine içerik ekleme
+
+Bir yazının veya sayfanın ön bilgisine `home_pick: true` ekleyin. Seçkide başlık ve varsa `description` görünür. Daha kısa bir başlık veya açıklama kullanmak için:
+
+```yaml
+home_pick:
+  title: "Kısa başlık"
+  summary: "Okurun içerikte ne bulacağını anlatan bir cümle."
+```
+
+Her anasayfa yalnızca kendi dilinde yayımlanan içerikleri gösterir. Aynı `translation_key` değerini taşıyan sayfalardan birine `home_pick` eklemek, mevcut çevirilerini de kendi dillerindeki seçkiye dahil eder. Diğer Zaryob sitelerindeki içerikleri ve proje sayfasının belirli bölümlerini `_data/home_picks.yml` dosyasına ekleyin. Her `tr` veya `en` kaydındaki `url` o dildeki sayfaya gitmeli. Gösterilecek öğe sayısı `_config.yml` içindeki `home_pick_count` ayarından değiştirilebilir.
+
+## Medium yazısı arşivleme
+
 Medium'da yayımlanmış bir yazıyı arşive eklerken:
 
 1. Başlığı, özgün yayımlanma tarihini, metni, kod bloklarını ve görselleri karşılaştırın.

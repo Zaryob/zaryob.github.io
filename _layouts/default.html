@@ -56,7 +56,6 @@
     {% assign hero_size = site.data.cover_sizes[hero_file] %}
     {% if page.type != 'noimage' %}
       {% if page.path == 'index.html' or page.home %}
-      {% assign suite_root = site.suite_url | default: 'https://zaryob.github.io' %}
       <header class="console-hero console-hero--home" aria-labelledby="home-title">
         <div class="console-hero__inner">
           <div class="console-hero__copy">
@@ -67,24 +66,7 @@
               <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="All posts">{% if page.lang == 'en' %}All posts{% else %}Tüm yazılar{% endif %}</span> <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <figure class="console-hero__panel">
-            <figcaption class="console-hero__panel-head"><span>ls -F</span><span>~</span></figcaption>
-{% if page.lang == 'en' %}<div class="console-hero__screen"><span class="h-dim">$</span> ls -F
-<a href="{{ '/en/posts/' | relative_url }}">posts/</a>        <a href="{{ suite_root }}/kilavuzlar/en/">guides/</a>
-<a href="{{ suite_root }}/syscall/">syscall/</a>      <a href="{{ suite_root }}/pin-atlas/">pin-atlas/</a>
-<a href="{{ suite_root }}/execmap/">execmap/</a>      <a href="{{ suite_root }}/wire/">wire/</a><span class="home-terminal-extra">
-<a href="{{ '/en/about/' | relative_url }}">about.txt</a>
-<span class="h-dim">$</span> cat about.txt
-software engineer
-<span class="h-dim"># code, systems, learning notes</span></span></div>{% else %}<div class="console-hero__screen"><span class="h-dim">$</span> ls -F
-<a href="{{ '/posts/' | relative_url }}">yazılar/</a>      <a href="{{ suite_root }}/kilavuzlar/">kilavuzlar/</a>
-<a href="{{ suite_root }}/syscall/">syscall/</a>      <a href="{{ suite_root }}/pin-atlas/">pin-atlas/</a>
-<a href="{{ suite_root }}/execmap/">execmap/</a>      <a href="{{ suite_root }}/wire/">wire/</a><span class="home-terminal-extra">
-<a href="{{ '/hakkinda/' | relative_url }}">about.txt</a>
-<span class="h-dim">$</span> cat about.txt
-yazılım mühendisi
-<span class="h-dim"># kod, sistemler, öğrenme notları</span></span></div>{% endif %}
-          </figure>
+          {% include home-picks.html %}
         </div>
       </header>
       {% elsif page.title and page.title != 'empty' %}
