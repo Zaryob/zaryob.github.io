@@ -186,6 +186,52 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
   content: "\25BE"; content: "\25BE" / ""; position: absolute; right: .9ch; top: 50%; transform: translateY(-50%);
   color: var(--accent); font-size: var(--text-sm); line-height: 1; pointer-events: none;
 }
+.console-header :is(.console-theme,.console-language).console-dropdown {
+  padding: 0 !important; border: 0 !important; background: transparent !important;
+}
+.console-header :is(.console-theme,.console-language).console-dropdown::after {
+  content: none !important; display: none !important;
+}
+.console-dropdown-button {
+  display: inline-flex; align-items: center; gap: 0; width: 100%; min-height: 32px; margin: 0; padding: 0 1ch;
+  border: 1px solid var(--control-border); border-radius: 0; background: var(--paper); color: var(--ink);
+  font: var(--text-base)/1.5 var(--font-mono); white-space: nowrap; cursor: pointer; position: relative; text-align: left;
+}
+.console-dropdown-button:hover, .console-dropdown.is-open .console-dropdown-button {
+  border-color: var(--accent); background: var(--surface); color: var(--ink);
+}
+.console-dropdown-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.console-dropdown-prompt { display: inline; color: var(--muted); text-transform: lowercase; }
+.console-dropdown-prompt::before { content: "$ "; content: "$ " / ""; color: var(--accent); }
+.console-dropdown-prompt::after { content: "="; content: "=" / ""; color: var(--muted); }
+.console-dropdown-value { display: inline; margin-left: 0.2ch; color: var(--ink); font-weight: 500; text-transform: lowercase; }
+.console-dropdown-chevron {
+  display: inline-block; margin-inline-start: 0.75ch;
+  color: var(--accent); font-size: var(--text-sm); line-height: 1; pointer-events: none; transition: transform 0.15s ease;
+}
+.console-dropdown.is-open .console-dropdown-chevron { transform: rotate(180deg); }
+.console-dropdown-menu {
+  position: absolute; z-index: 50; top: calc(100% + 4px); right: 0; min-width: 100%; width: max-content;
+  max-width: calc(100vw - 32px); margin: 0; padding: 4px; list-style: none;
+  border: 1px solid var(--control-border); background: var(--paper); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.console-dropdown-menu[hidden] { display: none; }
+.console-dropdown-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; min-height: 32px;
+  padding: 6px 10px; margin: 0; border: 0; border-radius: 0; background: transparent; color: var(--ink);
+  font: 500 var(--text-sm)/1.4 var(--font-mono); text-align: left; text-transform: lowercase; cursor: pointer;
+  white-space: nowrap; box-sizing: border-box;
+}
+.console-dropdown-item:hover, .console-dropdown-item:focus, .console-dropdown-item:focus-visible {
+  background: var(--surface); color: var(--accent); outline: none;
+}
+.console-dropdown-item[aria-selected="true"], .console-dropdown-item.is-selected { color: var(--accent); }
+.console-dropdown-check { display: inline-block; min-width: 1.2ch; color: var(--accent); font-size: var(--text-sm); text-align: right; }
+.console-dropdown-native {
+  position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+  opacity: 0.001 !important; pointer-events: none !important; margin: 0 !important; padding: 0 !important;
+  border: 0 !important; clip: auto !important; z-index: -1 !important;
+}
 .console-menu { display: none; }
 .console-menu .console-icon { display: block; width: 18px; height: 18px; }
 .console-menu[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); background: var(--surface); }
@@ -394,6 +440,8 @@ html.console-scroll-locked .console-header { z-index: 45; }
   .console-header .console-search-open { padding-inline: 1.25ch; }
   .console-header .console-search-open kbd { margin-inline-start: auto; }
   .console-header :is(.console-theme,.console-language) select { min-height: 42px; }
+  .console-dropdown-button { min-height: 44px; }
+  .console-dropdown-item { min-height: 42px; padding: 8px 12px; }
 }
 @media (max-width: 560px) {
   .console-header__inner { padding: 12px 16px; gap: 12px; }

@@ -19,7 +19,10 @@
     if (event.key !== key && event.key !== null) return;
     preference = ['light', 'dark'].includes(event.newValue) ? event.newValue : 'system';
     apply();
-    document.querySelectorAll('[data-console-theme]').forEach(select => { select.value = preference; });
+    document.querySelectorAll('[data-console-theme]').forEach(select => {
+      select.value = preference;
+      select.dispatchEvent(new Event('change'));
+    });
   });
 
   // Safari on iPhone ignores interactive-widget=resizes-content, so its on-screen keyboard
@@ -58,6 +61,213 @@
         apply();
       });
     });
+    const customDropdowns = [];
+    const closeAllCustomDropdowns = (except = null) => {
+      customDropdowns.forEach(d => {
+        if (d !== except && d.isOpen()) d.close();
+      });
+    };
+
+    function setupConsoleDropdown(control) {
+      if (!control || control.dataset.consoleDropdownReady) return;
+      const select = control.querySelector('select');
+      if (!select) return;
+      control.dataset.consoleDropdownReady = 'true';
+      control.classList.add('console-dropdown');
+
+      const promptSpan = control.querySelector(':scope > span');
+      const getPromptContent = () => promptSpan ? promptSpan.innerHTML : '';
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'console-dropdown-button';
+      button.setAttribute('aria-haspopup', 'listbox');
+      button.setAttribute('aria-expanded', 'false');
+
+      const promptWrap = document.createElement('span');
+      promptWrap.className = 'console-dropdown-prompt';
+      promptWrap.innerHTML = getPromptContent();
+
+      const valueWrap = document.createElement('span');
+      valueWrap.className = 'console-dropdown-value';
+
+      const chevron = document.createElement('span');
+      chevron.className = 'console-dropdown-chevron';
+      chevron.setAttribute('aria-hidden', 'true');
+      chevron.textContent = '▾';
+
+      button.appendChild(promptWrap);
+      button.appendChild(valueWrap);
+      button.appendChild(chevron);
+
+      const menu = document.createElement('ul');
+      menu.className = 'console-dropdown-menu';
+      menu.setAttribute('role', 'listbox');
+      menu.hidden = true;
+
+      const syncItems = () => {
+        menu.innerHTML = '';
+        Array.from(select.options).forEach(opt => {
+          const item = document.createElement('li');
+          item.className = 'console-dropdown-item';
+          item.setAttribute('role', 'option');
+          item.tabIndex = -1;
+          item.dataset.value = opt.value;
+          const isSelected = opt.value === select.value;
+          item.setAttribute('aria-selected', String(isSelected));
+          if (isSelected) item.classList.add('is-selected');
+
+          const textSpan = document.createElement('span');
+          textSpan.className = 'console-dropdown-item-text';
+          textSpan.textContent = opt.textContent;
+          if (opt.dataset.i18n) textSpan.dataset.i18n = opt.dataset.i18n;
+          if (opt.lang) textSpan.lang = opt.lang;
+
+          const checkSpan = document.createElement('span');
+          checkSpan.className = 'console-dropdown-check';
+          checkSpan.setAttribute('aria-hidden', 'true');
+          checkSpan.textContent = isSelected ? '✓' : '';
+
+          item.appendChild(textSpan);
+          item.appendChild(checkSpan);
+
+          item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (select.value !== opt.value) {
+              select.value = opt.value;
+              select.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            updateFromSelect();
+            close();
+            button.focus();
+          });
+
+          menu.appendChild(item);
+        });
+      };
+
+      const updateFromSelect = () => {
+        promptWrap.innerHTML = getPromptContent();
+        const selectedOpt = select.selectedOptions[0] || select.options[select.selectedIndex];
+        if (selectedOpt) {
+          valueWrap.textContent = selectedOpt.textContent.trim().toLowerCase();
+        }
+        menu.querySelectorAll('.console-dropdown-item').forEach(item => {
+          const isSel = item.dataset.value === select.value;
+          item.setAttribute('aria-selected', String(isSel));
+          item.classList.toggle('is-selected', isSel);
+          const chk = item.querySelector('.console-dropdown-check');
+          if (chk) chk.textContent = isSel ? '✓' : '';
+        });
+      };
+
+      syncItems();
+      updateFromSelect();
+
+      select.classList.add('console-dropdown-native');
+      select.tabIndex = -1;
+      select.setAttribute('aria-hidden', 'true');
+
+      if (promptSpan) promptSpan.style.display = 'none';
+
+      control.appendChild(button);
+      control.appendChild(menu);
+
+      const open = () => {
+        closeAllCustomDropdowns(api);
+        dropdowns?.forEach(d => { if (d.open) closeDropdown(d); });
+        syncItems();
+        updateFromSelect();
+        menu.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        control.classList.add('is-open');
+      };
+
+      const close = (restoreFocus = false) => {
+        menu.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+        control.classList.remove('is-open');
+        if (restoreFocus) button.focus();
+      };
+
+      const toggle = () => {
+        if (menu.hidden) open();
+        else close();
+      };
+
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggle();
+      });
+
+      control.addEventListener('click', (e) => {
+        if (e.target === control) {
+          e.preventDefault();
+          toggle();
+        }
+      });
+
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (menu.hidden) open();
+          const selectedItem = menu.querySelector('.console-dropdown-item.is-selected') || menu.querySelector('.console-dropdown-item');
+          selectedItem?.focus();
+        } else if (e.key === 'Escape' && !menu.hidden) {
+          e.preventDefault();
+          close(true);
+        }
+      });
+
+      menu.addEventListener('keydown', (e) => {
+        const items = Array.from(menu.querySelectorAll('.console-dropdown-item'));
+        const currentIndex = items.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % items.length;
+          items[nextIndex]?.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prevIndex = (currentIndex - 1 + items.length) % items.length;
+          items[prevIndex]?.focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (document.activeElement?.classList.contains('console-dropdown-item')) {
+            document.activeElement.click();
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          close(true);
+        } else if (e.key === 'Tab') {
+          close();
+        }
+      });
+
+      select.addEventListener('change', updateFromSelect);
+
+      const api = {
+        control,
+        isOpen: () => !menu.hidden,
+        open,
+        close,
+        updateFromSelect,
+        syncItems
+      };
+
+      customDropdowns.push(api);
+      return api;
+    }
+
+    document.querySelectorAll('.console-header :is(.console-theme, .console-language)').forEach(setupConsoleDropdown);
+
+    window.addEventListener('zaryob:language', () => {
+      customDropdowns.forEach(d => {
+        d.syncItems();
+        d.updateFromSelect();
+      });
+    });
+
     const menu = document.querySelector('[data-console-menu]');
     const navigation = document.getElementById('console-navigation');
     const compactNavigation = matchMedia('(max-width: 1180px)');
@@ -68,7 +278,10 @@
       navigation?.classList.toggle('is-open', open);
       if (open && navigation) navigation.scrollTop = 0;
       // One panel at a time: the open menu replaces an open project list.
-      if (open) dropdowns?.forEach(dropdown => { if (dropdown.open) closeDropdown(dropdown); });
+      if (open) {
+        dropdowns?.forEach(dropdown => { if (dropdown.open) closeDropdown(dropdown); });
+        closeAllCustomDropdowns();
+      }
       updateScrollLock();
     };
     menu?.addEventListener('click', () => {
@@ -133,7 +346,10 @@
       }
       const updateDropdown = () => {
         dropdown.querySelector('summary').setAttribute('aria-expanded', String(dropdown.open));
-        if (dropdown.open) dropdowns.forEach(other => { if (other !== dropdown && other.open) closeDropdown(other); });
+        if (dropdown.open) {
+          dropdowns.forEach(other => { if (other !== dropdown && other.open) closeDropdown(other); });
+          closeAllCustomDropdowns();
+        }
         if (dropdown.open && compactNavigation.matches && dropdown.matches('[data-console-projects]') && menu?.getAttribute('aria-expanded') === 'true') setMenuOpen(false);
         updateScrollLock();
       };
@@ -155,6 +371,7 @@
       const restoreFocus = compactNavigation.matches && navigation?.contains(document.activeElement);
       setMenuOpen(false);
       dropdowns.forEach(dropdown => closeDropdown(dropdown));
+      closeAllCustomDropdowns();
       if (restoreFocus) menu?.focus();
     });
     document.addEventListener('click', event => {
@@ -163,10 +380,18 @@
       dropdowns.forEach(dropdown => {
         if (dropdown.open && (!dropdown.contains(event.target) || (ground && dropdown.matches('[data-console-projects]')))) closeDropdown(dropdown);
       });
+      customDropdowns.forEach(d => {
+        if (d.isOpen() && !d.control.contains(event.target)) d.close();
+      });
       if (compactNavigation.matches && menu?.getAttribute('aria-expanded') === 'true' && (!event.target.closest('.console-header') || event.target === navigation)) setMenuOpen(false);
     });
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape' || document.querySelector('dialog[open]')) return;
+      const openCustom = customDropdowns.find(d => d.isOpen());
+      if (openCustom) {
+        openCustom.close(true);
+        return;
+      }
       const dropdown = dropdowns.find(item => item.open);
       if (dropdown) {
         closeDropdown(dropdown, true);
