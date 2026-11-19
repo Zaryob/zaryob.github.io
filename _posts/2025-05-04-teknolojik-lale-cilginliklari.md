@@ -9,6 +9,9 @@ lang: tr
 description: "17. Yüzyılda Hollanda’da gerçekleşen Lale Çılgınlığı’nı bilirsiniz. 20. Yüzyıl içinse bu çılgınlıklara benzer pek çok spekülatif çılgınlık yaşandı."
 cover_image: "/assets/img/posts/medium-b547ec57a79729.webp"
 medium_url: "https://medium.com/@zaryob/teknolojik-lale-%C3%A7%C4%B1lg%C4%B1nl%C4%B1klar%C4%B1-son-y%C3%BCzy%C4%B1l%C4%B1n-en-b%C3%BCy%C3%BCk-teknoloji-balonlar%C4%B1-d1646ae9a875"
+home_pick:
+  title: "Teknolojinin lale çılgınlıkları"
+  summary: "Teknoloji balonlarının nasıl büyüyüp söndüğüne bir bakış."
 ---
 <p>17. Yüzyılda Hollanda’da gerçekleşen Lale Çılgınlığı’nı bilirsiniz. 20. Yüzyıl içinse bu çılgınlıklara benzer pek çok spekülatif çılgınlık yaşandı.</p>
 

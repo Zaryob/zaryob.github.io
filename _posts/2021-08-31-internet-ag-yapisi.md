@@ -5,6 +5,9 @@ date: 2021-08-31 12:23:43 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/2021-08-31-internet.jpg"
 image_hash: "0cd2da7bebff6e26129bc28814aee8c2"
+home_pick:
+  title: "İnternetin katmanları"
+  summary: "OSI modeli ile TCP/IP yapısı arasındaki ilişki."
 ---
 
 Bir önceki yazımda internette iletişimin nasıl yapıldığını ve IP ile DNS dalgasını anlatmıştım. Önceki yazılımda ise internetin donanım boyutunu görmüştük. Yani daha çok altyapı boyutunu. Bu yazımızda ise internetin daha çok hizmet boyutunu anlatacağım.

@@ -5,6 +5,9 @@ date: 2023-03-15 12:23:43 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/2023-03-15-soguk-savas.webp"
 image_hash: "4a207a0c12003ac693cfa3edf9cb4ff8"
+home_pick:
+  title: "Sovyet bilgisayarlarının hikâyesi"
+  summary: "Soğuk Savaş’ın bilgisayar tasarımı ve üretimi üzerindeki etkisi."
 ---
 
 Takvimler 25 Aralık 1991'i gösterdiğinde dünya tarihinin en önemli olaylarından birisi yaşandı. 40 yıldan uzun süredir devam eden soğuk savaş Sovyet Sosyalist Cumhuriyetler Birliği’nin yıkılması ile son buldu. Bu zamana kadar pek çok kişi SSCB’nin yıkılmasının ekonomik sosyal ve kültürel sonuçlarını irdelemişken kimse 90'ların “patlayan teknolojik gelişmelerini” incelemedi.

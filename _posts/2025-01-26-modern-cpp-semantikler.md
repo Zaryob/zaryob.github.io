@@ -5,6 +5,9 @@ date: 2025-01-26 15:42:02 +0300
 categories: [programlama]
 image: "/assets/img/pages/2025-01-26-modern-cpp-semantikler.jpg"
 image_hash: "85c34a1b4fb373340b895ed60e421bfb"
+home_pick:
+  title: "Modern C++’ta taşıma ve kopyalama"
+  summary: "Değer kategorileri ve taşıma semantiği üzerine."
 ---
 
 Önceki yazımda C++11’i önceki sürümünden ayıran özelliklerinden bahsederken şimdi bahsedeceğim üç temel özelliğinden 

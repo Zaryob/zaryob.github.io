@@ -8,6 +8,9 @@ lang: tr
 description: "Mühendis olmamı sağlayan Apollo projesine olan hayranlığım yine Apollo içerikli bir yazı yazmaya itti beni."
 cover_image: "/assets/img/posts/medium-bb9c27dc121db1.webp"
 medium_url: "https://medium.com/@zaryob/apollo-modern-i%CC%87novasyonun-yolunu-nas%C4%B1l-a%C3%A7t%C4%B1-97b656059b98"
+home_pick:
+  title: "Apollo’dan kalan mühendislik dersleri"
+  summary: "Ay programının test, yedeklilik ve simülasyon kültürü."
 ---
 <p>Mühendis olmamı sağlayan Apollo projesine olan hayranlığım yine Apollo içerikli bir yazı yazmaya itti beni.</p>
 

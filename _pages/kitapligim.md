@@ -6,6 +6,9 @@ title: Kitaplığım
 title_i18n: My bookshelf
 permalink: /kitapligim/
 description: "Süleyman Poyraz'ın Türkçe OpenZFS kitabı ve kaynak kodu."
+home_pick:
+  title: "Kitaplığım"
+  summary: "Okuduğum ve dönüp baktığım kitaplar."
 ---
 
 <p class="page-intro">Yazılım ve sistemler hakkında hazırladığım uzun soluklu kaynaklar.</p>

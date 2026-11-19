@@ -5,6 +5,9 @@ date: 2025-02-27 16:46:12 +0300
 categories: [programlama]
 image: "/assets/img/pages/2025-02-27-cpp-madenleri.jpeg"
 image_hash: "96e8ad973bb2830ad38e48f7d7a7b2d0"
+home_pick:
+  title: "C++ standart kütüphanesinden seçmeler"
+  summary: "STL’nin daha az göze çarpan araçlarına bir bakış."
 ---
 
 Neden STL'i bir maden olarak adlandırdığım ile giriş yapmak istiyorum. STL, bir dilin en güçlü olan yanlarından birisidir.

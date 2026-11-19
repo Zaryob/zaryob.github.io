@@ -15,6 +15,9 @@ description: 'C’nin donanıma yakınlığı, C ABI üzerinden kurduğu ortak d
 excerpt: 'C’nin donanıma yakınlığı, C ABI üzerinden kurduğu ortak dil ve bellek güvenliğinin bedeli: Yarım asırlık bir dil neden hâlâ dijital altyapının merkezinde?'
 cover_image: /assets/img/medium/c-neden-hala-olmuyor-1.webp
 medium_url: https://medium.com/@zaryob/c-neden-h%C3%A2l%C3%A2-%C3%B6lm%C3%BCyor-f9ffedcb1d48
+home_pick:
+  title: "C neden hâlâ ölmüyor?"
+  summary: "Donanıma yakınlık, C ABI ve bellek güvenliğinin bedeli."
 ---
 
 <figure><img alt="The C Programming Language kitabının ilk baskısı" decoding="async" height="1024" loading="lazy" src="/assets/img/medium/c-neden-hala-olmuyor-1.webp" width="1024"/><figcaption>C diline ait kitabın ilk versiyonu</figcaption></figure>

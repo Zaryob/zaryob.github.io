@@ -5,6 +5,9 @@ date: 2021-09-03 12:23:43 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/2021-09-03-internet.jpg"
 image_hash: "0eaa74f1c6c658a026a8385aacddeb38"
+home_pick:
+  title: "IP paketleri ve adresleri"
+  summary: "IPv4 ve IPv6’nın adresleme ve paket yapısı."
 ---
 
 Önceki sayfalarda internette haberleşme standarlarından olan TCP/IP protokol paketinden bahsetmiştim. Temel olarak TCP’nin internette iletişimin nasıl yapılacağını belirlemek için kullanılırken, Internet Protocol (IP) sisteminin de internetteki iletişimin sağlanması için kullanıldığından bahsetmiştim.

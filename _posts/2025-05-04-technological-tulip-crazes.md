@@ -10,6 +10,9 @@ lang: en
 description: "You heard about the Tulip Madness that took place in the Netherlands in the century 17th. For millennia century, there were many speculative crazies simila"
 cover_image: "/assets/img/posts/medium-b547ec57a79729.webp"
 medium_url: "https://medium.com/@zaryob/technological-tulip-crazes-the-biggest-technology-bubble-of-the-last-century-97ab9cf37a04"
+home_pick:
+  title: "Technological tulip crazes"
+  summary: "A look at how technology bubbles inflate and burst."
 ---
 <p>You heard about the Tulip Madness that took place in the Netherlands in the century 17th. For millennia century, there were many speculative crazies similar to these madnesses.</p>
 

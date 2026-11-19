@@ -9,6 +9,9 @@ lang: tr
 description: "28 Nisan 2025, Pazartesi. Iber Yarımadası’nı karanlık bir sessizlik sardı. Saniyeler içerisinde İber Yarımadası’ndan İspanya’nın tamamına ve Portekiz’e kad"
 cover_image: "/assets/img/posts/medium-831e5c38ca7dbe.webp"
 medium_url: "https://medium.com/@zaryob/i%CC%87spanyadaki-elektrik-krizi-bize-neleri-ayd%C4%B1nlat%C4%B1yor-5bdc488be6a3"
+home_pick:
+  title: "İspanya’nın elektrik kesintisi"
+  summary: "Bir şebeke krizinin açtığı altyapı tartışması."
 ---
 <figure><img loading="lazy" decoding="async" width="1024" height="683" alt="" src="/assets/img/posts/medium-831e5c38ca7dbe.webp" /></figure>
 

@@ -7,6 +7,9 @@ lang: en
 translation_key: page-kitapligim
 translation_of: /kitapligim/
 translated: '2026-11-03'
+home_pick:
+  title: "My bookshelf"
+  summary: "Books I’ve read and return to."
 ---
 
 <p class="page-intro">Long-form resources I have written about software and systems.</p>

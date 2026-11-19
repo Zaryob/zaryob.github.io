@@ -5,6 +5,9 @@ date: 2021-09-12 12:23:43 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/2021-09-12-quic.jpg"
 image_hash: "1c48d1c52b9a8a6c5f21798b187a47c7"
+home_pick:
+  title: "QUIC neyi değiştiriyor?"
+  summary: "İnternet taşımacılığının neden UDP üzerinde yeniden tasarlandığına bir bakış."
 ---
 
 İnternet 101 serimde TCP/IP Yapısından ve TCP protokolünden ayrı ayrı bahsetmiştim. Bu yazılarıma şuradan ulaşabilirsiniz:

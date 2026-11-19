@@ -5,6 +5,9 @@ date: 2021-10-21 12:23:43 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/2021-10-21-yazilimda-telemetri.png"
 image_hash: "38db6887149be5b8e091c9855b6af13d"
+home_pick:
+  title: "Yazılımda telemetri ve gizlilik"
+  summary: "Yazılımlar neyi ölçüyor ve bu ölçümler ne için kullanılıyor?"
 ---
 
 Telemetri kavramını sci-fic ilgilileri yakından biliyor, hatta hayatında en az bir kere uzay filmi izlemiş insanlar bile duymuştur elbet.

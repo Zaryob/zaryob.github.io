@@ -10,6 +10,9 @@ lang: en
 description: "April 28, 2025, Monday. A dark silence engulfed the Iberian Peninsula. Within seconds, there was a power outage in a wide area from the Iberian Peninsula t"
 cover_image: "/assets/img/posts/medium-831e5c38ca7dbe.webp"
 medium_url: "https://medium.com/@zaryob/what-the-electricity-crisis-in-spain-sheds-light-on-us-63adc1c7104e"
+home_pick:
+  title: "Spain’s power outage"
+  summary: "The infrastructure questions raised by a grid crisis."
 ---
 <figure><img loading="lazy" decoding="async" width="1024" height="683" alt="" src="/assets/img/posts/medium-831e5c38ca7dbe.webp" /></figure>
 

@@ -10,6 +10,9 @@ lang: en
 description: "C’s proximity to hardware, the common tongue established via the C ABI, and the cost of memory safety: Why does a half-century-old language still sit at the center of digital infrastructure?"
 excerpt: "C’s proximity to hardware, the common tongue established via the C ABI, and the cost of memory safety: Why does a half-century-old language still sit at the center of digital infrastructure?"
 cover_image: /assets/img/medium/c-neden-hala-olmuyor-1.webp
+home_pick:
+  title: "Why is C still around?"
+  summary: "Hardware access, the C ABI and the cost of memory safety."
 ---
 
 <figure><img alt="First edition of The C Programming Language book" decoding="async" height="1024" loading="lazy" src="/assets/img/medium/c-neden-hala-olmuyor-1.webp" width="1024"/><figcaption>First version of the book on the C language</figcaption></figure>

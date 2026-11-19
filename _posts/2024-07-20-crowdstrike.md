@@ -5,6 +5,9 @@ date: 2024-07-20 21:41:51 +0300
 categories: [genel, internet]
 image: "/assets/img/pages/GS4HDkSW8AE4PBo.jpeg"
 image_hash: "6964e050cfefd1be63848aef1fd92005"
+home_pick:
+  title: "CrowdStrike güncellemesinin anatomisi"
+  summary: "Bir güncellemenin dünya çapında kesintiye dönüşmesinin hikâyesi."
 ---
 
 Her gün, her seferinde işletim sistemlerimize uzun bir liste dolusu çoğunu kullanmayacağımız özelliklerin oluşturduğu güncellemelerden bir yenisi ile uğraşıyoruz. Bilgisayarınızın sağ altında beliren veya bilgisayarınızı kapatmaya çalışırken sarı bir nokta ile ben buradayım diyen bu güncelleştirmelerden bir tanesi 19 Temmuzda yani dün bir felakete yol açtı. Peki neden bu felaketi yaşadık? Yoksa bu da büyük bir başka felaketin habercisi mi?
