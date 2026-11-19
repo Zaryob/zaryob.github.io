@@ -1,0 +1,27 @@
+# Süleyman Poyraz
+
+> Open source projects and verified technical references on Linux systems programming, kernel ABIs, computer networks, and embedded hardware.
+
+This site hosts personal technical writings and a suite of source-verified technical references built from Linux kernel sources, RFCs, IEEE specifications, and hardware datasheets.
+
+## Technical Reference Projects
+
+- [Linux System Call Reference](https://zaryob.github.io/syscall/): Interactive and static reference for Linux system calls across 12 processor architectures (x86_64, i386, AArch64, ARM, RISC-V 64, LoongArch 64, PowerPC 32/64, s390x, MIPS). Includes argument registers, C signatures, kernel entry points, errno, signals, and ioctl maps.
+- [Pin Atlas](https://zaryob.github.io/pin-atlas/): Source-verified pinout guide and function catalog for 89 development boards and microcontrollers (Raspberry Pi, STM32, ESP32, RP2040, Arduino) covering 5,800+ physical pins.
+- [Wire](https://zaryob.github.io/wire/): Bit-level packet header reference for 51 network protocols across 4 TCP/IP layers, verified against IETF RFCs and IEEE specifications (Ethernet, IPv4/v6, TCP, UDP, QUIC, BGP, TLS, etc.).
+- [Execmap](https://zaryob.github.io/execmap/): Source-backed study of Linux ELF binary loading, memory layout, dynamic linking, and runtime observation via eBPF/perf/GDB.
+- [Kılavuzlar](https://zaryob.github.io/kilavuzlar/): Detailed Turkish technical guides on Linux system administration, modern C++, Docker multi-arch, profiling, and virtualization.
+
+## Key Sections & Articles
+
+- [Projects](https://zaryob.github.io/projeler/): Full portfolio of open source software and tools.
+- [All Posts](https://zaryob.github.io/posts/): Technical articles on system programming, compilers, C++, and computer science.
+- [About](https://zaryob.github.io/hakkinda/): Background and contact information.
+
+## Machine-Readable Endpoints
+
+- [Syscall llms.txt](https://zaryob.github.io/syscall/llms.txt): Detailed index for the Linux System Call Reference.
+- [Pin Atlas llms.txt](https://zaryob.github.io/pin-atlas/llms.txt): Detailed index for Pin Atlas board and MCU pinouts.
+- [Wire llms.txt](https://zaryob.github.io/wire/llms.txt): Detailed index for network protocol headers.
+- [Execmap llms.txt](https://zaryob.github.io/execmap/llms.txt): Detailed index for Linux binary analysis and ELF guides.
+- [Kılavuzlar llms.txt](https://zaryob.github.io/kilavuzlar/llms.txt): Index for system administration and C++ guides.
