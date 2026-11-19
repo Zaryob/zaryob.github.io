@@ -148,7 +148,7 @@
 
       const updateFromSelect = () => {
         promptWrap.innerHTML = getPromptContent();
-        const selectedOpt = select.selectedOptions[0] || select.options[select.selectedIndex];
+        const selectedOpt = (select.selectedOptions && select.selectedOptions[0]) || (select.options && (select.selectedIndex >= 0 ? select.options[select.selectedIndex] : select.options[0]));
         if (selectedOpt) {
           valueWrap.textContent = selectedOpt.textContent.trim().toLowerCase();
         }
