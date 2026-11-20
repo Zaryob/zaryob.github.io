@@ -112,3 +112,12 @@
 - type: project
   tr: { url: "/projeler/#inary", title: "Inary ve PiSi’nin paket yönetimi mirası", summary: "PiSi kökenli paket yöneticisinin Python 3 çatalı." }
   en: { url: "/en/projects/#inary", title: "Inary and PiSi’s package management legacy", summary: "An archived Python 3 fork of the PiSi package manager." }
+
+- type: Wire
+  suite: true
+  tr: { url: /wire/tr/buses/, title: "CAN ve CAN FD veri yollarını incele", summary: "Çerçeveleri karşılaştır, candump kayıtlarını çözümle ve sanal CAN deneyini çalıştır." }
+  en: { url: /wire/buses/, title: "Explore Classical CAN and CAN FD", summary: "Compare frame formats, analyze candump logs and run a virtual CAN lab." }
+
+- type: Execmap
+  suite: true
+  en: { url: /execmap/rehberler/abi.html, title: "Compare x86-64 calling conventions", summary: "Find function arguments in registers or on the stack, then examine the generated code." }
