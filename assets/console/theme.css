@@ -147,7 +147,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 /* The header controls read as three short commands in one thin frame:
    $ ara /   $ tema=koyu ▾   $ dil=tr ▾   (native button and selects underneath). */
 .console-header :is(.console-search-open,.console-theme,.console-language) {
-  position: relative; align-items: center; gap: 0; min-width: 0; min-height: 32px; margin: 0; padding: 0 1ch;
+  position: relative; align-items: center; gap: 0; min-width: 0; min-height: 44px; margin: 0; padding: 0 1ch;
   border: 1px solid var(--control-border); border-radius: 0; background: var(--paper); color: var(--ink);
   font: var(--text-base)/1.5 var(--font-mono); white-space: nowrap;
 }
@@ -171,7 +171,7 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
   appearance: none;
 }
 .console-header :is(.console-theme,.console-language) select {
-  width: auto; field-sizing: content; min-width: 0; max-width: 100%; height: auto; min-height: 30px; margin: 0;
+  width: auto; field-sizing: content; min-width: 0; max-width: 100%; height: auto; min-height: 42px; margin: 0;
   padding: 0 2.4ch 0 0; border: 0; border-radius: 0; background: transparent; color: var(--ink);
   font: 500 var(--text-base)/1.5 var(--font-mono); text-transform: lowercase;
 }
@@ -192,12 +192,12 @@ body.console-site, body.pin-atlas-site { margin: 0; background: var(--paper); co
 .console-header :is(.console-theme,.console-language).console-dropdown::after {
   content: none !important; display: none !important;
 }
-.console-dropdown-button {
-  display: inline-flex; align-items: center; gap: 0; width: 100%; min-height: 32px; margin: 0; padding: 0 1ch;
+.console-header .console-dropdown-button {
+  display: inline-flex; align-items: center; gap: 0; width: 100%; min-height: 44px; margin: 0; padding: 0 1ch;
   border: 1px solid var(--control-border); border-radius: 0; background: var(--paper); color: var(--ink);
   font: var(--text-base)/1.5 var(--font-mono); white-space: nowrap; cursor: pointer; position: relative; text-align: left;
 }
-.console-dropdown-button:hover, .console-dropdown.is-open .console-dropdown-button {
+.console-header .console-dropdown-button:hover, .console-dropdown.is-open .console-dropdown-button {
   border-color: var(--accent); background: var(--surface); color: var(--ink);
 }
 .console-dropdown-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
@@ -435,12 +435,8 @@ html.console-scroll-locked .console-header { z-index: 45; }
   :root:not(.console-js) .console-tools:not(:has(> :not(.console-search-open, .console-theme, .console-language))),
   :root:not(.console-js) .console-nav:not(:has(> :not(.console-tools))):not(:has(> .console-tools > :not(.console-search-open, .console-theme, .console-language))) { display: none; }
   .console-search-open { flex: 1 0 100%; min-width: 120px; justify-content: flex-start; }
-  /* Touch layout: the open menu row keeps 44px targets. */
-  .console-header :is(.console-search-open,.console-theme,.console-language) { min-height: 44px; }
   .console-header .console-search-open { padding-inline: 1.25ch; }
   .console-header .console-search-open kbd { margin-inline-start: auto; }
-  .console-header :is(.console-theme,.console-language) select { min-height: 42px; }
-  .console-dropdown-button { min-height: 44px; }
   .console-dropdown-item { min-height: 42px; padding: 8px 12px; }
 }
 @media (max-width: 560px) {
