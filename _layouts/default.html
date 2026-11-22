@@ -65,6 +65,7 @@
             <div class="console-hero__actions">
               <a class="site-button site-button--accent" href="{% if page.lang == 'en' %}{{ '/en/projects/' | relative_url }}{% else %}{{ '/projeler/' | relative_url }}{% endif %}"><span data-i18n="Projects">{% if page.lang == 'en' %}Projects{% else %}Projeler{% endif %}</span> <span aria-hidden="true">→</span></a>
               <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}"><span data-i18n="All posts">{% if page.lang == 'en' %}All posts{% else %}Tüm yazılar{% endif %}</span> <span aria-hidden="true">→</span></a>
+              <a class="site-button" href="{% if page.lang == 'en' %}{{ '/en/learning-routes/' | relative_url }}{% else %}{{ '/ogrenme-rotalari/' | relative_url }}{% endif %}">{% if page.lang == 'en' %}Learning routes{% else %}Öğrenme rotaları{% endif %}</a>
             </div>
           </div>
           {% include home-picks.html %}
